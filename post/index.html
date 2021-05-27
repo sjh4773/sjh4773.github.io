@@ -56,6 +56,18 @@
 </article><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-9/" rel="bookmark">
+			통계분석 Admission
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# 종속변수인 Chance_of_Admit(입학 허가 확률)와 독립변수(GRE, TOEFL, Univ_Rating, SOP, # LOR, CGPA)에 대해 피어슨 상관계수를 이용한 상관관계 분석을 수행하고 그래프를 이용하여 # 분석결과를 설명하시오. # 작업 디렉토리 설정 setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 adms &lt;- read.csv(&#34;Admission.csv&#34;) str(adms) head(adms) tail(adms) sum(is.na(adms)) # NA값이 존재하는지 확인 # 종속변수인 Chance_of_Admit(입학 허가 확률)과 독립변수(GRE, TOEFL, Univ_Rating, # SOP, LOR, CGPA)에 대해 피어슨 상관분석을 각각 수행한다. # 1. GRE와 Chance_of_Admit 간의 상관분석 str(adms) cor(adms$GRE,adms$Chance_of_Admit) # 피어슨 상관계수 산출 # [1] 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-7/" rel="bookmark">
 			ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2
 			</a>
@@ -159,23 +171,6 @@ PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance
 	<div class="content list__excerpt post__content clearfix">
 		예측값을 변수로 활용하는 앙상블 테크닉 Blending Blending 은 Ensemble 의 한 종류입니다. Ensemble 이란 예측 모형을 통합해서 하나의 예측을 수행하는 것을 말합니다. Ensemble 의 묘미는 서로 다른 예측 모형들을 합쳐 더 강한 예측 모형을 만들 수 있다는 것입니다. 가령 정확도 0.7, 0.7 인 모델 두 개를 합쳐서 0.9 을 만들 수 있습니다.
 Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Training set 에 모델 피팅을 한다. 3. Validation/Test set 에 대해 예측을 한다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-11/" rel="bookmark">
-			pseudo labeling
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Pseudo Labeling   Pseudo Labeling이란? Labeled Data처럼 일일히 label을 하기보다, 이미 가지고 있는 Labeled data에 기반하여 대략적인 Labled을 주는 것
-  Pseudo Labeling의 순서
-  Labeled Data로 Model을 먼저 학습시킨다.
-  그렇게 학습된 모델을 사용하여, Unlabeled Data를 예측하고 그 결과를 Label로 사용하는 Pseudo-labeled data를 만든다.
-  Pseudo-labeled data와 Labeled를 모두 사용하여 다시 그 모델을 학습시킨다.
-    Pseudo Labeled data  Pseudo Label은 아래와 같은 식으로, 각각의 sample에 대해, 예측된 확률이 가장 높은 것으로 정합니다.
 	</div>
 </article>
 </main>

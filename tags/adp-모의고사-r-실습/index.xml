@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>통계분석 Admission</title>
+      <link>http://sjh4773.github.io/post/r-9/</link>
+      <pubDate>Tue, 25 May 2021 23:07:13 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-9/</guid>
+      <description># 종속변수인 Chance_of_Admit(입학 허가 확률)와 독립변수(GRE, TOEFL, Univ_Rating, SOP, # LOR, CGPA)에 대해 피어슨 상관계수를 이용한 상관관계 분석을 수행하고 그래프를 이용하여 # 분석결과를 설명하시오. # 작업 디렉토리 설정 setwd(&amp;#34;C:/ADP/data&amp;#34;) # 데이터 불러오기 adms &amp;lt;- read.csv(&amp;#34;Admission.csv&amp;#34;) str(adms) head(adms) tail(adms) sum(is.na(adms)) # NA값이 존재하는지 확인 # 종속변수인 Chance_of_Admit(입학 허가 확률)과 독립변수(GRE, TOEFL, Univ_Rating, # SOP, LOR, CGPA)에 대해 피어슨 상관분석을 각각 수행한다. # 1. GRE와 Chance_of_Admit 간의 상관분석 str(adms) cor(adms$GRE,adms$Chance_of_Admit) # 피어슨 상관계수 산출 # [1] 0.</description>
+    </item>
+    
+    <item>
       <title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2</title>
       <link>http://sjh4773.github.io/post/r-7/</link>
       <pubDate>Tue, 25 May 2021 00:00:39 +0000</pubDate>

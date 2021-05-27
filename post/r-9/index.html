@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>통계분석 Admission - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">통계분석 Admission</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+
+<span style="color:#75715e"># 종속변수인 Chance_of_Admit(입학 허가 확률)와 독립변수(GRE, TOEFL, Univ_Rating, SOP,</span>
+<span style="color:#75715e"># LOR, CGPA)에 대해 피어슨 상관계수를 이용한 상관관계 분석을 수행하고 그래프를 이용하여</span>
+<span style="color:#75715e"># 분석결과를 설명하시오.</span>
+
+<span style="color:#75715e"># 작업 디렉토리 설정</span>
+<span style="color:#a6e22e">setwd</span>(<span style="color:#e6db74">&#34;C:/ADP/data&#34;</span>)
+
+<span style="color:#75715e"># 데이터 불러오기</span>
+adms <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;Admission.csv&#34;</span>)
+
+<span style="color:#a6e22e">str</span>(adms)
+
+<span style="color:#a6e22e">head</span>(adms)
+
+<span style="color:#a6e22e">tail</span>(adms)
+
+<span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">is.na</span>(adms)) <span style="color:#75715e"># NA값이 존재하는지 확인</span>
+
+
+<span style="color:#75715e"># 종속변수인 Chance_of_Admit(입학 허가 확률)과 독립변수(GRE, TOEFL, Univ_Rating,</span>
+<span style="color:#75715e"># SOP, LOR, CGPA)에 대해 피어슨 상관분석을 각각 수행한다.</span>
+
+<span style="color:#75715e"># 1. GRE와 Chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">str</span>(adms)
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>GRE,adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.8026105</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>GRE, adms<span style="color:#f92672">$</span>Chance_of_Admit)
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+
+<span style="color:#75715e"># data:  adms$GRE and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 26.843, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#  0.7647419 0.8349536</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#       cor </span>
+<span style="color:#75715e"># 0.8026105</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># p-value가 0.05보다 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관계수는 약 0.80으로 GRE와 Chance_of_Admit는 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+
+<span style="color:#75715e"># 2. TOEFL와 Chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>TOEFL, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.791594</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>TOEFL, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 검정</span>
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+
+<span style="color:#75715e"># data:  adms$TOEFL and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 25.845, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#  0.7519028 0.8255675</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#      cor </span>
+<span style="color:#75715e"># 0.791594</span>
+
+<span style="color:#75715e"># p-value가 0.05보다 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관관계는 약 0.79로 TOEFL와 Chance_of_Admit는 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+
+
+<span style="color:#75715e"># 3.Univ_Rating와 chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>Univ_Rating, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.7112503</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>Univ_Rating, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 검정</span>
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># data:  adms$Univ_Rating and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 20.186, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#  0.6591685 0.7565413</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#       cor </span>
+<span style="color:#75715e"># 0.7112503</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># p-value가 0.05보다 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관계수는 0.71로 Univ_Rating와 chance_of_Admit는 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+
+<span style="color:#75715e"># 4. SOP와 Chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>SOP, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어스 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.6757319</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>SOP, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어스 상관계수 검정</span>
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># data:  adms$SOP and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 18.288, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#  0.6186712 0.7257010</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#       cor </span>
+<span style="color:#75715e"># 0.6757319</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># p-value가 0.05보다는 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관계수는 약 0.68로 SOP와 chance_of_Admit는 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+
+<span style="color:#75715e"># 5. LOR와 Chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>LOR, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.6698888</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>LOR, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 검정</span>
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+
+<span style="color:#75715e"># data:  adms$LOR and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 18, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#  0.6120380 0.7206083</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#       cor </span>
+<span style="color:#75715e"># 0.6698888</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># p-value가 0.05보다 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관계수는 약 0.67으로 LOR와 Chance_of_Admit는 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+
+<span style="color:#75715e">#6. CGPA와 Chance_of_Admit 간의 상관분석</span>
+
+<span style="color:#a6e22e">cor</span>(adms<span style="color:#f92672">$</span>CGPA, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 산출</span>
+
+<span style="color:#75715e"># [1] 0.8732891</span>
+
+<span style="color:#a6e22e">cor.test</span>(adms<span style="color:#f92672">$</span>CGPA, adms<span style="color:#f92672">$</span>Chance_of_Admit) <span style="color:#75715e"># 피어슨 상관계수 검정</span>
+
+<span style="color:#75715e"># Pearson&#39;s product-moment correlation</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># data:  adms$CGPA and adms$Chance_of_Admit</span>
+<span style="color:#75715e"># t = 35.759, df = 398, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true correlation is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#   0.8478354 0.8947275</span>
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#   cor </span>
+<span style="color:#75715e"># 0.8732891</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># p-value가 0.05보다 작으므로, 두 변수간의 상관관계는 통계적으로 유의하다.</span>
+<span style="color:#75715e"># 상관계수는 약 0.87으로 CGPA와 Chance_of_Admit는 양의 상관계수를 가지고 있음을 알 수 있다.</span>
+
+
+<span style="color:#75715e"># 상관계수 행렬 생성 및 시각화</span>
+
+<span style="color:#a6e22e">cor</span>(adms[,<span style="color:#ae81ff">-7</span>])
+
+<span style="color:#75715e">#                     GRE     TOEFL Univ_Rating       SOP       LOR      CGPA</span>
+<span style="color:#75715e"># GRE             1.0000000 0.8359768   0.6689759 0.6128307 0.5575545 0.8330605</span>
+<span style="color:#75715e"># TOEFL           0.8359768 1.0000000   0.6955898 0.6579805 0.5677209 0.8284174</span>
+<span style="color:#75715e"># Univ_Rating     0.6689759 0.6955898   1.0000000 0.7345228 0.6601235 0.7464787</span>
+<span style="color:#75715e"># SOP             0.6128307 0.6579805   0.7345228 1.0000000 0.7295925 0.7181440</span>
+<span style="color:#75715e"># LOR             0.5575545 0.5677209   0.6601235 0.7295925 1.0000000 0.6702113</span>
+<span style="color:#75715e"># CGPA            0.8330605 0.8284174   0.7464787 0.7181440 0.6702113 1.0000000</span>
+<span style="color:#75715e"># Chance_of_Admit 0.8026105 0.7915940   0.7112503 0.6757319 0.6698888 0.8732891</span>
+
+<span style="color:#a6e22e">plot</span>(adms[,<span style="color:#ae81ff">-7</span>])
+</code></pre></div><p><img src="/image/admission1.PNG" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># 상관계수 행렬의 숫자들은 모두 양수이며, 그래프의 산점도가 오른쪽으로 올라가는 직선의 형태를</span>
+<span style="color:#75715e"># 지닌 것을 보아, 서로 양의 상관관계를 가지는 것을 확인할 수 있다.</span>
+
+
+<span style="color:#75715e"># 상관계수를 시각화하기 위한 패키지 설치</span>
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;corrgram&#34;</span>)
+<span style="color:#a6e22e">library</span>(corrgram)
+
+<span style="color:#75715e"># 상관계수를 대각선의 형태로 시각화</span>
+<span style="color:#75715e"># upper.panel = panel.conf : 우측상단에 상관계수와 신뢰구간을 나타내는 것을 의미함</span>
+<span style="color:#a6e22e">corrgram</span>(adms[,<span style="color:#ae81ff">-7</span>], upper.panel <span style="color:#f92672">=</span> panel.conf)
+</code></pre></div><p><img src="/image/admission2.PNG" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># Admission 데이터에서 변수들의 이름은 대각선, 상관계수는 우측 상단에 배치하고</span>
+<span style="color:#75715e"># 좌측하단에는 상관계수를 그림으로 표현한 그래프이다. 그래프의 대각선이</span>
+<span style="color:#75715e"># 왼쪽아래에서 오른쪽위로 향하는 것은 두 변수가 양의 상관관계를 가지고 있음을 나타내고,</span>
+<span style="color:#75715e"># 색의 짙기는 상관계수의 크기를 뜻하므로 상관계수의 절댓값이 클수록 색이 짙어진다.</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># 그래프 상의 모든 대각선이 왼쪽 아래에서 오른쪽 위를 향하고 있으므로 모든 변수가</span>
+<span style="color:#75715e"># Chance_of_Admit 변수와 양의 상관관계를 가지고 있음을 알 수 있다.</span>
+<span style="color:#75715e"># 또한 CGPA와 Chance_of_Admit간의 상관관계를 나타내는 그래프의 색이 가장 짙으므로</span>
+<span style="color:#75715e"># 둘 간의 상관성의 정도가 가장 크다고 해석할 수 있으며, 두변수간 상관계수는 약 0.87임을 알 수 있다.</span>
+
+
+<span style="color:#75715e"># GRE, TOEFL, Univ_Rating, SOP, LOR, CGPA, Reasearch가 Chance_of_Admit에</span>
+<span style="color:#75715e"># 영향을 미치는지 알아보는 회귀분석을 단계적 선택법을 사용하여 수행하고 결과를 해석하시오.</span>
+
+<span style="color:#75715e"># 회귀모형 생성</span>
+
+<span style="color:#a6e22e">str</span>(adms)
+
+adms.lm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Chance_of_Admit <span style="color:#f92672">~</span>., data<span style="color:#f92672">=</span>adms)
+
+
+<span style="color:#75715e"># 회귀모형에 대한 정보 확인</span>
+
+<span style="color:#a6e22e">summary</span>(adms.lm)
+
+<span style="color:#75715e"># Call:</span>
+<span style="color:#75715e">#   lm(formula = Chance_of_Admit ~ ., data = adms)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residuals:</span>
+<span style="color:#75715e">#   Min       1Q   Median       3Q      Max </span>
+<span style="color:#75715e"># -0.26259 -0.02103  0.01005  0.03628  0.15928 </span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Coefficients:</span>
+<span style="color:#75715e">#   Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span style="color:#75715e"># (Intercept) -1.2594325  0.1247307 -10.097  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   GRE          0.0017374  0.0005979   2.906  0.00387 ** </span>
+<span style="color:#75715e">#   TOEFL        0.0029196  0.0010895   2.680  0.00768 ** </span>
+<span style="color:#75715e">#   Univ_Rating  0.0057167  0.0047704   1.198  0.23150    </span>
+<span style="color:#75715e"># SOP         -0.0033052  0.0055616  -0.594  0.55267    </span>
+<span style="color:#75715e"># LOR          0.0223531  0.0055415   4.034  6.6e-05 ***</span>
+<span style="color:#75715e">#   CGPA         0.1189395  0.0122194   9.734  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Research     0.0245251  0.0079598   3.081  0.00221 ** </span>
+<span style="color:#75715e">#   ---</span>
+<span style="color:#75715e">#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residual standard error: 0.06378 on 392 degrees of freedom</span>
+<span style="color:#75715e"># Multiple R-squared:  0.8035,	Adjusted R-squared:    0.8 </span>
+<span style="color:#75715e"># F-statistic: 228.9 on 7 and 392 DF,  p-value: &lt; 2.2e-16</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># 회귀분석 결과 상수항, GRE, TOEFL, LOR, CGPA, Reasearch 변수가 유의 수준 0.01이하에서</span>
+<span style="color:#75715e"># 통계적으로 유의함을 확인할 수 있다. 모형의 결정계수는 0.8035, 수정된 결정계수는 0.8로</span>
+<span style="color:#75715e"># 추정된 다변량회귀식은 전체 데이터의 약 80%를 설명하고 있다. 또한 회귀모형의 F통계량에 대한</span>
+<span style="color:#75715e"># p-value는 0.05보다 작으므로 유의수준 0.05 하에서 모형이 통계적으로 유의한 것을 알 수 있다.</span>
+
+<span style="color:#75715e"># 단계선택법을 통한 변수선택을 수행한다.</span>
+
+<span style="color:#a6e22e">step</span>(adms.lm, direction <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;both&#34;</span>)
+
+<span style="color:#75715e"># Start:  AIC=-2193.9</span>
+<span style="color:#75715e"># Chance_of_Admit ~ GRE + TOEFL + Univ_Rating + SOP + LOR + CGPA + </span>
+<span style="color:#75715e">#   Research</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df Sum of Sq    RSS     AIC</span>
+<span style="color:#75715e"># - SOP          1   0.00144 1.5962 -2195.5</span>
+<span style="color:#75715e"># - Univ_Rating  1   0.00584 1.6006 -2194.4</span>
+<span style="color:#75715e"># &lt;none&gt;                     1.5948 -2193.9</span>
+<span style="color:#75715e"># - TOEFL        1   0.02921 1.6240 -2188.6</span>
+<span style="color:#75715e"># - GRE          1   0.03435 1.6291 -2187.4</span>
+<span style="color:#75715e"># - Research     1   0.03862 1.6334 -2186.3</span>
+<span style="color:#75715e"># - LOR          1   0.06620 1.6609 -2179.6</span>
+<span style="color:#75715e"># - CGPA         1   0.38544 1.9802 -2109.3</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=-2195.54</span>
+<span style="color:#75715e"># Chance_of_Admit ~ GRE + TOEFL + Univ_Rating + LOR + CGPA + Research</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df Sum of Sq    RSS     AIC</span>
+<span style="color:#75715e"># - Univ_Rating  1   0.00464 1.6008 -2196.4</span>
+<span style="color:#75715e"># &lt;none&gt;                     1.5962 -2195.5</span>
+<span style="color:#75715e"># + SOP          1   0.00144 1.5948 -2193.9</span>
+<span style="color:#75715e"># - TOEFL        1   0.02806 1.6242 -2190.6</span>
+<span style="color:#75715e"># - GRE          1   0.03565 1.6318 -2188.7</span>
+<span style="color:#75715e"># - Research     1   0.03769 1.6339 -2188.2</span>
+<span style="color:#75715e"># - LOR          1   0.06983 1.6660 -2180.4</span>
+<span style="color:#75715e"># - CGPA         1   0.38660 1.9828 -2110.8</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=-2196.38</span>
+<span style="color:#75715e"># Chance_of_Admit ~ GRE + TOEFL + LOR + CGPA + Research</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df Sum of Sq    RSS     AIC</span>
+<span style="color:#75715e"># &lt;none&gt;                     1.6008 -2196.4</span>
+<span style="color:#75715e"># + Univ_Rating  1   0.00464 1.5962 -2195.5</span>
+<span style="color:#75715e"># + SOP          1   0.00024 1.6006 -2194.4</span>
+<span style="color:#75715e"># - TOEFL        1   0.03292 1.6338 -2190.2</span>
+<span style="color:#75715e"># - GRE          1   0.03638 1.6372 -2189.4</span>
+<span style="color:#75715e"># - Research     1   0.03912 1.6400 -2188.7</span>
+<span style="color:#75715e"># - LOR          1   0.09133 1.6922 -2176.2</span>
+<span style="color:#75715e"># - CGPA         1   0.43201 2.0328 -2102.8</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Call:</span>
+<span style="color:#75715e">#   lm(formula = Chance_of_Admit ~ GRE + TOEFL + LOR + CGPA + Research, </span>
+<span style="color:#75715e">#      data = adms)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Coefficients:</span>
+<span style="color:#75715e">#   (Intercept)          GRE        TOEFL          LOR         CGPA     Research  </span>
+<span style="color:#75715e"># -1.298464     0.001782     0.003032     0.022776     0.121004     0.024577  </span>
+
+<span style="color:#75715e"># 해석</span>
+
+
+
+<span style="color:#75715e"># 변수선택을 통해 도출된 회귀모형</span>
+adms.lm2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(adms<span style="color:#f92672">$</span>Chance_of_Admit <span style="color:#f92672">~</span> adms<span style="color:#f92672">$</span>GRE <span style="color:#f92672">+</span> adms<span style="color:#f92672">$</span>TOEFL <span style="color:#f92672">+</span> adms<span style="color:#f92672">$</span>LOR <span style="color:#f92672">+</span> adms<span style="color:#f92672">$</span>CGPA <span style="color:#f92672">+</span> adms<span style="color:#f92672">$</span>Research, data<span style="color:#f92672">=</span>adms)
+<span style="color:#a6e22e">summary</span>(adms.lm2)
+
+<span style="color:#75715e"># Call:</span>
+<span style="color:#75715e">#   lm(formula = adms$Chance_of_Admit ~ adms$GRE + adms$TOEFL + adms$LOR + </span>
+<span style="color:#75715e">#        adms$CGPA + adms$Research, data = adms)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residuals:</span>
+<span style="color:#75715e">#   Min        1Q    Median        3Q       Max </span>
+<span style="color:#75715e"># -0.263542 -0.023297  0.009879  0.038078  0.159897 </span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Coefficients:</span>
+<span style="color:#75715e">#   Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span style="color:#75715e"># (Intercept)   -1.2984636  0.1172905 -11.070  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   adms$GRE       0.0017820  0.0005955   2.992  0.00294 ** </span>
+<span style="color:#75715e">#   adms$TOEFL     0.0030320  0.0010651   2.847  0.00465 ** </span>
+<span style="color:#75715e">#   adms$LOR       0.0227762  0.0048039   4.741 2.97e-06 ***</span>
+<span style="color:#75715e">#   adms$CGPA      0.1210042  0.0117349  10.312  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   adms$Research  0.0245769  0.0079203   3.103  0.00205 ** </span>
+<span style="color:#75715e">#   ---</span>
+<span style="color:#75715e">#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residual standard error: 0.06374 on 394 degrees of freedom</span>
+<span style="color:#75715e"># Multiple R-squared:  0.8027,	Adjusted R-squared:  0.8002 </span>
+<span style="color:#75715e"># F-statistic: 320.6 on 5 and 394 DF,  p-value: &lt; 2.2e-16</span>
+
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># 단계선택법을 이용한 변수 선택을 수행한 후 선택도니 변수들로 회귀분석을 수행한 결과,</span>
+<span style="color:#75715e"># 상수항, LOR,CGPA 변수들은 유의수준 0.0001 하에서 통계적으로 유의하며 GRE,TOEFL,Research 변수는</span>
+<span style="color:#75715e"># 유의수준 0.01하에서 통계적으로 유의함을 확인할 수 있다.</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># 모형의 결정계수는 0.8027 수정된 결정계수는 0.8002로 추정된 다변량회귀식은 전체 데이터의 약 80%를</span>
+<span style="color:#75715e"># 설명하고 있다. 또한 회귀모형의 F-통계량에 대한 p-value값은 0.05보다 작으므로 유의수준 0.05하에서</span>
+<span style="color:#75715e"># 모형이 통계적으로 유의한 것을 알 수 있다.</span>
+
+
+
+
+<span style="color:#75715e"># 단계 선택법을 사용해 변수를 선택한 후 새롭게 생성한 회귀모형에 대한 잔차분석을 수행하고,</span>
+<span style="color:#75715e"># 그래프를 활용하여 결과를 해석하시오.</span>
+
+
+
+
+
+<span style="color:#75715e"># 잔차에 대한 세 가지 가정 중 독립성 가정을 만족하는지 확인한다.</span>
+
+
+
+
+
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;lmtest&#34;</span>) <span style="color:#75715e"># 더빈왓슨 검정을 위해 필요한 패키지 설치</span>
+<span style="color:#a6e22e">library</span>(lmtest)
+
+<span style="color:#a6e22e">dwtest</span>(adms.lm2)
+
+<span style="color:#75715e"># Durbin-Watson test</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># data:  adms.lm2</span>
+<span style="color:#75715e"># DW = 0.74991, p-value &lt; 2.2e-16</span>
+<span style="color:#75715e"># alternative hypothesis: true autocorrelation is greater than 0</span>
+
+<span style="color:#75715e"># 해석</span>
+
+<span style="color:#75715e"># 귀무가설(H0)는 잔차들 사이에 자기상관관계가 없다, 즉 독립적이다.</span>
+<span style="color:#75715e"># 대립가설(Ha)는 잔차가 자기상관관계가 있다.</span>
+<span style="color:#75715e"># 오차항의 독립성을 확인할 수 있는 DW(더빈-와트슨 통계량)이 0 ~ 4의 범위이며 2근처의 값이 나와야 자기상관관계가 없습니다.</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># --&gt; Durbin-Waston 검정 결과, Durbin-Waston 값이 0.74991로 0에 가까우며,</span>
+<span style="color:#75715e">#     p-value가 2.2e-16로 매우 작으므로, 귀무가설을 기각한다.</span>
+<span style="color:#75715e">#     따라서 독립성 가정을 만족한다고 보기 힘들다.</span>
+
+
+
+<span style="color:#75715e"># 잔차에 대한 세 가지 가정 중 정규성 가정을 만족하는지 확인한다.</span>
+
+
+
+<span style="color:#75715e"># 정규성 가정을 만족하는지 확인</span>
+<span style="color:#a6e22e">shapiro.test</span>(<span style="color:#a6e22e">resid</span>(adms.lm2))
+
+<span style="color:#75715e"># Shapiro-Wilk normality test</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># data:  resid(adms.lm2)</span>
+<span style="color:#75715e"># W = 0.92193, p-value = 1.443e-13</span>
+
+<span style="color:#75715e"># 해석</span>
+<span style="color:#75715e"># shapiro 검정 결과, p-value가 1.443e-13로 매우 작으므로, 귀무가설을 기각한다.</span>
+<span style="color:#75715e"># 따라서, adms 데이터는 정규분포를 따른다고 보기 힘들다.</span>
+
+
+
+
+<span style="color:#75715e"># 등분산성과 정규성 가정을 만족하는지 확인하기 위해 그래프를 통해 데이터를 시각화한다.</span>
+
+<span style="color:#75715e"># 등분산성, 정규성 가정을 만족하는지 확인</span>
+<span style="color:#a6e22e">par</span>(mfrow<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>))
+<span style="color:#a6e22e">plot</span>(adms.lm2)
+</code></pre></div><p><img src="/image/admission3.PNG" alt=""></p>
+<h1 id="해석">해석</h1>
+<pre><code>1.Residuals(잔차) vs Fitted values(예측된 y값)의 분포(등분산성 가정 확인)
+   그래프의 기울기를 나타내는 빨간색 선이 직선의 성향을 띠고 있기 때문에 잔차는 평균인 0을 중심으로
+   고르게 분포함을 확인할 수 있다.
+ 
+2. Q-Q Plot(정규성 가정 확인)
+   Q-Q Plot을 확인한 결과, 그래프의 대각선에서 벗어난 점들이 많이 있는 것으로 보아 adms의 데이터가
+   정규성을 만족한다고 보기 힘들다.
+    
+3. Scale-Location (등분산성 가정 확인)
+   빨간선의 기울기가 0에 가까워야 하지만, Fitted values가 커질수록 기울기가 줄어드는 경향을 보인다.
+   이렇게 빨간선의 기울기가 0에서 떨어진 점이 있다면 해당 점에서는 표준화 잔차가 큼을 의미하고,
+   회귀 직선이 y값을 잘 적합하지 못함을 의미한다. 또한 해당 점들은 이상치일 가능성이 있다.
+ 
+4. Residuals(잔차) vs Leverage(레버리지) (영향력 진단)
+   그래프에서 쿡의 거리가 0.5이상이면 빨간 점선으로 표현됙, 점선 바깥에 있는 점들은 무시할 수 없을
+   정도로 예측치를 벗어난 관측값이다. 본 그래프에서 그러한 점은 보이지 않으므로 회귀직선에 크게
+   영향을 끼치는 점들은 드물다고 볼 수 있다.
+</code></pre>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="tag">ADP 모의고사 R 실습</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
