@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mnist 데이터 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">mnist 데이터</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>MNIST 데이터란 인공지능이 이미지를 보고 이것이 어떤 이미지인가를
+맞춰보게 하는 인공지능 훈련을 위한 Dataset</p>
+<p>MNIST 개요</p>
+<ul>
+<li>손글씨 데이터</li>
+<li>손으로 작성된 0~9까지의 숫자 이미지</li>
+<li>이미지 + 레이블 &ndash;&gt; 하나의 데이터셋</li>
+</ul>
+<p>이미지 속성</p>
+<ul>
+<li>차원
+(가로,세로,색조) &ndash;&gt; (28,28,1)
+픽셀값: 0 ~ 255</li>
+</ul>
+<p>레이블 정보</p>
+<ul>
+<li>단순 스칼라
+(확률정보이용) -&gt; One-hot encoding</li>
+</ul>
+<p>해결전략</p>
+<ol>
+<li>이미지, 레이블 전처리</li>
+</ol>
+<p>원본이미지 &ndash;&gt; 전처리(flatten)</p>
+<p>레이블 &ldquo;3&rdquo; &ndash;&gt; &ldquo;[0,0,0,1,0,0,0,0,0,0]&rdquo; One-hot encoding</p>
+<p>이미지 전처리</p>
+<ul>
+<li>텐서 랭크 변환
+(28,28,1) -&gt; (28*28) Flatten 1차원 벡터로 변형</li>
+<li>이미지 픽셀 정규화
+(0~255) -&gt; (0~1)</li>
+</ul>
+<p>Torch 코드</p>
+<ul>
+<li>
+<p>랭크 변환
+X = X.view(-1,784) &ndash;&gt; -1 : batch size 의미,
+이미지를 batch에 해당하는 개수만큼 묶음으로써 본다</p>
+</li>
+<li>
+<p>픽셀 정규화
+X /= torch.max(X) &ndash;&gt; 0 ~ 1 정규화</p>
+</li>
+</ul>
+<p>레이블 처리</p>
+<ul>
+<li>원-핫 인코딩(One-hot encoding)
+확률 분포도로 변환작업</li>
+</ul>
+<p>ex) MNIST 레이블
+(0 ~ 9) 10개 숫자 -&gt; 10개 사건분포</p>
+<p>5 -&gt; One-hot encoding
+&ldquo;[0,0,0,0,0,1,0,0,0,0]&rdquo;</p>
+<ol start="2">
+<li>Neural network 모델 생성</li>
+<li>Backpropagation 알고리즘 최적화</li>
+<li>Test data 검증</li>
+</ol>
+<p>프로세스</p>
+<ol>
+<li>
+<p>Neural network 초기 생성
+Layer 구성 (784 -&gt; 256 -&gt; 128 -&gt; 10)
+Activation        &lsquo;Relu&rsquo; &lsquo;Relu&rsquo; &lsquo;Softmax&rsquo;</p>
+</li>
+<li>
+<p>Loss함수(KL-divergence)
+확률분포간의 거리</p>
+</li>
+</ol>
+<ul>
+<li>Softmax(모든 벡터의 값 0~1)</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/machine_learning/" rel="tag">machine_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

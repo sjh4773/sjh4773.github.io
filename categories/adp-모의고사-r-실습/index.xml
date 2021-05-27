@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ADP 모의고사 R 실습 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/</link>
+    <description>Recent content in ADP 모의고사 R 실습 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Tue, 25 May 2021 23:07:13 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>비정형 텍스트 마이닝 - 사용데이터 기생충</title>
+      <link>http://sjh4773.github.io/post/r-8/</link>
+      <pubDate>Tue, 25 May 2021 23:07:13 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-8/</guid>
+      <description># KoNLP 설치 writeLines(&amp;#39;PATH=&amp;#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&amp;#34;&amp;#39;, con = &amp;#34;~/.Renviron&amp;#34;) usethis::edit_r_environ() Sys.which(&amp;#34;make&amp;#34;) install.packages(&amp;#34;rJava&amp;#34;) install.packages(&amp;#34;remotes&amp;#34;) remotes::install_github(&amp;#39;haven-jeon/KoNLP&amp;#39;, upgrade = &amp;#34;never&amp;#34;, INSTALL_opts=c(&amp;#34;--no-multiarch&amp;#34;)) useSejongDic() install.packages(c(&amp;#34;stringr&amp;#34;, &amp;#34;hash&amp;#34;, &amp;#34;tau&amp;#34;, &amp;#34;Sejong&amp;#34;, &amp;#34;RSQLite&amp;#34;, &amp;#34;devtools&amp;#34;), type = &amp;#34;binary&amp;#34;) library(KoNLP) library(plyr) library(tm) library(rJava) library(wordcloud) useSejongDic() setwd(&amp;#34;C:/ADP/data&amp;#34;) movie &amp;lt;- readLines(&amp;#34;영화 기생충_review.txt&amp;#34;) dic &amp;lt;- readLines(&amp;#34;영화 기생충_사전.txt&amp;#34;) buildDictionary(ext_dic = &amp;#34;woorimalsam&amp;#34;, user_dic = data.frame(readLines(&amp;#34;영화 기생충_사전.txt&amp;#34;),&amp;#34;ncn&amp;#34;),replace_usr_dic = T) # KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여 # &amp;#39;영화 기생충_review.txt&amp;#39; 파일을 movie 데이터에, &amp;#39;영화 기생충_사전.txt&amp;#39; 파일을 dic 데이터에 저장했다.</description>
+    </item>
+    
+    <item>
+      <title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2</title>
+      <link>http://sjh4773.github.io/post/r-7/</link>
+      <pubDate>Tue, 25 May 2021 00:00:39 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-7/</guid>
+      <description>setwd(&amp;#34;C:/ADP/data&amp;#34;) fifa &amp;lt;- read.csv(&amp;#34;FIFA.csv&amp;#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &amp;lt;- as.character(fifa$Height) # &amp;#34;&amp;#39;&amp;#34; 앞의 숫자는 피트이며, &amp;#34;&amp;#39;&amp;#34; 뒤의 숫자는 인치를 의미함 # 따라서, &amp;#34;&amp;#39;&amp;#34; 앞 숫자를 추출하여 30을 곱하고, &amp;#34;&amp;#39;&amp;#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.</description>
+    </item>
+    
+    <item>
+      <title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습</title>
+      <link>http://sjh4773.github.io/post/r-6/</link>
+      <pubDate>Mon, 24 May 2021 21:04:04 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-6/</guid>
+      <description># R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&amp;#34;C:/ADP/data&amp;#34;) lot &amp;lt;- read.csv(&amp;#34;lotto.csv&amp;#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&amp;#34;reshape2&amp;#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &amp;lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &amp;lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.</description>
+    </item>
+    
+  </channel>
+</rss>

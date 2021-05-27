@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/post/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Tue, 25 May 2021 23:07:13 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>비정형 텍스트 마이닝 - 사용데이터 기생충</title>
+      <link>http://sjh4773.github.io/post/r-8/</link>
+      <pubDate>Tue, 25 May 2021 23:07:13 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-8/</guid>
+      <description># KoNLP 설치 writeLines(&amp;#39;PATH=&amp;#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&amp;#34;&amp;#39;, con = &amp;#34;~/.Renviron&amp;#34;) usethis::edit_r_environ() Sys.which(&amp;#34;make&amp;#34;) install.packages(&amp;#34;rJava&amp;#34;) install.packages(&amp;#34;remotes&amp;#34;) remotes::install_github(&amp;#39;haven-jeon/KoNLP&amp;#39;, upgrade = &amp;#34;never&amp;#34;, INSTALL_opts=c(&amp;#34;--no-multiarch&amp;#34;)) useSejongDic() install.packages(c(&amp;#34;stringr&amp;#34;, &amp;#34;hash&amp;#34;, &amp;#34;tau&amp;#34;, &amp;#34;Sejong&amp;#34;, &amp;#34;RSQLite&amp;#34;, &amp;#34;devtools&amp;#34;), type = &amp;#34;binary&amp;#34;) library(KoNLP) library(plyr) library(tm) library(rJava) library(wordcloud) useSejongDic() setwd(&amp;#34;C:/ADP/data&amp;#34;) movie &amp;lt;- readLines(&amp;#34;영화 기생충_review.txt&amp;#34;) dic &amp;lt;- readLines(&amp;#34;영화 기생충_사전.txt&amp;#34;) buildDictionary(ext_dic = &amp;#34;woorimalsam&amp;#34;, user_dic = data.frame(readLines(&amp;#34;영화 기생충_사전.txt&amp;#34;),&amp;#34;ncn&amp;#34;),replace_usr_dic = T) # KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여 # &amp;#39;영화 기생충_review.txt&amp;#39; 파일을 movie 데이터에, &amp;#39;영화 기생충_사전.txt&amp;#39; 파일을 dic 데이터에 저장했다.</description>
+    </item>
+    
+    <item>
+      <title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2</title>
+      <link>http://sjh4773.github.io/post/r-7/</link>
+      <pubDate>Tue, 25 May 2021 00:00:39 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-7/</guid>
+      <description>setwd(&amp;#34;C:/ADP/data&amp;#34;) fifa &amp;lt;- read.csv(&amp;#34;FIFA.csv&amp;#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &amp;lt;- as.character(fifa$Height) # &amp;#34;&amp;#39;&amp;#34; 앞의 숫자는 피트이며, &amp;#34;&amp;#39;&amp;#34; 뒤의 숫자는 인치를 의미함 # 따라서, &amp;#34;&amp;#39;&amp;#34; 앞 숫자를 추출하여 30을 곱하고, &amp;#34;&amp;#39;&amp;#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.</description>
+    </item>
+    
+    <item>
+      <title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습</title>
+      <link>http://sjh4773.github.io/post/r-6/</link>
+      <pubDate>Mon, 24 May 2021 21:04:04 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-6/</guid>
+      <description># R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&amp;#34;C:/ADP/data&amp;#34;) lot &amp;lt;- read.csv(&amp;#34;lotto.csv&amp;#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&amp;#34;reshape2&amp;#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &amp;lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &amp;lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.</description>
+    </item>
+    
+    <item>
+      <title>태블로로 제작한 전국 광역시 미분양주택 현황</title>
+      <link>http://sjh4773.github.io/post/tableau1/</link>
+      <pubDate>Thu, 13 May 2021 22:37:45 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/tableau1/</guid>
+      <description>전국 광역시 미분양 주택 현황  데이터 연결  데이터는 한국부동산원에서 미분양주택현황 데이터를 사용하였습니다.
+출처 : https://www.r-one.co.kr/rone/resis/statistics/statisticsViewer.do?menuId=LHT_61010
+데이터 시각화  미분양주택 데이터를 구현하고자 하는 목적에 맞게 전처리한 후 라인 그래프, 맵 그래프, 막대 그래프로 시각화 해보았다.
+ 라인그래프를 통하여 연도별 미분양주택 추세 파악  시점을 분할하여 연도별로 추세를 확인할 수 있다.   맵 그래프를 통하여 각 광역시 구별 미분양주택수 파악  시도 데이터와 시군구 데이터를 계층화 하여 위도 경도 정보를 획득하여 지도 시각화를 한다.</description>
+    </item>
+    
+    <item>
+      <title>정보처리기사 필기 공부</title>
+      <link>http://sjh4773.github.io/post/data-processing-engineer/</link>
+      <pubDate>Sun, 09 May 2021 17:13:18 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/data-processing-engineer/</guid>
+      <description>소프트웨어 생명 주기(Software Life Cycle) 소프트웨어 생명 주기는 소프트웨어 개발 방법론의 바탕이 되는 것으로, 소프트웨어 개발을 위해 정의하고 운용, 유지보수하는 등의 과정을 단계별로 나눈 것이다. 소프트웨어 개발 단계와 단계별 주요 활동, 활동의 결과에 대한 산춘물로 표현하며, 소프트웨어 수명 주기라고도 한다. 소프트웨어 생명 주기를 표현하는 형태를 소프트웨어 생명 주기 모형이라고 하며, 소프트웨어 프로세스 모형 또는 소프트웨어 공학 패러다임이라고도 한다. 개발자는 문제의 유형, 개발 방법 등에 따라 특정 모형을 선택, 사용할 수 있고, 개별적읜 모형을 사용할 수도 있다.</description>
+    </item>
+    
+    <item>
+      <title>PCA의 이해</title>
+      <link>http://sjh4773.github.io/post/machine-learning-15/</link>
+      <pubDate>Mon, 03 May 2021 00:29:12 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-15/</guid>
+      <description>PCA(Principal Component Analysis)의 이해   고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법
+  예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소
+  PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
+  PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
+PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다.</description>
+    </item>
+    
+    <item>
+      <title>차원 축소</title>
+      <link>http://sjh4773.github.io/post/machine-learning-14/</link>
+      <pubDate>Sun, 02 May 2021 23:42:56 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-14/</guid>
+      <description>차원 축소 차원의 저주 차원의 저주 커질수록 데이터 포인트들 간 거리가 크게 늘어남, 데이터가 희소화(Sparse) 됨
+수백~수천개 이상의 피처로 구성도니 포인트들간 거리에 기반한 ml 알고리즘이 무력화됨
+또한 피처가 많을 경우 개별 피처간에 상관관계가 높아 선형 회귀와 같은 모델에서는 다중 공선성 문제로 모델의 예측 성능이 저하 될 가능성이 높음
+수십 ~ 수백개의 피처들을 작은 수의 피처들로 축소한다면?  학습 데이터 크기를 줄여서 학습 시간 절약 불필요한 피처들을 줄여서 모델 성능 향상에 기여(주로 이미지 관련 데이터) 다차원의 데이터를 3차우너 이하의 차원 축소를 통해서 시각적으로 보다 쉽게 데이터 패턴 인지  피처 선택과 피처 추출 일반적으로 차춴축소는 피처 선택과 피처 추출로 나눌 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>베이지안 최적화 기법 이론 보충</title>
+      <link>http://sjh4773.github.io/post/machine-learning-13/</link>
+      <pubDate>Thu, 29 Apr 2021 00:08:32 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-13/</guid>
+      <description>베이지안 최적화 기법 이론 보충 머신러닝 혹은 딥러닝 모델들을 학습 시킬 때 하이퍼 파라미터를 결정해야 하는 경우가 많이 있다. 이때 일반적인 하이퍼파리미터 튜닝 방법은 일저한 간격을 정해서 하이퍼파라미터 후보군을 설정하는 Grid Search와 일정 구간 내에서 랜덤하게 하이퍼 파리미터 후보군을 결정하는 Random Search가 활용된다. 하지만 두 방법론 모두 후보군에 대해서 성능을 확인한 후 비교해야 하므로 비효율적이다. 이러한 경우에 사용할 수 있는 것이 Bayesian Optimization이다. 베이지안 최적화는 크게 두 가지 핵심 모듈이 존재한다.</description>
+    </item>
+    
+    <item>
+      <title>Blending 기법</title>
+      <link>http://sjh4773.github.io/post/machine-learning-12/</link>
+      <pubDate>Wed, 28 Apr 2021 23:39:00 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-12/</guid>
+      <description>예측값을 변수로 활용하는 앙상블 테크닉 Blending Blending 은 Ensemble 의 한 종류입니다. Ensemble 이란 예측 모형을 통합해서 하나의 예측을 수행하는 것을 말합니다. Ensemble 의 묘미는 서로 다른 예측 모형들을 합쳐 더 강한 예측 모형을 만들 수 있다는 것입니다. 가령 정확도 0.7, 0.7 인 모델 두 개를 합쳐서 0.9 을 만들 수 있습니다.
+Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Training set 에 모델 피팅을 한다. 3. Validation/Test set 에 대해 예측을 한다.</description>
+    </item>
+    
+    <item>
+      <title>pseudo labeling</title>
+      <link>http://sjh4773.github.io/post/machine-learning-11/</link>
+      <pubDate>Tue, 27 Apr 2021 22:05:28 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-11/</guid>
+      <description>Pseudo Labeling   Pseudo Labeling이란? Labeled Data처럼 일일히 label을 하기보다, 이미 가지고 있는 Labeled data에 기반하여 대략적인 Labled을 주는 것
+  Pseudo Labeling의 순서
+  Labeled Data로 Model을 먼저 학습시킨다.
+  그렇게 학습된 모델을 사용하여, Unlabeled Data를 예측하고 그 결과를 Label로 사용하는 Pseudo-labeled data를 만든다.
+  Pseudo-labeled data와 Labeled를 모두 사용하여 다시 그 모델을 학습시킨다.
+    Pseudo Labeled data  Pseudo Label은 아래와 같은 식으로, 각각의 sample에 대해, 예측된 확률이 가장 높은 것으로 정합니다.</description>
+    </item>
+    
+    <item>
+      <title>기본 스태킹 및 교차 검증 스태킹</title>
+      <link>http://sjh4773.github.io/post/machine-learning-10/</link>
+      <pubDate>Sun, 25 Apr 2021 21:36:52 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-10/</guid>
+      <description>Basic Stacking Model - Diagram 기반 모델들이 예측한 값들을 Stacking 형태로 만들어서 메타 모델이 이를 학습하고 예측하는 모델
+교차 검증 세트 기반의 스태킹 교차 검증 세트 기반의 스태킹은 이에 대한 개선을 위해 개별 모델들이 각각 교차 검증으로 메타 모델을 위한 학습용 스태킹 데이터 생성과 예측을 위한 테스트용 스태킹 데이터를 생성한 뒤 이를 기반으로 메타 모델이 학습과 예측을 수행합니다. 이는 다음과 같이 2단계의 스텝으로 구분될 수 있습니다.    스텝 1 : 각 모델별로 원본 학습/테스트 데이터를 예측한 결과 값을 기반으로 메타 모델을 위한/학습용 테스트용 데이터를 생성합니다.</description>
+    </item>
+    
+    <item>
+      <title>정규 표현식</title>
+      <link>http://sjh4773.github.io/post/python-5/</link>
+      <pubDate>Thu, 22 Apr 2021 22:36:12 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/python-5/</guid>
+      <description>정규 표현식 문자 클래스   []
+[] 사이의 문자들과 매치 만약 정규 표현식이 [abc]라면 이 표현식의 의미는 문자열들 중에 a,b,c가 한 개라도 있으면 매치 된다는 것을 의미
+  [] 안의 두 문자 사이에 하이픈(-)을 사용할 시
+  두 문자 사이의 범위(From - To)를 의미
+  하이픈(-)을 사용한 문자 클래스의 사용 예
+ [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
+문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.</description>
+    </item>
+    
+    <item>
+      <title>Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부</title>
+      <link>http://sjh4773.github.io/post/kaggle/</link>
+      <pubDate>Tue, 20 Apr 2021 23:46:52 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/kaggle/</guid>
+      <description>Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부 Matplotlib : 차트의 기본 크기를 설정하려면?
+rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설정합니다. plt.rcParams와 mpl.rcParams 모두 동일한 결과를 도출하므로 편한 것을 사용하면 됩니다. 사용 가능한 rcParams 항목 : plt.rcParams 초기값으로 되돌리기 : mpl.rcParams.update(mpl.rcParamsDefault)  %matplotlib inline import matplotlib as mpl import matplotlib.pyplot as plt mpl.rcParams[&amp;#34;figure.figsize&amp;#34;] = (14,4) mpl.rcParams[&amp;#39;lines.linewidth&amp;#39;] = 2 mpl.rcParams[&amp;#39;lines.color&amp;#39;] = &amp;#39;r&amp;#39; mpl.rcParams[&amp;#39;axes.grid&amp;#39;] = True mpl.rcParams[&amp;#39;figure.dpi&amp;#39;] = 120 mpl.</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Optimization</title>
+      <link>http://sjh4773.github.io/post/machine-learning-9/</link>
+      <pubDate>Tue, 20 Apr 2021 00:42:51 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-9/</guid>
+      <description>만약 우리에게 모델이 있는데, 미지의 함수(black-box function)라 예측은 잘 되는데 그 속을 들여다 볼 수 없다. 즉, f(x)가 closed-form으로 표현되지 않는다.(닫힌 형태(closed form)란 방정식(equation)의 해(solution)를 해석적(analytic)으로 표현할 수 있는 종류의 문제를 말한다.) 또 non-linear(비선형) + non-convex 해서 gradient도 찾을 수 없다.  Non-Convex한 함수란, 볼록함수와는 달리 극점이 굉장히 많을 수 있는 함수이기 때문에, Gradient Descent를 통해 구한 최솟값이 Local Minumum일 뿐, Global Minimum값은 아닐 수 있는 가능성이 생긴다. 심지어 query를 입력으로 주고 evaluate 할 때 엄청난 시간/비용이 든다.</description>
+    </item>
+    
+    <item>
+      <title>인지 과학의 정의</title>
+      <link>http://sjh4773.github.io/post/cognitive-science-2/</link>
+      <pubDate>Mon, 19 Apr 2021 22:40:49 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/cognitive-science-2/</guid>
+      <description>인지과학의 정의 인지과학은 기본적으로 앎의 과학이다. 그런데 앎이 인간의 마음의 작용에서부터 비롯 되는 것이기 때문에 인지과학을 좀 더 넓게 정의한다면 &#39;마음의 과학&#39;이 된다. 그런데 컴퓨터(인공지능 시스템)나 동물과 같은 행위체도 인간의 마음과 유사한 지능을 보인다. 그래서 조금 달리 정의한다면, 마음의 지에 대한 다학문적인 학제적 연구가 인지과학이라고 할 수 있다. 인지과학은 뇌, 행동, 컴퓨테이션(수리적 계산이라는 의미보다는 정보처리에 가까운 의미)이라는 세 개의 넓은 영역을 통합하는 다학문적 분야이다. 사람이 그리고 동물 및 컴퓨터(로봇)가 어떻게 정보를 처리하고, 그 결과를 행위로 산출하는가 등을 연구하는 분야이다.</description>
+    </item>
+    
+    <item>
+      <title>신경 시스템과 실험 방법론</title>
+      <link>http://sjh4773.github.io/post/cognitive-science/</link>
+      <pubDate>Sun, 18 Apr 2021 21:46:32 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/cognitive-science/</guid>
+      <description>사람 뇌의 구조 - 신경해부학의 기본 용어 신경 : 각 기관계를 연결하여 하나의 유기체로서 신체 활동의 조절과 조정을 담당하는 신경조직
+우리 몸의 신호전달을 모두 담당하고 있는 모두 담당하고 있는 구조물의 총칭
+중추신경 : 우리 몸의 가장 가운데 있는 신경으로, 신경정보를 통합, 조정하는 중앙처리 장치. 뇌와 척수
+신경세포 : 신경계를 이루는 구조적, 기능적인 기본 단위
+말초신경 : 감각과 운동 자극을 중추신경으로 연결하는 통로
+대뇌 : 뇌의 대부분을 차지하는 중추신경계의 중추로 운동, 감각, 언어, 기억 및 고등 정신 기능을 수행하는 기관</description>
+    </item>
+    
+    <item>
+      <title>빅데이터 분석기사 필기 요약</title>
+      <link>http://sjh4773.github.io/post/bigdata/</link>
+      <pubDate>Fri, 16 Apr 2021 18:39:14 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/bigdata/</guid>
+      <description>빅데이터 이해 정형데이터 : 통계저 분석을 수행할 수 있는 테이블 형태로 정리된 데이터 반정형 데이터 : 규격화된 형식을 가지지 않는 웹 문서, 신문과 같은 데이터. 주로 XML,JSON 포맷 - 데이터 속성을 표기하는 메타데이터를 가지며 데이터 구조는 일관성이 없으므로 테이블의 형식을 하고 있어도 샘플들의 속성 순서가 모두 다를 수 있다. 비정형 데이터 : 특별한 형식을 가지지 않는 텍스트, 이미지, 오디오와 같은 원시 데이터 - 형태와 구조가 복잡하여 기존의 DB에 저장될 수 없다, 정형 데이터로 변환되어 분석해야 한다.</description>
+    </item>
+    
+    <item>
+      <title>머신러닝 회귀 모델의 평가지표</title>
+      <link>http://sjh4773.github.io/post/machine-learning-8/</link>
+      <pubDate>Thu, 15 Apr 2021 22:37:09 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-8/</guid>
+      <description>회귀 평가 지표 회귀 평가를 위한 지표는 실제 값과 예측값의 차이를 기반으로 함
+회귀 평가지표 MAE, MSE, RMSE, RMSLE는 값이 작을수록 회귀 성능이 좋은 것 값이 작을수록 예측값과 실제값의 차이가 없다는 것을 의미
+MSE(Mean Squared Error) 실제 값과 예측 값의 차이를 제곱해 평균한 것
+장점  지표 자체가 직관적이고 단순하다.  단점 스케일에 의존적이다. 예를 들어 테슬라의 주가가 900000원이고 현대자동차의 주가가 250000일 때, 두 주가를 예측하는 각각의 모델의 MSE가 똑같이 4000이 나올 경우, 분명 동일한 에러율이 아님에도 불구하고 동일하게 보여진다.</description>
+    </item>
+    
+    <item>
+      <title>pandas.factorize()</title>
+      <link>http://sjh4773.github.io/post/pandas-factorize/</link>
+      <pubDate>Wed, 14 Apr 2021 19:15:38 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/pandas-factorize/</guid>
+      <description>pandas.factorize() 대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다. 이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.
+pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort : [bool, Default is False] Sort uniques and shuffle labels. na_sentinel : [ int, default -1] Missing Values to mark ‘not found’. Return: Numeric representation of array  factorize() 방법의 작동 설명 import numpy as np import pandas as pd from pandas.</description>
+    </item>
+    
+    <item>
+      <title>logloss</title>
+      <link>http://sjh4773.github.io/post/machine-learning-7/</link>
+      <pubDate>Tue, 13 Apr 2021 23:06:12 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-7/</guid>
+      <description>Log Loss란?  모델 성능 평가 시 사용가능한 지표 분류 모델 평가 시 사용 확률값을 기준으로 평가  예를 들어 오지선다 객관식 문제를 국진학생과 성진학생이 풀고 있다고 가정한다. 국진 학생은 구구단을 열심히 외운 학생입니다 그래서 문제를 보자마자 99%확률로 정답은 1번 15이다라고 판단하고 1번을 고릅니다. 반면 성진학생은 아직 구구단을 다외우지 못했습니다 그래서 20% 확률로 정답을 찍기로 결심합니다 그런데 얼떨결에 1번을 찍게 되어서 문제를 맞추게 되었습니다. 단순히 정답을 맞추는 여부로 두 학생을 평가하게 된다면 두 학생은 문제를 맞추었으므로 국진 학생과 성진학생이 실력이 같다고 평가 받게 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>Feature Engineering</title>
+      <link>http://sjh4773.github.io/post/feature-engineering/</link>
+      <pubDate>Mon, 12 Apr 2021 23:33:57 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/feature-engineering/</guid>
+      <description>머신러닝 모델 성능 최적화   Feature Engineering
+ 알고리즘이 보다 효율적으로 예측할 수 있도록 데이터 가공 기존 feature들을 다양한 형태로 재가공    알고리즘 선택
+ 선형, SVM, 확률, 트리 기반의 다양한 알고리즘 Boosting 계열 알고리즘의 강세 모델 혼합(Blending)m stacking    Hyper parameter 튜닝
+ Feature engineering 된 데이터 세트로 최적화된 알고리즘 하이퍼 파라미터 튜닝    Feature Engineering의 주요 기법 [기본 Feature Engineering]   스케일링(Scaling)</description>
+    </item>
+    
+    <item>
+      <title>join 함수</title>
+      <link>http://sjh4773.github.io/post/pandas_join_01/</link>
+      <pubDate>Sun, 11 Apr 2021 21:52:29 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/pandas_join_01/</guid>
+      <description>JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
+import pandas as pd d1 = {&amp;#39;Asset_Allocation&amp;#39;:[1,2,3,4,5,6], &amp;#39;stock&amp;#39;:[&amp;#39;IDEXX&amp;#39;,&amp;#39;Zoetis&amp;#39;,&amp;#39;Freshpet&amp;#39;,&amp;#39;Chewy&amp;#39;,&amp;#39;Trupanion&amp;#39;,&amp;#39;WOOF&amp;#39;] } df1 = pd.DataFrame(d1) d2 = {&amp;#39;Asset_Allocation&amp;#39;:[2,3,6,8], &amp;#39;Analyze&amp;#39;:[&amp;#39;Buy&amp;#39;,&amp;#39;Hold&amp;#39;,&amp;#39;Sell&amp;#39;, &amp;#39;None&amp;#39;]} df2 = pd.DataFrame(d2) df1 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  df2 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  Inner 조인 수행. inner_join_result = pd.merge(df1, df2, on=&amp;#39;Asset_Allocation&amp;#39;, how=&amp;#39;inner&amp;#39;) inner_join_result .</description>
+    </item>
+    
+    <item>
+      <title>matplotlib 그래프 그리기</title>
+      <link>http://sjh4773.github.io/post/matplotlib_study/</link>
+      <pubDate>Wed, 07 Apr 2021 21:03:56 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/matplotlib_study/</guid>
+      <description>import matplotlib.pyplot as plt from matplotlib.ticker import (MultipleLocator, AutoMinorLocator, FuncFormatter) import seaborn as sns import numpy as np # 그냥 그림을 그릴 때 zorder의 값을 지정해주면 그 값이 레이어의 위치라고 보면 된다. # 가장 바깥 쪽에 그려지는 그림일수록 zorder의 값이 커야 한다. # zorder는 레이어의 위치 def plot_example(ax, zorder=0): ax.bar(tips_day[&amp;#34;day&amp;#34;], tips_day[&amp;#34;tip&amp;#34;], color=&amp;#34;lightgray&amp;#34;, zorder=zorder) ax.set_title(&amp;#34;tip (mean)&amp;#34;, fontsize=16, pad=12) # Values h_pad = 0.1 for i in range(4): fontweight = &amp;#34;normal&amp;#34; color = &amp;#34;k&amp;#34; if i == 3: fontweight = &amp;#34;bold&amp;#34; color = &amp;#34;darkred&amp;#34; ax.</description>
+    </item>
+    
+    <item>
+      <title>tuple과 list의 차이</title>
+      <link>http://sjh4773.github.io/post/python-4/</link>
+      <pubDate>Tue, 06 Apr 2021 22:42:39 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/python-4/</guid>
+      <description>리스트(list)와 튜플(tuple)의 차이는 무엇인가? 공통점 1.리스트와 튜플은 둘 다 컨테이너로 일련의 객체를 저장하는데 사용한다. 둘 다 타입과 상관 없이 일련의 요소(element)를 갖을 수 있다. 두 타입 모두 요소의 순서를 관리한다. (세트(set)나 딕셔너리(dict)와 다르게 말이다.) 2.list와 tuple 모두 인덱스를 통해 특정 요소에 접근할 수 있다. 3.list와 tuple 모두 iterable하다. 즉, for문을 넣고 돌릴 수 있다. 차이점 리스트와 튜플의 기술적 차이점은 불변성에 있다. 리스트는 가변적(mutable, 변경 가능)이며 튜플은 불변적(immutable, 변경 불가)이다. 이 특징이 파이썬 언어에서 둘을 구분하는 유일한 차이점이다.</description>
+    </item>
+    
+    <item>
+      <title>StandardScaler()</title>
+      <link>http://sjh4773.github.io/post/sklearn-1/</link>
+      <pubDate>Tue, 06 Apr 2021 22:25:03 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/sklearn-1/</guid>
+      <description>사이킷런 데이터 전처리 함수 StandardScaler() 데이터의 피처 각각이 평균이 0, 분산이 1인 가우시안 정규분포를 가진 값으로 변환하는 작업을 표준화라고 한다. 기계학습 시에 SVM, 선형 회귀, 로지스틱 회귀는 가우시안 분포를 가정하고 구현되었으므로 전처리 단계에서 표준화를 해주는 것이 성능 향상에 도움이 된다. 원래 값에서 피처의 평균을 뺀 값을 피처의 표준편차로 나눠서 표준화한다. 수식으로 나타내면 다음과 같다.  사이킷런의 StandardScaler를 사용해 표준화를 진행 할 수 있다. 데이터 인코딩에서와 마찬가지로 피처 스케일링에서도 fit()과 transform()을 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>GAN 이론</title>
+      <link>http://sjh4773.github.io/post/machine-learning-6/</link>
+      <pubDate>Sun, 04 Apr 2021 23:25:57 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-6/</guid>
+      <description>GAN이란? GAN은 &amp;lsquo;생성적 적대 신경망&amp;rsquo;의 약자로 풀어서 쓰면, 생성자와 식별자가 서로 경쟁(Adversarial)하며 데이터를 생성(Generative)하는 모델(Network)을 뜻한다.
+잡음의 이미지로부터 무엇인가를 생성해낸 결과에 대해서 분류기라고 하는 Dis가 G(Z)를 가짜라고 분류함 반면에 원래의 이미지를 받아왔을 때 원래 이미지에 대해서는 Positive하게 반응함 원래 이미지에 대해서는 확률 높게 판단해주고 가짜 이미지에 대해서는 확신도를 아주 낮게 준다.   잡음 이미지 Z 생성신경망 통과 Generator 생성 이미지 획득 G(Z) 원 이미지 X 분류기 통과 Discriminator(원래 이미지와 생성기로부터 만들어진 이미지를 동시에 입력받음) 두 분류 결과 (1:생성이미지 D(G(Z)), 2:원래이미지 D(X)) 1번에 대해서는 가짜, 2번에 대해서는 진짜로 분류하게끔 학습 목표를 제공해주어야 하는 것이 알고리즘의 총흐름도 이전 6단계 결과에 대한 적대적 학습시행 -&amp;gt; 생성이미지 출신 저하(생성이미지가 가짜다) &amp;amp; 원래이미지 출신 상승(원래이미지에 대한 확률을 높게 평가한다)  Gradient descending 경사하강법을 이용하면 어떤 지점으로 수렴하게 되는 결과를 받아들임 이 함수의 곡선을 가지고 Gradient ascending을 한다고 가정하면 바깥 영역에서 함수들이 굉장히 커지게 되며 그 끝을 알 수 없기 때문에 학습이 엉망으로 진행된다.</description>
+    </item>
+    
+    <item>
+      <title>데이터 전처리</title>
+      <link>http://sjh4773.github.io/post/machine-learning-5/</link>
+      <pubDate>Sat, 03 Apr 2021 23:46:27 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-5/</guid>
+      <description>데이터 전처리   데이터 클렌징
+  결손값 처리(Null/NaN 처리)
+  데이터 인코딩(레이블, 원-핫 인코딩)
+  머신러닝 알고리즘은 문자열 데이터 속성을 입력 받지 않으며 모든 데이터는 숫자형으로 표현되어야 합니다. 문자형 카테고리형 속성은 모두 숫자값으로 변환/인코딩 되어야 합니다.
+레이블(Label) 인코딩  [TV, 냉장고, 전자레인지, 컴퓨터, 선풍기, 믹서] -&amp;gt; [0, 1, 4, 5, 3, 2] 문제점 : 분류를 레이블 인코딩하면 관계성이 확보되지 않는다.  원-핫(One-Hot) 인코딩 원-핫 인코딩은 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식입니다.</description>
+    </item>
+    
+    <item>
+      <title>Convolutional Neural Network를 이용한 MNIST</title>
+      <link>http://sjh4773.github.io/post/machine-learning-4/</link>
+      <pubDate>Sat, 03 Apr 2021 23:35:06 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-4/</guid>
+      <description># 필요 라이브러리 호출 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim from torchvision import datasets,transforms import numpy as np import matplotlib.pyplot as plt train_dataset = datasets.MNIST(&amp;#39;./mnist_data&amp;#39;, # torchvision 안에 있는 MNIST dataset을 불러옴  download=True, # 다운로드 할것인가? train=True, # train 용도 구분 transform=transforms.ToTensor() # torch를 입력 받을 수 있는 자료형태로 변환 ) test_dataset = datasets.MNIST(&amp;#39;./mnist_data&amp;#39;, download=False, train=False, transform=transforms.ToTensor() ) # 데이터셋 로더 호출 train_loader = torch.</description>
+    </item>
+    
+    <item>
+      <title>머신러닝 용어정리</title>
+      <link>http://sjh4773.github.io/post/machine-learning-3/</link>
+      <pubDate>Thu, 01 Apr 2021 23:46:51 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-3/</guid>
+      <description>머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다.</description>
+    </item>
+    
+    <item>
+      <title>넘파이 ndarray의 axis축</title>
+      <link>http://sjh4773.github.io/post/python-3/</link>
+      <pubDate>Thu, 01 Apr 2021 07:54:06 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/python-3/</guid>
+      <description>ndarray는 shape는 행,열,높이 단위로 부여되는 것이 아니라 axis0,axis1,axis2와 같이 axis 단위로 부여됩니다.</description>
+    </item>
+    
+    <item>
+      <title>statistics</title>
+      <link>http://sjh4773.github.io/post/statistics/</link>
+      <pubDate>Wed, 31 Mar 2021 21:48:19 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/statistics/</guid>
+      <description>회귀 분석이란? [개념]
+ 하나 이상의 독립변수들이 종속변수에 미치는 영향을 추정할 수 있는 통계 기법 변수들 사이의 인과관계를 밝히고 모형을 적합(Fit)하여 관심 있는 변수를 예측하거나 추론하기 위한 분석 방법이다. 독립 변수와 종속변수의 개수 및 특성에 따라 단순 회귀, 다중 회귀, 다항 회귀, 곡선 회귀, 로지스틱 회귀, 비선형 회귀로 분류  회귀분석의 요소 용어 정리 독립변수 (x) : 영향을 주는 변수. 설명변수, 예측변수라고 명명될 수 있음
+종속변수 (y) : 영향을 받는 변수.</description>
+    </item>
+    
+    <item>
+      <title>R shiny를 이용한 동적 시각화 연습</title>
+      <link>http://sjh4773.github.io/post/r-5/</link>
+      <pubDate>Sun, 28 Mar 2021 21:08:03 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-5/</guid>
+      <description>library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &amp;lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&amp;#34;var_x&amp;#34;, &amp;#34;Select a Variables of X :&amp;#34;, choices = c(&amp;#34;year&amp;#34;,&amp;#34;lifeExp&amp;#34;,&amp;#34;pop&amp;#34;,&amp;#34;gdpPercap&amp;#34;) ), selectInput(inputId=&amp;#34;var_y&amp;#34;,&amp;#34;Select a Variables of Y :&amp;#34;, choices = c(&amp;#34;year&amp;#34;,&amp;#34;lifeExp&amp;#34;,&amp;#34;pop&amp;#34;,&amp;#34;gdpPercap&amp;#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &amp;#34;scatterPlot&amp;#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &amp;lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.</description>
+    </item>
+    
+    <item>
+      <title>이미지 경계선 검출</title>
+      <link>http://sjh4773.github.io/post/machine-learning-2/</link>
+      <pubDate>Sun, 28 Mar 2021 21:00:24 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning-2/</guid>
+      <description># image convolution # check out horizontal, vertical, tilting, laplacian import numpy as np import matplotlib.pyplot as plt %matplotlib inline from PIL import Image # 파이썬에서 이미지를 담당 def convolution(image,filter,s=1): #stride = 1 image = np.asarray(image) height = image.shape[0] width = image.shape[1] new_height = int((height - filter.shape[0])/s+1) new_width = int((width - filter.shape[1])/s+1) new_image = np.zeros((new_height,new_width)) c_h = 0 for h in range(new_height): c_w = 0 for w in range(new_width): new_image[h,w] = np.</description>
+    </item>
+    
+    <item>
+      <title>cat() 함수</title>
+      <link>http://sjh4773.github.io/post/python-2/</link>
+      <pubDate>Sun, 28 Mar 2021 12:36:58 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/python-2/</guid>
+      <description>cat 함수란? cat함수는 concatenate를 해주는 함수이고 concatenate하고자 하는 차원을 증가시킨다. concatenate하고자하는 차원을 지정해주면 그 차원으로 두 tensor의 차원을 더한 값으로 차원이 변경된다.
+cat 함수의 시각화 Python 코드 import torch batch_size, N, K = 3, 10, 256 x = torch.rand(batch_size, N, K) # [M, N, K] y = torch.rand(batch_size, N, K) # [M, N, K] output1 = torch.cat([x,y], dim=1) #[M, N+N, K] output2 = torch.cat([x,y], dim=2) #[M, N, K+K] </description>
+    </item>
+    
+    <item>
+      <title>카페 추천 시스템</title>
+      <link>http://sjh4773.github.io/post/python/</link>
+      <pubDate>Sun, 28 Mar 2021 00:02:27 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/python/</guid>
+      <description>Cosine similarity(유사도 측정)
+-&amp;gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&amp;gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
+import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.</description>
+    </item>
+    
+    <item>
+      <title>상관분석 실습</title>
+      <link>http://sjh4773.github.io/post/r-4/</link>
+      <pubDate>Thu, 25 Mar 2021 23:42:07 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-4/</guid>
+      <description>상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
+  R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
+  library(ggplot2) economics &amp;lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&amp;#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &amp;lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.</description>
+    </item>
+    
+    <item>
+      <title>t-검정 실습</title>
+      <link>http://sjh4773.github.io/post/r-3/</link>
+      <pubDate>Thu, 25 Mar 2021 23:41:56 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-3/</guid>
+      <description>t검정 - 두 집단의 평균 비교 &amp;rsquo;t 검정(t-test)&amp;lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &amp;lt;- mpg %&amp;gt;% select(fl, cty) %&amp;gt;% filter(fl %in% c(&amp;#34;r&amp;#34;, &amp;#34;p&amp;#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.</description>
+    </item>
+    
+    <item>
+      <title>금융 속보 크롤링</title>
+      <link>http://sjh4773.github.io/post/quant-3/</link>
+      <pubDate>Wed, 24 Mar 2021 22:36:11 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/quant-3/</guid>
+      <description># 금융 속보 크롤링 # 네이버 금융 -&amp;gt; 뉴스 -&amp;gt; 실시간 속보 # 금융 속보의 제목을 추출하는 과정 library(rvest) library(httr) # url 변수에 해당 주소 입력 url = paste0(&amp;#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;amp;section_id=101&amp;amp;section_id2=258&amp;#39;) # GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장 data = GET(url) # 데이터 변수 확인 # Status : 200,즉 데이터가 이상 없이 받아짐 # 인코딩은 EUC-KR 타입 print(data) data_title = data %&amp;gt;% read_html(encoding = &amp;#39;EUC-KR&amp;#39;) %&amp;gt;% # read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정 html_nodes(&amp;#39;dl&amp;#39;) %&amp;gt;% # html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출 html_nodes(&amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>mnist 데이터</title>
+      <link>http://sjh4773.github.io/post/mnist/</link>
+      <pubDate>Wed, 24 Mar 2021 21:21:29 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/mnist/</guid>
+      <description>MNIST 데이터란 인공지능이 이미지를 보고 이것이 어떤 이미지인가를 맞춰보게 하는 인공지능 훈련을 위한 Dataset
+MNIST 개요
+ 손글씨 데이터 손으로 작성된 0~9까지의 숫자 이미지 이미지 + 레이블 &amp;ndash;&amp;gt; 하나의 데이터셋  이미지 속성
+ 차원 (가로,세로,색조) &amp;ndash;&amp;gt; (28,28,1) 픽셀값: 0 ~ 255  레이블 정보
+ 단순 스칼라 (확률정보이용) -&amp;gt; One-hot encoding  해결전략
+ 이미지, 레이블 전처리  원본이미지 &amp;ndash;&amp;gt; 전처리(flatten)
+레이블 &amp;ldquo;3&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;[0,0,0,1,0,0,0,0,0,0]&amp;rdquo; One-hot encoding
+이미지 전처리</description>
+    </item>
+    
+    <item>
+      <title>회귀분석</title>
+      <link>http://sjh4773.github.io/post/machine-learning/</link>
+      <pubDate>Wed, 24 Mar 2021 21:09:29 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/machine-learning/</guid>
+      <description>#Logistic regression example # 라이브러리 호출 import torch import torch.nn as nn import torch.optim as optim import torch.nn.functional as F import pandas as pd # 데이터를 가공하기 위함 import numpy as np import matplotlib.pyplot as plt # 그림을 그리기 위함 %matplotlib inline #파일 업로드 data = pd.read_csv(&amp;#39;./mba_admission.csv&amp;#39;) # ./ --&amp;gt; 현재 경로를 나타낸다 data.columns # 데이터 속성을 확인함 data.shape # (40,4) --&amp;gt; 행 : 데이터 크기, 열 : gmat, gpa, work_experience --&amp;gt; 입력, admitted --&amp;gt; 결과 data.</description>
+    </item>
+    
+    <item>
+      <title>트위터 텍스트 마이닝</title>
+      <link>http://sjh4773.github.io/post/r-2/</link>
+      <pubDate>Wed, 24 Mar 2021 19:34:24 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-2/</guid>
+      <description>library(KoNLP) library(dplyr) library(ggplot2) install.packages(&amp;#34;stringr&amp;#34;) library(stringr) # stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수 # 세트를 제공합니다. useNIADic() twitter &amp;lt;- read.csv(&amp;#34;./Data/twitter.csv&amp;#34;, header = T, stringsAsFactors = F, fileEncoding = &amp;#34;UTF-8&amp;#34;) glimpse(twitter) # 변수명 수정 twitter &amp;lt;- rename(twitter, no = 번호, id = 계정이름, date = 작성일, tw = 내용) # 특수문자 제거 twitter$tw &amp;lt;- str_replace_all(twitter$tw, &amp;#34;\\W&amp;#34;, &amp;#34; &amp;#34;) head(twitter$tw) # 단어 빈도표 만들기 # 트윗에서 명사추출 nouns &amp;lt;- extractNoun(twitter$tw) # 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성 wordcount &amp;lt;- table(unlist(nouns)) wordcount # 데이터 프레임으로 변환 df_word &amp;lt;- as.</description>
+    </item>
+    
+    <item>
+      <title>getSymbols() 함수를 이용한 API 다운로드</title>
+      <link>http://sjh4773.github.io/post/quant-2/</link>
+      <pubDate>Tue, 23 Mar 2021 21:23:01 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/quant-2/</guid>
+      <description># getSymbols() 함수를 이용한 API 다운로드 library(quantmod) getSymbols(&amp;#39;TSLA&amp;#39;) head(TSLA) # TSLA.Open TSLA.High TSLA.Low TSLA.Close TSLA.Volume TSLA.Adjusted # 2010-06-29 3.800 5.000 3.508 4.778 93831500 4.778 # 2010-06-30 5.158 6.084 4.660 4.766 85935500 4.766 # 2010-07-01 5.000 5.184 4.054 4.392 41094000 4.392 # 2010-07-02 4.600 4.620 3.742 3.840 25699000 3.840 # 2010-07-06 4.000 4.000 3.166 3.222 34334500 3.222 # 2010-07-07 3.280 3.326 2.996 3.160 34608500 3.160 # Open : 시가, High: 고가, Low : 저가, # Close : 종가, Volume : 거래량, Adjusted : 배당이 반영된 수정주가 # Ad() 함수를 통해 다운로드한 데이터에서 수정주가만을 선택한 후 # chart_Series() 함수를 이용해 시계열 그래프를 그릴 수도 있다.</description>
+    </item>
+    
+    <item>
+      <title>api를 이용한 Quandl 데이터 다운로드</title>
+      <link>http://sjh4773.github.io/post/quant/</link>
+      <pubDate>Tue, 23 Mar 2021 21:00:15 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/quant/</guid>
+      <description># API를 이용한 Quandl 데이터 다운로드 # R에서 API 주소를 이용해 직접 데이터를 다운로드 url.aapl = &amp;#34;https://www.quandl.com/api/v3/datasets/WIKI/AAPL/ data.csv?api_key=xw3NU3xLUZ7vZgrz5QnG&amp;#34; data.aapl = read.csv(url.aapl) head(data.aapl) # Date Open High Low Close Volume Ex.Dividend Split.Ratio # 1 2018-03-27 173.68 175.15 166.92 168.340 38962839 0 1 # 2 2018-03-26 168.07 173.10 166.44 172.770 36272617 0 1 # 3 2018-03-23 168.39 169.92 164.94 164.940 40248954 0 1 # 4 2018-03-22 170.00 172.68 168.60 168.845 41051076 0 1 # 5 2018-03-21 175.</description>
+    </item>
+    
+    <item>
+      <title>파이토치를 이용한 데이터 가공 예시</title>
+      <link>http://sjh4773.github.io/post/ai-2/</link>
+      <pubDate>Tue, 23 Mar 2021 20:58:12 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/ai-2/</guid>
+      <description>import torch import numpy as np import matplotlib.pyplot as plt %matplotlib inline # 데이터 x = np.random.uniform(-1.2, 2, size=(100)) #np.random.uniform은 Numpy에서 제공하는 균등분포 함수이다. y = 0.1*x**3-0.1*x**2+0.1*np.random.uniform(size=(100)) # 노이즈 추가 plt.plot(x,y,&amp;#39;o&amp;#39;) # 3차 함수지만 노이즈가 포함되어 있다. # train/validation/test 분류 data = np.concatenate((x.reshape(-1,1),y.reshape(-1,1)), axis=-1) # X, Y 묶음, X: input, Y: target print(data.shape) # 차원 0: 데이터 개수, 차원1: (x,y) --&amp;gt; (100,2) np.random.shuffle(data) # 데이터 골고루 섞음 test_num = int(data.shape[0]*0.1) # data.</description>
+    </item>
+    
+    <item>
+      <title>힙합 가사 텍스트 마이닝 및 워드 클라우드</title>
+      <link>http://sjh4773.github.io/post/r/</link>
+      <pubDate>Tue, 23 Mar 2021 19:37:34 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r/</guid>
+      <description>KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&amp;ldquo;multilinguer&amp;rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&amp;ldquo;stringr&amp;rdquo;, &amp;ldquo;hash&amp;rdquo;, &amp;ldquo;tau&amp;rdquo;, &amp;ldquo;Sejong&amp;rdquo;, &amp;ldquo;RSQLite&amp;rdquo;, &amp;ldquo;devtools&amp;rdquo;), type = &amp;ldquo;binary&amp;rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&amp;ldquo;remotes&amp;rdquo;) remotes::install_github(&amp;ldquo;haven-jeon/KoNLP&amp;rdquo;, upgrade = &amp;ldquo;never&amp;rdquo;, INSTALL_opts=c(&amp;quot;&amp;ndash;no-multiarch&amp;quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &amp;#39;텍스트 마이닝&amp;#39;이라고 한다.</description>
+    </item>
+    
+    <item>
+      <title>파이토치로 만드는 신경망</title>
+      <link>http://sjh4773.github.io/post/ai/</link>
+      <pubDate>Mon, 22 Mar 2021 20:58:12 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/ai/</guid>
+      <description># PyTorch 필요 라이브러리 호출 import torch # pip install pytorch 라이브러리 설치 import torch.nn as nn # 인공신경망을 구성해주는 메소드들의 집합 import torch.nn.functional as F # 활성화 함수들을 간단하게 호출 import torch.optim as optim # 토치를 통한 최적화 기능 # Neural network 모델 생성 # 입력 --&amp;gt; 은닉 (3,5) # 은닉 --&amp;gt; 출력 (5,2) # nn 뉴럴 네트워크 안에 있는 기능 하나를 호출  class fir_model(nn.Moudule): # nn.Moduel안에 있는 부모 클래스를 상속 받는다.</description>
+    </item>
+    
+  </channel>
+</rss>

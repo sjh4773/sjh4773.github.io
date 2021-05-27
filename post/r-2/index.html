@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>트위터 텍스트 마이닝 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">트위터 텍스트 마이닝</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(KoNLP)
+<span style="color:#a6e22e">library</span>(dplyr)
+<span style="color:#a6e22e">library</span>(ggplot2)
+
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;stringr&#34;</span>)
+
+<span style="color:#a6e22e">library</span>(stringr) <span style="color:#75715e"># stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수</span>
+                <span style="color:#75715e"># 세트를 제공합니다.</span>
+
+<span style="color:#a6e22e">useNIADic</span>()
+
+twitter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;./Data/twitter.csv&#34;</span>,
+                    header <span style="color:#f92672">=</span> T,
+                    stringsAsFactors <span style="color:#f92672">=</span> F,
+                    fileEncoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span>)
+
+<span style="color:#a6e22e">glimpse</span>(twitter)
+
+<span style="color:#75715e"># 변수명 수정</span>
+twitter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rename</span>(twitter,
+                  no <span style="color:#f92672">=</span> 번호,
+                  id <span style="color:#f92672">=</span> 계정이름,
+                  date <span style="color:#f92672">=</span> 작성일,
+                  tw <span style="color:#f92672">=</span> 내용)
+
+<span style="color:#75715e"># 특수문자 제거</span>
+twitter<span style="color:#f92672">$</span>tw <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">str_replace_all</span>(twitter<span style="color:#f92672">$</span>tw, <span style="color:#e6db74">&#34;\\W&#34;</span>, <span style="color:#e6db74">&#34; &#34;</span>)
+<span style="color:#a6e22e">head</span>(twitter<span style="color:#f92672">$</span>tw)
+
+
+<span style="color:#75715e"># 단어 빈도표 만들기</span>
+
+<span style="color:#75715e"># 트윗에서 명사추출</span>
+
+nouns <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">extractNoun</span>(twitter<span style="color:#f92672">$</span>tw)
+
+<span style="color:#75715e"># 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성</span>
+wordcount <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">unlist</span>(nouns))
+
+wordcount
+
+<span style="color:#75715e"># 데이터 프레임으로 변환</span>
+df_word <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(wordcount, stringAsFactors <span style="color:#f92672">=</span> F)
+
+<span style="color:#a6e22e">glimpse</span>(df_word)
+
+<span style="color:#75715e"># 변수명 수정</span>
+df_word <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rename</span>(df_word,
+                  word <span style="color:#f92672">=</span> Var1,
+                  freq <span style="color:#f92672">=</span> Freq)
+
+<span style="color:#75715e"># nchar() 하고 str_lenght()는 문자열을 카운트 하는 기능이 들어 있다. 하지만, 두 기능 간의 차이점이 있는게,</span>
+<span style="color:#75715e"># nchar()는 범주형인 factor를 처리하지 못하고, str_lenght()는 처리 할 수 있다는 것이다.</span>
+<span style="color:#75715e"># word는 팩터형이므로 nchar()는 적용되지 않는다.</span>
+df_word <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filter</span>(df_word, <span style="color:#a6e22e">str_length</span>(word) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>)
+
+
+<span style="color:#75715e"># 빈도 순으로 정렬한 후 상위 20개 단어를 추출</span>
+top_20 <span style="color:#f92672">&lt;-</span> df_word <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(freq)) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">head</span>(<span style="color:#ae81ff">20</span>)
+
+top_20
+
+
+<span style="color:#75715e"># 빈도 순서 변수 생성</span>
+order <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">arrange</span>(top_20, freq)<span style="color:#f92672">$</span>word              <span style="color:#75715e"># 빈도 순서 변수 생성</span>
+<span style="color:#75715e"># arrange(top_20, freq) --&gt; 상위 20개 단어와 그 출력 횟수 출력</span>
+<span style="color:#75715e"># $word를 통해 단어만 뽑아냄</span>
+
+<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> top_20, <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> word, y <span style="color:#f92672">=</span> freq)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">ylim</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2500</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">coord_flip</span>() <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_discrete</span>(limit <span style="color:#f92672">=</span> order) <span style="color:#f92672">+</span>               <span style="color:#75715e"># 빈도순 막대 정렬</span>
+  <span style="color:#a6e22e">geom_text</span>(<span style="color:#a6e22e">aes</span>(label <span style="color:#f92672">=</span> freq), hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">-0.3</span>)      <span style="color:#75715e"># 빈도 표시</span>
+
+
+<span style="color:#75715e"># 워드 클라우드 만들기</span>
+
+<span style="color:#a6e22e">library</span>(wordcloud)
+
+pal <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.pal</span>(<span style="color:#ae81ff">8</span>,<span style="color:#e6db74">&#34;Dark2&#34;</span>)    <span style="color:#75715e"># 색상 목록 생성</span>
+<span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">1234</span>)                  <span style="color:#75715e"># 난수 고정</span>
+
+<span style="color:#a6e22e">wordcloud</span>(words <span style="color:#f92672">=</span> df_word<span style="color:#f92672">$</span>word, <span style="color:#75715e"># 단어</span>
+          freq <span style="color:#f92672">=</span> df_word<span style="color:#f92672">$</span>freq,  <span style="color:#75715e"># 빈도</span>
+          min.freq <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>,        <span style="color:#75715e"># 최소 단어 빈도</span>
+          max.words <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>,      <span style="color:#75715e"># 표현 단어 수</span>
+          random.order <span style="color:#f92672">=</span> F,     <span style="color:#75715e"># 고빈도 단어 중앙 배치</span>
+          rot.per <span style="color:#f92672">=</span> <span style="color:#ae81ff">.1</span>,         <span style="color:#75715e"># 회전 단어 비율</span>
+          scale <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0.2</span>),    <span style="color:#75715e"># 단어 크기 범위</span>
+          colors <span style="color:#f92672">=</span> pal)         <span style="color:#75715e"># 색상 목록</span>
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/r/" rel="tag">r</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

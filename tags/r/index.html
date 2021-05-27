@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>r - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/tags/r/index.xml" title="My New Hugo Site">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">r</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-5/" rel="bookmark">
+			R shiny를 이용한 동적 시각화 연습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-4/" rel="bookmark">
+			상관분석 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
+  R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
+  library(ggplot2) economics &lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-3/" rel="bookmark">
+			t-검정 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-2/" rel="bookmark">
+			트위터 텍스트 마이닝
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		library(KoNLP) library(dplyr) library(ggplot2) install.packages(&#34;stringr&#34;) library(stringr) # stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수 # 세트를 제공합니다. useNIADic() twitter &lt;- read.csv(&#34;./Data/twitter.csv&#34;, header = T, stringsAsFactors = F, fileEncoding = &#34;UTF-8&#34;) glimpse(twitter) # 변수명 수정 twitter &lt;- rename(twitter, no = 번호, id = 계정이름, date = 작성일, tw = 내용) # 특수문자 제거 twitter$tw &lt;- str_replace_all(twitter$tw, &#34;\\W&#34;, &#34; &#34;) head(twitter$tw) # 단어 빈도표 만들기 # 트윗에서 명사추출 nouns &lt;- extractNoun(twitter$tw) # 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성 wordcount &lt;- table(unlist(nouns)) wordcount # 데이터 프레임으로 변환 df_word &lt;- as.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r/" rel="bookmark">
+			힙합 가사 텍스트 마이닝 및 워드 클라우드
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다.
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">setwd</span>(<span style="color:#e6db74">&#34;C:/ADP/data&#34;</span>)
+
+fifa <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;FIFA.csv&#34;</span>)
+<span style="color:#a6e22e">str</span>(fifa)
+
+<span style="color:#75715e"># na 값이 존재하는지 확인</span>
+<span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">is.na</span>(fifa))
+
+<span style="color:#75715e"># Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기</span>
+<span style="color:#75715e"># 원활한 연산을 위해 Height 변수를 문자형으로 변환</span>
+fifa<span style="color:#f92672">$</span>Height <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.character</span>(fifa<span style="color:#f92672">$</span>Height)
+
+<span style="color:#75715e"># &#34;&#39;&#34; 앞의 숫자는 피트이며, &#34;&#39;&#34; 뒤의 숫자는 인치를 의미함</span>
+<span style="color:#75715e"># 따라서, &#34;&#39;&#34; 앞 숫자를 추출하여 30을 곱하고, &#34;&#39;&#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤</span>
+<span style="color:#75715e"># 숫자를 더하여 cm 단위 값으로 변환</span>
+<span style="color:#75715e"># regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용</span>
+<span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">substr</span>(fifa<span style="color:#f92672">$</span>Height,<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">regexpr</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>, fifa<span style="color:#f92672">$</span>Height) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))<span style="color:#f92672">*</span><span style="color:#ae81ff">30</span> <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">substr</span>(fifa<span style="color:#f92672">$</span>Height,<span style="color:#a6e22e">regexpr</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>,fifa<span style="color:#f92672">$</span>Height) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">nchar</span>(fifa<span style="color:#f92672">$</span>Height)))<span style="color:#f92672">*</span><span style="color:#ae81ff">2.5</span>
+
+<span style="color:#75715e"># 단위를 변환한 값을 Height_cm 변수에 저장</span>
+fifa<span style="color:#f92672">$</span>Height_cm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">substr</span>(fifa<span style="color:#f92672">$</span>Height,<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">regexpr</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>,fifa<span style="color:#f92672">$</span>Height) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">*</span> <span style="color:#ae81ff">30</span> <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">substr</span>(fifa<span style="color:#f92672">$</span>Height,<span style="color:#a6e22e">regexpr</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span>,fifa<span style="color:#f92672">$</span>Height) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">nchar</span>(fifa<span style="color:#f92672">$</span>Height))) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.5</span>
+
+<span style="color:#75715e"># 선수의 포지션을 의미하는 Position 변수를 문제에 주어진 조건에 맞게 재범주화하여 Position_Class라는 변수에 저장</span>
+fifa <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">within</span>(fifa,
+{
+ Position_Class <span style="color:#f92672">=</span> <span style="color:#a6e22e">character</span>(<span style="color:#ae81ff">0</span>)
+ Position_Class[ Position <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;LS&#34;</span>, <span style="color:#e6db74">&#34;ST&#34;</span>, <span style="color:#e6db74">&#34;RS&#34;</span>, <span style="color:#e6db74">&#34;LW&#34;</span>, <span style="color:#e6db74">&#34;LF&#34;</span>, <span style="color:#e6db74">&#34;CF&#34;</span>, <span style="color:#e6db74">&#34;RF&#34;</span>, <span style="color:#e6db74">&#34;RW&#34;</span>)] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Forward&#34;</span>
+ Position_Class[ Position <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;LAM&#34;</span>, <span style="color:#e6db74">&#34;CAM&#34;</span>, <span style="color:#e6db74">&#34;RAM&#34;</span>, <span style="color:#e6db74">&#34;LM&#34;</span>, <span style="color:#e6db74">&#34;LCM&#34;</span>, <span style="color:#e6db74">&#34;CM&#34;</span>, <span style="color:#e6db74">&#34;RCM&#34;</span>, <span style="color:#e6db74">&#34;RM&#34;</span>)] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Midfielder&#34;</span>
+ Position_Class[ Position <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;LWB&#34;</span>, <span style="color:#e6db74">&#34;LDM&#34;</span>, <span style="color:#e6db74">&#34;CDM&#34;</span>, <span style="color:#e6db74">&#34;RDM&#34;</span>, <span style="color:#e6db74">&#34;RWB&#34;</span>, <span style="color:#e6db74">&#34;LB&#34;</span>, <span style="color:#e6db74">&#34;LCB&#34;</span>, <span style="color:#e6db74">&#34;CB&#34;</span>, <span style="color:#e6db74">&#34;RCB&#34;</span>, <span style="color:#e6db74">&#34;RB&#34;</span>)] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Defender&#34;</span>
+ Position_Class[ Position <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;GK&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GoalKeeper&#34;</span>
+ })
+
+
+<span style="color:#75715e"># Position_Class 변수를 팩터형(factor)으로 변환</span>
+fifa<span style="color:#f92672">$</span>Position_Class <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">factor</span>(fifa<span style="color:#f92672">$</span>Position_Class, levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Forward&#34;</span>, <span style="color:#e6db74">&#34;Midfielder&#34;</span>,<span style="color:#e6db74">&#34;Defender&#34;</span>,<span style="color:#e6db74">&#34;GoalKeeper&#34;</span>),
+                              <span style="color:#f92672">+</span> labels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Forward&#34;</span>,<span style="color:#e6db74">&#34;Midfielder&#34;</span>,<span style="color:#e6db74">&#34;Defender&#34;</span>,<span style="color:#e6db74">&#34;GoalKeeper&#34;</span>))
+
+<span style="color:#a6e22e">str</span>(fifa)
+
+<span style="color:#75715e"># 귀무가설 : 4가지 포지션에 대해 Value의 평균은 모두 같다.</span>
+<span style="color:#75715e"># 대립가설 : 적어도 하나의 포지션에 대한 Value의 평균값에는 차이가 있다.</span>
+
+<span style="color:#75715e"># 분산분석 수행</span>
+fifa_result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">aov</span>(Value<span style="color:#f92672">~</span>Position_Class, data<span style="color:#f92672">=</span>fifa) <span style="color:#75715e"># 분산분석 결과를 fifa_result 변수에 저장</span>
+<span style="color:#a6e22e">summary</span>(fifa_result)                                <span style="color:#75715e"># 분산분석표 확인</span>
+
+<span style="color:#75715e"># Df    Sum Sq   Mean Sq F value Pr(&gt;F)    </span>
+<span style="color:#75715e"># Position_Class     3 4.081e+09 1.360e+09   41.87 &lt;2e-16 ***</span>
+<span style="color:#75715e">#   Residuals      16638 5.405e+11 3.249e+07                   </span>
+<span style="color:#75715e"># ---</span>
+<span style="color:#75715e">#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+
+<span style="color:#75715e"># 분산분석표를 통해 확인한 결과, SSA의 자유도는 3(집단의 수-1 = 4-1), SST의 자유도는 16638</span>
+<span style="color:#75715e"># (관측값의 수 - 집단의 수 = 16642 - 4)임을 확인할 수 있다. p-value 값(&lt;2e-16)이 매우 작게 나와</span>
+<span style="color:#75715e"># 유의수준 0.05하에서 귀무가설을 기각한다. 따라서 네 가지 포지션(Position_Class)에 따른 선수의</span>
+<span style="color:#75715e"># 시장가치(Value)가 모두 동일하지 않다고 결론내릴 수 있다. 즉, 포지션(Position_Class)별 선수의</span>
+<span style="color:#75715e"># 시장가치(Value)의 평균값들 중에서 적어도 어느 하나의 포지션은 통계적으로 유의한 차이가 있는 값을 가진다고 말 할 수 있다.</span>
+
+<span style="color:#75715e"># Tukey&#39;s HSD(honestly significant difference) test는 studentized range distribution을 이용하여</span>
+<span style="color:#75715e"># 모든 가능한 두 수준들의 평균간의 차이가 있는지를 검정(pairwise post-hoc testing using Tukey HSD test)하는 방법</span>
+
+
+<span style="color:#a6e22e">TukeyHSD</span>(<span style="color:#a6e22e">aov</span>(Value<span style="color:#f92672">~</span>Position_Class, data<span style="color:#f92672">=</span>fifa))
+
+<span style="color:#75715e"># Tukey multiple comparisons of means</span>
+<span style="color:#75715e"># 95% family-wise confidence level</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Fit: aov(formula = Value ~ Position_Class, data = fifa)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># $Position_Class</span>
+<span style="color:#75715e"># diff        lwr        upr     p adj</span>
+<span style="color:#75715e"># Forward-Defender        930.3730   610.7412  1250.0048 0.0000000</span>
+<span style="color:#75715e"># GoalKeeper-Defender    -507.3848  -887.6282  -127.1415 0.0034079</span>
+<span style="color:#75715e"># Midfielder-Defender     760.8787   486.7108  1035.0465 0.0000000</span>
+<span style="color:#75715e"># GoalKeeper-Forward    -1437.7579 -1865.9257 -1009.5900 0.0000000</span>
+<span style="color:#75715e"># Midfielder-Forward     -169.4944  -507.0010   168.0122 0.5691282</span>
+<span style="color:#75715e"># Midfielder-GoalKeeper  1268.2635   872.8761  1663.6509 0.0000000</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># 사후분석에서는 귀무가설을 &#39;집단들 사이의 평균은 같다&#39;, 대립가설을 &#39;집단들 사이의 평균은 같지않다&#39;로</span>
+<span style="color:#75715e"># 두고, 모든 집단 수준에 대해서 두 집단씩 짝을 지어 각각 다중비교를 수행한다. 사후분석 결과를 보면</span>
+<span style="color:#75715e"># Midfielder-Forward 포지션 간의 비교에 대해서 p-value(p adj)값이 0.05보다 크므로 귀무가설을 기각하지 않는다.</span>
+<span style="color:#75715e"># 즉, 포지션이 Midfielder인 선수와 Forward인 선수들 간의 시장가치는 통계적으로 유의한 차이가 있다고 볼 수 없다.</span>
+<span style="color:#75715e"># 반면 Defender-Forward, GoalKeeper-Forward, Defender-Midfielder, GoalKeeper-Midfielder, 비교에 대한</span>
+<span style="color:#75715e"># 귀무가설을 모두 기각한다. 즉 해당 포지션들에 대한 선수들의 시장가치 평균값은 각각 통계적으로 유의한 차이가 있다는 것을 알 수 있다.</span>
+<span style="color:#75715e"># 또한 diff는 하이픈(-)의 왼쪽 집단과 오른쪽 집단 간 반응값의 차이를 나타내는데, Defender-Forward, GoalKeeper-Forward, Defender-Midfielder,</span>
+<span style="color:#75715e"># GoalKeeper-Midfielder, GoalKeeper-Defender 모두에 대한 diff값은 음수이므로, 하이픈(-) 뒤에 있는 집단(오른쪽 집단)의 Value(선수의 시장가치)</span>
+<span style="color:#75715e"># 평균이 더 크다는 것을 알 수 있다.</span>
+<span style="color:#75715e"># 예를 들어 선수의 포지션이 Defender일 때보다 Forward일 때가 선수의 시장가치는 통계적으로 유의하게 큰 값을 가진다고 해석할 수 있다.</span>
+
+
+<span style="color:#75715e"># 주발(Preferred_Foot)과 포지션(Position_Class)에 따라서 선수의 가치(Value)에 차이가 있는지 않아보기 위한 이원배치 분산을 수행한다.</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># 귀무가설 : 선수의 주발(Preferred Foot)에 따른 선수의 가치(Value)에는 차이가 없다.</span>
+<span style="color:#75715e">#            선수의 포지션(Position_Class)에 따른 선수의 가치(Value)에는 차이가 없다.</span>
+<span style="color:#75715e">#            주발(Preferred Foot)과 포지션(Position_Class)간의 상호작용 효과가 없다.</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># 대립가설 : 선수의 주발(Preferred Foot)에 따른 선수의 가치(Value)에는 차이가 있다.</span>
+<span style="color:#75715e">#            선수의 포지션(Position_Class)에 따른 선수의 가치(Value)에는 차이가 있다.</span>
+<span style="color:#75715e">#            주발(Preferred Foot)과 포지션(Position_Class)간의 상호작용 효과가 있다.</span>
+
+<span style="color:#75715e"># 이원배치 분산분석 수행</span>
+
+<span style="color:#75715e"># 이원분산분석이란? 결과값인 y에 영향을 주는 두개의 x인자를 변화시켜 가면서 분석을 수행하는 것을 말합니다.</span>
+<span style="color:#75715e"># 예를 들어 제품의 강도에 영향을 주는 인자가 촉매와 경화제 두개가 있을때,</span>
+<span style="color:#75715e"># 촉매의 각 수준별로 경화제를 변화시켜 가면서 반응값이 제품강도를 측정하고 분석하는 것입니다.</span>
+
+fifa_twoway_anova <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">aov</span>(Value <span style="color:#f92672">~</span> Preferred_Foot <span style="color:#f92672">+</span> Position_Class <span style="color:#f92672">+</span>
+                            Preferred_Foot<span style="color:#f92672">:</span>Position_Class, data<span style="color:#f92672">=</span>fifa)
+
+<span style="color:#a6e22e">summary</span>(fifa_twoway_anova)
+
+<span style="color:#75715e"># Df    Sum Sq   Mean Sq F value  Pr(&gt;F)    </span>
+<span style="color:#75715e"># Preferred_Foot                    1 1.461e+08 1.461e+08   4.501 0.03390 *  </span>
+<span style="color:#75715e">#   Position_Class                    3 4.087e+09 1.362e+09  41.976 &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Preferred_Foot:Position_Class     3 4.736e+08 1.579e+08   4.864 0.00221 ** </span>
+<span style="color:#75715e">#   Residuals                     16634 5.399e+11 3.246e+07                    </span>
+<span style="color:#75715e"># ---</span>
+<span style="color:#75715e">#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+
+<span style="color:#75715e"># 먼저 주발(Prefferd_Foot) 변수에 대한 p-value는 0.03390으로 유의수준 0.05보다 작으므로 귀무가설을</span>
+<span style="color:#75715e"># 기각하고 대립가설을 채택하여 &#34;선수의 주발에 따른 선수의 가치에는 차이가 있다&#34;고 판단할 수 있다.</span>
+<span style="color:#75715e"># 그리고 포지션(Position_Class) 변수에 대한 p-value는 2e-16보다 작아 유의수준 0.05하에서 매우 유의하므로</span>
+<span style="color:#75715e"># 귀무가설을 기각하고 대립가설을 채택하여 &#34;선수의 포지션에 따른 선수의 가치에는 차이가 있다&#34;고 판단할 수 있다.</span>
+<span style="color:#75715e"># 마지막으로 주발(Preferred_Foot)과 포지션(Position_Class) 변수의 교호작용에 대한 p-value는</span>
+<span style="color:#75715e"># 0.00221로 유의수준 0.05보다 작으므로 귀무가설을 기각하고 대립가설을 채택하여 &#34;선수의 주발과 포지션의</span>
+<span style="color:#75715e"># 상호작용에 의한 효과가 있다&#34;라고 판단할 수 있다.</span>
+
+<span style="color:#75715e"># Age, Overall, Wage, Height_cm, Weight_lb가 Value에 영향을 미치는지 알아보는 회귀분석을</span>
+<span style="color:#75715e"># 단계적 선택법을 사용하여 수행하고 결과를 해석하시오.</span>
+
+<span style="color:#75715e"># 단계적선택법을 통한 변수선택 수행</span>
+
+<span style="color:#a6e22e">step</span>(<span style="color:#a6e22e">lm</span>(Value<span style="color:#f92672">~</span><span style="color:#ae81ff">1</span>, data<span style="color:#f92672">=</span>fifa), scope<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(lower<span style="color:#f92672">=~</span><span style="color:#ae81ff">1</span>, upper<span style="color:#f92672">=~</span>Age <span style="color:#f92672">+</span> Overall <span style="color:#f92672">+</span> Wage <span style="color:#f92672">+</span> Height_cm <span style="color:#f92672">+</span> Weight_lb), direction <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;both&#34;</span>)
+
+
+<span style="color:#75715e"># Start:  AIC=287969.5</span>
+<span style="color:#75715e"># Value ~ 1</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df  Sum of Sq        RSS    AIC</span>
+<span style="color:#75715e"># + Wage       1 4.0424e+11 1.4037e+11 265409</span>
+<span style="color:#75715e"># + Overall    1 2.1561e+11 3.2900e+11 279584</span>
+<span style="color:#75715e"># + Age        1 3.1824e+09 5.4143e+11 287874</span>
+<span style="color:#75715e"># + Weight_lb  1 1.0611e+09 5.4355e+11 287939</span>
+<span style="color:#75715e"># &lt;none&gt;                    5.4461e+11 287969</span>
+<span style="color:#75715e"># + Height_cm  1 1.9447e+06 5.4461e+11 287971</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=265408.8</span>
+<span style="color:#75715e"># Value ~ Wage</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df  Sum of Sq        RSS    AIC</span>
+<span style="color:#75715e"># + Overall    1 1.4741e+10 1.2563e+11 263564</span>
+<span style="color:#75715e"># + Age        1 1.4800e+09 1.3889e+11 265234</span>
+<span style="color:#75715e"># + Height_cm  1 1.3065e+08 1.4024e+11 265395</span>
+<span style="color:#75715e"># + Weight_lb  1 7.9650e+07 1.4029e+11 265401</span>
+<span style="color:#75715e"># &lt;none&gt;                    1.4037e+11 265409</span>
+<span style="color:#75715e"># - Wage       1 4.0424e+11 5.4461e+11 287969</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=263564.5</span>
+<span style="color:#75715e"># Value ~ Wage + Overall</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df  Sum of Sq        RSS    AIC</span>
+<span style="color:#75715e"># + Age        1 1.1662e+10 1.1397e+11 261945</span>
+<span style="color:#75715e"># + Weight_lb  1 7.0549e+08 1.2493e+11 263473</span>
+<span style="color:#75715e"># + Height_cm  1 2.3851e+08 1.2539e+11 263535</span>
+<span style="color:#75715e"># &lt;none&gt;                    1.2563e+11 263564</span>
+<span style="color:#75715e"># - Overall    1 1.4741e+10 1.4037e+11 265409</span>
+<span style="color:#75715e"># - Wage       1 2.0337e+11 3.2900e+11 279584</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=261945.2</span>
+<span style="color:#75715e"># Value ~ Wage + Overall + Age</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df  Sum of Sq        RSS    AIC</span>
+<span style="color:#75715e"># + Height_cm  1 5.1404e+07 1.1392e+11 261940</span>
+<span style="color:#75715e"># + Weight_lb  1 4.9934e+07 1.1392e+11 261940</span>
+<span style="color:#75715e"># &lt;none&gt;                    1.1397e+11 261945</span>
+<span style="color:#75715e"># - Age        1 1.1662e+10 1.2563e+11 263564</span>
+<span style="color:#75715e"># - Overall    1 2.4922e+10 1.3889e+11 265234</span>
+<span style="color:#75715e"># - Wage       1 1.8259e+11 2.9656e+11 277858</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Step:  AIC=261939.7</span>
+<span style="color:#75715e"># Value ~ Wage + Overall + Age + Height_cm</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Df  Sum of Sq        RSS    AIC</span>
+<span style="color:#75715e"># &lt;none&gt;                    1.1392e+11 261940</span>
+<span style="color:#75715e"># + Weight_lb  1 6.1905e+06 1.1391e+11 261941</span>
+<span style="color:#75715e"># - Height_cm  1 5.1404e+07 1.1397e+11 261945</span>
+<span style="color:#75715e"># - Age        1 1.1475e+10 1.2539e+11 263535</span>
+<span style="color:#75715e"># - Overall    1 2.4906e+10 1.3883e+11 265228</span>
+<span style="color:#75715e"># - Wage       1 1.8264e+11 2.9656e+11 277860</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Call:</span>
+<span style="color:#75715e">#   lm(formula = Value ~ Wage + Overall + Age + Height_cm, data = fifa)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Coefficients:</span>
+<span style="color:#75715e">#   (Intercept)         Wage      Overall          Age    Height_cm  </span>
+<span style="color:#75715e"># -8690.818      184.184      241.345     -202.160       -8.445  </span>
+
+<span style="color:#75715e"># 첫번째 단계를 확인해보면 Wage 변수가 모형에 추가되었을 때 AIC값이 265409로 가장 작은 것을 확인할 수 있다.</span>
+<span style="color:#75715e"># 따라서 첫 번째 단계에서 Wage 변수가 모형에 추가되었다. 두번째 단계에서는 Overall 변수가 새롭게 추가되었을 때</span>
+<span style="color:#75715e"># AIC값이 가장 작아지기 때문에 Overall 변수가 모형에 추가되었다.</span>
+<span style="color:#75715e"># 위와 같은 변수의 제거 혹은 추가를 반복하여 lm(formula = Value ~ Wage + Overall + Age + Height_cm, data = fifa)</span>
+<span style="color:#75715e"># 이라는 최종 모형이 결정되었다.</span>
+<span style="color:#75715e"># 최종적으로 선택된 추정된 회귀식은 y = -8690.818 + 184.184 * Wage + 241.345 * Overall - 202.160 * Age - 8.445 * Height_cm이다.</span>
+
+<span style="color:#75715e"># 변수선택 결과, 선택된 변수들을 이용해 회귀모형을 생성한다.</span>
+
+<span style="color:#75715e"># 변수 선택을 통해 도출도니 회귀모형</span>
+fifa.lm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Value <span style="color:#f92672">~</span> Wage <span style="color:#f92672">+</span> Overall <span style="color:#f92672">+</span> Age <span style="color:#f92672">+</span> Height_cm, data <span style="color:#f92672">=</span> fifa)
+<span style="color:#a6e22e">summary</span>(fifa.lm)
+
+<span style="color:#75715e"># Call:</span>
+<span style="color:#75715e">#   lm(formula = Value ~ Wage + Overall + Age + Height_cm, data = fifa)</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residuals:</span>
+<span style="color:#75715e">#   Min     1Q Median     3Q    Max </span>
+<span style="color:#75715e"># -24272   -837   -120    668  58287 </span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Coefficients:</span>
+<span style="color:#75715e">#   Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span style="color:#75715e"># (Intercept) -8690.818    588.280  -14.77  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Wage          184.184      1.128  163.32  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Overall       241.345      4.002   60.31  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Age          -202.160      4.938  -40.94  &lt; 2e-16 ***</span>
+<span style="color:#75715e">#   Height_cm      -8.445      3.082   -2.74  0.00615 ** </span>
+<span style="color:#75715e">#   ---</span>
+<span style="color:#75715e">#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
+<span style="color:#75715e"># </span>
+<span style="color:#75715e"># Residual standard error: 2617 on 16637 degrees of freedom</span>
+<span style="color:#75715e"># Multiple R-squared:  0.7908,	Adjusted R-squared:  0.7908 </span>
+<span style="color:#75715e"># F-statistic: 1.572e+04 on 4 and 16637 DF,  p-value: &lt; 2.2e-16</span>
+
+
+<span style="color:#75715e"># 단계선택법을 이용한 변수 선택을 수행한 후 선택도니 변수들로 회귀분석을 수행한 결과,</span>
+<span style="color:#75715e"># 상수항, Wage, Overall, Age 변수들은 유의수준 0.001 하에서 통계적으로 유의하며,</span>
+<span style="color:#75715e"># Height_cm 변수는 유의수준 0.01하에서 통계적으로 유의함을 확인할 수 있다.</span>
+<span style="color:#75715e"># 모형의 결정계수는 0.7908 수정된 결정계수는 0.7908로 추정된 다변량 회귀식은</span>
+<span style="color:#75715e"># 전체 데이터의 80%를 설명하고 있다. 또한 회귀모형의 F통계량에 대한 p-value 값은</span>
+<span style="color:#75715e"># 0.05보다 작으므로 유의수준 0.05 하에서 모형이 통계적으로 유의한 것을 알 수 있다.</span>
+<span style="color:#75715e"># 회귀분석 결과로 추정된 회귀식은 y = -8690.818 + 184.184*Wage + 241.345*Overall - 202.160*Age -8.445*Height_cm이다.</span>
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="tag">ADP 모의고사 R 실습</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

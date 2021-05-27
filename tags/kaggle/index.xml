@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kaggle on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/kaggle/</link>
+    <description>Recent content in kaggle on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Tue, 20 Apr 2021 23:46:52 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/kaggle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부</title>
+      <link>http://sjh4773.github.io/post/kaggle/</link>
+      <pubDate>Tue, 20 Apr 2021 23:46:52 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/kaggle/</guid>
+      <description>Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부 Matplotlib : 차트의 기본 크기를 설정하려면?
+rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설정합니다. plt.rcParams와 mpl.rcParams 모두 동일한 결과를 도출하므로 편한 것을 사용하면 됩니다. 사용 가능한 rcParams 항목 : plt.rcParams 초기값으로 되돌리기 : mpl.rcParams.update(mpl.rcParamsDefault)  %matplotlib inline import matplotlib as mpl import matplotlib.pyplot as plt mpl.rcParams[&amp;#34;figure.figsize&amp;#34;] = (14,4) mpl.rcParams[&amp;#39;lines.linewidth&amp;#39;] = 2 mpl.rcParams[&amp;#39;lines.color&amp;#39;] = &amp;#39;r&amp;#39; mpl.rcParams[&amp;#39;axes.grid&amp;#39;] = True mpl.rcParams[&amp;#39;figure.dpi&amp;#39;] = 120 mpl.</description>
+    </item>
+    
+  </channel>
+</rss>

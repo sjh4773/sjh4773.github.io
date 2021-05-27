@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>카페 추천 시스템 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">카페 추천 시스템</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>Cosine similarity(유사도 측정)</p>
+<p>-&gt; 유사인 경우 1, 상극인 경우 -1
+(cosine 함수)
+구하는 방식 -&gt; 벡터내적
+𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵|
+(−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cosine_similarity</span>(a,b):
+    num <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot(a,b)
+    den <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sqrt(np<span style="color:#f92672">.</span>sum(a<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sqrt(np<span style="color:#f92672">.</span>sum(b<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+    <span style="color:#66d9ef">return</span> num<span style="color:#f92672">/</span>(den<span style="color:#f92672">+</span><span style="color:#ae81ff">1e-15</span>)
+
+<span style="color:#75715e"># 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛</span>
+<span style="color:#75715e"># 각 항목별 점수 범위 : 0 ~ 10</span>
+<span style="color:#75715e"># 위의 평가 기준 순서대로 평가 </span>
+
+backkeumdang <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>]) <span style="color:#75715e"># 기준 카페, (분위기, 예술성, 친절함, 가성비, 위생, 맛)</span>
+
+<span style="color:#75715e"># 데이터 베이스 내 카페 특징 추출</span>
+star_bucks <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>])
+parm_table <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>])
+twosome_place <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>])
+paul_bassett <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>])
+
+<span style="color:#75715e"># 백금당 vs [모든 카페] cosine 유사도</span>
+cafes <span style="color:#f92672">=</span> [star_bucks, parm_table, twosome_place, paul_bassett]
+names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;star_bucks&#39;</span>,<span style="color:#e6db74">&#39;parm_table&#39;</span>,<span style="color:#e6db74">&#39;twosome_place&#39;</span>,<span style="color:#e6db74">&#39;paul_bassett&#39;</span>]
+
+scores <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> cvec <span style="color:#f92672">in</span> cafes:
+    sim <span style="color:#f92672">=</span> cosine_similarity(backkeumdang, cvec)
+    scores<span style="color:#f92672">.</span>append(sim)
+
+<span style="color:#75715e"># 유사도 높은 순으로 정렬</span>
+
+
+idx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>argsort(scores) <span style="color:#75715e"># 작은 값부터 순서대로 데이터의 index를 반환해줌</span>
+recom<span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(names)[idx] <span style="color:#75715e"># index 값에 따른 카페명이 추출되고 유사도 결과가 오름차순으로 나온다.</span>
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>flip(recom)) <span style="color:#75715e"># 내림차순</span>
+
+<span style="color:#75715e"># 결과 : 1위 스타벅스, 2위 팜테이블, 3위 폴바셋, 4위 투썸플레이스</span>
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" rel="tag">Python 공부</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

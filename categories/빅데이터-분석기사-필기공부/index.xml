@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>빅데이터 분석기사 필기공부 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/</link>
+    <description>Recent content in 빅데이터 분석기사 필기공부 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Fri, 16 Apr 2021 18:39:14 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>빅데이터 분석기사 필기 요약</title>
+      <link>http://sjh4773.github.io/post/bigdata/</link>
+      <pubDate>Fri, 16 Apr 2021 18:39:14 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/bigdata/</guid>
+      <description>빅데이터 이해 정형데이터 : 통계저 분석을 수행할 수 있는 테이블 형태로 정리된 데이터 반정형 데이터 : 규격화된 형식을 가지지 않는 웹 문서, 신문과 같은 데이터. 주로 XML,JSON 포맷 - 데이터 속성을 표기하는 메타데이터를 가지며 데이터 구조는 일관성이 없으므로 테이블의 형식을 하고 있어도 샘플들의 속성 순서가 모두 다를 수 있다. 비정형 데이터 : 특별한 형식을 가지지 않는 텍스트, 이미지, 오디오와 같은 원시 데이터 - 형태와 구조가 복잡하여 기존의 DB에 저장될 수 없다, 정형 데이터로 변환되어 분석해야 한다.</description>
+    </item>
+    
+  </channel>
+</rss>

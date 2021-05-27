@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>pandas 공부 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/tags/pandas-%EA%B3%B5%EB%B6%80/index.xml" title="My New Hugo Site">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">pandas 공부</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/pandas-factorize/" rel="bookmark">
+			pandas.factorize()
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		pandas.factorize() 대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다. 이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.
+pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort : [bool, Default is False] Sort uniques and shuffle labels. na_sentinel : [ int, default -1] Missing Values to mark ‘not found’. Return: Numeric representation of array  factorize() 방법의 작동 설명 import numpy as np import pandas as pd from pandas.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/pandas_join_01/" rel="bookmark">
+			join 함수
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
+import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#39;:[&#39;IDEXX&#39;,&#39;Zoetis&#39;,&#39;Freshpet&#39;,&#39;Chewy&#39;,&#39;Trupanion&#39;,&#39;WOOF&#39;] } df1 = pd.DataFrame(d1) d2 = {&#39;Asset_Allocation&#39;:[2,3,6,8], &#39;Analyze&#39;:[&#39;Buy&#39;,&#39;Hold&#39;,&#39;Sell&#39;, &#39;None&#39;]} df2 = pd.DataFrame(d2) df1 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  df2 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  Inner 조인 수행. inner_join_result = pd.merge(df1, df2, on=&#39;Asset_Allocation&#39;, how=&#39;inner&#39;) inner_join_result .
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

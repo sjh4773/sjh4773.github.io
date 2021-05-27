@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>회귀분석 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">회귀분석</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
+<span style="color:#75715e">#Logistic regression example</span>
+
+
+<span style="color:#75715e"># 라이브러리 호출</span>
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> torch.nn <span style="color:#f92672">as</span> nn
+<span style="color:#f92672">import</span> torch.optim <span style="color:#f92672">as</span> optim
+<span style="color:#f92672">import</span> torch.nn.functional <span style="color:#f92672">as</span> F
+
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd <span style="color:#75715e"># 데이터를 가공하기 위함</span>
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt <span style="color:#75715e"># 그림을 그리기 위함</span>
+<span style="color:#f92672">%</span>matplotlib inline
+
+<span style="color:#75715e">#파일 업로드</span>
+
+data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;./mba_admission.csv&#39;</span>) <span style="color:#75715e"># ./ --&gt; 현재 경로를 나타낸다</span>
+
+data<span style="color:#f92672">.</span>columns <span style="color:#75715e"># 데이터 속성을 확인함</span>
+
+data<span style="color:#f92672">.</span>shape <span style="color:#75715e"># (40,4) --&gt; 행 : 데이터 크기, 열 : gmat, gpa, work_experience --&gt; 입력, admitted --&gt; 결과</span>
+
+data<span style="color:#f92672">.</span>head()
+
+<span style="color:#75715e"># dataset 가공</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">dataset</span>(torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>Dataset):
+    <span style="color:#66d9ef">def</span> __init__(self,data):
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data
+        self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;gmat&#39;</span>] <span style="color:#f92672">/=</span> self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;gmat&#39;</span>]<span style="color:#f92672">.</span>max() <span style="color:#75715e"># max 함수를 통해 정규화, 모든 데이터가 0~1로 정규화 된다.</span>
+        self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;gpa&#39;</span>] <span style="color:#f92672">/=</span> self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;gpa&#39;</span>]<span style="color:#f92672">.</span>max()
+        self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;work_experience&#39;</span>] <span style="color:#f92672">/=</span> self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;work_experience&#39;</span>]<span style="color:#f92672">.</span>max()
+
+    <span style="color:#66d9ef">def</span> __getitem__(self, idx):
+        X <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor(self<span style="color:#f92672">.</span>data[self<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>columns[:<span style="color:#ae81ff">3</span>]]<span style="color:#f92672">.</span>values) <span style="color:#75715e"># self.data.columns[:3] --&gt; gmat, gpa, work_experience</span>
+        Y <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor(self<span style="color:#f92672">.</span>data[<span style="color:#e6db74">&#39;admitted&#39;</span>])                   <span style="color:#75715e"># .values --&gt; pandas의 자체값만을 이용하겠다는 뜻 </span>
+        <span style="color:#66d9ef">return</span> X[idx,:], Y[idx]
+
+    <span style="color:#66d9ef">def</span> __len__(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>] <span style="color:#75715e"># 전체 데이터의 개수 --&gt; 40</span>
+
+train_dataset <span style="color:#f92672">=</span> dataset(data)
+train_loader <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>DataLoader(train_dataset, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>, shuffle<span style="color:#f92672">=</span>True, drop_last<span style="color:#f92672">=</span>False)
+
+<span style="color:#75715e"># neural network 모델 생성</span>
+<span style="color:#75715e"># 구조: 입력(3), 은닉(10), 출력(1)</span>
+<span style="color:#75715e"># 활성화:        tanh      sigmoid</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">admission_model</span>(nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#66d9ef">def</span> __init__(self):
+        super(admission_model,self)<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>lin1 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>)
+        self<span style="color:#f92672">.</span>lin2 <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">1</span>)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self,x): <span style="color:#75715e"># 입력받은 데이터가 일련의 과정을 거치면 리턴되는 x는 y_hat</span>
+        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>lin1(x)
+        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>tanh(x)
+        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>lin2(x)
+        x <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>sigmoid(x)
+        <span style="color:#66d9ef">return</span> x
+
+model <span style="color:#f92672">=</span> admission_model()
+optimizer <span style="color:#f92672">=</span> optim<span style="color:#f92672">.</span>SGD(model<span style="color:#f92672">.</span>parameters(),lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+
+<span style="color:#75715e"># 학습단계</span>
+<span style="color:#75715e"># 최적화를 할 때 반복횟수가 굉장히 중요하다. 어떤 데이터를 어떤 배치만큼 잘라내어 마지막 배치까지 돌아야 epoch가 됨</span>
+<span style="color:#66d9ef">for</span> ep <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>): <span style="color:#75715e"># 100번 epoch</span>
+    loss_buffer <span style="color:#f92672">=</span> [] <span style="color:#75715e">#  각 epoch마다 loss를 확인하기 위함</span>
+    <span style="color:#66d9ef">for</span> X,Y <span style="color:#f92672">in</span> train_loader: <span style="color:#75715e"># epoch마다 각각의 batch 단위를 학습 # 여기에서 X,Y는 위에서 정의한 class 안의 getitem의 X,Y에 대응되는 것</span>
+        optimizer<span style="color:#f92672">.</span>zero_grad()
+        y_infer <span style="color:#f92672">=</span> model(X) <span style="color:#75715e"># y_infer.shape == (8,1)</span>
+        Y <span style="color:#f92672">=</span> Y<span style="color:#f92672">.</span>view(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Y.shape(8,) --&gt; Y.view(-1,1)</span>
+        loss <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>torch<span style="color:#f92672">.</span>mean(Y<span style="color:#f92672">*</span>torch<span style="color:#f92672">.</span>log(y_infer)<span style="color:#f92672">+</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>Y)<span style="color:#f92672">*</span>torch<span style="color:#f92672">.</span>log(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>y_infer)) <span style="color:#75715e"># cross entropy 거리함수 이용</span>
+        loss<span style="color:#f92672">.</span>backward()
+        optimizer<span style="color:#f92672">.</span>step()
+        loss_buffer<span style="color:#f92672">.</span>append(loss<span style="color:#f92672">.</span>item()) <span style="color:#75715e"># 각 배치마다 loss_buffer의 빈 array에 loss 값 추가 </span>
+
+    <span style="color:#66d9ef">if</span> ep <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Epoch : {}, Loss: {}&#39;</span><span style="color:#f92672">.</span>format(ep, np<span style="color:#f92672">.</span>mean(loss_buffer)))
+
+        
+<span style="color:#75715e"># 결과 시각화</span>
+y_infer <span style="color:#f92672">=</span> model(torch<span style="color:#f92672">.</span>Tensor(data[data<span style="color:#f92672">.</span>columns[:<span style="color:#ae81ff">3</span>]]<span style="color:#f92672">.</span>values))
+
+plt<span style="color:#f92672">.</span>scatter(np<span style="color:#f92672">.</span>arange(data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]),data[<span style="color:#e6db74">&#39;admitted&#39;</span>],color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;red&#39;</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;True result&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(np<span style="color:#f92672">.</span>arange(data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]),y_infer<span style="color:#f92672">.</span>detach()<span style="color:#f92672">.</span>numpy(),color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Predicted result&#39;</span>) <span style="color:#75715e"># detach() : 기존 Tensor에서 gradient 전파가 안되는 텐서 생성</span>
+plt<span style="color:#f92672">.</span>hlines(<span style="color:#ae81ff">0.5</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">60</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Admission boundary&#39;</span>)
+plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;upper center&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;10&#39;</span>)
+plt<span style="color:#f92672">.</span>xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">41</span>)
+plt<span style="color:#f92672">.</span>ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>,<span style="color:#ae81ff">1.5</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Volunteer&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Result&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;MBA admission result included prediction&#39;</span>)
+
+
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/machine_learning/" rel="tag">machine_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

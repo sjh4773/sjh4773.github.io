@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>머신러닝 회귀 모델의 평가지표 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">머신러닝 회귀 모델의 평가지표</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="회귀-평가-지표">회귀 평가 지표</h1>
+<p>회귀 평가를 위한 지표는 실제 값과 예측값의 차이를 기반으로 함</p>
+<p>회귀 평가지표 MAE, MSE, RMSE, RMSLE는 값이 작을수록 회귀 성능이 좋은 것
+값이 작을수록 예측값과 실제값의 차이가 없다는 것을 의미</p>
+<h2 id="msemean-squared-error">MSE(Mean Squared Error)</h2>
+<p><img src="/image/reg1.PNG" alt="">
+실제 값과 예측 값의 차이를 제곱해 평균한 것</p>
+<h3 id="장점">장점</h3>
+<ul>
+<li>지표 자체가 직관적이고 단순하다.</li>
+</ul>
+<h3 id="단점">단점</h3>
+<pre><code>스케일에 의존적이다. 예를 들어 테슬라의 주가가 900000원이고 현대자동차의 주가가 250000일 때,
+두 주가를 예측하는 각각의 모델의 MSE가 똑같이 4000이 나올 경우, 분명 동일한 에러율이 아님에도
+불구하고 동일하게 보여진다.
+에러를 제곱하기 때문에, 1미만의 에러는 더 작아지고, 그 이상의 에러는 더 커진다.
+즉 값의 왜곡이 존재한다.
+</code></pre>
+<h2 id="maemean-absolute-error">MAE(Mean Absolute Error)</h2>
+<p><img src="/image/reg2.PNG" alt="">
+실제 값과 예측 값의 차이를 절댓값으로 변환해 평균한 것</p>
+<h3 id="장점-1">장점</h3>
+<pre><code>지표 자체가 직관적이며 예측변수와 단위가 같다.
+ex) 기온을 예측하는 모델의 MAE가 3이라면 이 모델은 평균적으로 3도 정도를 잘못 예측하는 것임
+</code></pre>
+<h3 id="단점-1">단점</h3>
+<pre><code>잔차에 절댓값을 씌우기 때문에 실제 값에 대해 underestimates or overestimates 인지 파악하기 힘들다.
+ex) 삼성전자의 주가를 예측하는 모델의 MAE가 1,000이라면 이 모델이 평균적으로 주가를 1000원을 높게 예측하는지 1000원을 낮게 예측하는지 파악하기 힘들다.
+스케일에 의존적이다. (MAE, MSE, RMSE와 동일)
+ex) 비트코인의 가격이 25,000,000이고 이더리움의 가격이 600,000 일 때 두 암호화폐의 가격을 예측하는 모델의 MAE가 동일하게 10,000 이라고 해보자.
+이들은 분명 동일한 에러율이 아님에도 불구하고 MAE 숫자 자체는 동일하다
+</code></pre>
+<h2 id="rmse-root-mean-squared-error">RMSE (Root Mean Squared Error)</h2>
+<p><img src="/image/reg3.PNG" alt="">
+MSE 값은 오류의 제곱을 구하므로 실제 오류 평균보다 더 커지는 특성이 있어 MSE에 루트를 씌운 RMSE 값을 씀</p>
+<h3 id="장점-2">장점</h3>
+<pre><code>지표 자체가 직관적이며 예측변수와 단위가 같다.
+ex) 기온을 예측하는 모델의 RMSE가 3이라면 이 모델은 평균적으로 3도 정도를 잘못 예측하는 것임
+잔차를 제곱하기 때문에 이상치에 민감하다.
+제곱된 잔차를 다시 루트로 풀어주기 때문에 잔차를 제곱해서 생기는 값의 왜곡이 MSE에 비해 좀 덜하다.
+</code></pre>
+<h3 id="단점-2">단점</h3>
+<pre><code>실제 값에 대해 underestimates or overestimates 인지 파악하기 힘들다.
+스케일에 의존적이다. (MAE, MSE, RMSE와 동일)
+</code></pre>
+<h3 id="rmsle-root-mean-squared-log-error">RMSLE (Root Mean Squared Log Error)</h3>
+<p><img src="/image/reg4.PNG" alt="">
+오차(Error)를 제곱(Square)해서 평균(Mean)한 값의 제곱근(Root)으로 값이 작을 수록 정밀도가 높음</p>
+<ul>
+<li>
+<p>0에 가까운 값이 나올 수록 정밀도가 높은 값</p>
+</li>
+<li>
+<p>과대평가 된 항목보다는 과소평가 된 항목에 패널티를 줌</p>
+</li>
+<li>
+<p>RMSE와 비교해서 RMSLE가 가진 장점</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>아웃라이어에 강건함</p>
+<p>RMSLE는 아웃라이어가 있더라도 값의 변동폭이 크지 않음</p>
+</li>
+<li>
+<p>상대적 Error를 측정</p>
+<p>RMSE와 달리 RMSLE는 예측값과 실제값의 상대적 Error를 측정</p>
+</li>
+<li>
+<p>Under Estimation에 큰 패널티를 부여</p>
+<p>과대 평가이던 과소 평가이던 간에  RMSE값은 동일함</p>
+<p>RMSLE는 Under Estimation일 때 (즉, 예측값이 실제값보다 작을 때) 더 높은 페널티가 주어짐</p>
+</li>
+</ol>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/machine_learning/" rel="tag">machine_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

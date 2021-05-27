@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PCA의 이해 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">PCA의 이해</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="pcaprincipal-component-analysis의-이해">PCA(Principal Component Analysis)의 이해</h1>
+<ul>
+<li>
+<p>고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법</p>
+</li>
+<li>
+<p>예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소</p>
+</li>
+<li>
+<p>PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며
+이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행</p>
+</li>
+</ul>
+<p>PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고,
+이렇게 생선된 축으로 데이터를 투영하는 방식이다.</p>
+<p><img src="/image/pca1.PNG" alt=""></p>
+<pre><code>PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고,
+두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다.
+세 번째 축은 다시 두번째 축과 직각이 되는 벡터를 설정하는 방식으로 축을 생성한다.
+이렇게 생성된 벡터 축에 원본 데이터를 투영하면 벡터 축의 개수만큼의 차원으로 원본 데이터가 차원 축소된다.
+</code></pre>
+<p>PCA, 즉 주성분 분석은 이처럼 원본 데이터의 피처 개수에 비해 매우 작은 주성분으로
+원본 데이터의 총 변동성을 대부분 설명할 수 있는 분석법이다.</p>
+<h2 id="pca-변환">PCA 변환</h2>
+<p><img src="/image/pca2.PNG" alt="">
+<img src="/image/pca3.PNG" alt=""></p>
+<p>PCA를 선형대수 관점에서 해석해 보면, 입력 데이터의 공분산 행렬(Covariance Matrix)을 고유값 분해하고,
+이렇게 구한 고유벡터에 입력 데이터를 선형 변환하는 것이다.</p>
+<ul>
+<li>고유벡터는 PCA의 주성분 벡터로서 입력 데이터의 분산이 큰 방향을 나타낸다.</li>
+<li>고윳값(eigenvalue)은 바로 이 고유벡터의 크기를 나타내며, 동시에 입력 데이터의 분산을 나타낸다.</li>
+</ul>
+<h2 id="공분산-행렬">공분산 행렬</h2>
+<p><img src="/image/pca4.PNG" alt=""></p>
+<pre><code>보통 분산은 한개의 특정한 변수의 데이터 변동을 의미하나, 공분산은 두 변수 간의 변동을 의미한다.
+즉, 사람 키 변수를 x, 몸무게 변수를 y라고 하면 공분산 cov(x,y) &gt; 0은 x(키)가 증가할 때 y(몸무게)도 증가한다는 의미
+</code></pre>
+<h3 id="공분산-행렬은-여러-변수와-관련된-공분산을-포함하는-정방형-행렬이며-대칭-행렬이다">공분산 행렬은 여러 변수와 관련된 공분산을 포함하는 정방형 행렬이며 대칭 행렬이다.</h3>
+<pre><code>정방행렬은 열과 행이 같은 행렬을 지칭하는데, 정방행렬 중에서 대각 원소를 중심으로 원소 값이 대칭되는 행렬,
+즉 A^T = A인 행렬을 대칭행렬이라고 부른다.
+</code></pre>
+<h2 id="선형-변환과-고유-벡터고유값">선형 변환과 고유 벡터/고유값</h2>
+<p><img src="/image/pca5.PNG" alt=""></p>
+<pre><code>일반적으로 선형 변환은 특정 벡터에 행렬 A를 곱해 새로운 벡터로 변환하는 것을
+의미한다. 이를 특정 벡터를 하나의 공간에서 다른 공간으로 투영하는
+개념으로 볼 수 있으며, 이 경우 이 행렬을 바로 공간으로 가정하는 것이다.
+
+고유벡터는 행렬 A를 곱하더라도 방향이 변하지 않고 그 크기만 변하는 벡터를 지칭한다.
+즉 Ax = ax(A는 행렬, x는 고유 벡터, a는 스칼라값)이다.
+이 고유벡터는 여러 개가 존재하며, 정방 행렬은 최대 그 차원 수만큼 고유벡터를 가질 수 있다,
+예를 들어 2x2 행렬은 두 개의 고유 벡터를, 3xe3 행렬은 3개의 고유벡터를 가질 수 있다,
+이렇게 고유벡터는 행렬이 작용하는 힘의 방향과 관계가 있어서 행렬을 분해하는데 사용된다.
+</code></pre>
+<h2 id="공분산-행렬의-고유값-분해">공분산 행렬의 고유값 분해</h2>
+<ul>
+<li>
+<p>공분산 행렬은 정방행렬(Diagonal Matrix)이며 대칭행렬(Symmetric Matrix)이다.
+정방행렬은 열과 행이 같은 행렬을 지칭하는데, 정방행렬 중에서 대각 원소를 중심으로 원소 값이 대칭되는 행렬,
+즉 A^T = A인 행렬을 대칭행렬이라고 부른다</p>
+</li>
+<li>
+<p>대칭행렬은 고유값 분해와 관련해 매우 좋은 특성이 있다, 대칭행렬은 항상 고유벡터를 직교행렬(othogonal matrix)로,
+고유값을 정방 행렬로 대각화 할 수 있다는 것이다.</p>
+</li>
+</ul>
+<p><img src="/image/pca7.PNG" alt=""></p>
+<h2 id="pca-변환과-수행-절차">PCA 변환과 수행 절차</h2>
+<h3 id="pca-변환-1">PCA 변환</h3>
+<p>입력 데이터의 공분산 행렬이 고유벡터와 고유값으로 분해될 수 있으며,
+이렇게 분해된 고유벡터를 이용해 입력 데이터를 선형 변환하는 방식</p>
+<h3 id="pca-변환-수행-절차">PCA 변환 수행 절차</h3>
+<ol>
+<li>입력 데이터 세트의 공분산 행렬을 생성한다.</li>
+<li>공분산 행렬의 고유벡터와 고유값을 계산한다,</li>
+<li>고유값이 가장 큰 순으로 K개(PCA 변환 차수만큼)만큼 고유벡터를 추출한다,</li>
+<li>고유값이 가장 큰 순으로 추출된 고유벡터를 이용해 새롭게 입력 데이터를 변환한다.</li>
+</ol>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/machine_learning/" rel="tag">machine_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

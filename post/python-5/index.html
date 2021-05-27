@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>정규 표현식 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">정규 표현식</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="정규-표현식">정규 표현식</h1>
+<h2 id="문자-클래스">문자 클래스</h2>
+<ul>
+<li>
+<p>[]</p>
+<p>[] 사이의 문자들과 매치
+만약 정규 표현식이 [abc]라면 이 표현식의 의미는 문자열들 중에 a,b,c가 한 개라도 있으면 매치 된다는 것을 의미</p>
+</li>
+<li>
+<p>[] 안의 두 문자 사이에 하이픈(-)을 사용할 시</p>
+<ul>
+<li>
+<p>두 문자 사이의 범위(From - To)를 의미</p>
+</li>
+<li>
+<p>하이픈(-)을 사용한 문자 클래스의 사용 예</p>
+<ul>
+<li>[a-zA-Z] : 알파벳 전부</li>
+<li>[0-9] : 숫자</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>^</p>
+<p>문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
+예를 들어 [^0-9]라는 정규 표현식은 숫자가 아닌 문자만 매치된다.</p>
+</li>
+</ul>
+<p>[
+자주 사용하는 문자 클래스]</p>
+<pre><code>\d - 숫자와 매치, [0-9]와 동일한 표현식이다.
+\D - 숫자가 아닌 것과 매치, [^0-9]와 동일한 표현식이다.
+\s - whitespace 문자와 매치, [ \t\n\r\f\v]와 동일한 표현식이다. 맨 앞의 빈 칸은 공백문자(space)를 의미한다.
+\S - whitespace 문자가 아닌 것과 매치, [^ \t\n\r\f\v]와 동일한 표현식이다.
+\w - 문자+숫자(alphanumeric)와 매치, [a-zA-Z0-9_]와 동일한 표현식이다.
+\W - 문자+숫자(alphanumeric)가 아닌 문자와 매치, [^a-zA-Z0-9_]와 동일한 표현식이다.
+</code></pre>
+<ul>
+<li>
+<p>Dot(.)</p>
+<p>예 :  a.b &ndash;&gt; &ldquo;a + 모든문자 + b&rdquo;
+의미 : a와 b라는 문자 사이에 어떤 문자가 들어와도 모두 매치가 된다.</p>
+</li>
+<li>
+<p>반복(*)</p>
+<p>a* &ndash;&gt; a가 0부터 무한대로 반복될 수 있다는 의미</p>
+</li>
+<li>
+<p>반복(+)</p>
+<p>반복을 나타내는 또 다른 메타 문자로 +가 있다. +는 최소 1번 이상 반복될 때 사용한다.
+즉 *가 반복 횟수 0부터라면 +는 반복 횟수 1부터인 것이다.</p>
+</li>
+<li>
+<p>반복 ({m,n}, ?)</p>
+<p>{ } 메타 문자를 사용하면 반복 횟수를 고정할 수 있다. {m, n} 정규식을 사용하면 반복 횟수가 m부터 n까지 매치할 수 있다.
+또한 m 또는 n을 생략할 수도 있다.
+만약 {3,}처럼 사용하면 반복 횟수가 3 이상인 경우이고 {,3}처럼 사용하면 반복 횟수가 3 이하를 의미한다.
+생략된 m은 0과 동일하며, 생략된 n은 무한대(2억 개 미만)의 의미를 갖는다.</p>
+</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" rel="tag">Python 공부</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

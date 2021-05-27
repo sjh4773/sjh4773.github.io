@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandas 공부 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/pandas-%EA%B3%B5%EB%B6%80/</link>
+    <description>Recent content in pandas 공부 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Wed, 14 Apr 2021 19:15:38 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/pandas-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pandas.factorize()</title>
+      <link>http://sjh4773.github.io/post/pandas-factorize/</link>
+      <pubDate>Wed, 14 Apr 2021 19:15:38 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/pandas-factorize/</guid>
+      <description>pandas.factorize() 대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다. 이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.
+pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort : [bool, Default is False] Sort uniques and shuffle labels. na_sentinel : [ int, default -1] Missing Values to mark ‘not found’. Return: Numeric representation of array  factorize() 방법의 작동 설명 import numpy as np import pandas as pd from pandas.</description>
+    </item>
+    
+    <item>
+      <title>join 함수</title>
+      <link>http://sjh4773.github.io/post/pandas_join_01/</link>
+      <pubDate>Sun, 11 Apr 2021 21:52:29 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/pandas_join_01/</guid>
+      <description>JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
+import pandas as pd d1 = {&amp;#39;Asset_Allocation&amp;#39;:[1,2,3,4,5,6], &amp;#39;stock&amp;#39;:[&amp;#39;IDEXX&amp;#39;,&amp;#39;Zoetis&amp;#39;,&amp;#39;Freshpet&amp;#39;,&amp;#39;Chewy&amp;#39;,&amp;#39;Trupanion&amp;#39;,&amp;#39;WOOF&amp;#39;] } df1 = pd.DataFrame(d1) d2 = {&amp;#39;Asset_Allocation&amp;#39;:[2,3,6,8], &amp;#39;Analyze&amp;#39;:[&amp;#39;Buy&amp;#39;,&amp;#39;Hold&amp;#39;,&amp;#39;Sell&amp;#39;, &amp;#39;None&amp;#39;]} df2 = pd.DataFrame(d2) df1 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  df2 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  Inner 조인 수행. inner_join_result = pd.merge(df1, df2, on=&amp;#39;Asset_Allocation&amp;#39;, how=&amp;#39;inner&amp;#39;) inner_join_result .</description>
+    </item>
+    
+  </channel>
+</rss>

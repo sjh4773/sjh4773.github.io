@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Feature Engineering - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Feature Engineering</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h3 id="머신러닝-모델-성능-최적화">머신러닝 모델 성능 최적화</h3>
+<ul>
+<li>
+<p>Feature Engineering</p>
+<ul>
+<li>알고리즘이 보다 효율적으로 예측할 수 있도록 데이터 가공</li>
+<li>기존 feature들을 다양한 형태로 재가공</li>
+</ul>
+</li>
+<li>
+<p>알고리즘 선택</p>
+<ul>
+<li>선형, SVM, 확률, 트리 기반의 다양한 알고리즘</li>
+<li>Boosting 계열 알고리즘의 강세</li>
+<li>모델 혼합(Blending)m stacking</li>
+</ul>
+</li>
+<li>
+<p>Hyper parameter 튜닝</p>
+<ul>
+<li>Feature engineering 된 데이터 세트로 최적화된 알고리즘 하이퍼 파라미터 튜닝</li>
+</ul>
+</li>
+</ul>
+<h3 id="feature-engineering의-주요-기법">Feature Engineering의 주요 기법</h3>
+<h4 id="기본-feature-engineering">[기본 Feature Engineering]</h4>
+<ul>
+<li>
+<p>스케일링(Scaling)</p>
+<ul>
+<li>standardScaler, MinMaxScaler</li>
+</ul>
+</li>
+<li>
+<p>변환(Transformation)</p>
+<ul>
+<li>로그 변환(Log Transformation)</li>
+<li>Polynomial 피처 변환</li>
+<li>PCA 변환</li>
+</ul>
+</li>
+<li>
+<p>인코딩(Encoding)</p>
+<ul>
+<li>레이블 인코딩, 원핫 인코딩</li>
+</ul>
+</li>
+<li>
+<p>결측치(Null값)/이상치(Outlier) 치환</p>
+</li>
+<li>
+<p>Skew 데이터 세트 보정</p>
+<ul>
+<li>오버/언더 Sampling</li>
+</ul>
+</li>
+</ul>
+<h4 id="업무적인-이해에-기반한-피처-재가공과-생산">[업무적인 이해에 기반한 피처 재가공과 생산]</h4>
+<ul>
+<li>중요 피처들을 결합/재가공 작업을 통해 새롭고 의미 있는 피처들을 도출</li>
+<li>업무와 연관성이 노은 새로운 피처들을 생산</li>
+</ul>
+<h3 id="feature-engineering을-위한-주요-접근-방식">Feature Engineering을 위한 주요 접근 방식</h3>
+<h4 id="업무적으로-중요한-feature들의-재결합-및-재가공">[업무적으로 중요한 feature들의 재결합 및 재가공]</h4>
+<ul>
+<li>
+<p>중요도가 높은 feature들에 대해서 재가공</p>
+</li>
+<li>
+<p>주요 컬럼끼리 차 또는 합,비율 등을 재가공</p>
+</li>
+<li>
+<p>주요 컬럼 및 가공 컬럼들에 대한 다양한 aggregation 적용</p>
+</li>
+<li>
+<p>업무적으로 의미있는 컬럼 재생산</p>
+</li>
+</ul>
+<h4 id="최근-데이터-active인-데이터-위주-필터링-후-데이터-가공">[최근 데이터, Active인 데이터 위주 필터링 후 데이터 가공]</h4>
+<ul>
+<li>
+<p>시계열성 데이터의 경우 오래전 데이터 보다는 최근 데이터를 기반으로 별도의 재가공 적용</p>
+</li>
+<li>
+<p>업무적으로 여전히 유효한 최근 데이터를 필터링하여 가공</p>
+</li>
+</ul>
+<h6 id="아직-데이터로-표출되지-않은-중요-피처들을-feature-engineering을-통해-도출">아직 데이터로 표출되지 않은 중요 피처들을 Feature engineering을 통해 도출</h6>
+<h6 id="지나치게-비슷한-피처들을-너무-많이-도출하는-것은-과적합overfitting을-가져-올-수-있음-적절한-피처들을-선택하는-추가-작업이-필요할-수-있음">지나치게 비슷한 피처들을 너무 많이 도출하는 것은 과적합(Overfitting)을 가져 올 수 있음. 적절한 피처들을 선택하는 추가 작업이 필요할 수 있음.</h6>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/feature-engineering/" rel="tag">Feature Engineering</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

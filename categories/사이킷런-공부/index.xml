@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>사이킷런 공부 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/</link>
+    <description>Recent content in 사이킷런 공부 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Tue, 06 Apr 2021 22:25:03 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StandardScaler()</title>
+      <link>http://sjh4773.github.io/post/sklearn-1/</link>
+      <pubDate>Tue, 06 Apr 2021 22:25:03 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/sklearn-1/</guid>
+      <description>사이킷런 데이터 전처리 함수 StandardScaler() 데이터의 피처 각각이 평균이 0, 분산이 1인 가우시안 정규분포를 가진 값으로 변환하는 작업을 표준화라고 한다. 기계학습 시에 SVM, 선형 회귀, 로지스틱 회귀는 가우시안 분포를 가정하고 구현되었으므로 전처리 단계에서 표준화를 해주는 것이 성능 향상에 도움이 된다. 원래 값에서 피처의 평균을 뺀 값을 피처의 표준편차로 나눠서 표준화한다. 수식으로 나타내면 다음과 같다.  사이킷런의 StandardScaler를 사용해 표준화를 진행 할 수 있다. 데이터 인코딩에서와 마찬가지로 피처 스케일링에서도 fit()과 transform()을 사용한다.</description>
+    </item>
+    
+  </channel>
+</rss>

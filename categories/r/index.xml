@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>r on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/r/</link>
+    <description>Recent content in r on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Sun, 28 Mar 2021 21:08:03 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R shiny를 이용한 동적 시각화 연습</title>
+      <link>http://sjh4773.github.io/post/r-5/</link>
+      <pubDate>Sun, 28 Mar 2021 21:08:03 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-5/</guid>
+      <description>library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &amp;lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&amp;#34;var_x&amp;#34;, &amp;#34;Select a Variables of X :&amp;#34;, choices = c(&amp;#34;year&amp;#34;,&amp;#34;lifeExp&amp;#34;,&amp;#34;pop&amp;#34;,&amp;#34;gdpPercap&amp;#34;) ), selectInput(inputId=&amp;#34;var_y&amp;#34;,&amp;#34;Select a Variables of Y :&amp;#34;, choices = c(&amp;#34;year&amp;#34;,&amp;#34;lifeExp&amp;#34;,&amp;#34;pop&amp;#34;,&amp;#34;gdpPercap&amp;#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &amp;#34;scatterPlot&amp;#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &amp;lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.</description>
+    </item>
+    
+    <item>
+      <title>상관분석 실습</title>
+      <link>http://sjh4773.github.io/post/r-4/</link>
+      <pubDate>Thu, 25 Mar 2021 23:42:07 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-4/</guid>
+      <description>상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
+  R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
+  library(ggplot2) economics &amp;lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&amp;#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &amp;lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.</description>
+    </item>
+    
+    <item>
+      <title>t-검정 실습</title>
+      <link>http://sjh4773.github.io/post/r-3/</link>
+      <pubDate>Thu, 25 Mar 2021 23:41:56 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-3/</guid>
+      <description>t검정 - 두 집단의 평균 비교 &amp;rsquo;t 검정(t-test)&amp;lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &amp;lt;- mpg %&amp;gt;% select(fl, cty) %&amp;gt;% filter(fl %in% c(&amp;#34;r&amp;#34;, &amp;#34;p&amp;#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.</description>
+    </item>
+    
+    <item>
+      <title>트위터 텍스트 마이닝</title>
+      <link>http://sjh4773.github.io/post/r-2/</link>
+      <pubDate>Wed, 24 Mar 2021 19:34:24 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r-2/</guid>
+      <description>library(KoNLP) library(dplyr) library(ggplot2) install.packages(&amp;#34;stringr&amp;#34;) library(stringr) # stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수 # 세트를 제공합니다. useNIADic() twitter &amp;lt;- read.csv(&amp;#34;./Data/twitter.csv&amp;#34;, header = T, stringsAsFactors = F, fileEncoding = &amp;#34;UTF-8&amp;#34;) glimpse(twitter) # 변수명 수정 twitter &amp;lt;- rename(twitter, no = 번호, id = 계정이름, date = 작성일, tw = 내용) # 특수문자 제거 twitter$tw &amp;lt;- str_replace_all(twitter$tw, &amp;#34;\\W&amp;#34;, &amp;#34; &amp;#34;) head(twitter$tw) # 단어 빈도표 만들기 # 트윗에서 명사추출 nouns &amp;lt;- extractNoun(twitter$tw) # 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성 wordcount &amp;lt;- table(unlist(nouns)) wordcount # 데이터 프레임으로 변환 df_word &amp;lt;- as.</description>
+    </item>
+    
+    <item>
+      <title>힙합 가사 텍스트 마이닝 및 워드 클라우드</title>
+      <link>http://sjh4773.github.io/post/r/</link>
+      <pubDate>Tue, 23 Mar 2021 19:37:34 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/r/</guid>
+      <description>KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&amp;ldquo;multilinguer&amp;rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&amp;ldquo;stringr&amp;rdquo;, &amp;ldquo;hash&amp;rdquo;, &amp;ldquo;tau&amp;rdquo;, &amp;ldquo;Sejong&amp;rdquo;, &amp;ldquo;RSQLite&amp;rdquo;, &amp;ldquo;devtools&amp;rdquo;), type = &amp;ldquo;binary&amp;rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&amp;ldquo;remotes&amp;rdquo;) remotes::install_github(&amp;ldquo;haven-jeon/KoNLP&amp;rdquo;, upgrade = &amp;ldquo;never&amp;rdquo;, INSTALL_opts=c(&amp;quot;&amp;ndash;no-multiarch&amp;quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &amp;#39;텍스트 마이닝&amp;#39;이라고 한다.</description>
+    </item>
+    
+  </channel>
+</rss>

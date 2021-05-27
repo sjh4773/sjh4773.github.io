@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>pandas.factorize() - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">pandas.factorize()</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="pandasfactorize">pandas.factorize()</h1>
+<p>대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다.
+이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.</p>
+<h3 id="pandasfactorize-and-seriesfactorize">pandas.factorize() and Series.factorize()</h3>
+<pre><code>Parameters:
+values : 1D sequence.
+sort : [bool, Default is False] Sort uniques and shuffle labels.
+na_sentinel : [ int, default -1] Missing Values to mark ‘not found’.
+
+Return: Numeric representation of array
+</code></pre>
+<h3 id="factorize-방법의-작동-설명">factorize() 방법의 작동 설명</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> pandas.api.types <span style="color:#f92672">import</span> CategoricalDtype
+
+labels, uniques <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>factorize([<span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Numeric Representation : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,labels)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Unique Values : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uniques)
+</code></pre></div><h4 id="결과값">결과값</h4>
+<pre><code>Numeric Representation : 
+ [0 1 1 0 2 2]
+Unique Values : 
+ ['c' 'a' 'b']
+</code></pre>
+<h3 id="정렬">정렬</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">label_sort, unique_sort <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>factorize([<span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;d&#39;</span>,<span style="color:#e6db74">&#39;d&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;c&#39;</span>], sort<span style="color:#f92672">=</span>True)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Numeric Representation :&#34;</span>,label_sort)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Unique Values : &#34;</span>,unique_sort)
+</code></pre></div><h4 id="결과값-1">결과값</h4>
+<pre><code>umeric Representation : [2 3 3 1 0 2]
+Unique Values :  ['a' 'b' 'c' 'd']
+</code></pre>
+<h3 id="누락값-표시">누락값 표시</h3>
+<p>누락값은 na_sentinel(default -1)로 코드에 표시된다. 누락값은 고유 항목에 포함되지 않는다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">label_none, unique_none <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>factorize([<span style="color:#e6db74">&#39;b&#39;</span>, None, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, None, <span style="color:#e6db74">&#39;a&#39;</span>, ], 
+                                              na_sentinel <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">101</span>)
+  
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Numeric Representation : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, label_none)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Unique Values : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, unique_none)
+</code></pre></div><h4 id="결과값-2">결과값</h4>
+<pre><code>Numeric Representation : 
+ [   0 -101    1    2 -101    3]
+Unique Values : 
+ ['b' 'd' 'c' 'a']
+</code></pre>
+<h3 id="범주내에-있지-않는-값은--1-처리된다">범주내에 있지 않는 값은 -1 처리된다.</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Categorical([<span style="color:#e6db74">&#39;d&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;f&#39;</span>], categories <span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>])
+  
+label_cat, unique_cat <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>factorize(a)
+  
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Numeric Representation : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, label_cat)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Unique Values : </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, unique_cat)
+</code></pre></div><h4 id="결과값-3">결과값</h4>
+<pre><code>Numeric Representation : 
+ [ 0  1  1  2 -1]
+Unique Values : 
+ ['d', 'a', 'c']
+Categories (4, object): ['d', 'c', 'b', 'a']</code></pre>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" rel="tag">pandas 공부</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

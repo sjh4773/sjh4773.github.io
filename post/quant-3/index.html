@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>금융 속보 크롤링 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">금융 속보 크롤링</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 금융 속보 크롤링</span>
+
+<span style="color:#75715e"># 네이버 금융 -&gt; 뉴스 -&gt; 실시간 속보</span>
+<span style="color:#75715e"># 금융 속보의 제목을 추출하는 과정</span>
+
+
+<span style="color:#a6e22e">library</span>(rvest)
+<span style="color:#a6e22e">library</span>(httr)
+
+<span style="color:#75715e"># url 변수에 해당 주소 입력</span>
+url <span style="color:#f92672">=</span> <span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;section_id=101&amp;section_id2=258&#39;</span>)
+
+<span style="color:#75715e"># GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장</span>
+data <span style="color:#f92672">=</span> <span style="color:#a6e22e">GET</span>(url)             
+
+<span style="color:#75715e"># 데이터 변수 확인</span>
+<span style="color:#75715e"># Status : 200,즉 데이터가 이상 없이 받아짐</span>
+<span style="color:#75715e"># 인코딩은 EUC-KR 타입</span>
+<span style="color:#a6e22e">print</span>(data)
+
+data_title <span style="color:#f92672">=</span> data <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">read_html</span>(encoding <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;EUC-KR&#39;</span>) <span style="color:#f92672">%&gt;%</span>  <span style="color:#75715e"># read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정</span>
+  <span style="color:#a6e22e">html_nodes</span>(<span style="color:#e6db74">&#39;dl&#39;</span>) <span style="color:#f92672">%&gt;%</span>                <span style="color:#75715e"># html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출</span>
+  <span style="color:#a6e22e">html_nodes</span>(<span style="color:#e6db74">&#39;.articleSubject&#39;</span>) <span style="color:#f92672">%&gt;%</span>   <span style="color:#75715e"># 함수를 이용해 articleSubject 클래스에 해당하는 부분 추출</span>
+  <span style="color:#a6e22e">html_nodes</span>(<span style="color:#e6db74">&#39;a&#39;</span>) <span style="color:#f92672">%&gt;%</span>                 <span style="color:#75715e"># 함수를 이용해 a 태그 추출</span>
+  <span style="color:#a6e22e">html_attr</span>(<span style="color:#e6db74">&#39;title&#39;</span>)                  <span style="color:#75715e"># html_attr 함수는 속성을 추출하는 함수이며 title에 해당하는 부분만을 추출</span>
+
+<span style="color:#a6e22e">print</span>(data_title)
+
+<span style="color:#75715e"># 결과</span>
+<span style="color:#75715e"># [1] &#34;증선위, 회계 위반 디지털타임스에 과징금 1.4억원 부과&#34;                         </span>
+<span style="color:#75715e"># [2] &#34;&#34;                                                                             </span>
+<span style="color:#75715e"># [3] &#34;증선위, &#39;공시의무 위반&#39; 한국투자\u8b49 등 7개사 과징금 9억 부과&#34;              </span>
+<span style="color:#75715e"># [4] &#34;[시그널] 국민연금 국내 주식확대 \&#34;여론 압박에 수정···대형주만 유리해지나\&#34;&#34;</span>
+<span style="color:#75715e"># [5] &#34;이스라엘 총선 혼전···최장수 총리 네타냐후 재집권 &#39;불투명&#39;&#34;                 </span>
+<span style="color:#75715e"># [6] &#34;증선위, 바이오솔루션 등 7곳 &#39;공시 위반&#39; 과징금 9억여원 부과&#34;                  </span>
+<span style="color:#75715e"># [7] &#34;금융위, 회계처리기준 위반 디지털타임스 검찰통보&#34;                              </span>
+<span style="color:#75715e"># [8] &#34;\u4e2d, 신장 압박에 &#39;미국 인권침해보고서&#39; 맞불&#34;                               </span>
+<span style="color:#75715e"># [9] &#34;미래에셋증권, 최현만·김재식 새 `투톱 체제`로 전환&#34;                           </span>
+<span style="color:#75715e"># [10] &#34;증선위, 공시의무 위반 바이오솔루션·한투증권 등 7개사에 과징금 부과&#34;          </span>
+<span style="color:#75715e"># [11] &#34;금융위, 공시규정 위반 바이오솔루션 등 7개사에 과징금 8억9870만원 부과&#34;        </span>
+<span style="color:#75715e"># [12] &#34;증선위, 바이오솔루션 등 공시의무 위반 7개사에 과징금&#34;                         </span>
+<span style="color:#75715e"># [13] &#34;미래에셋증권 &#39;대우&#39;떼고 새출발.. 최현만·김재식 투톱체제로&#34;                   </span>
+<span style="color:#75715e"># [14] &#34;증선위, 회계기준 위반 디지털타임스에 과징금 1.4억 부과·검찰 통보&#34;            </span>
+<span style="color:#75715e"># [15] &#34;증선위, &#39;회계위반&#39; 디지털타임스 검찰통보&#34;                                     </span>
+<span style="color:#75715e"># [16] &#34;코로나 재확산에 미중 갈등까지...경제수장들의 &#39;달래기&#39;에도 지쳐가는 시장&#34;      </span>
+<span style="color:#75715e"># [17] &#34;증선위, 공시위반 바이오솔루션·한투\u8b49에 각각 과징금 3.9억&#34;                </span>
+<span style="color:#75715e"># [18] &#34;배우 이지아, &#39;펜트하우스&#39; 스탭 160여 명에게 셀티바 제품 8종 선물해&#34;           </span>
+<span style="color:#75715e"># [19] &#34;&#39;공시 위반&#39; 한국투자증권 등 7개사 과징금 제재&#34;                                </span>
+<span style="color:#75715e"># [20] &#34;[사모펀드 개편]PEF `10% 룰` 폐지…한국판 `엘리엇` 발판 마련&#34; </span>
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" rel="tag">R을 이용한 퀀트투자</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

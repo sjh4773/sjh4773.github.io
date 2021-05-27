@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.83.1" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="My New Hugo Site">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/statistics/" rel="bookmark">
+			statistics
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		회귀 분석이란? [개념]
+ 하나 이상의 독립변수들이 종속변수에 미치는 영향을 추정할 수 있는 통계 기법 변수들 사이의 인과관계를 밝히고 모형을 적합(Fit)하여 관심 있는 변수를 예측하거나 추론하기 위한 분석 방법이다. 독립 변수와 종속변수의 개수 및 특성에 따라 단순 회귀, 다중 회귀, 다항 회귀, 곡선 회귀, 로지스틱 회귀, 비선형 회귀로 분류  회귀분석의 요소 용어 정리 독립변수 (x) : 영향을 주는 변수. 설명변수, 예측변수라고 명명될 수 있음
+종속변수 (y) : 영향을 받는 변수.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-5/" rel="bookmark">
+			R shiny를 이용한 동적 시각화 연습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-2/" rel="bookmark">
+			이미지 경계선 검출
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# image convolution # check out horizontal, vertical, tilting, laplacian import numpy as np import matplotlib.pyplot as plt %matplotlib inline from PIL import Image # 파이썬에서 이미지를 담당 def convolution(image,filter,s=1): #stride = 1 image = np.asarray(image) height = image.shape[0] width = image.shape[1] new_height = int((height - filter.shape[0])/s+1) new_width = int((width - filter.shape[1])/s+1) new_image = np.zeros((new_height,new_width)) c_h = 0 for h in range(new_height): c_w = 0 for w in range(new_width): new_image[h,w] = np.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python-2/" rel="bookmark">
+			cat() 함수
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		cat 함수란? cat함수는 concatenate를 해주는 함수이고 concatenate하고자 하는 차원을 증가시킨다. concatenate하고자하는 차원을 지정해주면 그 차원으로 두 tensor의 차원을 더한 값으로 차원이 변경된다.
+cat 함수의 시각화 Python 코드 import torch batch_size, N, K = 3, 10, 256 x = torch.rand(batch_size, N, K) # [M, N, K] y = torch.rand(batch_size, N, K) # [M, N, K] output1 = torch.cat([x,y], dim=1) #[M, N+N, K] output2 = torch.cat([x,y], dim=2) #[M, N, K+K] 
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python/" rel="bookmark">
+			카페 추천 시스템
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Cosine similarity(유사도 측정)
+-&gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
+import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-4/" rel="bookmark">
+			상관분석 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
+  R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
+  library(ggplot2) economics &lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-3/" rel="bookmark">
+			t-검정 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/quant-3/" rel="bookmark">
+			금융 속보 크롤링
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# 금융 속보 크롤링 # 네이버 금융 -&gt; 뉴스 -&gt; 실시간 속보 # 금융 속보의 제목을 추출하는 과정 library(rvest) library(httr) # url 변수에 해당 주소 입력 url = paste0(&#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;section_id=101&amp;section_id2=258&#39;) # GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장 data = GET(url) # 데이터 변수 확인 # Status : 200,즉 데이터가 이상 없이 받아짐 # 인코딩은 EUC-KR 타입 print(data) data_title = data %&gt;% read_html(encoding = &#39;EUC-KR&#39;) %&gt;% # read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정 html_nodes(&#39;dl&#39;) %&gt;% # html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출 html_nodes(&#39;.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/mnist/" rel="bookmark">
+			mnist 데이터
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		MNIST 데이터란 인공지능이 이미지를 보고 이것이 어떤 이미지인가를 맞춰보게 하는 인공지능 훈련을 위한 Dataset
+MNIST 개요
+ 손글씨 데이터 손으로 작성된 0~9까지의 숫자 이미지 이미지 + 레이블 &ndash;&gt; 하나의 데이터셋  이미지 속성
+ 차원 (가로,세로,색조) &ndash;&gt; (28,28,1) 픽셀값: 0 ~ 255  레이블 정보
+ 단순 스칼라 (확률정보이용) -&gt; One-hot encoding  해결전략
+ 이미지, 레이블 전처리  원본이미지 &ndash;&gt; 전처리(flatten)
+레이블 &ldquo;3&rdquo; &ndash;&gt; &ldquo;[0,0,0,1,0,0,0,0,0,0]&rdquo; One-hot encoding
+이미지 전처리
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/machine-learning/" rel="bookmark">
+			회귀분석
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		#Logistic regression example # 라이브러리 호출 import torch import torch.nn as nn import torch.optim as optim import torch.nn.functional as F import pandas as pd # 데이터를 가공하기 위함 import numpy as np import matplotlib.pyplot as plt # 그림을 그리기 위함 %matplotlib inline #파일 업로드 data = pd.read_csv(&#39;./mba_admission.csv&#39;) # ./ --&gt; 현재 경로를 나타낸다 data.columns # 데이터 속성을 확인함 data.shape # (40,4) --&gt; 행 : 데이터 크기, 열 : gmat, gpa, work_experience --&gt; 입력, admitted --&gt; 결과 data.
+	</div>
+</article>
+</main>
+
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/page/3/">«</a>
+	<span class="pagination__item pagination__item--current">4/5</span>
+	<a class="pagination__item pagination__item--next btn" href="/page/5/">»</a>
+</div>
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

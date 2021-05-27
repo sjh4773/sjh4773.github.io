@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>비정형 텍스트 마이닝 - 사용데이터 기생충 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">비정형 텍스트 마이닝 - 사용데이터 기생충</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+<span style="color:#75715e"># KoNLP 설치</span>
+
+<span style="color:#a6e22e">writeLines</span>(<span style="color:#e6db74">&#39;PATH=&#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&#34;&#39;</span>, con <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;~/.Renviron&#34;</span>)
+
+usethis<span style="color:#f92672">::</span><span style="color:#a6e22e">edit_r_environ</span>()
+
+<span style="color:#a6e22e">Sys.which</span>(<span style="color:#e6db74">&#34;make&#34;</span>)
+
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;rJava&#34;</span>)
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;remotes&#34;</span>)
+remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#39;haven-jeon/KoNLP&#39;</span>, upgrade <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;never&#34;</span>, INSTALL_opts<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;--no-multiarch&#34;</span>))
+
+<span style="color:#a6e22e">useSejongDic</span>()
+
+<span style="color:#a6e22e">install.packages</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;stringr&#34;</span>, <span style="color:#e6db74">&#34;hash&#34;</span>, <span style="color:#e6db74">&#34;tau&#34;</span>, <span style="color:#e6db74">&#34;Sejong&#34;</span>, <span style="color:#e6db74">&#34;RSQLite&#34;</span>, <span style="color:#e6db74">&#34;devtools&#34;</span>), type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;binary&#34;</span>)
+
+<span style="color:#a6e22e">library</span>(KoNLP)
+<span style="color:#a6e22e">library</span>(plyr)
+<span style="color:#a6e22e">library</span>(tm)
+<span style="color:#a6e22e">library</span>(rJava)
+<span style="color:#a6e22e">library</span>(wordcloud)
+
+<span style="color:#a6e22e">useSejongDic</span>()
+
+<span style="color:#a6e22e">setwd</span>(<span style="color:#e6db74">&#34;C:/ADP/data&#34;</span>)
+
+movie <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">readLines</span>(<span style="color:#e6db74">&#34;영화 기생충_review.txt&#34;</span>)
+dic <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">readLines</span>(<span style="color:#e6db74">&#34;영화 기생충_사전.txt&#34;</span>)
+
+<span style="color:#a6e22e">buildDictionary</span>(ext_dic <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;woorimalsam&#34;</span>, user_dic <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">readLines</span>(<span style="color:#e6db74">&#34;영화 기생충_사전.txt&#34;</span>),<span style="color:#e6db74">&#34;ncn&#34;</span>),replace_usr_dic <span style="color:#f92672">=</span> T)
+
+<span style="color:#75715e"># KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여</span>
+<span style="color:#75715e"># &#39;영화 기생충_review.txt&#39; 파일을 movie 데이터에, &#39;영화 기생충_사전.txt&#39; 파일을 dic 데이터에 저장했다.</span>
+<span style="color:#75715e"># 그리고 buildDictionary 함수로 사전을 등록했다.</span>
+
+movie[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]
+
+clean_txt <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">function</span>(txt){
+  txt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tolower</span>(txt)                <span style="color:#75715e"># 대,소문자 변환</span>
+  txt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">removePunctuation</span>(txt)      <span style="color:#75715e"># 구두점 제거</span>
+  txt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">removeNumbers</span>(txt)          <span style="color:#75715e"># 숫자 제거</span>
+  txt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">stripWhitespace</span>(txt)        <span style="color:#75715e"># 공백제거</span>
+
+  <span style="color:#a6e22e">return</span>(txt)
+}
+
+movie_clean <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">clean_txt</span>(movie)
+
+movie_clean[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]
+
+<span style="color:#75715e"># clean_txt라는 사용자 정의 함수를 만들어 tm 패키지에서 제공하는 tolower, removePunctuation, removeNumbers,</span>
+<span style="color:#75715e"># stripWhitespace 함수를 활용하여 대,소문자 변환, 구두점, 숫자, 공백을 제거하여 movie_clean 데이터에 저장했다.</span>
+
+
+
+<span style="color:#75715e"># 영화 기생충_사전.txt를 단어 사전으로 하는 TDM을 구축하고 빈도를 파악하고 시각화하라.</span>
+
+b <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">VCorpus</span>(<span style="color:#a6e22e">VectorSource</span>(movie))
+clean_corpus <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(corpus){
+  corpus <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tm_map</span>(corpus, stripWhitespace)
+  corpus <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tm_map</span>(corpus, removePunctuation)
+  corpus <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tm_map</span>(corpus, removeNumbers)
+  corpus <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">tm_map</span>(corpus, <span style="color:#a6e22e">content_transformer</span>(tolower))
+  <span style="color:#a6e22e">return</span>(corpus)
+}
+
+c <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">clean_corpus</span>(b)
+dtm <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">TermDocumentMatrix</span>(c, control <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(dictionary <span style="color:#f92672">=</span> dic))
+m <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.matrix</span>(dtm)
+v <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">rowSums</span>(m), decreasing <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+d <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(word <span style="color:#f92672">=</span> <span style="color:#a6e22e">names</span>(v), freq<span style="color:#f92672">=</span>v)
+<span style="color:#a6e22e">head</span>(d, <span style="color:#ae81ff">10</span>)
+
+
+<span style="color:#75715e"># tm 패키지의 Corpus함수와 tm_map 함수를 활용해 전처리를 하고 TermDocumentMatrix를 dictionary를 사전에 저장한</span>
+<span style="color:#75715e"># dic으로 하여 dtm에 저장했다. 그리고 matrix화하여 빈도를 내림차순으로 정렬하여 v에 저장하고</span>
+<span style="color:#75715e"># d라는 data.frame로 변환하여 단어 빈도를 체크했다.</span>
+
+
+<span style="color:#75715e"># 단어 빈도를 바탕으로 막대그래프를 작성한다</span>
+
+colors <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rainbow</span>(<span style="color:#a6e22e">nrow</span>(d))
+<span style="color:#a6e22e">barplot</span>(v[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>], main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;기생충 reiview 빈출 명사&#34;</span>, col<span style="color:#f92672">=</span>colors)
+<span style="color:#a6e22e">legend</span>(<span style="color:#e6db74">&#34;right&#34;</span>,<span style="color:#a6e22e">names</span>(v[1<span style="color:#f92672">:</span><span style="color:#ae81ff">10</span>]),fill<span style="color:#f92672">=</span>colors)
+</code></pre></div><p><img src="/image/mining1.PNG" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+
+<span style="color:#75715e"># barplot을 그린 결과, dic을 사전으로한 review에서는 봉준호 감독에 대한 언급이 가장 많았고</span>
+<span style="color:#75715e"># 그 다음은 송강호, 기생충, 이선균 순이었다.</span>
+
+
+<span style="color:#75715e"># extractNoun함수를 활용해 명사를 추출한 후, 2음절 이상이고, 최소 30번 이상 언급된</span>
+<span style="color:#75715e"># 명사만 추출하여 워드클라우드를 작성한다.</span>
+
+
+
+<span style="color:#75715e"># 명사 추출</span>
+movie_exN <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(movie_clean,extractNoun)
+Noun <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.vector</span>(<span style="color:#a6e22e">unlist</span>(movie_exN))
+Noun_2 <span style="color:#f92672">&lt;-</span> Noun<span style="color:#a6e22e">[nchar</span>(Noun)<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span>]
+
+<span style="color:#75715e"># 워드클라우드 시각화</span>
+result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">table</span>(Noun_2),decreasing<span style="color:#f92672">=</span>T))
+t <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">wordcloud</span>(result<span style="color:#f92672">$</span>Noun_2,result<span style="color:#f92672">$</span>Freq,color<span style="color:#f92672">=</span><span style="color:#a6e22e">brewer.pal</span>(<span style="color:#ae81ff">8</span>,<span style="color:#e6db74">&#34;Dark2&#34;</span>),min.freq<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+</code></pre></div><p><img src="/image/mining2.PNG" alt=""></p>
+<pre><code>extractNoun 함수를 활용해 명사를 추출하고, 단어가 2음절 이상이고 최소 30번 이상 나타났던
+명사만 추출하여 워드클라우드를 시각화 했다. 봉준호 감독에 대한 명사(봉준호, 감독 등)에 대한 단어와
+영화에 관한 명사(송각호, 배우, 최고, 스토리, 현실, 황금종려상) 등이 나타났다. 해당 영화에 대한
+'기대'라는 단어도 보이지만 '불편'이라는 단어가 나타난 것도 확인할 수 있다.</code></pre>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="tag">ADP 모의고사 R 실습</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

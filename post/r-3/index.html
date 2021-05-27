@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>t-검정 실습 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">t-검정 실습</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="t검정---두-집단의-평균-비교">t검정 - 두 집단의 평균 비교</h1>
+<p>&rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+
+
+<span style="color:#75715e"># 일반 휘발유와 고급 휘발유의 도시 연비 t 검정</span>
+
+mpg_diff2 <span style="color:#f92672">&lt;-</span> mpg <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(fl, cty) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">filter</span>(fl <span style="color:#f92672">%in%</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;p&#34;</span>)) <span style="color:#75715e"># r:regular, p:premium</span>
+
+<span style="color:#a6e22e">table</span>(mpg_diff2<span style="color:#f92672">$</span>fl)
+
+<span style="color:#a6e22e">t.test</span>(data <span style="color:#f92672">=</span> mpg_diff2, cty <span style="color:#f92672">~</span> fl, val.equal <span style="color:#f92672">=</span> T)
+
+<span style="color:#75715e"># data:  cty by fl</span>
+<span style="color:#75715e"># t = 1.2118, df = 107.23, p-value = 0.2283</span>
+<span style="color:#75715e"># p-value가 0.05보다 큰 0.2875이다.</span>
+<span style="color:#75715e"># 실제로는 차이가 없는데 우연에 의해 이런 차이가 관찰될 확률이 28.75%라는 의미이다.</span>
+<span style="color:#75715e"># 따라서 일반 휘발유와 고급 휘발유를 사용하는 자동차 간 도시 연비 차이가 통계적으로 유의하지 않다.</span>
+
+<span style="color:#75715e"># alternative hypothesis: true difference in means is not equal to 0</span>
+<span style="color:#75715e"># 95 percent confidence interval:</span>
+<span style="color:#75715e">#   -0.3989031  1.6534818</span>
+
+<span style="color:#75715e"># sample estimates:</span>
+<span style="color:#75715e">#   mean in group p mean in group r </span>
+<span style="color:#75715e"># 17.36538        16.73810  # 고급 휘발유 자동차의 도시 연비 평균이 0.6 높지만</span>
+                            <span style="color:#75715e"># 이런 차이는 우연이 발생했을 가능성이 크다고 해석</span>
+
+
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/r/" rel="tag">r</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Feature Engineering on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/feature-engineering/</link>
+    <description>Recent content in Feature Engineering on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Mon, 12 Apr 2021 23:33:57 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/feature-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feature Engineering</title>
+      <link>http://sjh4773.github.io/post/feature-engineering/</link>
+      <pubDate>Mon, 12 Apr 2021 23:33:57 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/feature-engineering/</guid>
+      <description>머신러닝 모델 성능 최적화   Feature Engineering
+ 알고리즘이 보다 효율적으로 예측할 수 있도록 데이터 가공 기존 feature들을 다양한 형태로 재가공    알고리즘 선택
+ 선형, SVM, 확률, 트리 기반의 다양한 알고리즘 Boosting 계열 알고리즘의 강세 모델 혼합(Blending)m stacking    Hyper parameter 튜닝
+ Feature engineering 된 데이터 세트로 최적화된 알고리즘 하이퍼 파라미터 튜닝    Feature Engineering의 주요 기법 [기본 Feature Engineering]   스케일링(Scaling)</description>
+    </item>
+    
+  </channel>
+</rss>

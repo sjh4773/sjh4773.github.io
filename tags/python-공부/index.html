@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Python 공부 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/tags/python-%EA%B3%B5%EB%B6%80/index.xml" title="My New Hugo Site">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">Python 공부</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python-5/" rel="bookmark">
+			정규 표현식
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		정규 표현식 문자 클래스   []
+[] 사이의 문자들과 매치 만약 정규 표현식이 [abc]라면 이 표현식의 의미는 문자열들 중에 a,b,c가 한 개라도 있으면 매치 된다는 것을 의미
+  [] 안의 두 문자 사이에 하이픈(-)을 사용할 시
+  두 문자 사이의 범위(From - To)를 의미
+  하이픈(-)을 사용한 문자 클래스의 사용 예
+ [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
+문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/matplotlib_study/" rel="bookmark">
+			matplotlib 그래프 그리기
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		import matplotlib.pyplot as plt from matplotlib.ticker import (MultipleLocator, AutoMinorLocator, FuncFormatter) import seaborn as sns import numpy as np # 그냥 그림을 그릴 때 zorder의 값을 지정해주면 그 값이 레이어의 위치라고 보면 된다. # 가장 바깥 쪽에 그려지는 그림일수록 zorder의 값이 커야 한다. # zorder는 레이어의 위치 def plot_example(ax, zorder=0): ax.bar(tips_day[&#34;day&#34;], tips_day[&#34;tip&#34;], color=&#34;lightgray&#34;, zorder=zorder) ax.set_title(&#34;tip (mean)&#34;, fontsize=16, pad=12) # Values h_pad = 0.1 for i in range(4): fontweight = &#34;normal&#34; color = &#34;k&#34; if i == 3: fontweight = &#34;bold&#34; color = &#34;darkred&#34; ax.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python-4/" rel="bookmark">
+			tuple과 list의 차이
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		리스트(list)와 튜플(tuple)의 차이는 무엇인가? 공통점 1.리스트와 튜플은 둘 다 컨테이너로 일련의 객체를 저장하는데 사용한다. 둘 다 타입과 상관 없이 일련의 요소(element)를 갖을 수 있다. 두 타입 모두 요소의 순서를 관리한다. (세트(set)나 딕셔너리(dict)와 다르게 말이다.) 2.list와 tuple 모두 인덱스를 통해 특정 요소에 접근할 수 있다. 3.list와 tuple 모두 iterable하다. 즉, for문을 넣고 돌릴 수 있다. 차이점 리스트와 튜플의 기술적 차이점은 불변성에 있다. 리스트는 가변적(mutable, 변경 가능)이며 튜플은 불변적(immutable, 변경 불가)이다. 이 특징이 파이썬 언어에서 둘을 구분하는 유일한 차이점이다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python-3/" rel="bookmark">
+			넘파이 ndarray의 axis축
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		ndarray는 shape는 행,열,높이 단위로 부여되는 것이 아니라 axis0,axis1,axis2와 같이 axis 단위로 부여됩니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/python/" rel="bookmark">
+			카페 추천 시스템
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Cosine similarity(유사도 측정)
+-&gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
+import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

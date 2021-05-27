@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ADP 모의고사 R 실습 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/index.xml" title="My New Hugo Site">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main list" role="main">
+	<header class="main__header">
+		<h1 class="main__title">ADP 모의고사 R 실습</h1>
+	</header><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-8/" rel="bookmark">
+			비정형 텍스트 마이닝 - 사용데이터 기생충
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# KoNLP 설치 writeLines(&#39;PATH=&#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&#34;&#39;, con = &#34;~/.Renviron&#34;) usethis::edit_r_environ() Sys.which(&#34;make&#34;) install.packages(&#34;rJava&#34;) install.packages(&#34;remotes&#34;) remotes::install_github(&#39;haven-jeon/KoNLP&#39;, upgrade = &#34;never&#34;, INSTALL_opts=c(&#34;--no-multiarch&#34;)) useSejongDic() install.packages(c(&#34;stringr&#34;, &#34;hash&#34;, &#34;tau&#34;, &#34;Sejong&#34;, &#34;RSQLite&#34;, &#34;devtools&#34;), type = &#34;binary&#34;) library(KoNLP) library(plyr) library(tm) library(rJava) library(wordcloud) useSejongDic() setwd(&#34;C:/ADP/data&#34;) movie &lt;- readLines(&#34;영화 기생충_review.txt&#34;) dic &lt;- readLines(&#34;영화 기생충_사전.txt&#34;) buildDictionary(ext_dic = &#34;woorimalsam&#34;, user_dic = data.frame(readLines(&#34;영화 기생충_사전.txt&#34;),&#34;ncn&#34;),replace_usr_dic = T) # KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여 # &#39;영화 기생충_review.txt&#39; 파일을 movie 데이터에, &#39;영화 기생충_사전.txt&#39; 파일을 dic 데이터에 저장했다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-7/" rel="bookmark">
+			ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		setwd(&#34;C:/ADP/data&#34;) fifa &lt;- read.csv(&#34;FIFA.csv&#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &lt;- as.character(fifa$Height) # &#34;&#39;&#34; 앞의 숫자는 피트이며, &#34;&#39;&#34; 뒤의 숫자는 인치를 의미함 # 따라서, &#34;&#39;&#34; 앞 숫자를 추출하여 30을 곱하고, &#34;&#39;&#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/r-6/" rel="bookmark">
+			ADP 1회 모의고사 R 정형 데이터 마이닝 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&#34;C:/ADP/data&#34;) lot &lt;- read.csv(&#34;lotto.csv&#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&#34;reshape2&#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.
+	</div>
+</article>
+</main>
+
+
+			</div>
+			
+
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

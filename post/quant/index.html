@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>api를 이용한 Quandl 데이터 다운로드 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">api를 이용한 Quandl 데이터 다운로드</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># API를 이용한 Quandl 데이터 다운로드</span>
+
+
+<span style="color:#75715e"># R에서 API 주소를 이용해 직접 데이터를 다운로드</span>
+
+url.aapl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://www.quandl.com/api/v3/datasets/WIKI/AAPL/
+</span><span style="color:#e6db74">data.csv?api_key=xw3NU3xLUZ7vZgrz5QnG&#34;</span>
+data.aapl <span style="color:#f92672">=</span> <span style="color:#a6e22e">read.csv</span>(url.aapl)
+
+<span style="color:#a6e22e">head</span>(data.aapl)
+
+<span style="color:#75715e"># Date   Open   High    Low   Close   Volume Ex.Dividend Split.Ratio</span>
+<span style="color:#75715e"># 1 2018-03-27 173.68 175.15 166.92 168.340 38962839           0           1</span>
+<span style="color:#75715e"># 2 2018-03-26 168.07 173.10 166.44 172.770 36272617           0           1</span>
+<span style="color:#75715e"># 3 2018-03-23 168.39 169.92 164.94 164.940 40248954           0           1</span>
+<span style="color:#75715e"># 4 2018-03-22 170.00 172.68 168.60 168.845 41051076           0           1</span>
+<span style="color:#75715e"># 5 2018-03-21 175.04 175.09 171.26 171.270 35247358           0           1</span>
+<span style="color:#75715e"># 6 2018-03-20 175.24 176.80 174.94 175.240 19314039           0           1</span>
+<span style="color:#75715e"># Adj..Open Adj..High Adj..Low Adj..Close Adj..Volume</span>
+<span style="color:#75715e"># 1    173.68    175.15   166.92    168.340    38962839</span>
+<span style="color:#75715e"># 2    168.07    173.10   166.44    172.770    36272617</span>
+<span style="color:#75715e"># 3    168.39    169.92   164.94    164.940    40248954</span>
+<span style="color:#75715e"># 4    170.00    172.68   168.60    168.845    41051076</span>
+<span style="color:#75715e"># 5    175.04    175.09   171.26    171.270    35247358</span>
+<span style="color:#75715e"># 6    175.24    176.80   174.94    175.240    19314039</span>
+
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" rel="tag">R을 이용한 퀀트투자</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

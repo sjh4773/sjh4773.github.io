@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>통계 공부 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/</link>
+    <description>Recent content in 통계 공부 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Wed, 31 Mar 2021 21:48:19 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>statistics</title>
+      <link>http://sjh4773.github.io/post/statistics/</link>
+      <pubDate>Wed, 31 Mar 2021 21:48:19 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/statistics/</guid>
+      <description>회귀 분석이란? [개념]
+ 하나 이상의 독립변수들이 종속변수에 미치는 영향을 추정할 수 있는 통계 기법 변수들 사이의 인과관계를 밝히고 모형을 적합(Fit)하여 관심 있는 변수를 예측하거나 추론하기 위한 분석 방법이다. 독립 변수와 종속변수의 개수 및 특성에 따라 단순 회귀, 다중 회귀, 다항 회귀, 곡선 회귀, 로지스틱 회귀, 비선형 회귀로 분류  회귀분석의 요소 용어 정리 독립변수 (x) : 영향을 주는 변수. 설명변수, 예측변수라고 명명될 수 있음
+종속변수 (y) : 영향을 받는 변수.</description>
+    </item>
+    
+  </channel>
+</rss>

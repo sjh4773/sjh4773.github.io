@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>파이토치를 이용한 데이터 가공 예시 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">파이토치를 이용한 데이터 가공 예시</h1>
+			
+		</header><div class="content post__content clearfix">
+			<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline
+
+
+<span style="color:#75715e"># 데이터</span>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.2</span>, <span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">100</span>)) <span style="color:#75715e">#np.random.uniform은 Numpy에서 제공하는 균등분포 함수이다.</span>
+y <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span><span style="color:#f92672">*</span>x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">0.1</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">100</span>)) <span style="color:#75715e"># 노이즈 추가</span>
+plt<span style="color:#f92672">.</span>plot(x,y,<span style="color:#e6db74">&#39;o&#39;</span>) <span style="color:#75715e"># 3차 함수지만 노이즈가 포함되어 있다.</span>
+
+
+<span style="color:#75715e"># train/validation/test 분류</span>
+data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate((x<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>),y<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># X, Y 묶음, X: input, Y: target</span>
+<span style="color:#66d9ef">print</span>(data<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># 차원 0: 데이터 개수, 차원1: (x,y) --&gt; (100,2)</span>
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(data) <span style="color:#75715e"># 데이터 골고루 섞음</span>
+
+test_num <span style="color:#f92672">=</span> int(data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>) <span style="color:#75715e"># data.shape[0] = 100 --&gt; test num 100 * 10% --&gt; 10개</span>
+valid_num <span style="color:#f92672">=</span> int(data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>) <span style="color:#75715e"># data.shape[0] = 100 --&gt; valid num 100 * 10% --&gt; 10개</span>
+train_num <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> valid_num <span style="color:#f92672">-</span> test_num <span style="color:#75715e"># train num --&gt; 80개</span>
+
+train_data <span style="color:#f92672">=</span> data[:train_num] <span style="color:#75715e"># 0~80개까지 (80,2)</span>
+valid_data <span style="color:#f92672">=</span> data[train_num:train_num<span style="color:#f92672">+</span>valid_num] <span style="color:#75715e"># 80~90개까지 (10,2)</span>
+test_data <span style="color:#f92672">=</span> data[train_num<span style="color:#f92672">+</span>valid_num:] <span style="color:#75715e"># 90~100개까지 (10,2)</span>
+
+<span style="color:#75715e"># train_data[:,0] --&gt; train_date 전체 데이터에서 0번째 차원 : x</span>
+<span style="color:#75715e"># train_data[:,1] --&gt; train_date 전체 데이터에서 1번째 차원 : y</span>
+plt<span style="color:#f92672">.</span>plot(train_data[:,<span style="color:#ae81ff">0</span>],train_data[:,<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#39;ro&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(valid_data[:,<span style="color:#ae81ff">0</span>],valid_data[:,<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#39;ko&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(test_data[:,<span style="color:#ae81ff">0</span>],test_data[:,<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#39;go&#39;</span>)
+
+
+<span style="color:#75715e"># torch batch</span>
+<span style="color:#75715e"># 이 구문 자체를 숙달해라!</span>
+<span style="color:#75715e"># 데이터셋 클래스는 토치 안에 유틸, 유틸 안에 데이터, 데이터 안에 데이터셋이라는 클래스를 상속 받는다  </span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">dataset</span>(torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>Dataset):
+    <span style="color:#66d9ef">def</span> __init__(self,data): <span style="color:#75715e"># 클래스를 처음 접목시킬 때 들어오는 인자 데이터를 적어준다.</span>
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> data     <span style="color:#75715e"># self.data로 다시 정의</span>
+        self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>data[:,<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+        self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>data[:,<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)
+     
+    <span style="color:#75715e"># idx : 전체 데이터에서 뽑아낼 데이터의 인덱스를 가르킴(ex.1,3,5,7,9번째 벡터를 뽑아내라)</span>
+    <span style="color:#75715e"># if (100,2) --&gt; batchsize = 3 --&gt; idx (0, 55, 99)를 끄집어 내라. 인덱스 개수만큼 추출해라.</span>
+    <span style="color:#75715e"># 전처리 과정에서 torch.Tensor 형태로 변환해줘야한다. 뉴럴 네트워크에서 input,output torch.Tensor 변환</span>
+    <span style="color:#66d9ef">def</span> __getitem__(self, idx): 
+        <span style="color:#66d9ef">return</span> torch<span style="color:#f92672">.</span>Tensor(self<span style="color:#f92672">.</span>x[idx],torch<span style="color:#f92672">.</span>Tensor(np<span style="color:#f92672">.</span>array(self<span style="color:#f92672">.</span>y[idx])))
+    
+    <span style="color:#75715e"># len 구문을 통해서 전체 데이터가 몇개 있는지 클래스에 명시</span>
+    <span style="color:#66d9ef">def</span> __len__(self):
+        <span style="color:#66d9ef">return</span> len(self<span style="color:#f92672">.</span>data)
+    
+<span style="color:#75715e"># dataset에 train_data를 넣어주면 train_daset이라는 토치안의 기능이 완성되는 것 </span>
+<span style="color:#75715e"># batch_size만큼 출력하게 해주고 shuffle 해주고 torch로 자료형을 변화해주는 기능도 갖춰주게끔 함.</span>
+train_dataset <span style="color:#f92672">=</span> dataset(train_data) <span style="color:#75715e"># train_data --&gt; (80,2)</span>
+
+<span style="color:#75715e"># 위의 dataset을 로딩할 수 있게끔 한번 더 과정을 거침</span>
+<span style="color:#75715e"># batch_size = 32 --&gt; __getitem__(self,idx) 속성의 인덱스를 무작위로 32개의</span>
+<span style="color:#75715e"># array로 하나를 만들어줌. 0~80개 중에서 32개의 인덱스를 무작위로 뽑아줌</span>
+<span style="color:#75715e"># x를 32개, y를 32개 뽑아준 뒤 torch 형태로 변환</span>
+<span style="color:#75715e"># shuffle = True --&gt; 매번 training 될 때마다 전체 데이터셋을 한번 더 뒤섞어주는 역할</span>
+<span style="color:#75715e"># shuffle = False --&gt; 고정된 상태의 데이터 출력</span>
+<span style="color:#75715e"># drop_last= False --&gt; batch_size = 32이기 때문에 32개씩 묶으면</span>
+<span style="color:#75715e"># 32, 64, 96으로 넘어가기 때문에 전체 사이즈 80개이므로 16개 모자라게 된다.</span>
+<span style="color:#75715e"># 이때 16개에 대한 배치를 수행할 것인지 말것인지의 여부를 결정하는 파라미터이다.</span>
+<span style="color:#75715e"># False일 경우 마지막 배치를 그대로 수행(ex. 32개, 32개, 16개)</span>
+train_loader <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>DataLoader(train_dataset,batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">32</span>,shuffle<span style="color:#f92672">=</span>True,drop_last<span style="color:#f92672">=</span>False)
+
+cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> X,Y <span style="color:#f92672">in</span> train_loader: <span style="color:#75715e">#getimem --&gt; X, Y</span>
+    <span style="color:#66d9ef">print</span>(X<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># (32,1)</span>
+    <span style="color:#66d9ef">print</span>(Y<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># (32,1)</span>
+    cnt <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">if</span> cnt <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>:
+        <span style="color:#66d9ef">break</span>
+<span style="color:#75715e"># OUTPUT</span>
+<span style="color:#75715e"># torch.Size([32, 1])</span>
+<span style="color:#75715e"># torch.Size([32, 1]) </span>
+<span style="color:#75715e"># torch.Size([32, 1]) </span>
+<span style="color:#75715e"># torch.Size([32, 1]) </span>
+<span style="color:#75715e"># torch.Size([16, 1]) </span>
+<span style="color:#75715e"># torch.Size([16, 1]) </span>
+
+</code></pre></div>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/machine_learning/" rel="tag">machine_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
