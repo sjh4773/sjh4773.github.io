@@ -44,6 +44,19 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-12/" rel="bookmark">
+			Blending 기법
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		예측값을 변수로 활용하는 앙상블 테크닉 Blending Blending 은 Ensemble 의 한 종류입니다. Ensemble 이란 예측 모형을 통합해서 하나의 예측을 수행하는 것을 말합니다. Ensemble 의 묘미는 서로 다른 예측 모형들을 합쳐 더 강한 예측 모형을 만들 수 있다는 것입니다. 가령 정확도 0.7, 0.7 인 모델 두 개를 합쳐서 0.9 을 만들 수 있습니다.
+Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Training set 에 모델 피팅을 한다. 3. Validation/Test set 에 대해 예측을 한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-11/" rel="bookmark">
 			pseudo labeling
 			</a>
@@ -169,19 +182,6 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 회귀 평가지표 MAE, MSE, RMSE, RMSLE는 값이 작을수록 회귀 성능이 좋은 것 값이 작을수록 예측값과 실제값의 차이가 없다는 것을 의미
 MSE(Mean Squared Error) 실제 값과 예측 값의 차이를 제곱해 평균한 것
 장점  지표 자체가 직관적이고 단순하다.  단점 스케일에 의존적이다. 예를 들어 테슬라의 주가가 900000원이고 현대자동차의 주가가 250000일 때, 두 주가를 예측하는 각각의 모델의 MSE가 똑같이 4000이 나올 경우, 분명 동일한 에러율이 아님에도 불구하고 동일하게 보여진다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/pandas-factorize/" rel="bookmark">
-			pandas.factorize()
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		pandas.factorize() 대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다. 이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.
-pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort : [bool, Default is False] Sort uniques and shuffle labels. na_sentinel : [ int, default -1] Missing Values to mark ‘not found’. Return: Numeric representation of array  factorize() 방법의 작동 설명 import numpy as np import pandas as pd from pandas.
 	</div>
 </article>
 </main>

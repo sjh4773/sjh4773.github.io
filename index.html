@@ -43,6 +43,21 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/lstm/" rel="bookmark">
+			Lstm 이론
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
+gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값을 미분한 값, E2를 미분한 값, E3를 미분한 값과 같음
+여기서 E3를 미분한 값을 보면 backpropagation through time을 통해서 여러 개의 미분값을 곱하게 되는데
+짧은 시퀀스 같은 경우 큰 문제가 없음 하지만 긴 시퀀스 같은 경우 예를 들어 100개 이상의 단어가 있는 문장이 있으면 곱하기를 100회 수행하게 되는데 만약 미분 값이 1보다 작을 경우 새로운 weight value는 기존의 weight value와 거의 차이가 없다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-8/" rel="bookmark">
 			비정형 텍스트 마이닝 - 사용데이터 기생충
 			</a>
@@ -157,19 +172,6 @@ PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		베이지안 최적화 기법 이론 보충 머신러닝 혹은 딥러닝 모델들을 학습 시킬 때 하이퍼 파라미터를 결정해야 하는 경우가 많이 있다. 이때 일반적인 하이퍼파리미터 튜닝 방법은 일저한 간격을 정해서 하이퍼파라미터 후보군을 설정하는 Grid Search와 일정 구간 내에서 랜덤하게 하이퍼 파리미터 후보군을 결정하는 Random Search가 활용된다. 하지만 두 방법론 모두 후보군에 대해서 성능을 확인한 후 비교해야 하므로 비효율적이다. 이러한 경우에 사용할 수 있는 것이 Bayesian Optimization이다. 베이지안 최적화는 크게 두 가지 핵심 모듈이 존재한다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-12/" rel="bookmark">
-			Blending 기법
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		예측값을 변수로 활용하는 앙상블 테크닉 Blending Blending 은 Ensemble 의 한 종류입니다. Ensemble 이란 예측 모형을 통합해서 하나의 예측을 수행하는 것을 말합니다. Ensemble 의 묘미는 서로 다른 예측 모형들을 합쳐 더 강한 예측 모형을 만들 수 있다는 것입니다. 가령 정확도 0.7, 0.7 인 모델 두 개를 합쳐서 0.9 을 만들 수 있습니다.
-Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Training set 에 모델 피팅을 한다. 3. Validation/Test set 에 대해 예측을 한다.
 	</div>
 </article>
 </main>

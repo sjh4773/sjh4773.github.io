@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tags - My New Hugo Site</title>
+	<title>Deep_learning - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/tags/index.xml" title="My New Hugo Site">
+	<link rel="alternate" type="application/rss+xml" href="/categories/deep_learning/index.xml" title="My New Hugo Site">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -40,86 +40,25 @@
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">Tags</h1>
+		<h1 class="main__title">Deep_learning</h1>
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/tags/feature-engineering/" rel="bookmark">
-			Feature Engineering
+			<a href="/post/lstm/" rel="bookmark">
+			Lstm 이론
 			</a>
 		</h2>
 		
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" rel="bookmark">
-			사이킷런 공부
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="bookmark">
-			통계 공부
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/tags/r/" rel="bookmark">
-			r
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" rel="bookmark">
-			Pytorch 공부
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" rel="bookmark">
-			R을 이용한 퀀트투자
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		
+		딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
+gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값을 미분한 값, E2를 미분한 값, E3를 미분한 값과 같음
+여기서 E3를 미분한 값을 보면 backpropagation through time을 통해서 여러 개의 미분값을 곱하게 되는데
+짧은 시퀀스 같은 경우 큰 문제가 없음 하지만 긴 시퀀스 같은 경우 예를 들어 100개 이상의 단어가 있는 문장이 있으면 곱하기를 100회 수행하게 되는데 만약 미분 값이 1보다 작을 경우 새로운 weight value는 기존의 weight value와 거의 차이가 없다.
 	</div>
 </article>
 </main>
 
-<div class="pagination">
-	<a class="pagination__item pagination__item--prev btn" href="/tags/">«</a>
-	<span class="pagination__item pagination__item--current">2/2</span>
-</div>
 
 			</div>
 			

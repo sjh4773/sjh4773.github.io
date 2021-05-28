@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep_learning on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/deep_learning/</link>
+    <description>Recent content in Deep_learning on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Fri, 28 May 2021 18:14:17 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/deep_learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lstm 이론</title>
+      <link>http://sjh4773.github.io/post/lstm/</link>
+      <pubDate>Fri, 28 May 2021 18:14:17 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/lstm/</guid>
+      <description>딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
+gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값을 미분한 값, E2를 미분한 값, E3를 미분한 값과 같음
+여기서 E3를 미분한 값을 보면 backpropagation through time을 통해서 여러 개의 미분값을 곱하게 되는데
+짧은 시퀀스 같은 경우 큰 문제가 없음 하지만 긴 시퀀스 같은 경우 예를 들어 100개 이상의 단어가 있는 문장이 있으면 곱하기를 100회 수행하게 되는데 만약 미분 값이 1보다 작을 경우 새로운 weight value는 기존의 weight value와 거의 차이가 없다.</description>
+    </item>
+    
+  </channel>
+</rss>
