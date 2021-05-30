@@ -6,7 +6,16 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Fri, 28 May 2021 18:14:17 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 May 2021 19:53:02 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>정형 데이터 마이닝 - 타이타닉</title>
+      <link>http://sjh4773.github.io/post/titanic/</link>
+      <pubDate>Sun, 30 May 2021 19:53:02 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/titanic/</guid>
+      <description>정형 데이터 마이닝 - 타이타닉 library(dplyr) setwd(&amp;#34;C:/ADP/data&amp;#34;) # 데이터 불러오기 titanic &amp;lt;- read.csv(&amp;#34;titanic.csv&amp;#34;) summary(titanic) # cabin, embarked의 &amp;#34;&amp;#34; -&amp;gt; NA 바꾸기 # embarked # factor 형태로 변환 titanic$embarked &amp;lt;- as.factor(titanic$embarked) levels(titanic$embarked) # [1] &amp;#34;&amp;#34; &amp;#34;C&amp;#34; &amp;#34;Q&amp;#34; &amp;#34;S&amp;#34; # &amp;#34;&amp;#34; -&amp;gt; NA 변환 levels(titanic$embarked)[1] &amp;lt;- NA table(titanic$embarked,useNA = &amp;#34;always&amp;#34;) # C Q S &amp;lt;NA&amp;gt;  # 270 123 914 2  # cabin titanic$cabin &amp;lt;- ifelse(titanic$cabin==&amp;#34;&amp;#34;,NA,titanic$cabin) table(titanic$cabin,useNA = &amp;#34;always&amp;#34;) summary(titanic) # pclass survived name sex age  # Min.</description>
+    </item>
+    
     <item>
       <title>Lstm 이론</title>
       <link>http://sjh4773.github.io/post/lstm/</link>

@@ -43,6 +43,18 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/titanic/" rel="bookmark">
+			정형 데이터 마이닝 - 타이타닉
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		정형 데이터 마이닝 - 타이타닉 library(dplyr) setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 titanic &lt;- read.csv(&#34;titanic.csv&#34;) summary(titanic) # cabin, embarked의 &#34;&#34; -&gt; NA 바꾸기 # embarked # factor 형태로 변환 titanic$embarked &lt;- as.factor(titanic$embarked) levels(titanic$embarked) # [1] &#34;&#34; &#34;C&#34; &#34;Q&#34; &#34;S&#34; # &#34;&#34; -&gt; NA 변환 levels(titanic$embarked)[1] &lt;- NA table(titanic$embarked,useNA = &#34;always&#34;) # C Q S &lt;NA&gt;  # 270 123 914 2  # cabin titanic$cabin &lt;- ifelse(titanic$cabin==&#34;&#34;,NA,titanic$cabin) table(titanic$cabin,useNA = &#34;always&#34;) summary(titanic) # pclass survived name sex age  # Min.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/lstm/" rel="bookmark">
 			Lstm 이론
 			</a>
@@ -160,18 +172,6 @@ PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance
 수백~수천개 이상의 피처로 구성도니 포인트들간 거리에 기반한 ml 알고리즘이 무력화됨
 또한 피처가 많을 경우 개별 피처간에 상관관계가 높아 선형 회귀와 같은 모델에서는 다중 공선성 문제로 모델의 예측 성능이 저하 될 가능성이 높음
 수십 ~ 수백개의 피처들을 작은 수의 피처들로 축소한다면?  학습 데이터 크기를 줄여서 학습 시간 절약 불필요한 피처들을 줄여서 모델 성능 향상에 기여(주로 이미지 관련 데이터) 다차원의 데이터를 3차우너 이하의 차원 축소를 통해서 시각적으로 보다 쉽게 데이터 패턴 인지  피처 선택과 피처 추출 일반적으로 차춴축소는 피처 선택과 피처 추출로 나눌 수 있다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-13/" rel="bookmark">
-			베이지안 최적화 기법 이론 보충
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		베이지안 최적화 기법 이론 보충 머신러닝 혹은 딥러닝 모델들을 학습 시킬 때 하이퍼 파라미터를 결정해야 하는 경우가 많이 있다. 이때 일반적인 하이퍼파리미터 튜닝 방법은 일저한 간격을 정해서 하이퍼파라미터 후보군을 설정하는 Grid Search와 일정 구간 내에서 랜덤하게 하이퍼 파리미터 후보군을 결정하는 Random Search가 활용된다. 하지만 두 방법론 모두 후보군에 대해서 성능을 확인한 후 비교해야 하므로 비효율적이다. 이러한 경우에 사용할 수 있는 것이 Bayesian Optimization이다. 베이지안 최적화는 크게 두 가지 핵심 모듈이 존재한다.
 	</div>
 </article>
 </main>

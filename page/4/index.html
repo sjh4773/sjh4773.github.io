@@ -43,6 +43,18 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-4/" rel="bookmark">
+			Convolutional Neural Network를 이용한 MNIST
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# 필요 라이브러리 호출 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim from torchvision import datasets,transforms import numpy as np import matplotlib.pyplot as plt train_dataset = datasets.MNIST(&#39;./mnist_data&#39;, # torchvision 안에 있는 MNIST dataset을 불러옴  download=True, # 다운로드 할것인가? train=True, # train 용도 구분 transform=transforms.ToTensor() # torch를 입력 받을 수 있는 자료형태로 변환 ) test_dataset = datasets.MNIST(&#39;./mnist_data&#39;, download=False, train=False, transform=transforms.ToTensor() ) # 데이터셋 로더 호출 train_loader = torch.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-3/" rel="bookmark">
 			머신러닝 용어정리
 			</a>
@@ -155,18 +167,6 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 	<div class="content list__excerpt post__content clearfix">
 		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
 # 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/quant-3/" rel="bookmark">
-			금융 속보 크롤링
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# 금융 속보 크롤링 # 네이버 금융 -&gt; 뉴스 -&gt; 실시간 속보 # 금융 속보의 제목을 추출하는 과정 library(rvest) library(httr) # url 변수에 해당 주소 입력 url = paste0(&#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;section_id=101&amp;section_id2=258&#39;) # GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장 data = GET(url) # 데이터 변수 확인 # Status : 200,즉 데이터가 이상 없이 받아짐 # 인코딩은 EUC-KR 타입 print(data) data_title = data %&gt;% read_html(encoding = &#39;EUC-KR&#39;) %&gt;% # read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정 html_nodes(&#39;dl&#39;) %&gt;% # html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출 html_nodes(&#39;.
 	</div>
 </article>
 </main>

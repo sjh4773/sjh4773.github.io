@@ -44,6 +44,18 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/quant-3/" rel="bookmark">
+			금융 속보 크롤링
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# 금융 속보 크롤링 # 네이버 금융 -&gt; 뉴스 -&gt; 실시간 속보 # 금융 속보의 제목을 추출하는 과정 library(rvest) library(httr) # url 변수에 해당 주소 입력 url = paste0(&#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;section_id=101&amp;section_id2=258&#39;) # GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장 data = GET(url) # 데이터 변수 확인 # Status : 200,즉 데이터가 이상 없이 받아짐 # 인코딩은 EUC-KR 타입 print(data) data_title = data %&gt;% read_html(encoding = &#39;EUC-KR&#39;) %&gt;% # read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정 html_nodes(&#39;dl&#39;) %&gt;% # html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출 html_nodes(&#39;.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/mnist/" rel="bookmark">
 			mnist 데이터
 			</a>

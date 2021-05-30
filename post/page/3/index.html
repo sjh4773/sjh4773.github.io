@@ -44,6 +44,21 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-8/" rel="bookmark">
+			머신러닝 회귀 모델의 평가지표
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		회귀 평가 지표 회귀 평가를 위한 지표는 실제 값과 예측값의 차이를 기반으로 함
+회귀 평가지표 MAE, MSE, RMSE, RMSLE는 값이 작을수록 회귀 성능이 좋은 것 값이 작을수록 예측값과 실제값의 차이가 없다는 것을 의미
+MSE(Mean Squared Error) 실제 값과 예측 값의 차이를 제곱해 평균한 것
+장점  지표 자체가 직관적이고 단순하다.  단점 스케일에 의존적이다. 예를 들어 테슬라의 주가가 900000원이고 현대자동차의 주가가 250000일 때, 두 주가를 예측하는 각각의 모델의 MSE가 똑같이 4000이 나올 경우, 분명 동일한 에러율이 아님에도 불구하고 동일하게 보여진다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/pandas-factorize/" rel="bookmark">
 			pandas.factorize()
 			</a>
@@ -158,18 +173,6 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
   데이터 인코딩(레이블, 원-핫 인코딩)
   머신러닝 알고리즘은 문자열 데이터 속성을 입력 받지 않으며 모든 데이터는 숫자형으로 표현되어야 합니다. 문자형 카테고리형 속성은 모두 숫자값으로 변환/인코딩 되어야 합니다.
 레이블(Label) 인코딩  [TV, 냉장고, 전자레인지, 컴퓨터, 선풍기, 믹서] -&gt; [0, 1, 4, 5, 3, 2] 문제점 : 분류를 레이블 인코딩하면 관계성이 확보되지 않는다.  원-핫(One-Hot) 인코딩 원-핫 인코딩은 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식입니다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-4/" rel="bookmark">
-			Convolutional Neural Network를 이용한 MNIST
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# 필요 라이브러리 호출 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim from torchvision import datasets,transforms import numpy as np import matplotlib.pyplot as plt train_dataset = datasets.MNIST(&#39;./mnist_data&#39;, # torchvision 안에 있는 MNIST dataset을 불러옴  download=True, # 다운로드 할것인가? train=True, # train 용도 구분 transform=transforms.ToTensor() # torch를 입력 받을 수 있는 자료형태로 변환 ) test_dataset = datasets.MNIST(&#39;./mnist_data&#39;, download=False, train=False, transform=transforms.ToTensor() ) # 데이터셋 로더 호출 train_loader = torch.
 	</div>
 </article>
 </main>
