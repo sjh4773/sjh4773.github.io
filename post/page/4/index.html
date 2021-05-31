@@ -44,6 +44,22 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-5/" rel="bookmark">
+			데이터 전처리
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		데이터 전처리   데이터 클렌징
+  결손값 처리(Null/NaN 처리)
+  데이터 인코딩(레이블, 원-핫 인코딩)
+  머신러닝 알고리즘은 문자열 데이터 속성을 입력 받지 않으며 모든 데이터는 숫자형으로 표현되어야 합니다. 문자형 카테고리형 속성은 모두 숫자값으로 변환/인코딩 되어야 합니다.
+레이블(Label) 인코딩  [TV, 냉장고, 전자레인지, 컴퓨터, 선풍기, 믹서] -&gt; [0, 1, 4, 5, 3, 2] 문제점 : 분류를 레이블 인코딩하면 관계성이 확보되지 않는다.  원-핫(One-Hot) 인코딩 원-핫 인코딩은 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식입니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-4/" rel="bookmark">
 			Convolutional Neural Network를 이용한 MNIST
 			</a>
@@ -155,19 +171,6 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 		상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
   R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
   library(ggplot2) economics &lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r-3/" rel="bookmark">
-			t-검정 실습
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
-# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
 	</div>
 </article>
 </main>

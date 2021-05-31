@@ -43,6 +43,18 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/car/" rel="bookmark">
+			통계분석 - 실습데이터 Carseats
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		통계분석 (사용 데이터 : Carseats) # Urban 변수에 따른 Sales의 차이가 있는지를 통계적으로 검증하기 위한 통계분석을 수행하고, # 결과를 해석하시오. (데이터는 정규성을 만족한다고 가정하고 유의수준 0.05하에서 검정) ## 데이터 불러오기 install.packages(&#34;ISLR&#34;) library(ISLR) data(Carseats) car &lt;- Carseats str(car) # &#39;data.frame&#39;:	400 obs. of 11 variables: # $ Sales : num 9.5 11.22 10.06 7.4 4.15 ... # $ CompPrice : num 138 111 113 117 141 124 115 136 132 132 .
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/titanic/" rel="bookmark">
 			정형 데이터 마이닝 - 타이타닉
 			</a>
@@ -157,21 +169,6 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
   PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
   PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
 PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-14/" rel="bookmark">
-			차원 축소
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		차원 축소 차원의 저주 차원의 저주 커질수록 데이터 포인트들 간 거리가 크게 늘어남, 데이터가 희소화(Sparse) 됨
-수백~수천개 이상의 피처로 구성도니 포인트들간 거리에 기반한 ml 알고리즘이 무력화됨
-또한 피처가 많을 경우 개별 피처간에 상관관계가 높아 선형 회귀와 같은 모델에서는 다중 공선성 문제로 모델의 예측 성능이 저하 될 가능성이 높음
-수십 ~ 수백개의 피처들을 작은 수의 피처들로 축소한다면?  학습 데이터 크기를 줄여서 학습 시간 절약 불필요한 피처들을 줄여서 모델 성능 향상에 기여(주로 이미지 관련 데이터) 다차원의 데이터를 3차우너 이하의 차원 축소를 통해서 시각적으로 보다 쉽게 데이터 패턴 인지  피처 선택과 피처 추출 일반적으로 차춴축소는 피처 선택과 피처 추출로 나눌 수 있다.
 	</div>
 </article>
 </main>

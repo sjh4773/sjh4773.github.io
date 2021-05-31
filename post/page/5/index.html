@@ -44,6 +44,19 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-3/" rel="bookmark">
+			t-검정 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/quant-3/" rel="bookmark">
 			금융 속보 크롤링
 			</a>

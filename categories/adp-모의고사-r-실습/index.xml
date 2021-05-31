@@ -6,7 +6,16 @@
     <description>Recent content in ADP 모의고사 R 실습 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Sun, 30 May 2021 19:53:02 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 23:27:34 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>통계분석 - 실습데이터 Carseats</title>
+      <link>http://sjh4773.github.io/post/car/</link>
+      <pubDate>Mon, 31 May 2021 23:27:34 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/car/</guid>
+      <description>통계분석 (사용 데이터 : Carseats) # Urban 변수에 따른 Sales의 차이가 있는지를 통계적으로 검증하기 위한 통계분석을 수행하고, # 결과를 해석하시오. (데이터는 정규성을 만족한다고 가정하고 유의수준 0.05하에서 검정) ## 데이터 불러오기 install.packages(&amp;#34;ISLR&amp;#34;) library(ISLR) data(Carseats) car &amp;lt;- Carseats str(car) # &amp;#39;data.frame&amp;#39;:	400 obs. of 11 variables: # $ Sales : num 9.5 11.22 10.06 7.4 4.15 ... # $ CompPrice : num 138 111 113 117 141 124 115 136 132 132 .</description>
+    </item>
+    
     <item>
       <title>정형 데이터 마이닝 - 타이타닉</title>
       <link>http://sjh4773.github.io/post/titanic/</link>
