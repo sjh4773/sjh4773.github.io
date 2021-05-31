@@ -6,7 +6,23 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Mon, 31 May 2021 23:27:34 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 00:33:22 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>메타러닝</title>
+      <link>http://sjh4773.github.io/post/meta/</link>
+      <pubDate>Tue, 01 Jun 2021 00:33:22 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/meta/</guid>
+      <description>메타러닝  머신러닝 문제 해결 흐름도    훈련용 데이터(입력,레이블) 준비
+  모델 설정 (딥러닝 구조 설정)
+  훈련용 데이터를 통한 모델 최적화
+  운영 입력데이터를 모델에 적용
+매번 새로운 문제를 만날 때마다 새로운 모델 생성 및 학습(최적화)를 반복해야하는 문제점이 발생
+이 방식에서 개선시킬 점이 있을까?
+   사람과 인공지능의 학습법 비교  사람
+ 자전거를 타는 지식을 갖고 있으면 오토바이를 타는 지식을 습득하는 것은 어렵지 않다.</description>
+    </item>
+    
     <item>
       <title>통계분석 - 실습데이터 Carseats</title>
       <link>http://sjh4773.github.io/post/car/</link>

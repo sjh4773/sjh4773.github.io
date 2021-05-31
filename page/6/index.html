@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
+	<meta name="generator" content="Hugo 0.83.1" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Deep_learning - My New Hugo Site</title>
+	<title>My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/tags/deep_learning/index.xml" title="My New Hugo Site">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="My New Hugo Site">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -39,49 +40,28 @@
 			<div class="primary">
 			
 <main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">Deep_learning</h1>
-	</header><article class="list__item post">
+	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/post/meta/" rel="bookmark">
-			메타러닝
+			<a href="/post/ai/" rel="bookmark">
+			파이토치로 만드는 신경망
 			</a>
 		</h2>
 		
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		메타러닝  머신러닝 문제 해결 흐름도    훈련용 데이터(입력,레이블) 준비
-  모델 설정 (딥러닝 구조 설정)
-  훈련용 데이터를 통한 모델 최적화
-  운영 입력데이터를 모델에 적용
-매번 새로운 문제를 만날 때마다 새로운 모델 생성 및 학습(최적화)를 반복해야하는 문제점이 발생
-이 방식에서 개선시킬 점이 있을까?
-   사람과 인공지능의 학습법 비교  사람
- 자전거를 타는 지식을 갖고 있으면 오토바이를 타는 지식을 습득하는 것은 어렵지 않다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/lstm/" rel="bookmark">
-			Lstm 이론
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
-gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값을 미분한 값, E2를 미분한 값, E3를 미분한 값과 같음
-여기서 E3를 미분한 값을 보면 backpropagation through time을 통해서 여러 개의 미분값을 곱하게 되는데
-짧은 시퀀스 같은 경우 큰 문제가 없음 하지만 긴 시퀀스 같은 경우 예를 들어 100개 이상의 단어가 있는 문장이 있으면 곱하기를 100회 수행하게 되는데 만약 미분 값이 1보다 작을 경우 새로운 weight value는 기존의 weight value와 거의 차이가 없다.
+		# PyTorch 필요 라이브러리 호출 import torch # pip install pytorch 라이브러리 설치 import torch.nn as nn # 인공신경망을 구성해주는 메소드들의 집합 import torch.nn.functional as F # 활성화 함수들을 간단하게 호출 import torch.optim as optim # 토치를 통한 최적화 기능 # Neural network 모델 생성 # 입력 --&gt; 은닉 (3,5) # 은닉 --&gt; 출력 (5,2) # nn 뉴럴 네트워크 안에 있는 기능 하나를 호출  class fir_model(nn.Moudule): # nn.Moduel안에 있는 부모 클래스를 상속 받는다.
 	</div>
 </article>
 </main>
 
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/page/5/">«</a>
+	<span class="pagination__item pagination__item--current">6/6</span>
+</div>
 
 			</div>
 			
-
 		</div>
 		<footer class="footer">
 	<div class="container footer__container flex">
