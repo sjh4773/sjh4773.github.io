@@ -6,7 +6,17 @@
     <description>Recent content in Deep_learning on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 01 Jun 2021 00:33:22 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/deep_learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 22:48:42 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/deep_learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RNN in PyTorch</title>
+      <link>http://sjh4773.github.io/post/rnn/</link>
+      <pubDate>Tue, 01 Jun 2021 22:48:42 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/rnn/</guid>
+      <description>RNN in PyTorch 파이토치에서는 nn.RNN()을 통해서 RNN 셀을 구현
+import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기를 정의 input_size = 5 # 입력의 크기 hidden_size = 8 # 은닉 상태의 크기 입력 텐서를 정의한다. 입력 텐서는 (배치 크기 x 시점의 수 x 매 시점마다 들어가는 입력)의 크기를 가진다. 배치의 크기는 1이며 10번의 시점동안 5차원의 입력 벡터가 들어가도록 텐서를 정의한다. # (batch_size, time_steps, input_size) inputs = torch.Tensor(1, 10, 5) nn.</description>
+    </item>
+    
     <item>
       <title>메타러닝</title>
       <link>http://sjh4773.github.io/post/meta/</link>
