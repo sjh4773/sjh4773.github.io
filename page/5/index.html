@@ -43,6 +43,20 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/python/" rel="bookmark">
+			카페 추천 시스템
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Cosine similarity(유사도 측정)
+-&gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
+import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-4/" rel="bookmark">
 			상관분석 실습
 			</a>
@@ -157,22 +171,6 @@ MNIST 개요
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		import torch import numpy as np import matplotlib.pyplot as plt %matplotlib inline # 데이터 x = np.random.uniform(-1.2, 2, size=(100)) #np.random.uniform은 Numpy에서 제공하는 균등분포 함수이다. y = 0.1*x**3-0.1*x**2+0.1*np.random.uniform(size=(100)) # 노이즈 추가 plt.plot(x,y,&#39;o&#39;) # 3차 함수지만 노이즈가 포함되어 있다. # train/validation/test 분류 data = np.concatenate((x.reshape(-1,1),y.reshape(-1,1)), axis=-1) # X, Y 묶음, X: input, Y: target print(data.shape) # 차원 0: 데이터 개수, 차원1: (x,y) --&gt; (100,2) np.random.shuffle(data) # 데이터 골고루 섞음 test_num = int(data.shape[0]*0.1) # data.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r/" rel="bookmark">
-			힙합 가사 텍스트 마이닝 및 워드 클라우드
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
-  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
-  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
-  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
-  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다.
 	</div>
 </article>
 </main>

@@ -43,6 +43,18 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/sklearn-1/" rel="bookmark">
+			StandardScaler()
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		사이킷런 데이터 전처리 함수 StandardScaler() 데이터의 피처 각각이 평균이 0, 분산이 1인 가우시안 정규분포를 가진 값으로 변환하는 작업을 표준화라고 한다. 기계학습 시에 SVM, 선형 회귀, 로지스틱 회귀는 가우시안 분포를 가정하고 구현되었으므로 전처리 단계에서 표준화를 해주는 것이 성능 향상에 도움이 된다. 원래 값에서 피처의 평균을 뺀 값을 피처의 표준편차로 나눠서 표준화한다. 수식으로 나타내면 다음과 같다.  사이킷런의 StandardScaler를 사용해 표준화를 진행 할 수 있다. 데이터 인코딩에서와 마찬가지로 피처 스케일링에서도 fit()과 transform()을 사용한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-6/" rel="bookmark">
 			GAN 이론
 			</a>
@@ -155,20 +167,6 @@
 	<div class="content list__excerpt post__content clearfix">
 		cat 함수란? cat함수는 concatenate를 해주는 함수이고 concatenate하고자 하는 차원을 증가시킨다. concatenate하고자하는 차원을 지정해주면 그 차원으로 두 tensor의 차원을 더한 값으로 차원이 변경된다.
 cat 함수의 시각화 Python 코드 import torch batch_size, N, K = 3, 10, 256 x = torch.rand(batch_size, N, K) # [M, N, K] y = torch.rand(batch_size, N, K) # [M, N, K] output1 = torch.cat([x,y], dim=1) #[M, N+N, K] output2 = torch.cat([x,y], dim=2) #[M, N, K+K] 
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/python/" rel="bookmark">
-			카페 추천 시스템
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Cosine similarity(유사도 측정)
--&gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
-import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.
 	</div>
 </article>
 </main>

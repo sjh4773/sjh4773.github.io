@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>RNN in PyTorch - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">RNN in PyTorch</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h1 id="rnn-in-pytorch">RNN in PyTorch</h1>
+<p>파이토치에서는 nn.RNN()을 통해서 RNN 셀을 구현</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> torch.nn <span style="color:#f92672">as</span> nn
+<span style="color:#960050;background-color:#1e0010">입력의</span> <span style="color:#960050;background-color:#1e0010">크기와</span> <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태의</span> <span style="color:#960050;background-color:#1e0010">크기를</span> <span style="color:#960050;background-color:#1e0010">정의</span>
+
+
+input_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#75715e"># 입력의 크기</span>
+hidden_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#75715e"># 은닉 상태의 크기</span>
+<span style="color:#960050;background-color:#1e0010">입력</span> <span style="color:#960050;background-color:#1e0010">텐서를</span> <span style="color:#960050;background-color:#1e0010">정의한다</span><span style="color:#f92672">.</span> <span style="color:#960050;background-color:#1e0010">입력</span> <span style="color:#960050;background-color:#1e0010">텐서는</span> (<span style="color:#960050;background-color:#1e0010">배치</span> <span style="color:#960050;background-color:#1e0010">크기</span> x <span style="color:#960050;background-color:#1e0010">시점의</span> <span style="color:#960050;background-color:#1e0010">수</span> x <span style="color:#960050;background-color:#1e0010">매</span> <span style="color:#960050;background-color:#1e0010">시점마다</span> <span style="color:#960050;background-color:#1e0010">들어가는</span> <span style="color:#960050;background-color:#1e0010">입력</span>)<span style="color:#960050;background-color:#1e0010">의</span> <span style="color:#960050;background-color:#1e0010">크기를</span> <span style="color:#960050;background-color:#1e0010">가진다</span><span style="color:#f92672">.</span>
+
+<span style="color:#960050;background-color:#1e0010">배치의</span> <span style="color:#960050;background-color:#1e0010">크기는</span> <span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">이며</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">번의</span> <span style="color:#960050;background-color:#1e0010">시점동안</span> <span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">차원의</span> <span style="color:#960050;background-color:#1e0010">입력</span> <span style="color:#960050;background-color:#1e0010">벡터가</span> <span style="color:#960050;background-color:#1e0010">들어가도록</span> <span style="color:#960050;background-color:#1e0010">텐서를</span> <span style="color:#960050;background-color:#1e0010">정의한다</span><span style="color:#f92672">.</span>
+
+
+<span style="color:#75715e"># (batch_size, time_steps, input_size)</span>
+inputs <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>Tensor(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>)
+nn<span style="color:#f92672">.</span>RNN()<span style="color:#960050;background-color:#1e0010">을</span> <span style="color:#960050;background-color:#1e0010">사용하여</span> RNN의 <span style="color:#960050;background-color:#1e0010">셀을</span> <span style="color:#960050;background-color:#1e0010">만든다</span><span style="color:#f92672">.</span> <span style="color:#960050;background-color:#1e0010">인자로</span> <span style="color:#960050;background-color:#1e0010">입력의</span> <span style="color:#960050;background-color:#1e0010">크기</span>, <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태의</span> <span style="color:#960050;background-color:#1e0010">크기를</span> <span style="color:#960050;background-color:#1e0010">정의해주고</span>, batch_first<span style="color:#f92672">=</span>True를 <span style="color:#960050;background-color:#1e0010">통해서</span> <span style="color:#960050;background-color:#1e0010">입력</span> <span style="color:#960050;background-color:#1e0010">텐서의</span> <span style="color:#960050;background-color:#1e0010">첫번째</span> <span style="color:#960050;background-color:#1e0010">차원이</span> <span style="color:#960050;background-color:#1e0010">배치</span> <span style="color:#960050;background-color:#1e0010">크기임을</span> <span style="color:#960050;background-color:#1e0010">알려준다</span><span style="color:#f92672">.</span>
+
+
+cell <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>RNN(input_size, hidden_size, batch_first<span style="color:#f92672">=</span>True)
+<span style="color:#960050;background-color:#1e0010">입력</span> <span style="color:#960050;background-color:#1e0010">텐서를</span> RNN <span style="color:#960050;background-color:#1e0010">셀에</span> <span style="color:#960050;background-color:#1e0010">입력하여</span> <span style="color:#960050;background-color:#1e0010">출력을</span> <span style="color:#960050;background-color:#1e0010">확인</span>
+
+
+outputs, _status <span style="color:#f92672">=</span> cell(inputs)
+RNN <span style="color:#960050;background-color:#1e0010">셀은</span> <span style="color:#960050;background-color:#1e0010">두</span> <span style="color:#960050;background-color:#1e0010">개의</span> <span style="color:#960050;background-color:#1e0010">입력을</span> <span style="color:#960050;background-color:#1e0010">리턴하는데</span>, <span style="color:#960050;background-color:#1e0010">첫번째</span> <span style="color:#960050;background-color:#1e0010">리턴값은</span> <span style="color:#960050;background-color:#1e0010">모든</span> <span style="color:#960050;background-color:#1e0010">시점의</span> <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태들이며</span>, <span style="color:#960050;background-color:#1e0010">두번째</span> <span style="color:#960050;background-color:#1e0010">리턴값은</span> <span style="color:#960050;background-color:#1e0010">마지막</span> <span style="color:#960050;background-color:#1e0010">시점의</span> <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태이다</span><span style="color:#f92672">.</span>
+
+<span style="color:#960050;background-color:#1e0010">첫번째</span> <span style="color:#960050;background-color:#1e0010">리턴값에</span> <span style="color:#960050;background-color:#1e0010">대해서</span> <span style="color:#960050;background-color:#1e0010">크기</span> <span style="color:#960050;background-color:#1e0010">확인</span><span style="color:#f92672">.</span>
+
+
+<span style="color:#66d9ef">print</span>(outputs<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># 모든 time-step의 hidden_state</span>
+<span style="color:#960050;background-color:#1e0010">첫번째</span> <span style="color:#960050;background-color:#1e0010">리턴값의</span> <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태들은</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>)<span style="color:#960050;background-color:#1e0010">의</span> <span style="color:#960050;background-color:#1e0010">크기를</span> <span style="color:#960050;background-color:#1e0010">가진다</span><span style="color:#f92672">.</span> <span style="color:#960050;background-color:#1e0010">이는</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">번의</span> <span style="color:#960050;background-color:#1e0010">시점동안</span> <span style="color:#ae81ff">8</span><span style="color:#960050;background-color:#1e0010">차원의</span> <span style="color:#960050;background-color:#1e0010">은닉상태가</span> <span style="color:#960050;background-color:#1e0010">출력되었다는</span> <span style="color:#960050;background-color:#1e0010">의미이다</span><span style="color:#f92672">.</span>
+
+<span style="color:#960050;background-color:#1e0010">두</span> <span style="color:#960050;background-color:#1e0010">번째</span> <span style="color:#960050;background-color:#1e0010">리턴값</span><span style="color:#f92672">.</span> <span style="color:#960050;background-color:#1e0010">다시</span> <span style="color:#960050;background-color:#1e0010">말해</span> <span style="color:#960050;background-color:#1e0010">마지막</span> <span style="color:#960050;background-color:#1e0010">시점의</span> <span style="color:#960050;background-color:#1e0010">은닉</span> <span style="color:#960050;background-color:#1e0010">상태의</span> <span style="color:#960050;background-color:#1e0010">크기를</span> <span style="color:#960050;background-color:#1e0010">확인</span><span style="color:#f92672">.</span>
+
+
+<span style="color:#66d9ef">print</span>(_status<span style="color:#f92672">.</span>shape) <span style="color:#75715e"># 최종 time-step의 hidden_state</span>
+</code></pre></div><h2 id="simple-example">Simple Example</h2>
+<p>예시 : Hell가 들어가면 다음 알파벳 o를 맞추기</p>
+<p><img src="/image/rnn1.PNG" alt=""></p>
+<pre><code>input_size : 4 (h의 차원의 크기 : [1, 0, 0, 0] )
+hidden_size : 2 (특별한 이유는 없지만, 슬픔, 기쁨, 분노 중 하나를 추론한다면 3으로 둘 수 있음)
+hidden_size의 크기가 outputs의 마지막 shape가 됨
+이유는 아래의 첨부한 사진과 같음. hidden_state의 출력이 하나는 output으로 하고 다른 하나는 다음번 hidden_state로 가기에 둘은 같은 값을 가지게 됨
+</code></pre>
+<p><img src="/image/rnn2.PNG" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+sequence length : <span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">부터</span> t까지의 <span style="color:#960050;background-color:#1e0010">길이를</span> <span style="color:#960050;background-color:#1e0010">가지는</span> <span style="color:#960050;background-color:#1e0010">입력값</span>
+<span style="color:#960050;background-color:#1e0010">예</span>) h, e, l, l, o의 <span style="color:#960050;background-color:#1e0010">경우</span> sequence length는 <span style="color:#ae81ff">5</span> output의 <span style="color:#960050;background-color:#1e0010">중간</span> shape가 sequence length가 <span style="color:#960050;background-color:#1e0010">됨</span>(<span style="color:#960050;background-color:#1e0010">이건</span> <span style="color:#960050;background-color:#1e0010">모델이</span> <span style="color:#960050;background-color:#1e0010">알아서</span> <span style="color:#960050;background-color:#1e0010">인식함</span>)
+</code></pre></div><p><img src="/image/rnn3.PNG" alt=""></p>
+<p>batch size 역시 모델에 입력할 필요가 없이 input data만 잘 구성하면 알아서 인식됨</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#75715e"># Random seed to make results deterministic and reproducible</span>
+torch<span style="color:#f92672">.</span>manual_seed(<span style="color:#ae81ff">0</span>)
+
+<span style="color:#75715e"># declare dimension</span>
+input_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+hidden_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</code></pre></div><h2 id="timeseries">timeseries</h2>
+<p><img src="/image/rnn4.PNG" alt=""></p>
+<pre><code>이 데이터를 넣는 모델을 보면 기본적으로 7일간의 데이터를 입력 받아서 8일차 종가를 예측하는 구조로 되어있다.
+
+이 모델은 8일차의 종가를 예측하기 위해서 그전 일주일간의 데이터를 보면 될것이라는 전제로부터 출발한다. 그러나 주식시장에는 여러가지의 가정이 있기 때문에 옳지 않은 전제라고 볼 수 있으며 단지 이러한 전제로 출발했다는 사실을 알린다.
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> torch.optim <span style="color:#f92672">as</span> optim
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+<span style="color:#75715e"># Random seed to make result deterministi and reproducible</span>
+torch<span style="color:#f92672">.</span>manual_seed(<span style="color:#ae81ff">0</span>)
+
+<span style="color:#75715e"># scaling function for input data</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">minmax_scaler</span>(data):
+    numerator <span style="color:#f92672">=</span> data <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>min(data, <span style="color:#ae81ff">0</span>)
+    denominator <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>max(data, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>min(data, <span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">return</span> numerator <span style="color:#f92672">/</span> (denominator <span style="color:#f92672">+</span> <span style="color:#ae81ff">1e-7</span>)
+
+<span style="color:#75715e"># make dataset to input</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_dataset</span>(time_series, seq_length):
+    dataX <span style="color:#f92672">=</span> []
+    dataY <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(time_series) <span style="color:#f92672">-</span> seq_length):
+        _x <span style="color:#f92672">=</span> time_series[i:i <span style="color:#f92672">+</span> seq_length, :]
+        _y <span style="color:#f92672">=</span> time_series[i <span style="color:#f92672">+</span> seq_length, [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]] <span style="color:#75715e"># Next close price</span>
+        <span style="color:#66d9ef">print</span>(_x, <span style="color:#e6db74">&#34;-&gt;&#34;</span>, _y)
+        dataX<span style="color:#f92672">.</span>append(_x)
+        dataY<span style="color:#f92672">.</span>append(_y)
+
+
+<span style="color:#75715e"># hyper parameters</span>
+seq_length <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>   <span style="color:#75715e"># 7일</span>
+data_dim <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>     <span style="color:#75715e"># 시가,최고가,최저가,거래량,종가</span>
+hidden_dim <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>  
+output_dim <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>   <span style="color:#75715e"># 마지막에 fully connected dimension이 맞춰야 하는 종가</span>
+learning_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+iterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span>
+
+<span style="color:#75715e"># 파이토치가 읽을 수 있는 텐서의 형태로 변환</span>
+trainX_tensor <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>FloatTensor(trainX)
+trainY_tensor <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>FloatTensor(trainY)
+
+testX_tensor <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>FloatTensor(testX)
+testY_tensor <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>FloatTensor(testY)
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Net</span>(torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#66d9ef">def</span> __init__(self, input_dim, hidden_dim, output_dim, layers):
+        super(Net, self)<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>rnn <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>LSTM(input_dim, hidden_dim, num_layers<span style="color:#f92672">=</span>layers, batch_first<span style="color:#f92672">=</span>True)
+        self<span style="color:#f92672">.</span>fc <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear(hidden_dim, output_dim, bias<span style="color:#f92672">=</span>True) <span style="color:#75715e"># fully connected layer 선언</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x):
+        x, _status <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rnn(x)
+        x <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>fc(x[:,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+        <span style="color:#66d9ef">return</span> x
+
+
+<span style="color:#75715e"># start training</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(iterations):
+
+    optimizer<span style="color:#f92672">.</span>zero_grad()
+    outputs <span style="color:#f92672">=</span> net(trainX_tensor)
+    loss <span style="color:#f92672">=</span> criterion(outputs, trainY_tensor)
+    loss<span style="color:#f92672">.</span>backward()
+    optimizer<span style="color:#f92672">.</span>step()
+    <span style="color:#66d9ef">print</span>(i, loss<span style="color:#f92672">.</span>item())
+
+plt<span style="color:#f92672">.</span>plot(testY)
+plt<span style="color:#f92672">.</span>plot(net(testX_tensor)<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>numpy())
+plt<span style="color:#f92672">.</span>legend([<span style="color:#e6db74">&#39;original&#39;</span>, <span style="color:#e6db74">&#39;prediction&#39;</span>])
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/image/rnn5.PNG" alt=""></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/depp_learning/" rel="tag">Depp_learning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 My New Hugo Site.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
