@@ -6,7 +6,25 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Tue, 01 Jun 2021 22:48:42 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Jun 2021 00:09:24 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transfomer</title>
+      <link>http://sjh4773.github.io/post/transfomer/</link>
+      <pubDate>Thu, 03 Jun 2021 00:09:24 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/transfomer/</guid>
+      <description>Transformer 트랜스포머는 기존 인코더 디코더를 발전시킨 딥러닝 모델 가장 큰 차이점은 rnn을 사용하지 않는다는 것 트랜스포머는 기존 rnn기반 인코더 디코더보다 학습이 빠르고 성능이 좋음 트랜스포머를 한단어로 표현하면 병렬화이다. 즉 일을 한번에 처리함 Rnn은 순차적으로 입력된 단어를 인코딩하는 반면 트랜스포머는 한번에 과정을 처리 전통적인 rnn기반 인코더 디코더일 경우 입력값을 순차적으로 계산한다. 인코더에서의 최종적인 상태값을 context vector이라고 하며 context vector를 이용하여 번역을 한다. 고정된 크기의 문맥 벡터를 사용하지 않고 대신 단어를 하나씩 번역할 때마다 동적으로 인코더 출력값에 어텐션 메커니즘을 사용하여 효율적으로 변환 이 모델을 고정된 문맥 벡터를 사용하지않고 인코더의 모든 상태를 활용한다는 특징 때문에 이전 인코더 디코더 모델보다 향상됨 어텐션 메커니즘은 기존 인코더 디코더의 성능을 상당히 강화시킴 그러나 여전히 rnn 셀을 순차적으로 계산하여 느리다는 단점이 있음 어텐션만으로도 입력 데이터에서 중요한 정보를 찾아내서 단어를 인코딩 할 수 있지 않을까란 가능성 제기 Rnn의 순차적인 계산은 트랜스포머에서 단순히 행렬곱으로 한번에 처리가 됨 트랜스포머는 한번에 연산으로 모든 중요 정보 정보는 각 단에 인코딩하게 됩니다 트랜스 포머 디코드의 연산 과정을 기존의 어탠션 기반 인코더 디코더와 사뭇 닮아 있음을 확인할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>Seq2seq with attention</title>
+      <link>http://sjh4773.github.io/post/seq2seq/</link>
+      <pubDate>Thu, 03 Jun 2021 00:09:15 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/seq2seq/</guid>
+      <description>인코더의 주 역할은 각 단어를 순차적으로 받음으로써 최종적으로 문맥 벡터를 만드는 것 디코더의 역할은 문맥 벡터로부터 기계번역을 시작 시퀀스가 적을 경우 문제가 없으나 시퀀스가 길어질경우 문제 발생 문맥 벡터는 고정된 사이즈의 벡터이므로 모든 정보를 함축하기에는 사이즈가 작다 그 대안으로 attention 메카니즘을 활용한다. 이전 인코더 디코더 아키텍처에서는 인코더에서 나왔던 모든 state를 활용하지 않았다 단순히 마지막에 나온 state를 context vector라고 불렀고 그 하나의 context vector에서 translation이 이루어졌다. encoder 나온 각각의 rnn의 셀의 state를 활용하여 decoder에서 dynamic하게 context vector를 만들어 번역을 한다면 고정된 사이즈의 문제를 해결할 수 있다.</description>
+    </item>
+    
     <item>
       <title>rnn in pytorch</title>
       <link>http://sjh4773.github.io/post/rnn/</link>

@@ -43,6 +43,33 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-6/" rel="bookmark">
+			ADP 1회 모의고사 R 정형 데이터 마이닝 실습
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&#34;C:/ADP/data&#34;) lot &lt;- read.csv(&#34;lotto.csv&#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&#34;reshape2&#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/tableau1/" rel="bookmark">
+			태블로로 제작한 전국 광역시 미분양주택 현황
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		전국 광역시 미분양 주택 현황  데이터 연결  데이터는 한국부동산원에서 미분양주택현황 데이터를 사용하였습니다.
+출처 : https://www.r-one.co.kr/rone/resis/statistics/statisticsViewer.do?menuId=LHT_61010
+데이터 시각화  미분양주택 데이터를 구현하고자 하는 목적에 맞게 전처리한 후 라인 그래프, 맵 그래프, 막대 그래프로 시각화 해보았다.
+ 라인그래프를 통하여 연도별 미분양주택 추세 파악  시점을 분할하여 연도별로 추세를 확인할 수 있다.   맵 그래프를 통하여 각 광역시 구별 미분양주택수 파악  시도 데이터와 시군구 데이터를 계층화 하여 위도 경도 정보를 획득하여 지도 시각화를 한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/data-processing-engineer/" rel="bookmark">
 			정보처리기사 필기 공부
 			</a>
@@ -155,31 +182,6 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
   하이픈(-)을 사용한 문자 클래스의 사용 예
  [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
 문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/kaggle/" rel="bookmark">
-			Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부 Matplotlib : 차트의 기본 크기를 설정하려면?
-rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설정합니다. plt.rcParams와 mpl.rcParams 모두 동일한 결과를 도출하므로 편한 것을 사용하면 됩니다. 사용 가능한 rcParams 항목 : plt.rcParams 초기값으로 되돌리기 : mpl.rcParams.update(mpl.rcParamsDefault)  %matplotlib inline import matplotlib as mpl import matplotlib.pyplot as plt mpl.rcParams[&#34;figure.figsize&#34;] = (14,4) mpl.rcParams[&#39;lines.linewidth&#39;] = 2 mpl.rcParams[&#39;lines.color&#39;] = &#39;r&#39; mpl.rcParams[&#39;axes.grid&#39;] = True mpl.rcParams[&#39;figure.dpi&#39;] = 120 mpl.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-9/" rel="bookmark">
-			Bayesian Optimization
-			</a>
-		</h2>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		만약 우리에게 모델이 있는데, 미지의 함수(black-box function)라 예측은 잘 되는데 그 속을 들여다 볼 수 없다. 즉, f(x)가 closed-form으로 표현되지 않는다.(닫힌 형태(closed form)란 방정식(equation)의 해(solution)를 해석적(analytic)으로 표현할 수 있는 종류의 문제를 말한다.) 또 non-linear(비선형) + non-convex 해서 gradient도 찾을 수 없다.  Non-Convex한 함수란, 볼록함수와는 달리 극점이 굉장히 많을 수 있는 함수이기 때문에, Gradient Descent를 통해 구한 최솟값이 Local Minumum일 뿐, Global Minimum값은 아닐 수 있는 가능성이 생긴다. 심지어 query를 입력으로 주고 evaluate 할 때 엄청난 시간/비용이 든다.
 	</div>
 </article>
 </main>
