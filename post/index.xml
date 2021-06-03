@@ -565,5 +565,14 @@ MNIST 개요
       <description># PyTorch 필요 라이브러리 호출 import torch # pip install pytorch 라이브러리 설치 import torch.nn as nn # 인공신경망을 구성해주는 메소드들의 집합 import torch.nn.functional as F # 활성화 함수들을 간단하게 호출 import torch.optim as optim # 토치를 통한 최적화 기능 # Neural network 모델 생성 # 입력 --&amp;gt; 은닉 (3,5) # 은닉 --&amp;gt; 출력 (5,2) # nn 뉴럴 네트워크 안에 있는 기능 하나를 호출  class fir_model(nn.Moudule): # nn.Moduel안에 있는 부모 클래스를 상속 받는다.</description>
     </item>
     
+    <item>
+      <title>정형 데이터마이닝 blackfriday</title>
+      <link>http://sjh4773.github.io/post/blackfriday/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/blackfriday/</guid>
+      <description>setwd(&amp;#34;c:/ADP/data&amp;#34;) BlackFriday &amp;lt;- read.csv(&amp;#34;BlackFriday.csv&amp;#34;) str(BlackFriday) # &amp;#39;data.frame&amp;#39;:	537577 obs. of 12 variables: # $ User_ID : int 1000001 1000001 1000001 1000001 1000002 1000003 1000004 1000004 1000004 1000005 ... # $ Product_ID : chr &amp;#34;P00069042&amp;#34; &amp;#34;P00248942&amp;#34; &amp;#34;P00087842&amp;#34; &amp;#34;P00085442&amp;#34; ... # $ Gender : chr &amp;#34;F&amp;#34; &amp;#34;F&amp;#34; &amp;#34;F&amp;#34; &amp;#34;F&amp;#34; ... # $ Age : chr &amp;#34;0-17&amp;#34; &amp;#34;0-17&amp;#34; &amp;#34;0-17&amp;#34; &amp;#34;0-17&amp;#34; ... # $ Occupation : int 10 10 10 10 16 15 7 7 7 20 .</description>
+    </item>
+    
   </channel>
 </rss>

@@ -113,6 +113,18 @@
 	<div class="content list__excerpt post__content clearfix">
 		# R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&#34;C:/ADP/data&#34;) lot &lt;- read.csv(&#34;lotto.csv&#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&#34;reshape2&#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.
 	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/post/blackfriday/" rel="bookmark">
+			정형 데이터마이닝 blackfriday
+			</a>
+		</h2>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		setwd(&#34;c:/ADP/data&#34;) BlackFriday &lt;- read.csv(&#34;BlackFriday.csv&#34;) str(BlackFriday) # &#39;data.frame&#39;:	537577 obs. of 12 variables: # $ User_ID : int 1000001 1000001 1000001 1000001 1000002 1000003 1000004 1000004 1000004 1000005 ... # $ Product_ID : chr &#34;P00069042&#34; &#34;P00248942&#34; &#34;P00087842&#34; &#34;P00085442&#34; ... # $ Gender : chr &#34;F&#34; &#34;F&#34; &#34;F&#34; &#34;F&#34; ... # $ Age : chr &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; ... # $ Occupation : int 10 10 10 10 16 15 7 7 7 20 .
+	</div>
 </article>
 </main>
 
