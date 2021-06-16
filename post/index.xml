@@ -17,6 +17,16 @@
     </item>
     
     <item>
+      <title>2. NoSQL의 대표적인 데이터베이스 mongoDB</title>
+      <link>http://sjh4773.github.io/post/mongodb2/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/mongodb2/</guid>
+      <description>빅데이터란? 빅 데이터란 기존 데이터베이스 관리도구의 능력을 넘어서는 대량(수십 테라바이트)의 정형 또는 심지어 데이터베이스 형태가 아닌 비정형의 데이터 집합조차 포함한 데이터로부터 가치를 추출하고 결과를 분석하는 기술이다. 즉, 기존의 데이터 베이스로는 수집 · 저장 · 분석 · 처리하기 어려울 정도로 방대한 양의 데이터를 의미한다.    빅데이터 기술
+기존의 데이터를 만개를 처리하는 기술과 수십만개의 데이터를 처리하는 기술이 다르다. 기존의 기술로는 수천만건의 데이터를 짧은 시간안에 처리하고 분석하기 어려워 새로운 기술이 나왔고 그 기술을 통칭하여 빅데이터 기술이라 부른다.</description>
+    </item>
+    
+    <item>
       <title>Transfomer</title>
       <link>http://sjh4773.github.io/post/transfomer/</link>
       <pubDate>Thu, 03 Jun 2021 00:09:24 +0900</pubDate>

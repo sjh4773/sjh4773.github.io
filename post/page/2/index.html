@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-9/" rel="bookmark">
+			통계분석 Admission
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T23:07:13Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# 종속변수인 Chance_of_Admit(입학 허가 확률)와 독립변수(GRE, TOEFL, Univ_Rating, SOP, # LOR, CGPA)에 대해 피어슨 상관계수를 이용한 상관관계 분석을 수행하고 그래프를 이용하여 # 분석결과를 설명하시오. # 작업 디렉토리 설정 setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 adms &lt;- read.csv(&#34;Admission.csv&#34;) str(adms) head(adms) tail(adms) sum(is.na(adms)) # NA값이 존재하는지 확인 # 종속변수인 Chance_of_Admit(입학 허가 확률)과 독립변수(GRE, TOEFL, Univ_Rating, # SOP, LOR, CGPA)에 대해 피어슨 상관분석을 각각 수행한다. # 1. GRE와 Chance_of_Admit 간의 상관분석 str(adms) cor(adms$GRE,adms$Chance_of_Admit) # 피어슨 상관계수 산출 # [1] 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-7/" rel="bookmark">
 			ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2
 			</a>
@@ -231,25 +249,6 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
   Pseudo-labeled data와 Labeled를 모두 사용하여 다시 그 모델을 학습시킨다.
     Pseudo Labeled data  Pseudo Label은 아래와 같은 식으로, 각각의 sample에 대해, 예측된 확률이 가장 높은 것으로 정합니다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-10/" rel="bookmark">
-			기본 스태킹 및 교차 검증 스태킹
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-25T21:36:52Z">2021-04-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Basic Stacking Model - Diagram 기반 모델들이 예측한 값들을 Stacking 형태로 만들어서 메타 모델이 이를 학습하고 예측하는 모델
-교차 검증 세트 기반의 스태킹 교차 검증 세트 기반의 스태킹은 이에 대한 개선을 위해 개별 모델들이 각각 교차 검증으로 메타 모델을 위한 학습용 스태킹 데이터 생성과 예측을 위한 테스트용 스태킹 데이터를 생성한 뒤 이를 기반으로 메타 모델이 학습과 예측을 수행합니다. 이는 다음과 같이 2단계의 스텝으로 구분될 수 있습니다.    스텝 1 : 각 모델별로 원본 학습/테스트 데이터를 예측한 결과 값을 기반으로 메타 모델을 위한/학습용 테스트용 데이터를 생성합니다.
-	</div>
 </article>
 </main>
 
@@ -275,10 +274,10 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/meta/">메타러닝</a></li>
 		</ul>
 	</div>
 </div>

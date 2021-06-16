@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>2. NoSQL의 대표적인 데이터베이스 mongoDB - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="mongoDB 공부">
+		<meta property="og:title" content="2. NoSQL의 대표적인 데이터베이스 mongoDB" />
+<meta property="og:description" content="mongoDB 공부" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/mongodb2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-16T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-06-16T00:00:00&#43;00:00" />
+
+
+		<meta itemprop="name" content="2. NoSQL의 대표적인 데이터베이스 mongoDB">
+<meta itemprop="description" content="mongoDB 공부"><meta itemprop="datePublished" content="2021-06-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-06-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="711">
+<meta itemprop="keywords" content="mongoDB," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2. NoSQL의 대표적인 데이터베이스 mongoDB"/>
+<meta name="twitter:description" content="mongoDB 공부"/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">2. NoSQL의 대표적인 데이터베이스 mongoDB</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-16T00:00:00Z">2021-06-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/mongodb/" rel="category">mongoDB</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#빅데이터란">빅데이터란?</a></li>
+    <li><a href="#nosql의-이해">NoSQL의 이해</a></li>
+    <li><a href="#왜-nosql을-사용하는가">왜 NoSQL을 사용하는가?</a>
+      <ul>
+        <li><a href="#nosql-db-종류">NoSQL DB 종류</a></li>
+      </ul>
+    </li>
+    <li><a href="#mongodb란">mongoDB란?</a></li>
+    <li><a href="#mongodb-데이터-구조">MongoDB 데이터 구조</a></li>
+    <li><a href="#mongodb-database">mongoDB Database</a></li>
+    <li><a href="#mongodb-collection">MongoDB Collection</a></li>
+    <li><a href="#mongodb-특징과-장단점">mongoDB 특징과 장단점</a></li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<h2 id="빅데이터란">빅데이터란?</h2>
+<pre><code>빅 데이터란 기존 데이터베이스 관리도구의 능력을 넘어서는 대량(수십 테라바이트)의 정형 또는
+심지어 데이터베이스 형태가  아닌 비정형의 데이터 집합조차 포함한 데이터로부터 가치를 추출하고 결과를 분석하는 기술이다.
+즉, 기존의 데이터 베이스로는 수집 · 저장 · 분석 · 처리하기 어려울 정도로 방대한 양의 데이터를 의미한다.
+</code></pre>
+<ul>
+<li>
+<p>빅데이터 기술</p>
+<p>기존의 데이터를 만개를 처리하는 기술과 수십만개의 데이터를 처리하는 기술이 다르다.
+기존의 기술로는 수천만건의 데이터를 짧은 시간안에 처리하고 분석하기 어려워 새로운 기술이 나왔고
+그 기술을 통칭하여 빅데이터 기술이라 부른다.</p>
+</li>
+<li>
+<p>기존 데이터 처리 기술, 관계형 데이터베이스(RDBMS)</p>
+<ul>
+<li>SQL 언어로 사용 가능</li>
+<li>SQL 데이터 베이스</li>
+<li>MySQL, Oracle, PostgreSQL, SQLite</li>
+</ul>
+</li>
+<li>
+<p>빅데이터 : NoSQL 데이터베이스</p>
+</li>
+</ul>
+<h2 id="nosql의-이해">NoSQL의 이해</h2>
+<p>NoSQL이 RDBMS와의 다른 점으로는</p>
+<p><img src="/image/nosql.PNG" alt=""></p>
+<ol>
+<li>스키마가 없다. 즉 데이터 관계와 정해진 규격(table - column의 정의)이 없다.</li>
+<li>관계정의가 없으니 JOIN이 불가능 하다.</li>
+<li>트랜잭션을 지원하지 않는다.</li>
+<li>분산처리(수평적 확장)를 쉽게 제공한다.( 대부분의 NoSQL DB는 분산처리기능을 목적으로 나왔기 때문에 분산처리 기능을 자체 프레임워크에 포함하고 있다 )</li>
+</ol>
+<h2 id="왜-nosql을-사용하는가">왜 NoSQL을 사용하는가?</h2>
+<ul>
+<li>RDBMS를 기본으로 사용하지만,</li>
+<li>초당 데이터가 수십만개씩 쌓이는 서비스가 많아지면서, NoSQL을 사용하는 경우가 많아지고 있음</li>
+<li>경험적 수치
+<ul>
+<li>95% read, 5% write 경우는 RDBMS가 성능이 나쁘지 않음</li>
+<li>50% write &gt; 인 경우 RDBMS는 성능 저하 또는 불안정</li>
+<li>NoSQL + Redis(In memory cache)등을 고려하게 됨</li>
+</ul>
+</li>
+</ul>
+<h3 id="nosql-db-종류">NoSQL DB 종류</h3>
+<ul>
+<li>NoSQL 데이터베이스는 각 데이터베이스마다 기반으로 하는 데이터 모델이 다르므로, 데이터 모델별로 대표적인 데이터베이스를 알아둘 필요가 있음</li>
+<li>NoSQL 데이터베이스의 종류는 키-값 데이터베이스, 도큐먼트 데이터베이스, 칼럼 패밀리 데이터베이스, 그래프 데이터베이스로 나뉘며</li>
+<li>아래 그림은 관계형 데이터베이스와 4가지 종류의 NoSQL 데이터베이스를 각각의 대표 제품과 함께 나타낸 그림이다.</li>
+</ul>
+<p><img src="/image/nosql2.PNG" alt=""></p>
+<ul>
+<li>키-값 데이터베이스 : 키와 값으로 구성된 배열구조의 데이터베이스로 NoSQL 데이터베이스 중 가장 단순한 구조</li>
+<li>도큐먼트 데이터베이스 : 필드와 값의 형태로 구성된 데이터를 JSON 포맷으로 관리하는 데이터베이스로 NoSQL 데이터베이스 중 가장 인기가 높음</li>
+<li>칼럼 패밀리 데이터베이스 : 칼럼과 로우로 구성된 데이터베이스로 칼럼은 이름과 값으로 구성되고 로우는 각기 다른 칼럼으로 구성이 가능</li>
+<li>그래프 데이터베이스 : 노드와 관계로 구성된 데이터베이스로 근접한 객체를 모델링할 목적으로 설계</li>
+</ul>
+<h2 id="mongodb란">mongoDB란?</h2>
+<ul>
+<li>
+<p>mongoDB는 document db</p>
+<ul>
+<li>JSON 기반의 Document 기반 데이터 관리</li>
+</ul>
+</li>
+<li>
+<p>데이터 포맷</p>
+<ul>
+<li>정수(int), 소숫점(float), 문자(string)</li>
+<li>csv, JSON</li>
+<li>JSON &ndash;&gt;  { id : &ldquo;hun&rdquo;, &ldquo;language&rdquo; : &ldquo;korean&rdquo;, &ldquo;edition&rdquo; : &ldquo;first&rdquo; }</li>
+</ul>
+</li>
+<li>
+<p>mongoDB Document 예 )</p>
+</li>
+</ul>
+<p>{
+&ldquo;_id&rdquo; : ObjectId{&ldquo;403321312431523614543124&rdquo;},
+&ldquo;username&rdquo; : &ldquo;JiHunSeo&rdquo;,
+&ldquo;name&rdquo;: { first: &ldquo;JiHun&rdquo;, last: &ldquo;Seo&rdquo; } &lt;- sub document
+}</p>
+<h2 id="mongodb-데이터-구조">MongoDB 데이터 구조</h2>
+<ul>
+<li>Database - Collection(table대신) - Document(low 대신에, column이라는 개념이 없다.)</li>
+<li>RDBMS : Database - Table - data
+<ul>
+<li>RDBMS의 table이 아니라 collection에 JSON 형태의 Document를 넣음</li>
+<li>Document 하나가 하나의 로우(레코드)임</li>
+</ul>
+</li>
+</ul>
+<h2 id="mongodb-database">mongoDB Database</h2>
+<ul>
+<li>Database는 Collection의 집합</li>
+</ul>
+<h2 id="mongodb-collection">MongoDB Collection</h2>
+<ul>
+<li>Collection은 mongoDB Document의 집합</li>
+<li>RDBMS Table과 유사한 개념, 단 정규화된 데이터 구조, 즉 Schema가 정의되어 있지 않음</li>
+</ul>
+<h2 id="mongodb-특징과-장단점">mongoDB 특징과 장단점</h2>
+<ol>
+<li>RDBMS와 비교</li>
+</ol>
+<p><img src="/image/nosql3.PNG" alt=""></p>
+<ol start="2">
+<li>특징과 장단점</li>
+</ol>
+<ul>
+<li>2-1. 특징
+<ul>
+<li>Document-oriented storage : MongoDB는 database &gt; collections &gt; documents 구조로 document는 key-value형태의 BSON(Binary JSON)으로 되어있다.</li>
+<li>Full Index Support : 다양한 인덱싱을 제공한다.</li>
+<li>Single Field Indexes : 기본적인 인덱스 타입</li>
+<li>Compound Indexes : RDBMS의 복합인덱스 같은 거</li>
+<li>Multikey Indexes : Array에 미챙되는 값이 하나라도 있으면 인덱스에 추가하는 멀티키 인덱스</li>
+<li>Geospatial Indexes and Queries : 위치기반 인덱스와 쿼리</li>
+<li>Text Indexes : String에도 인덱싱이 가능</li>
+<li>Hashed Index : Btree 인덱스가 아닌 Hash 타입의 인덱스도 사용 가능</li>
+<li>Replication&amp; High Availability : 간단한 설정만으로도 데이터 복제를 지원. 가용성 향상.</li>
+<li>Auto-Sharding : MongoDB는 처음부터 자동으로 데이터를 분산하여 저장하며, 하나의 컬렉션처럼 사용할 수 있게 해준다. 수평적 확장 가능</li>
+<li>Querying(documented-based query) : 다양한 종류의 쿼리문 지원. (필터링, 수집, 정렬, 정규표현식 등)</li>
+<li>Fast In-Pace Updates : 고성능의 atomic operation을 지원</li>
+<li>Map/Reduce : 맵리듀스를 지원.(map과 reduce 함수의 조합을 통해 분산/병렬 시스템 운용 지원, 하둡처럼 MR전용시스템에 비해서는 성능이 떨어진다)</li>
+<li>GridFS : 분산파일 저장을 MongoDB가 자동으로 해준다. 실제 파일이 어디에 저장되어 있는지 신경 쓸 필요가 없고 복구도 자동이다.</li>
+<li>Commercial Support : 10gen에서 관리하는 오픈소스</li>
+</ul>
+</li>
+<li>2-2. 장점
+<ul>
+<li>쌓아놓고 삭제가 없는 경우가 제일 적합하다. (ex. 로그데이터, 세션 등)</li>
+<li>Flexibility : Schema-less라서 어떤 형태의 데이터라도 저장할 수 있다.</li>
+<li>Performance : Read &amp; Write 성능이 뛰어나다. 캐싱이나 많은 트래픽을 감당할 때 써도 좋다.</li>
+<li>Scalability : 애초부터 스케일아웃 구조를 채택해서 쉽게 운용가능하다. Auto sharding 지원</li>
+<li>Deep Query ability : 문서지향적 Query Language 를 사용하여 SQL 만큼 강력한 Query 성능을 제공한다.</li>
+<li>Conversion / Mapping : JSON형태로 저장이 가능해서 직관적이고 개발이 편리하다.</li>
+</ul>
+</li>
+</ul>
+<p>2-3. 단점</p>
+<ul>
+<li>정합성이 떨어지므로 트랜잭션이 필요한 경우에는 부적합하다. (ex. 금융, 결제, 회원정보 등)</li>
+<li>JOIN이 없다. join이 필요없도록 데이터 구조화 필요</li>
+<li>memory mapped file으로 파일 엔진 DB이다. 메모리 관리를 OS에게 위임한다. 메모리에 의존적, 메모리 크기가 성능을 좌우한다. 2-4를 참고하자.</li>
+<li>SQL을 완전히 이전할 수는 없다.</li>
+<li>B트리 인덱스를 사용하여 인덱스를 생성하는데, B트리는 크기가 커질수록 새로운 데이터를 입력하거나 삭제할 때 성능이 저하된다. 이런 B트리의 특성 때문에 데이터를 넣어두면 변하지않고 정보를 조회하는 데에 적합하다.</li>
+</ul>
+<p>참조 : <a href="https://sjh836.tistory.com/98">https://sjh836.tistory.com/98</a></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/mongodb/" rel="tag">mongoDB</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/transfomer/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Transfomer</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/mongodb/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">1. 데이터베이스와 풀스택</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 JiHun.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
