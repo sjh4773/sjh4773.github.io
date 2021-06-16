@@ -55,6 +55,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-5/" rel="bookmark">
+			R shiny를 이용한 동적 시각화 연습
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-28T21:08:03Z">2021-03-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-2/" rel="bookmark">
 			이미지 경계선 검출
 			</a>
@@ -227,24 +245,6 @@ MNIST 개요
 	<div class="content list__excerpt post__content clearfix">
 		library(KoNLP) library(dplyr) library(ggplot2) install.packages(&#34;stringr&#34;) library(stringr) # stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수 # 세트를 제공합니다. useNIADic() twitter &lt;- read.csv(&#34;./Data/twitter.csv&#34;, header = T, stringsAsFactors = F, fileEncoding = &#34;UTF-8&#34;) glimpse(twitter) # 변수명 수정 twitter &lt;- rename(twitter, no = 번호, id = 계정이름, date = 작성일, tw = 내용) # 특수문자 제거 twitter$tw &lt;- str_replace_all(twitter$tw, &#34;\\W&#34;, &#34; &#34;) head(twitter$tw) # 단어 빈도표 만들기 # 트윗에서 명사추출 nouns &lt;- extractNoun(twitter$tw) # 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성 wordcount &lt;- table(unlist(nouns)) wordcount # 데이터 프레임으로 변환 df_word &lt;- as.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/quant-2/" rel="bookmark">
-			getSymbols() 함수를 이용한 API 다운로드
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-23T21:23:01Z">2021-03-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" rel="category">R을 이용한 퀀트투자</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# getSymbols() 함수를 이용한 API 다운로드 library(quantmod) getSymbols(&#39;TSLA&#39;) head(TSLA) # TSLA.Open TSLA.High TSLA.Low TSLA.Close TSLA.Volume TSLA.Adjusted # 2010-06-29 3.800 5.000 3.508 4.778 93831500 4.778 # 2010-06-30 5.158 6.084 4.660 4.766 85935500 4.766 # 2010-07-01 5.000 5.184 4.054 4.392 41094000 4.392 # 2010-07-02 4.600 4.620 3.742 3.840 25699000 3.840 # 2010-07-06 4.000 4.000 3.166 3.222 34334500 3.222 # 2010-07-07 3.280 3.326 2.996 3.160 34608500 3.160 # Open : 시가, High: 고가, Low : 저가, # Close : 종가, Volume : 거래량, Adjusted : 배당이 반영된 수정주가 # Ad() 함수를 통해 다운로드한 데이터에서 수정주가만을 선택한 후 # chart_Series() 함수를 이용해 시계열 그래프를 그릴 수도 있다.
-	</div>
 </article>
 </main>
 
@@ -268,11 +268,11 @@ MNIST 개요
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/meta/">메타러닝</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/car/">통계분석 - 실습데이터 Carseats</a></li>
 		</ul>
 	</div>
 </div>
@@ -292,6 +292,8 @@ MNIST 개요
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/mongodb/">mongoDB</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/">pandas 공부</a></li>
 			<li class="widget__item">
@@ -324,6 +326,7 @@ MNIST 개요
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="mongoDB">mongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>

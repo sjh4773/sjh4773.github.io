@@ -6,7 +6,16 @@
     <description>Recent content in Tags on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Thu, 03 Jun 2021 00:09:24 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mongoDB</title>
+      <link>http://sjh4773.github.io/tags/mongodb/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Deep_learning</title>
       <link>http://sjh4773.github.io/tags/deep_learning/</link>
