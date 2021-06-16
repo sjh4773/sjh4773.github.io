@@ -7,13 +7,42 @@
 	<title>힙합 가사 텍스트 마이닝 및 워드 클라우드 - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="힙합 가사 텍스트 마이닝 및 워드 클라우드" />
+<meta property="og:description" content="KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/r/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-23T19:37:34&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-23T19:37:34&#43;00:00" />
+
+
+		<meta itemprop="name" content="힙합 가사 텍스트 마이닝 및 워드 클라우드">
+<meta itemprop="description" content="KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다."><meta itemprop="datePublished" content="2021-03-23T19:37:34&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-23T19:37:34&#43;00:00" />
+<meta itemprop="wordCount" content="517">
+<meta itemprop="keywords" content="r," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="힙합 가사 텍스트 마이닝 및 워드 클라우드"/>
+<meta name="twitter:description" content="KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
+  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
+  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
+  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
+  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -41,7 +70,13 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">힙합 가사 텍스트 마이닝 및 워드 클라우드</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-23T19:37:34Z">2021-03-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
 		</header><div class="content post__content clearfix">
 			<p>KoNLP 패키지 설치하기
 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다.
@@ -193,7 +228,29 @@ pal <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/ai/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">파이토치로 만드는 신경망</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/ai-2/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">파이토치를 이용한 데이터 가공 예시</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -203,12 +260,14 @@ pal <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">brewer.
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

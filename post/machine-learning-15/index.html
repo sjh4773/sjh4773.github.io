@@ -7,13 +7,42 @@
 	<title>PCA의 이해 - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="PCA의 이해" />
+<meta property="og:description" content="PCA(Principal Component Analysis)의 이해   고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법
+  예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소
+  PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
+  PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
+PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/machine-learning-15/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-03T00:29:12&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-03T00:29:12&#43;00:00" />
+
+
+		<meta itemprop="name" content="PCA의 이해">
+<meta itemprop="description" content="PCA(Principal Component Analysis)의 이해   고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법
+  예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소
+  PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
+  PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
+PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다."><meta itemprop="datePublished" content="2021-05-03T00:29:12&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-03T00:29:12&#43;00:00" />
+<meta itemprop="wordCount" content="468">
+<meta itemprop="keywords" content="machine_learning," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PCA의 이해"/>
+<meta name="twitter:description" content="PCA(Principal Component Analysis)의 이해   고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법
+  예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소
+  PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
+  PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
+PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -41,8 +70,37 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">PCA의 이해</h1>
-			
-		</header><div class="content post__content clearfix">
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-03T00:29:12Z">2021-05-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#pca-변환">PCA 변환</a></li>
+    <li><a href="#공분산-행렬">공분산 행렬</a>
+      <ul>
+        <li><a href="#공분산-행렬은-여러-변수와-관련된-공분산을-포함하는-정방형-행렬이며-대칭-행렬이다">공분산 행렬은 여러 변수와 관련된 공분산을 포함하는 정방형 행렬이며 대칭 행렬이다.</a></li>
+      </ul>
+    </li>
+    <li><a href="#선형-변환과-고유-벡터고유값">선형 변환과 고유 벡터/고유값</a></li>
+    <li><a href="#공분산-행렬의-고유값-분해">공분산 행렬의 고유값 분해</a></li>
+    <li><a href="#pca-변환과-수행-절차">PCA 변환과 수행 절차</a>
+      <ul>
+        <li><a href="#pca-변환-1">PCA 변환</a></li>
+        <li><a href="#pca-변환-수행-절차">PCA 변환 수행 절차</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
 			<h1 id="pcaprincipal-component-analysis의-이해">PCA(Principal Component Analysis)의 이해</h1>
 <ul>
 <li>
@@ -136,7 +194,29 @@
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/machine-learning-14/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">차원 축소</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/data-processing-engineer/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">정보처리기사 필기 공부</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -146,12 +226,14 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

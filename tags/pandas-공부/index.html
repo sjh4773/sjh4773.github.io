@@ -7,13 +7,25 @@
 	<title>pandas 공부 - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="pandas 공부" />
+<meta property="og:description" content="John Doe&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://sjh4773.github.io/tags/pandas-%EA%B3%B5%EB%B6%80/" />
+
+
+		<meta itemprop="name" content="pandas 공부">
+<meta itemprop="description" content="John Doe&#39;s Personal blog about everything">
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="pandas 공부"/>
+<meta name="twitter:description" content="John Doe&#39;s Personal blog about everything"/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 	<link rel="alternate" type="application/rss+xml" href="/tags/pandas-%EA%B3%B5%EB%B6%80/index.xml" title="My New Hugo Site">
 
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -48,7 +60,13 @@
 			pandas.factorize()
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-14T19:15:38Z">2021-04-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/" rel="category">pandas 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		pandas.factorize() 대부분의 머신러닝 알고리즘은 숫자형을 다루므로 카테고리를 텍스트에서 숫자로 바꿔줘야 한다. 이를 위해 각 카테고리를 다른 정숫값으로 매핑해주는 factorize() 함수를 사용합니다.
@@ -61,7 +79,13 @@ pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort
 			join 함수
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-11T21:52:29Z">2021-04-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/" rel="category">pandas 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
@@ -73,18 +97,99 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 
 			</div>
 			
-
+<aside class="sidebar sidebar--left"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://sjh4773.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/meta/">메타러닝</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/car/">통계분석 - 실습데이터 Carseats</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/">pandas 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/python-%EA%B3%B5%EB%B6%80/">Python 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pytorch-%EA%B3%B5%EB%B6%80/">Pytorch 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">r</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/">사이킷런 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/">정보처리기사</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
+	</div>
+</div>
+</aside>
 		</div>
 		<footer class="footer">
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
-</body>
+<script src="/js/custom.js"></script></body>
 </html>

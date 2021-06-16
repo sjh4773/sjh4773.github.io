@@ -7,14 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
+	<meta name="description" content="John Doe&#39;s Personal blog about everything">
+		<meta property="og:title" content="My New Hugo Site" />
+<meta property="og:description" content="John Doe&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://sjh4773.github.io/" />
+
+
+		<meta itemprop="name" content="My New Hugo Site">
+<meta itemprop="description" content="John Doe&#39;s Personal blog about everything">
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="My New Hugo Site"/>
+<meta name="twitter:description" content="John Doe&#39;s Personal blog about everything"/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="My New Hugo Site">
 
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -47,7 +59,13 @@
 			matplotlib 그래프 그리기
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-07T21:03:56Z">2021-04-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		import matplotlib.pyplot as plt from matplotlib.ticker import (MultipleLocator, AutoMinorLocator, FuncFormatter) import seaborn as sns import numpy as np # 그냥 그림을 그릴 때 zorder의 값을 지정해주면 그 값이 레이어의 위치라고 보면 된다. # 가장 바깥 쪽에 그려지는 그림일수록 zorder의 값이 커야 한다. # zorder는 레이어의 위치 def plot_example(ax, zorder=0): ax.bar(tips_day[&#34;day&#34;], tips_day[&#34;tip&#34;], color=&#34;lightgray&#34;, zorder=zorder) ax.set_title(&#34;tip (mean)&#34;, fontsize=16, pad=12) # Values h_pad = 0.1 for i in range(4): fontweight = &#34;normal&#34; color = &#34;k&#34; if i == 3: fontweight = &#34;bold&#34; color = &#34;darkred&#34; ax.
@@ -59,7 +77,13 @@
 			tuple과 list의 차이
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-06T22:42:39Z">2021-04-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		리스트(list)와 튜플(tuple)의 차이는 무엇인가? 공통점 1.리스트와 튜플은 둘 다 컨테이너로 일련의 객체를 저장하는데 사용한다. 둘 다 타입과 상관 없이 일련의 요소(element)를 갖을 수 있다. 두 타입 모두 요소의 순서를 관리한다. (세트(set)나 딕셔너리(dict)와 다르게 말이다.) 2.list와 tuple 모두 인덱스를 통해 특정 요소에 접근할 수 있다. 3.list와 tuple 모두 iterable하다. 즉, for문을 넣고 돌릴 수 있다. 차이점 리스트와 튜플의 기술적 차이점은 불변성에 있다. 리스트는 가변적(mutable, 변경 가능)이며 튜플은 불변적(immutable, 변경 불가)이다. 이 특징이 파이썬 언어에서 둘을 구분하는 유일한 차이점이다.
@@ -71,7 +95,13 @@
 			StandardScaler()
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-06T22:25:03Z">2021-04-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" rel="category">사이킷런 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		사이킷런 데이터 전처리 함수 StandardScaler() 데이터의 피처 각각이 평균이 0, 분산이 1인 가우시안 정규분포를 가진 값으로 변환하는 작업을 표준화라고 한다. 기계학습 시에 SVM, 선형 회귀, 로지스틱 회귀는 가우시안 분포를 가정하고 구현되었으므로 전처리 단계에서 표준화를 해주는 것이 성능 향상에 도움이 된다. 원래 값에서 피처의 평균을 뺀 값을 피처의 표준편차로 나눠서 표준화한다. 수식으로 나타내면 다음과 같다.  사이킷런의 StandardScaler를 사용해 표준화를 진행 할 수 있다. 데이터 인코딩에서와 마찬가지로 피처 스케일링에서도 fit()과 transform()을 사용한다.
@@ -83,7 +113,13 @@
 			GAN 이론
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-04T23:25:57Z">2021-04-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		GAN이란? GAN은 &lsquo;생성적 적대 신경망&rsquo;의 약자로 풀어서 쓰면, 생성자와 식별자가 서로 경쟁(Adversarial)하며 데이터를 생성(Generative)하는 모델(Network)을 뜻한다.
@@ -96,7 +132,13 @@
 			데이터 전처리
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-03T23:46:27Z">2021-04-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		데이터 전처리   데이터 클렌징
@@ -112,7 +154,13 @@
 			Convolutional Neural Network를 이용한 MNIST
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-03T23:35:06Z">2021-04-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		# 필요 라이브러리 호출 import torch import torch.nn as nn import torch.nn.functional as F import torch.optim as optim from torchvision import datasets,transforms import numpy as np import matplotlib.pyplot as plt train_dataset = datasets.MNIST(&#39;./mnist_data&#39;, # torchvision 안에 있는 MNIST dataset을 불러옴  download=True, # 다운로드 할것인가? train=True, # train 용도 구분 transform=transforms.ToTensor() # torch를 입력 받을 수 있는 자료형태로 변환 ) test_dataset = datasets.MNIST(&#39;./mnist_data&#39;, download=False, train=False, transform=transforms.ToTensor() ) # 데이터셋 로더 호출 train_loader = torch.
@@ -124,7 +172,13 @@
 			머신러닝 용어정리
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-01T23:46:51Z">2021-04-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다.
@@ -136,7 +190,13 @@
 			넘파이 ndarray의 axis축
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-01T07:54:06Z">2021-04-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		ndarray는 shape는 행,열,높이 단위로 부여되는 것이 아니라 axis0,axis1,axis2와 같이 axis 단위로 부여됩니다.
@@ -148,7 +208,13 @@
 			statistics
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-31T21:48:19Z">2021-03-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="category">통계 공부</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		회귀 분석이란? [개념]
@@ -162,7 +228,13 @@
 			R shiny를 이용한 동적 시각화 연습
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-28T21:08:03Z">2021-03-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
@@ -177,18 +249,99 @@
 </div>
 
 			</div>
-			
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://sjh4773.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/meta/">메타러닝</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/car/">통계분석 - 실습데이터 Carseats</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/">pandas 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/python-%EA%B3%B5%EB%B6%80/">Python 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pytorch-%EA%B3%B5%EB%B6%80/">Pytorch 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">r</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/">사이킷런 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/">정보처리기사</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
+	</div>
+</div>
+</aside>
 		</div>
 		<footer class="footer">
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
-</body>
+<script src="/js/custom.js"></script></body>
 </html>

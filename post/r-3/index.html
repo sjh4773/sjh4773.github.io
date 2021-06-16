@@ -7,13 +7,33 @@
 	<title>t-검정 실습 - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="t-검정 실습" />
+<meta property="og:description" content="t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/r-3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-25T23:41:56&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-25T23:41:56&#43;00:00" />
+
+
+		<meta itemprop="name" content="t-검정 실습">
+<meta itemprop="description" content="t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0."><meta itemprop="datePublished" content="2021-03-25T23:41:56&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-25T23:41:56&#43;00:00" />
+<meta itemprop="wordCount" content="153">
+<meta itemprop="keywords" content="r," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="t-검정 실습"/>
+<meta name="twitter:description" content="t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -41,7 +61,13 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">t-검정 실습</h1>
-			
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-25T23:41:56Z">2021-03-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
 		</header><div class="content post__content clearfix">
 			<h1 id="t검정---두-집단의-평균-비교">t검정 - 두 집단의 평균 비교</h1>
 <p>&rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법</p>
@@ -91,7 +117,29 @@ mpg_diff2 <span style="color:#f92672">&lt;-</span> mpg <span style="color:#f9267
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/quant-3/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">금융 속보 크롤링</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/r-4/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">상관분석 실습</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -101,12 +149,14 @@ mpg_diff2 <span style="color:#f92672">&lt;-</span> mpg <span style="color:#f9267
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>

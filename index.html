@@ -7,14 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
+	<meta name="description" content="John Doe&#39;s Personal blog about everything">
+		<meta property="og:title" content="My New Hugo Site" />
+<meta property="og:description" content="John Doe&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://sjh4773.github.io/" />
+
+
+		<meta itemprop="name" content="My New Hugo Site">
+<meta itemprop="description" content="John Doe&#39;s Personal blog about everything">
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="My New Hugo Site"/>
+<meta name="twitter:description" content="John Doe&#39;s Personal blog about everything"/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="My New Hugo Site">
 
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -47,7 +59,13 @@
 			Transfomer
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-03T00:09:24&#43;09:00">2021-06-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		Transformer 트랜스포머는 기존 인코더 디코더를 발전시킨 딥러닝 모델 가장 큰 차이점은 rnn을 사용하지 않는다는 것 트랜스포머는 기존 rnn기반 인코더 디코더보다 학습이 빠르고 성능이 좋음 트랜스포머를 한단어로 표현하면 병렬화이다. 즉 일을 한번에 처리함 Rnn은 순차적으로 입력된 단어를 인코딩하는 반면 트랜스포머는 한번에 과정을 처리 전통적인 rnn기반 인코더 디코더일 경우 입력값을 순차적으로 계산한다. 인코더에서의 최종적인 상태값을 context vector이라고 하며 context vector를 이용하여 번역을 한다. 고정된 크기의 문맥 벡터를 사용하지 않고 대신 단어를 하나씩 번역할 때마다 동적으로 인코더 출력값에 어텐션 메커니즘을 사용하여 효율적으로 변환 이 모델을 고정된 문맥 벡터를 사용하지않고 인코더의 모든 상태를 활용한다는 특징 때문에 이전 인코더 디코더 모델보다 향상됨 어텐션 메커니즘은 기존 인코더 디코더의 성능을 상당히 강화시킴 그러나 여전히 rnn 셀을 순차적으로 계산하여 느리다는 단점이 있음 어텐션만으로도 입력 데이터에서 중요한 정보를 찾아내서 단어를 인코딩 할 수 있지 않을까란 가능성 제기 Rnn의 순차적인 계산은 트랜스포머에서 단순히 행렬곱으로 한번에 처리가 됨 트랜스포머는 한번에 연산으로 모든 중요 정보 정보는 각 단에 인코딩하게 됩니다 트랜스 포머 디코드의 연산 과정을 기존의 어탠션 기반 인코더 디코더와 사뭇 닮아 있음을 확인할 수 있다.
@@ -59,7 +77,13 @@
 			Seq2seq with attention
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-03T00:09:15&#43;09:00">2021-06-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		인코더의 주 역할은 각 단어를 순차적으로 받음으로써 최종적으로 문맥 벡터를 만드는 것 디코더의 역할은 문맥 벡터로부터 기계번역을 시작 시퀀스가 적을 경우 문제가 없으나 시퀀스가 길어질경우 문제 발생 문맥 벡터는 고정된 사이즈의 벡터이므로 모든 정보를 함축하기에는 사이즈가 작다 그 대안으로 attention 메카니즘을 활용한다. 이전 인코더 디코더 아키텍처에서는 인코더에서 나왔던 모든 state를 활용하지 않았다 단순히 마지막에 나온 state를 context vector라고 불렀고 그 하나의 context vector에서 translation이 이루어졌다. encoder 나온 각각의 rnn의 셀의 state를 활용하여 decoder에서 dynamic하게 context vector를 만들어 번역을 한다면 고정된 사이즈의 문제를 해결할 수 있다.
@@ -71,7 +95,13 @@
 			rnn in pytorch
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-01T22:48:42&#43;09:00">2021-06-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		RNN in PyTorch 파이토치에서는 nn.RNN()을 통해서 RNN 셀을 구현
@@ -84,7 +114,13 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 			메타러닝
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-01T00:33:22&#43;09:00">2021-06-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		메타러닝  머신러닝 문제 해결 흐름도    훈련용 데이터(입력,레이블) 준비
@@ -103,7 +139,13 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 			통계분석 - 실습데이터 Carseats
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-31T23:27:34&#43;09:00">2021-05-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		통계분석 (사용 데이터 : Carseats) # Urban 변수에 따른 Sales의 차이가 있는지를 통계적으로 검증하기 위한 통계분석을 수행하고, # 결과를 해석하시오. (데이터는 정규성을 만족한다고 가정하고 유의수준 0.05하에서 검정) ## 데이터 불러오기 install.packages(&#34;ISLR&#34;) library(ISLR) data(Carseats) car &lt;- Carseats str(car) # &#39;data.frame&#39;:	400 obs. of 11 variables: # $ Sales : num 9.5 11.22 10.06 7.4 4.15 ... # $ CompPrice : num 138 111 113 117 141 124 115 136 132 132 .
@@ -115,7 +157,13 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 			정형 데이터 마이닝 - 타이타닉
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-30T19:53:02&#43;09:00">2021-05-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		정형 데이터 마이닝 - 타이타닉 library(dplyr) setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 titanic &lt;- read.csv(&#34;titanic.csv&#34;) summary(titanic) # cabin, embarked의 &#34;&#34; -&gt; NA 바꾸기 # embarked # factor 형태로 변환 titanic$embarked &lt;- as.factor(titanic$embarked) levels(titanic$embarked) # [1] &#34;&#34; &#34;C&#34; &#34;Q&#34; &#34;S&#34; # &#34;&#34; -&gt; NA 변환 levels(titanic$embarked)[1] &lt;- NA table(titanic$embarked,useNA = &#34;always&#34;) # C Q S &lt;NA&gt;  # 270 123 914 2  # cabin titanic$cabin &lt;- ifelse(titanic$cabin==&#34;&#34;,NA,titanic$cabin) table(titanic$cabin,useNA = &#34;always&#34;) summary(titanic) # pclass survived name sex age  # Min.
@@ -127,7 +175,13 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 			Lstm 이론
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-28T18:14:17&#43;09:00">2021-05-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
@@ -142,7 +196,13 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 			비정형 텍스트 마이닝 - 사용데이터 기생충
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T23:07:13Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		# KoNLP 설치 writeLines(&#39;PATH=&#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&#34;&#39;, con = &#34;~/.Renviron&#34;) usethis::edit_r_environ() Sys.which(&#34;make&#34;) install.packages(&#34;rJava&#34;) install.packages(&#34;remotes&#34;) remotes::install_github(&#39;haven-jeon/KoNLP&#39;, upgrade = &#34;never&#34;, INSTALL_opts=c(&#34;--no-multiarch&#34;)) useSejongDic() install.packages(c(&#34;stringr&#34;, &#34;hash&#34;, &#34;tau&#34;, &#34;Sejong&#34;, &#34;RSQLite&#34;, &#34;devtools&#34;), type = &#34;binary&#34;) library(KoNLP) library(plyr) library(tm) library(rJava) library(wordcloud) useSejongDic() setwd(&#34;C:/ADP/data&#34;) movie &lt;- readLines(&#34;영화 기생충_review.txt&#34;) dic &lt;- readLines(&#34;영화 기생충_사전.txt&#34;) buildDictionary(ext_dic = &#34;woorimalsam&#34;, user_dic = data.frame(readLines(&#34;영화 기생충_사전.txt&#34;),&#34;ncn&#34;),replace_usr_dic = T) # KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여 # &#39;영화 기생충_review.txt&#39; 파일을 movie 데이터에, &#39;영화 기생충_사전.txt&#39; 파일을 dic 데이터에 저장했다.
@@ -154,7 +214,13 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 			통계분석 Admission
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T23:07:13Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		# 종속변수인 Chance_of_Admit(입학 허가 확률)와 독립변수(GRE, TOEFL, Univ_Rating, SOP, # LOR, CGPA)에 대해 피어슨 상관계수를 이용한 상관관계 분석을 수행하고 그래프를 이용하여 # 분석결과를 설명하시오. # 작업 디렉토리 설정 setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 adms &lt;- read.csv(&#34;Admission.csv&#34;) str(adms) head(adms) tail(adms) sum(is.na(adms)) # NA값이 존재하는지 확인 # 종속변수인 Chance_of_Admit(입학 허가 확률)과 독립변수(GRE, TOEFL, Univ_Rating, # SOP, LOR, CGPA)에 대해 피어슨 상관분석을 각각 수행한다. # 1. GRE와 Chance_of_Admit 간의 상관분석 str(adms) cor(adms$GRE,adms$Chance_of_Admit) # 피어슨 상관계수 산출 # [1] 0.
@@ -166,7 +232,13 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 			ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2
 			</a>
 		</h2>
-		
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T00:00:39Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		setwd(&#34;C:/ADP/data&#34;) fifa &lt;- read.csv(&#34;FIFA.csv&#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &lt;- as.character(fifa$Height) # &#34;&#39;&#34; 앞의 숫자는 피트이며, &#34;&#39;&#34; 뒤의 숫자는 인치를 의미함 # 따라서, &#34;&#39;&#34; 앞 숫자를 추출하여 30을 곱하고, &#34;&#39;&#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.
@@ -180,18 +252,99 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 </div>
 
 			</div>
-			
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="http://sjh4773.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/meta/">메타러닝</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/car/">통계분석 - 실습데이터 Carseats</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/">pandas 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/python-%EA%B3%B5%EB%B6%80/">Python 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/pytorch-%EA%B3%B5%EB%B6%80/">Pytorch 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">r</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/">사이킷런 공부</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/">정보처리기사</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
+	</div>
+</div>
+</aside>
 		</div>
 		<footer class="footer">
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
-</body>
+<script src="/js/custom.js"></script></body>
 </html>

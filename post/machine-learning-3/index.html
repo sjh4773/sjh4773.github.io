@@ -7,13 +7,30 @@
 	<title>머신러닝 용어정리 - My New Hugo Site</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
+		<meta property="og:title" content="머신러닝 용어정리" />
+<meta property="og:description" content="머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/machine-learning-3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-01T23:46:51&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-01T23:46:51&#43;00:00" />
+
+
+		<meta itemprop="name" content="머신러닝 용어정리">
+<meta itemprop="description" content="머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다."><meta itemprop="datePublished" content="2021-04-01T23:46:51&#43;00:00" />
+<meta itemprop="dateModified" content="2021-04-01T23:46:51&#43;00:00" />
+<meta itemprop="wordCount" content="166">
+<meta itemprop="keywords" content="machine_learning," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="머신러닝 용어정리"/>
+<meta name="twitter:description" content="머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다."/>
+
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 
 	<link rel="stylesheet" href="/css/style.css">
-	
+	<link rel="stylesheet" href="/css/custom.css">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -41,8 +58,32 @@
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">머신러닝 용어정리</h1>
-			
-		</header><div class="content post__content clearfix">
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-01T23:46:51Z">2021-04-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#피처feature--속성">피처(Feature) = 속성</a></li>
+        <li><a href="#레이블-클래스-타겟값-결정값">레이블, 클래스, 타겟(값), 결정(값)</a></li>
+        <li><a href="#지도학습이란">지도학습이란?</a></li>
+        <li><a href="#분류란">분류란?</a></li>
+        <li><a href="#데이터-분류-예측-프로세스">데이터 분류 예측 프로세스</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
 			<h1 id="머신러닝을-위한-용어-정리">머신러닝을 위한 용어 정리</h1>
 <h3 id="피처feature--속성">피처(Feature) = 속성</h3>
 <ul>
@@ -94,7 +135,29 @@
 	</article>
 </main>
 
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
 
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/python-3/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">넘파이 ndarray의 axis축</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/machine-learning-4/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Convolutional Neural Network를 이용한 MNIST</p>
+		</a>
+	</div>
+</nav>
 
 
 			</div>
@@ -104,12 +167,14 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 My New Hugo Site.
+			&copy; 2021 JiHun.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
 </footer>
 	</div>
 <script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
 </body>
 </html>
