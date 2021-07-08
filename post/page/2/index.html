@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-8/" rel="bookmark">
+			비정형 텍스트 마이닝 - 사용데이터 기생충
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T23:07:13Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# KoNLP 설치 writeLines(&#39;PATH=&#34;${RTOOLS40_HOME}\\usr\\bin;${PATH}&#34;&#39;, con = &#34;~/.Renviron&#34;) usethis::edit_r_environ() Sys.which(&#34;make&#34;) install.packages(&#34;rJava&#34;) install.packages(&#34;remotes&#34;) remotes::install_github(&#39;haven-jeon/KoNLP&#39;, upgrade = &#34;never&#34;, INSTALL_opts=c(&#34;--no-multiarch&#34;)) useSejongDic() install.packages(c(&#34;stringr&#34;, &#34;hash&#34;, &#34;tau&#34;, &#34;Sejong&#34;, &#34;RSQLite&#34;, &#34;devtools&#34;), type = &#34;binary&#34;) library(KoNLP) library(plyr) library(tm) library(rJava) library(wordcloud) useSejongDic() setwd(&#34;C:/ADP/data&#34;) movie &lt;- readLines(&#34;영화 기생충_review.txt&#34;) dic &lt;- readLines(&#34;영화 기생충_사전.txt&#34;) buildDictionary(ext_dic = &#34;woorimalsam&#34;, user_dic = data.frame(readLines(&#34;영화 기생충_사전.txt&#34;),&#34;ncn&#34;),replace_usr_dic = T) # KoNLP 패키지를 설치하고 useSejongDic 사전을 호출하였다. readLines 함수를 활용하여 # &#39;영화 기생충_review.txt&#39; 파일을 movie 데이터에, &#39;영화 기생충_사전.txt&#39; 파일을 dic 데이터에 저장했다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-9/" rel="bookmark">
 			통계분석 Admission
 			</a>
@@ -226,29 +244,6 @@ PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance
 		예측값을 변수로 활용하는 앙상블 테크닉 Blending Blending 은 Ensemble 의 한 종류입니다. Ensemble 이란 예측 모형을 통합해서 하나의 예측을 수행하는 것을 말합니다. Ensemble 의 묘미는 서로 다른 예측 모형들을 합쳐 더 강한 예측 모형을 만들 수 있다는 것입니다. 가령 정확도 0.7, 0.7 인 모델 두 개를 합쳐서 0.9 을 만들 수 있습니다.
 Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Training set 에 모델 피팅을 한다. 3. Validation/Test set 에 대해 예측을 한다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-11/" rel="bookmark">
-			pseudo labeling
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-27T22:05:28Z">2021-04-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Pseudo Labeling   Pseudo Labeling이란? Labeled Data처럼 일일히 label을 하기보다, 이미 가지고 있는 Labeled data에 기반하여 대략적인 Labled을 주는 것
-  Pseudo Labeling의 순서
-  Labeled Data로 Model을 먼저 학습시킨다.
-  그렇게 학습된 모델을 사용하여, Unlabeled Data를 예측하고 그 결과를 Label로 사용하는 Pseudo-labeled data를 만든다.
-  Pseudo-labeled data와 Labeled를 모두 사용하여 다시 그 모델을 학습시킨다.
-    Pseudo Labeled data  Pseudo Label은 아래와 같은 식으로, 각각의 sample에 대해, 예측된 확률이 가장 높은 것으로 정합니다.
-	</div>
 </article>
 </main>
 
@@ -273,11 +268,11 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/rnn/">rnn in pytorch</a></li>
 		</ul>
 	</div>
 </div>
@@ -316,6 +311,8 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/">정보처리기사</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/">정보처리기사 실기 오답노트</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
@@ -340,6 +337,7 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/" title="정보처리기사 실기 오답노트">정보처리기사 실기 오답노트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
 	</div>

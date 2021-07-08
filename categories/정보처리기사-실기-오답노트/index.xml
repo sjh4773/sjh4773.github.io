@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>정보처리기사 실기 오답노트 on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/</link>
+    <description>Recent content in 정보처리기사 실기 오답노트 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Thu, 08 Jul 2021 23:14:15 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Certificate</title>
+      <link>http://sjh4773.github.io/post/certificate/</link>
+      <pubDate>Thu, 08 Jul 2021 23:14:15 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/certificate/</guid>
+      <description>정보처리기사 실기 오답노트 문제  1.소프트웨어 개발의 전 과정을 자동화된 툴을 통해 체계적으로 통합하고 시각화해 관리하는 기법 2.구글에서 만든 오픈소스 가상머신 형식의 자바 스크립트 V8 엔진 위에서 비동기 I/O로 서버 사이드 애플리케이션 개발에 사용되는 개발 프레임워크 3.하나의 서버나 컴퓨터에서 동시에 다수의 운영체제를 구동시킬 수 있는 하드웨어와 운영체제 사이에 설치된 가상화 기술 4.하이퍼바이저 없이 리눅스 컨테이너 기술을 바탕으로 소프트웨어의 배포를 자동화 하는 기술 5.멀티미디어 통신을 위해 UDP와 TCP의 일부 장점을 결합하여 설계되었으며 장애를 대비한 대체 경로확보, Multi-Streaming 기능 등이 포함된 고도의 신뢰 전송을 제공하는 전송계층 프로토콜 6.</description>
+    </item>
+    
+  </channel>
+</rss>
