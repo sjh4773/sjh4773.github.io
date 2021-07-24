@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-3/" rel="bookmark">
+			머신러닝 용어정리
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-01T23:46:51Z">2021-04-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		머신러닝을 위한 용어 정리 피처(Feature) = 속성  피처는 데이터 세트의 일반 속성임 머신러닝은 2차원 이상의 다차원 데이터에서도 많이 사용되므로 타겟값을 제외한 나머지 속성을 모두 피처로 지칭  레이블, 클래스, 타겟(값), 결정(값)  타겟값 또는 결정값은 지도 학습 시 데이터의 학습을 위해 주어지는 정답 데이터 지도 학습 중 분류의 경우에는 이 결정값을 레이블 또는 클래스로 지칭  지도학습이란? 지도학습은 명확한 정답이 주어진 데이터를 먼저 학습한 뒤 미지의 정답을 예측하는 방식입니다. 이 때 학습을 위해 주어진 데이터 세트를 학습 데이터 세트, 머신러닝 모델의 예측 성능을 평가하기 위해 별도로 주어진 데이터 세트를 테스트 데이터 세트로 지칭합니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/python-3/" rel="bookmark">
 			넘파이 ndarray의 axis축
 			</a>
@@ -223,31 +241,6 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 	<div class="content list__excerpt post__content clearfix">
 		# 금융 속보 크롤링 # 네이버 금융 -&gt; 뉴스 -&gt; 실시간 속보 # 금융 속보의 제목을 추출하는 과정 library(rvest) library(httr) # url 변수에 해당 주소 입력 url = paste0(&#39;https://finance.naver.com/news/news_list.nhn?mode=LSS2D&amp;section_id=101&amp;section_id2=258&#39;) # GET 함수를 이용해 해당 페이지의 내용을 받아 data 변수에 저장 data = GET(url) # 데이터 변수 확인 # Status : 200,즉 데이터가 이상 없이 받아짐 # 인코딩은 EUC-KR 타입 print(data) data_title = data %&gt;% read_html(encoding = &#39;EUC-KR&#39;) %&gt;% # read_html 함수를 통해 해당 페이지의 HTML을 읽어오며, 인코딩은 EUC-KR 설정 html_nodes(&#39;dl&#39;) %&gt;% # html_nodes 함수를 통해 해당 태그를 추출, dl 태그에 해당하는 부분 추출 html_nodes(&#39;.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/mnist/" rel="bookmark">
-			mnist 데이터
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-24T21:21:29Z">2021-03-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		MNIST 데이터란 인공지능이 이미지를 보고 이것이 어떤 이미지인가를 맞춰보게 하는 인공지능 훈련을 위한 Dataset
-MNIST 개요
- 손글씨 데이터 손으로 작성된 0~9까지의 숫자 이미지 이미지 + 레이블 &ndash;&gt; 하나의 데이터셋  이미지 속성
- 차원 (가로,세로,색조) &ndash;&gt; (28,28,1) 픽셀값: 0 ~ 255  레이블 정보
- 단순 스칼라 (확률정보이용) -&gt; One-hot encoding  해결전략
- 이미지, 레이블 전처리  원본이미지 &ndash;&gt; 전처리(flatten)
-레이블 &ldquo;3&rdquo; &ndash;&gt; &ldquo;[0,0,0,1,0,0,0,0,0,0]&rdquo; One-hot encoding
-이미지 전처리
-	</div>
 </article>
 </main>
 
@@ -272,11 +265,11 @@ MNIST 개요
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/transfomer/">Transfomer</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/seq2seq/">Seq2seq with attention</a></li>
 		</ul>
 	</div>
 </div>
@@ -286,6 +279,8 @@ MNIST 개요
 		<ul class="widget__list">
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/aws-lambda/">AWS Lambda</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
 			<li class="widget__item">
@@ -327,6 +322,7 @@ MNIST 개요
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws-lambda/" title="AWS Lambda">AWS Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
