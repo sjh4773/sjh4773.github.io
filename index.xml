@@ -6,7 +6,16 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Sun, 25 Jul 2021 15:31:14 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jul 2021 00:53:47 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</title>
+      <link>http://sjh4773.github.io/post/aws1/</link>
+      <pubDate>Tue, 27 Jul 2021 00:53:47 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/aws1/</guid>
+      <description>Amazon RDS 생성  MySQL 선택  MySQL에 접속할 때 사용하는 id, password 설정  고급 설정 구성, VPC 및 서브넷 그룹은 기본 설정 그대로 사용 퍼블릭 액세스 가능성을 &amp;lsquo;예&amp;rsquo;로 설정하면 전 세계 어디에서나 데이터베이스 주소를 이용해서 접근 가능하다. 반면에 VPC라는 일종의 내부망 기능을 이용해서 자신이 만든 EC2에서만 접근하도록 만들고 싶다면 &amp;lsquo;아니오&amp;rsquo;로 설정한다. 간단히 테스트 목적으로 사용할 경우 &amp;lsquo;예&amp;rsquo;로 설정한다.  삭제 방지 활성화 체크  파라미터 그룹 생성 데이터베이스가 한글 처리를 할 수 있도록 파라미터 그룹 생성</description>
+    </item>
+    
     <item>
       <title>AWS Lambda로 게시판 서버 API 만들기</title>
       <link>http://sjh4773.github.io/post/aws_lambda-2/</link>

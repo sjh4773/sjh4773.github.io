@@ -55,6 +55,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/bigdata/" rel="bookmark">
+			빅데이터 분석기사 필기 요약
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-16T18:39:14Z">2021-04-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" rel="category">빅데이터 분석기사 필기공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		빅데이터 이해 정형데이터 : 통계저 분석을 수행할 수 있는 테이블 형태로 정리된 데이터 반정형 데이터 : 규격화된 형식을 가지지 않는 웹 문서, 신문과 같은 데이터. 주로 XML,JSON 포맷 - 데이터 속성을 표기하는 메타데이터를 가지며 데이터 구조는 일관성이 없으므로 테이블의 형식을 하고 있어도 샘플들의 속성 순서가 모두 다를 수 있다. 비정형 데이터 : 특별한 형식을 가지지 않는 텍스트, 이미지, 오디오와 같은 원시 데이터 - 형태와 구조가 복잡하여 기존의 DB에 저장될 수 없다, 정형 데이터로 변환되어 분석해야 한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-8/" rel="bookmark">
 			머신러닝 회귀 모델의 평가지표
 			</a>
@@ -223,34 +241,12 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 		GAN이란? GAN은 &lsquo;생성적 적대 신경망&rsquo;의 약자로 풀어서 쓰면, 생성자와 식별자가 서로 경쟁(Adversarial)하며 데이터를 생성(Generative)하는 모델(Network)을 뜻한다.
 잡음의 이미지로부터 무엇인가를 생성해낸 결과에 대해서 분류기라고 하는 Dis가 G(Z)를 가짜라고 분류함 반면에 원래의 이미지를 받아왔을 때 원래 이미지에 대해서는 Positive하게 반응함 원래 이미지에 대해서는 확률 높게 판단해주고 가짜 이미지에 대해서는 확신도를 아주 낮게 준다.   잡음 이미지 Z 생성신경망 통과 Generator 생성 이미지 획득 G(Z) 원 이미지 X 분류기 통과 Discriminator(원래 이미지와 생성기로부터 만들어진 이미지를 동시에 입력받음) 두 분류 결과 (1:생성이미지 D(G(Z)), 2:원래이미지 D(X)) 1번에 대해서는 가짜, 2번에 대해서는 진짜로 분류하게끔 학습 목표를 제공해주어야 하는 것이 알고리즘의 총흐름도 이전 6단계 결과에 대한 적대적 학습시행 -&gt; 생성이미지 출신 저하(생성이미지가 가짜다) &amp; 원래이미지 출신 상승(원래이미지에 대한 확률을 높게 평가한다)  Gradient descending 경사하강법을 이용하면 어떤 지점으로 수렴하게 되는 결과를 받아들임 이 함수의 곡선을 가지고 Gradient ascending을 한다고 가정하면 바깥 영역에서 함수들이 굉장히 커지게 되며 그 끝을 알 수 없기 때문에 학습이 엉망으로 진행된다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-5/" rel="bookmark">
-			데이터 전처리
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-03T23:46:27Z">2021-04-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		데이터 전처리   데이터 클렌징
-  결손값 처리(Null/NaN 처리)
-  데이터 인코딩(레이블, 원-핫 인코딩)
-  머신러닝 알고리즘은 문자열 데이터 속성을 입력 받지 않으며 모든 데이터는 숫자형으로 표현되어야 합니다. 문자형 카테고리형 속성은 모두 숫자값으로 변환/인코딩 되어야 합니다.
-레이블(Label) 인코딩  [TV, 냉장고, 전자레인지, 컴퓨터, 선풍기, 믹서] -&gt; [0, 1, 4, 5, 3, 2] 문제점 : 분류를 레이블 인코딩하면 관계성이 확보되지 않는다.  원-핫(One-Hot) 인코딩 원-핫 인코딩은 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식입니다.
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/page/3/">«</a>
-	<span class="pagination__item pagination__item--current">4/6</span>
+	<span class="pagination__item pagination__item--current">4/7</span>
 	<a class="pagination__item pagination__item--next btn" href="/page/5/">»</a>
 </div>
 
@@ -268,11 +264,11 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 		</ul>
 	</div>
 </div>
@@ -283,7 +279,7 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
 			<li class="widget__item">
-				<a class="widget__link" href="/categories/aws-lambda/">AWS Lambda</a></li>
+				<a class="widget__link" href="/categories/aws/">AWS</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
 			<li class="widget__item">
@@ -325,7 +321,7 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws-lambda/" title="AWS Lambda">AWS Lambda</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>

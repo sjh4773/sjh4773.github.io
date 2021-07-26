@@ -56,6 +56,25 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-3/" rel="bookmark">
+			t-검정 실습
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-25T23:41:56Z">2021-03-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
+# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/quant-3/" rel="bookmark">
 			금융 속보 크롤링
 			</a>
@@ -226,26 +245,13 @@ MNIST 개요
 	<div class="content list__excerpt post__content clearfix">
 		# PyTorch 필요 라이브러리 호출 import torch # pip install pytorch 라이브러리 설치 import torch.nn as nn # 인공신경망을 구성해주는 메소드들의 집합 import torch.nn.functional as F # 활성화 함수들을 간단하게 호출 import torch.optim as optim # 토치를 통한 최적화 기능 # Neural network 모델 생성 # 입력 --&gt; 은닉 (3,5) # 은닉 --&gt; 출력 (5,2) # nn 뉴럴 네트워크 안에 있는 기능 하나를 호출  class fir_model(nn.Moudule): # nn.Moduel안에 있는 부모 클래스를 상속 받는다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/blackfriday/" rel="bookmark">
-			정형 데이터마이닝 blackfriday
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		setwd(&#34;c:/ADP/data&#34;) BlackFriday &lt;- read.csv(&#34;BlackFriday.csv&#34;) str(BlackFriday) # &#39;data.frame&#39;:	537577 obs. of 12 variables: # $ User_ID : int 1000001 1000001 1000001 1000001 1000002 1000003 1000004 1000004 1000004 1000005 ... # $ Product_ID : chr &#34;P00069042&#34; &#34;P00248942&#34; &#34;P00087842&#34; &#34;P00085442&#34; ... # $ Gender : chr &#34;F&#34; &#34;F&#34; &#34;F&#34; &#34;F&#34; ... # $ Age : chr &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; ... # $ Occupation : int 10 10 10 10 16 15 7 7 7 20 .
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/5/">«</a>
-	<span class="pagination__item pagination__item--current">6/6</span>
+	<span class="pagination__item pagination__item--current">6/7</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/7/">»</a>
 </div>
 
 			</div>
@@ -263,11 +269,11 @@ MNIST 개요
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 		</ul>
 	</div>
 </div>
@@ -278,7 +284,7 @@ MNIST 개요
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
 			<li class="widget__item">
-				<a class="widget__link" href="/categories/aws-lambda/">AWS Lambda</a></li>
+				<a class="widget__link" href="/categories/aws/">AWS</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
 			<li class="widget__item">
@@ -320,7 +326,7 @@ MNIST 개요
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws-lambda/" title="AWS Lambda">AWS Lambda</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>

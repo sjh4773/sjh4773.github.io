@@ -56,6 +56,28 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-5/" rel="bookmark">
+			데이터 전처리
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-03T23:46:27Z">2021-04-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		데이터 전처리   데이터 클렌징
+  결손값 처리(Null/NaN 처리)
+  데이터 인코딩(레이블, 원-핫 인코딩)
+  머신러닝 알고리즘은 문자열 데이터 속성을 입력 받지 않으며 모든 데이터는 숫자형으로 표현되어야 합니다. 문자형 카테고리형 속성은 모두 숫자값으로 변환/인코딩 되어야 합니다.
+레이블(Label) 인코딩  [TV, 냉장고, 전자레인지, 컴퓨터, 선풍기, 믹서] -&gt; [0, 1, 4, 5, 3, 2] 문제점 : 분류를 레이블 인코딩하면 관계성이 확보되지 않는다.  원-핫(One-Hot) 인코딩 원-핫 인코딩은 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식입니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-4/" rel="bookmark">
 			Convolutional Neural Network를 이용한 MNIST
 			</a>
@@ -222,31 +244,12 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
   R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
   library(ggplot2) economics &lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r-3/" rel="bookmark">
-			t-검정 실습
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-25T23:41:56Z">2021-03-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		t검정 - 두 집단의 평균 비교 &rsquo;t 검정(t-test)&lsquo;은 두 집단의 평균에 통계적으로 유의한 차이가 있는지 알아볼 때 사용하는 통계 분석 기법
-# 일반 휘발유와 고급 휘발유의 도시 연비 t 검정 mpg_diff2 &lt;- mpg %&gt;% select(fl, cty) %&gt;% filter(fl %in% c(&#34;r&#34;, &#34;p&#34;)) # r:regular, p:premium table(mpg_diff2$fl) t.test(data = mpg_diff2, cty ~ fl, val.equal = T) # data: cty by fl # t = 1.2118, df = 107.23, p-value = 0.2283 # p-value가 0.
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/4/">«</a>
-	<span class="pagination__item pagination__item--current">5/6</span>
+	<span class="pagination__item pagination__item--current">5/7</span>
 	<a class="pagination__item pagination__item--next btn" href="/post/page/6/">»</a>
 </div>
 
@@ -265,11 +268,11 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb2/">2. NoSQL의 대표적인 데이터베이스 mongoDB</a></li>
 		</ul>
 	</div>
 </div>
@@ -280,7 +283,7 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/">ADP 모의고사 R 실습</a></li>
 			<li class="widget__item">
-				<a class="widget__link" href="/categories/aws-lambda/">AWS Lambda</a></li>
+				<a class="widget__link" href="/categories/aws/">AWS</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/cognitive-science/">Cognitive Science</a></li>
 			<li class="widget__item">
@@ -322,7 +325,7 @@ import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(n
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" title="ADP 모의고사 R 실습">ADP 모의고사 R 실습</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/aws-lambda/" title="AWS Lambda">AWS Lambda</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
