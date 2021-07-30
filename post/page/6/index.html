@@ -56,6 +56,26 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-4/" rel="bookmark">
+			상관분석 실습
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-25T23:42:07Z">2021-03-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		상관분석 = 두 변수의 관계성 분석   실업자 수와 개인 소비 지출의 상관관계
+  R에 내장된 cor.test()를 이용하면 상관분석을 할 수 있다.
+  library(ggplot2) economics &lt;- as.data.frame(ggplot2::economics) cor.test(economics$unemploy, economics$pce) #unemploy(실업자 수), pce(개인 소비 지출) # 출력결과 # Pearson&#39;s product-moment correlation #  # data: economics$unemploy and economics$pce # t = 18.63, df = 572, p-value &lt; 2.2e-16 # alternative hypothesis: true correlation is not equal to 0 # 95 percent confidence interval: # 0.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-3/" rel="bookmark">
 			t-검정 실습
 			</a>
@@ -227,24 +247,6 @@ MNIST 개요
   깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
   # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/ai/" rel="bookmark">
-			파이토치로 만드는 신경망
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-22T20:58:12Z">2021-03-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# PyTorch 필요 라이브러리 호출 import torch # pip install pytorch 라이브러리 설치 import torch.nn as nn # 인공신경망을 구성해주는 메소드들의 집합 import torch.nn.functional as F # 활성화 함수들을 간단하게 호출 import torch.optim as optim # 토치를 통한 최적화 기능 # Neural network 모델 생성 # 입력 --&gt; 은닉 (3,5) # 은닉 --&gt; 출력 (5,2) # nn 뉴럴 네트워크 안에 있는 기능 하나를 호출  class fir_model(nn.Moudule): # nn.Moduel안에 있는 부모 클래스를 상속 받는다.
-	</div>
 </article>
 </main>
 
@@ -269,11 +271,11 @@ MNIST 개요
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 		</ul>
 	</div>
 </div>
@@ -306,6 +308,8 @@ MNIST 개요
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/r/">r</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/ruby-on-rails/">Ruby on Rails</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
@@ -337,6 +341,7 @@ MNIST 개요
 		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby-on-rails/" title="Ruby on Rails">Ruby on Rails</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>

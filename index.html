@@ -55,6 +55,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/ruby1/" rel="bookmark">
+			CRUD 게시판 만들기
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-30T14:13:56&#43;09:00">2021-07-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ruby-on-rails/" rel="category">Ruby on Rails</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		MVC 패턴 설명 루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습  우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서 Controller에게 게시판이 왔다고 전달해준다. 그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다, 그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.  POST  우리가 만든 Form 화면이 Client Side에 떠 있을 텐데 우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/aws1/" rel="bookmark">
 			AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속
 			</a>
@@ -218,31 +236,6 @@ Connet Your Application 누르면 우리의 mongoDB에 접속할 수 있는 URL 
 		RNN in PyTorch 파이토치에서는 nn.RNN()을 통해서 RNN 셀을 구현
 import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기를 정의 input_size = 5 # 입력의 크기 hidden_size = 8 # 은닉 상태의 크기 입력 텐서를 정의한다. 입력 텐서는 (배치 크기 x 시점의 수 x 매 시점마다 들어가는 입력)의 크기를 가진다. 배치의 크기는 1이며 10번의 시점동안 5차원의 입력 벡터가 들어가도록 텐서를 정의한다. # (batch_size, time_steps, input_size) inputs = torch.Tensor(1, 10, 5) nn.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/meta/" rel="bookmark">
-			메타러닝
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-01T00:33:22&#43;09:00">2021-06-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		메타러닝  머신러닝 문제 해결 흐름도    훈련용 데이터(입력,레이블) 준비
-  모델 설정 (딥러닝 구조 설정)
-  훈련용 데이터를 통한 모델 최적화
-  운영 입력데이터를 모델에 적용
-매번 새로운 문제를 만날 때마다 새로운 모델 생성 및 학습(최적화)를 반복해야하는 문제점이 발생
-이 방식에서 개선시킬 점이 있을까?
-   사람과 인공지능의 학습법 비교  사람
- 자전거를 타는 지식을 갖고 있으면 오토바이를 타는 지식을 습득하는 것은 어렵지 않다.
-	</div>
 </article>
 </main>
 
@@ -265,11 +258,11 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 		</ul>
 	</div>
 </div>
@@ -302,6 +295,8 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/r/">r</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/ruby-on-rails/">Ruby on Rails</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
@@ -333,6 +328,7 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby-on-rails/" title="Ruby on Rails">Ruby on Rails</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>

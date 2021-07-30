@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CRUD 게시판 만들기 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="CRUD 게시판 만들기" />
+<meta property="og:description" content="MVC 패턴 설명 루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습  우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서 Controller에게 게시판이 왔다고 전달해준다. 그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다, 그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.  POST  우리가 만든 Form 화면이 Client Side에 떠 있을 텐데 우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/ruby1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-30T14:13:56&#43;09:00" />
+<meta property="article:modified_time" content="2021-07-30T14:13:56&#43;09:00" />
+
+
+		<meta itemprop="name" content="CRUD 게시판 만들기">
+<meta itemprop="description" content="MVC 패턴 설명 루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습  우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서 Controller에게 게시판이 왔다고 전달해준다. 그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다, 그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.  POST  우리가 만든 Form 화면이 Client Side에 떠 있을 텐데 우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다."><meta itemprop="datePublished" content="2021-07-30T14:13:56&#43;09:00" />
+<meta itemprop="dateModified" content="2021-07-30T14:13:56&#43;09:00" />
+<meta itemprop="wordCount" content="475">
+<meta itemprop="keywords" content="Ruby on Rails," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CRUD 게시판 만들기"/>
+<meta name="twitter:description" content="MVC 패턴 설명 루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습  우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서 Controller에게 게시판이 왔다고 전달해준다. 그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다, 그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.  POST  우리가 만든 Form 화면이 Client Side에 떠 있을 텐데 우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다."/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">CRUD 게시판 만들기</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-30T14:13:56&#43;09:00">2021-07-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/ruby-on-rails/" rel="category">Ruby on Rails</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#mvc-패턴-설명">MVC 패턴 설명</a>
+      <ul>
+        <li><a href="#루비-온-레일즈를-이용해-게시판을-만들면서-mvc-패턴을-만들어보고-db와-연결해-crud를-실습">루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습</a></li>
+      </ul>
+    </li>
+    <li><a href="#post">POST</a></li>
+    <li><a href="#read">READ</a></li>
+    <li><a href="#update">UPDATE</a></li>
+    <li><a href="#delete">DELETE</a></li>
+    <li><a href="#최종결과">최종결과</a>
+      <ul>
+        <li><a href="#출처--httpswwwyoutubecomwatchv2chkds265n8조코딩">출처 : <a href="https://www.youtube.com/watch?v=2CHkds265N8,">https://www.youtube.com/watch?v=2CHkds265N8,</a>조코딩</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<h2 id="mvc-패턴-설명">MVC 패턴 설명</h2>
+<h3 id="루비-온-레일즈를-이용해-게시판을-만들면서-mvc-패턴을-만들어보고-db와-연결해-crud를-실습">루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습</h3>
+<p><img src="/image/ruby1.png" alt=""></p>
+<pre><code>        우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서
+        Controller에게 게시판이 왔다고 전달해준다.
+        그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다,
+        그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.
+</code></pre>
+<h2 id="post">POST</h2>
+<p><img src="/image/ruby2.png" alt=""></p>
+<pre><code>        우리가 만든 Form 화면이 Client Side에 떠 있을 텐데
+        우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다.
+</code></pre>
+<p><img src="/image/ruby3.png" alt=""></p>
+<pre><code>        라우터에서는 /create로 날아온 것을 post 방식으로 board(Controller)에
+        create(View=Action)라는 action으로 연결해준다.
+</code></pre>
+<p><img src="/image/ruby4.png" alt=""></p>
+<pre><code>        그러면 BoardController에서는 create라는 액션으로 들어왔으니
+        코드 내에서 def create로 가리키게 되고 함수 내의 코드가 수행된다.
+        이때 파라미터로 날아온 title과 content를 받아서 변수에 넣고
+        그리고 Post라는 Model을 불러와서 create라는 명령어를 통해 DB에 정보를 입력하게 된다.
+        그리고 다시 /board라는 주소로 가게 함으로써 다시 index 화면으로 돌아가게 된다.
+</code></pre>
+<h2 id="read">READ</h2>
+<p><img src="/image/ruby5.png" alt=""></p>
+<pre><code>        index 화면에 모든 게시물의 정보를 다 뿌려 준다.
+        그러려면 @posts라는 변수를 만들고 여기안에 Post라는 Model를 불러와서 Post.all을 해주면
+        그러면 Post라는 Model의 모든 것이 선택되서 @post라는 변수에 담긴다.
+</code></pre>
+<p><img src="/image/ruby6.png" alt=""></p>
+<pre><code>        &lt;%=화면에 표시 %&gt;, &lt;% 내부적으로 처리 %&gt;
+
+        @posts 안에는 게시물 여러 개가 있는데 여기에 .each를 통해서 하나씩 뽑아서 user라는 변수에 넣겠다는 뜻이다.
+        그리고 do end 사이에 여기에 post를 입력하면 post(게시물 하나)를 쓸 수가 있다.
+
+        점을 찍는 것은 앞 요소 안에 어떤 것을 사용할 때 씀
+
+        post라는 데이터가 날라와서 post 안에 있는 title을 찍어주고 post안에 있는 content를 찍어준다.
+</code></pre>
+<h2 id="update">UPDATE</h2>
+<p><img src="/image/ruby7.png" alt=""></p>
+<pre><code>        View에서 각 게시물에 &lt;a&gt; 태그로 &quot;수정하기&quot;라는 버튼(링크)를 만들어준다.
+        그리고 href로 /edit 이라고 정해서 수정하는 페이지로 이동하게 해준다.
+        대신 이게 몇 번 글인지 알아야 되기 때문에 post.id(Primary Key, 유일한 row 구분 가능)를 담아서
+        Primary Key는 유일한 번호이기 때문에 번호를 통해서 어떤 글인지 식별할 수 있다.
+        이 번호를 주소와 함께 보내준다. 그런데 여기는 &lt;a&gt; 태그이기 때문에(form이 아니라)
+        &lt;input&gt;(처럼 정보를 name을 보내는)을 입력할 수 없다.
+        따라서 &quot;/edit?id=&lt;%= post.id %&gt;&quot;를 입력하게 되면 id라는 파라미터로 값이 전달되게 된다.(input name=&quot;id&quot; value=&quot;&lt;%=post.id%&gt;와 같음)
+</code></pre>
+<p><img src="/image/ruby8.png" alt=""></p>
+<pre><code>        get 방식으로 edit이라고 날아오면 board에 edit으로 이동하도록 연결해준다.
+</code></pre>
+<p><img src="/image/ruby10.png" alt=""></p>
+<pre><code>        그리고 Controller에 똑같이 edit을 만들고 edit은 수정화면이니까 수정할 게시물 하나만 보이면 된다.(1개의 record)
+        그러기 때문에 @posts가 아니라 @post로 고쳐주고 Post Model에서 .all이 아니라 하나만 가지고 오면 되는데
+        Primary Key(id) 값은 유일한 값이므로 Post(전체 중)에서 하나의 글만 찾아올 수 있다.
+        find() 함수를 이용한다.
+</code></pre>
+<p><img src="/image/ruby9.png" alt=""></p>
+<pre><code>        edit은 수정화면이니까 View도 만들어 준다.
+
+
+        개발자 도구를 눌러서 수정하기 버튼을 보면
+        각각으 edit 뒤에 id가 붙어서 전달되는 것을 볼 수 있고
+        수정하는 페이지로 들어와서 태그를 보면 &lt;Form&gt; 태그를 보면 id라는 숨겨진 태그가 있는데
+        그 안에 value에 1이 잘전달된 것을 확인할 수 있다.
+
+        수정을 하기 위해 routes.rb에 get '/update', to: 'board#update' 라우팅 추가
+        Controller에서 update를 추가하고 id를 이용해서 포스트를 찾는다.
+        찾은 포스트를 이용하여 @post.title을 우리가 받은 파라미터의 title로 교체해주고
+        마찬가지로 @post.content를 파라미터로 받은 content로 교체해준다.
+        그리고 @post.save를 통해 post를 저장해준다.
+        마찬가지로 redirect_to '/board' 로 설정해줘서 원래 화면으로 돌아가게끔 만들어준다.
+</code></pre>
+<h2 id="delete">DELETE</h2>
+<pre><code>        View에서 수정하기 밑에 똑같은 &quot;삭제하기&quot; 버튼을 만든다.
+        마찬가지로 id를 넘겨주고 라우터에서 edit처럼 a 태그로 가기 때문에 get 방식으로 delete로 넘겨준 뒤 board에 delete라는 View로 연결해준다.
+        그리고 Controller에서 마지막으로 delete라는 액션을 만들면 마찬가지로 post에서 id로 하나의 post를 찾은 다음에 그 post를 post.destroy라고하면
+        post가 삭제 된다.
+</code></pre>
+<h2 id="최종결과">최종결과</h2>
+<p><img src="/image/ruby11.png" alt=""></p>
+<h3 id="출처--httpswwwyoutubecomwatchv2chkds265n8조코딩">출처 : <a href="https://www.youtube.com/watch?v=2CHkds265N8,">https://www.youtube.com/watch?v=2CHkds265N8,</a>조코딩</h3>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/ruby-on-rails/" rel="tag">Ruby on Rails</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/aws1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 JiHun.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

@@ -55,6 +55,28 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/machine-learning-15/" rel="bookmark">
+			PCA의 이해
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-03T00:29:12Z">2021-05-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		PCA(Principal Component Analysis)의 이해   고차원의 원본 데이터를 저차원의 부분 공간으로 투영하여 데이터를 축소하는 기법
+  예를 들어 10차원의 데이터를 2차원의 부분 공간으로 투영하여 데이터를 축소
+  PCA는 원본 데이터가 가지는 데이터 변동성을 가장 중요한 정보로 간주하며 이 변동성에 기반한 원본 데이터 투영으로 차원 축소를 수행
+  PCA는 원본 데이터 변동성이 가장 큰 방향으로 순차적으로 축들을 생성하고, 이렇게 생선된 축으로 데이터를 투영하는 방식이다.
+PCA는 제일 먼저 원본 데이터에 가장 큰 데이터 변동성(Variance)을 기반으로 첫 번째 벡터 축을 생성하고, 두 번째 축은 첫번째 축을 제외하고 그 다음으로 변동성이 큰 축을 설정하는데 이는 첫번째 축에 직각이 되는 벡터(직교 벡터) 축 입니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning-14/" rel="bookmark">
 			차원 축소
 			</a>
@@ -231,29 +253,6 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 	<div class="content list__excerpt post__content clearfix">
 		인지과학의 정의 인지과학은 기본적으로 앎의 과학이다. 그런데 앎이 인간의 마음의 작용에서부터 비롯 되는 것이기 때문에 인지과학을 좀 더 넓게 정의한다면 '마음의 과학'이 된다. 그런데 컴퓨터(인공지능 시스템)나 동물과 같은 행위체도 인간의 마음과 유사한 지능을 보인다. 그래서 조금 달리 정의한다면, 마음의 지에 대한 다학문적인 학제적 연구가 인지과학이라고 할 수 있다. 인지과학은 뇌, 행동, 컴퓨테이션(수리적 계산이라는 의미보다는 정보처리에 가까운 의미)이라는 세 개의 넓은 영역을 통합하는 다학문적 분야이다. 사람이 그리고 동물 및 컴퓨터(로봇)가 어떻게 정보를 처리하고, 그 결과를 행위로 산출하는가 등을 연구하는 분야이다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/cognitive-science/" rel="bookmark">
-			신경 시스템과 실험 방법론
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-18T21:46:32Z">2021-04-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/cognitive-science/" rel="category">Cognitive Science</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		사람 뇌의 구조 - 신경해부학의 기본 용어 신경 : 각 기관계를 연결하여 하나의 유기체로서 신체 활동의 조절과 조정을 담당하는 신경조직
-우리 몸의 신호전달을 모두 담당하고 있는 모두 담당하고 있는 구조물의 총칭
-중추신경 : 우리 몸의 가장 가운데 있는 신경으로, 신경정보를 통합, 조정하는 중앙처리 장치. 뇌와 척수
-신경세포 : 신경계를 이루는 구조적, 기능적인 기본 단위
-말초신경 : 감각과 운동 자극을 중추신경으로 연결하는 통로
-대뇌 : 뇌의 대부분을 차지하는 중추신경계의 중추로 운동, 감각, 언어, 기억 및 고등 정신 기능을 수행하는 기관
-	</div>
 </article>
 </main>
 
@@ -277,11 +276,11 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/mongodb/">1. 데이터베이스와 풀스택</a></li>
 		</ul>
 	</div>
 </div>
@@ -314,6 +313,8 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/r/">r</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/ruby-on-rails/">Ruby on Rails</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/">R을 이용한 퀀트투자</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/">빅데이터 분석기사 필기공부</a></li>
@@ -345,6 +346,7 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 		<a class="widget-taglist__link widget__link btn" href="/tags/python-%EA%B3%B5%EB%B6%80/" title="Python 공부">Python 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pytorch-%EA%B3%B5%EB%B6%80/" title="Pytorch 공부">Pytorch 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby-on-rails/" title="Ruby on Rails">Ruby on Rails</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>

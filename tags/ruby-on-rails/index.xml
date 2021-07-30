@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Rails on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/ruby-on-rails/</link>
+    <description>Recent content in Ruby on Rails on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Fri, 30 Jul 2021 14:13:56 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CRUD 게시판 만들기</title>
+      <link>http://sjh4773.github.io/post/ruby1/</link>
+      <pubDate>Fri, 30 Jul 2021 14:13:56 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/ruby1/</guid>
+      <description>MVC 패턴 설명 루비 온 레일즈를 이용해 게시판을 만들면서 MVC 패턴을 만들어보고 DB와 연결해 CRUD를 실습  우리가 브라우저에서 jocoding.com/board라고 붙이면 Router에서는 이 board를 읽어서 Controller에게 게시판이 왔다고 전달해준다. 그러면 Controller에서는 Model을 통해 DB 정보를 불어와서 게시글 정보를 가져온다, 그리고 View를 통해서 그 게시물에 HTML, CSS 요소를 첨가해 준 뒤에 우리가 보는 화면으로 전송해준다.  POST  우리가 만든 Form 화면이 Client Side에 떠 있을 텐데 우리가 제목과 내용 정보를 채워주고 /create라는 주소로 보내줬습니다.</description>
+    </item>
+    
+  </channel>
+</rss>
