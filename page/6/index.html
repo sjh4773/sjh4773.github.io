@@ -55,6 +55,26 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/python/" rel="bookmark">
+			카페 추천 시스템
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-28T00:02:27Z">2021-03-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Cosine similarity(유사도 측정)
+-&gt; 유사인 경우 1, 상극인 경우 -1 (cosine 함수) 구하는 방식 -&gt; 벡터내적 𝑐𝑜𝑠𝜃 = 𝐴 ∙ 𝐵 / |𝐴||𝐵| (−1 ≤ 𝑐𝑜𝑠𝜃 ≤ 1)
+import numpy as np def cosine_similarity(a,b): num = np.dot(a,b) den = np.sqrt(np.sum(a**2))*np.sqrt(np.sum(b**2)) return num/(den+1e-15) # 카페 평가 기준 : 분위기, 예술성, 친절함, 가성비, 위생, 맛 # 각 항목별 점수 범위 : 0 ~ 10 # 위의 평가 기준 순서대로 평가  backkeumdang = np.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-4/" rel="bookmark">
 			상관분석 실습
 			</a>
@@ -224,28 +244,6 @@ MNIST 개요
 	<div class="content list__excerpt post__content clearfix">
 		import torch import numpy as np import matplotlib.pyplot as plt %matplotlib inline # 데이터 x = np.random.uniform(-1.2, 2, size=(100)) #np.random.uniform은 Numpy에서 제공하는 균등분포 함수이다. y = 0.1*x**3-0.1*x**2+0.1*np.random.uniform(size=(100)) # 노이즈 추가 plt.plot(x,y,&#39;o&#39;) # 3차 함수지만 노이즈가 포함되어 있다. # train/validation/test 분류 data = np.concatenate((x.reshape(-1,1),y.reshape(-1,1)), axis=-1) # X, Y 묶음, X: input, Y: target print(data.shape) # 차원 0: 데이터 개수, 차원1: (x,y) --&gt; (100,2) np.random.shuffle(data) # 데이터 골고루 섞음 test_num = int(data.shape[0]*0.1) # data.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r/" rel="bookmark">
-			힙합 가사 텍스트 마이닝 및 워드 클라우드
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-23T19:37:34Z">2021-03-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		KoNLP 패키지 설치하기 현재 KoNLP 패키지가 CRAN에서 삭제된 상태라 install.packages()를 이용해 설치할 수 없습니다. 아래 코드를 순서대로 실행하면 깃헙 버전 KoNLP 패키지를 설치할 수 있습니다.
-  java와 rJava 설치 install.packages(&ldquo;multilinguer&rdquo;) library(multilinguer) install_jdk()
-  KoNLP 의존성 패키지 설치 install.packages(c(&ldquo;stringr&rdquo;, &ldquo;hash&rdquo;, &ldquo;tau&rdquo;, &ldquo;Sejong&rdquo;, &ldquo;RSQLite&rdquo;, &ldquo;devtools&rdquo;), type = &ldquo;binary&rdquo;)
-  깃헙 버전 KoNLP 설치 install.packages(&ldquo;remotes&rdquo;) remotes::install_github(&ldquo;haven-jeon/KoNLP&rdquo;, upgrade = &ldquo;never&rdquo;, INSTALL_opts=c(&quot;&ndash;no-multiarch&quot;))
-  # 힙합 가사 텍스트 마이닝 # 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법을 # &#39;텍스트 마이닝&#39;이라고 한다.
-	</div>
 </article>
 </main>
 
@@ -269,11 +267,11 @@ MNIST 개요
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 		</ul>
 	</div>
 </div>
@@ -293,6 +291,8 @@ MNIST 개요
 				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/linux/">linux</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
 			<li class="widget__item">
@@ -333,6 +333,7 @@ MNIST 개요
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="mongoDB">mongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/categories/linux/</link>
+    <description>Recent content in linux on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language>
+    <lastBuildDate>Sun, 05 Sep 2021 23:03:09 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>리눅스 쉘스크립트(변수, 값, 문자)</title>
+      <link>http://sjh4773.github.io/post/linux1/</link>
+      <pubDate>Sun, 05 Sep 2021 23:03:09 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/linux1/</guid>
+      <description>리눅스 쉘 스크립트  유닉스 환경에서 간단한 프로그램을 작성하거나, 유닉스 명령어들을 조합해서 사용할 수 있도록 도와주는 프로그램 도구  #!/bin/bash
+val=&amp;ldquo;hello&amp;rdquo;
+if [ $val == &amp;ldquo;hello&amp;rdquo; ]; then echo &amp;ldquo;hello&amp;rdquo; elif [ $val == &amp;ldquo;hi&amp;rdquo; ]; then echo &amp;ldquo;hi&amp;rdquo; else echo &amp;ldquo;else&amp;rdquo; fi
+변수  변수 선언은 &amp;ldquo;=&amp;ldquo;를 사용  name=&amp;ldquo;hero&amp;rdquo; age=30
+echo ${hero} echo $age
+ 변수 선언시 공백이 없도록 한다!!! name = hero(X)  변수   $0 - The name of the Bash script.</description>
+    </item>
+    
+  </channel>
+</rss>

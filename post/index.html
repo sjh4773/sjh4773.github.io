@@ -56,6 +56,29 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/linux1/" rel="bookmark">
+			리눅스 쉘스크립트(변수, 값, 문자)
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-09-05T23:03:09&#43;09:00">2021-09-05</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		리눅스 쉘 스크립트  유닉스 환경에서 간단한 프로그램을 작성하거나, 유닉스 명령어들을 조합해서 사용할 수 있도록 도와주는 프로그램 도구  #!/bin/bash
+val=&ldquo;hello&rdquo;
+if [ $val == &ldquo;hello&rdquo; ]; then echo &ldquo;hello&rdquo; elif [ $val == &ldquo;hi&rdquo; ]; then echo &ldquo;hi&rdquo; else echo &ldquo;else&rdquo; fi
+변수  변수 선언은 &ldquo;=&ldquo;를 사용  name=&ldquo;hero&rdquo; age=30
+echo ${hero} echo $age
+ 변수 선언시 공백이 없도록 한다!!! name = hero(X)  변수   $0 - The name of the Bash script.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/ruby1/" rel="bookmark">
 			CRUD 게시판 만들기
 			</a>
@@ -218,25 +241,6 @@ Connet Your Application 누르면 우리의 mongoDB에 접속할 수 있는 URL 
 	<div class="content list__excerpt post__content clearfix">
 		인코더의 주 역할은 각 단어를 순차적으로 받음으로써 최종적으로 문맥 벡터를 만드는 것 디코더의 역할은 문맥 벡터로부터 기계번역을 시작 시퀀스가 적을 경우 문제가 없으나 시퀀스가 길어질경우 문제 발생 문맥 벡터는 고정된 사이즈의 벡터이므로 모든 정보를 함축하기에는 사이즈가 작다 그 대안으로 attention 메카니즘을 활용한다. 이전 인코더 디코더 아키텍처에서는 인코더에서 나왔던 모든 state를 활용하지 않았다 단순히 마지막에 나온 state를 context vector라고 불렀고 그 하나의 context vector에서 translation이 이루어졌다. encoder 나온 각각의 rnn의 셀의 state를 활용하여 decoder에서 dynamic하게 context vector를 만들어 번역을 한다면 고정된 사이즈의 문제를 해결할 수 있다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/rnn/" rel="bookmark">
-			rnn in pytorch
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-01T22:48:42&#43;09:00">2021-06-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		RNN in PyTorch 파이토치에서는 nn.RNN()을 통해서 RNN 셀을 구현
-import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기를 정의 input_size = 5 # 입력의 크기 hidden_size = 8 # 은닉 상태의 크기 입력 텐서를 정의한다. 입력 텐서는 (배치 크기 x 시점의 수 x 매 시점마다 들어가는 입력)의 크기를 가진다. 배치의 크기는 1이며 10번의 시점동안 5차원의 입력 벡터가 들어가도록 텐서를 정의한다. # (batch_size, time_steps, input_size) inputs = torch.Tensor(1, 10, 5) nn.
-	</div>
 </article>
 </main>
 
@@ -260,11 +264,11 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-1/">AWS Lambda와 MongoDB 연동</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/certificate/">Certificate</a></li>
 		</ul>
 	</div>
 </div>
@@ -284,6 +288,8 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/linux/">linux</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/machine_learning/">machine_learning</a></li>
 			<li class="widget__item">
@@ -324,6 +330,7 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="mongoDB">mongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas-%EA%B3%B5%EB%B6%80/" title="pandas 공부">pandas 공부</a>
