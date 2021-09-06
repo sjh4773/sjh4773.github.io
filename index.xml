@@ -6,7 +6,18 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Sun, 05 Sep 2021 23:03:09 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Sep 2021 18:48:12 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 명령어 정리</title>
+      <link>http://sjh4773.github.io/post/linux2/</link>
+      <pubDate>Mon, 06 Sep 2021 18:48:12 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/linux2/</guid>
+      <description>관리자 권한 얻기   root 권한 실행(sudo)
+ $ sudo reboot $ sudo halt    root 사용자로 전환
+ $ sudo su - root    리눅스 파일 시스템  root  home : 윈도우의 사용자 폴더와 같음, 사용자 추가할때마다 home에 디렉토리가 만들어짐 bin : 실행 파일을 두는 곳 mnt, media : 리눅스나 유닉스는 루트로부터 파생되는 특정 디렉토리에 장치들을 엮어쓰게됨. 엮어쓰는 장치의 디렉토리로 과거에는 mnt(마운트)를 썼었음. 만약에 CD-ROM을 연결해 쓰고 싶을 때 CD-ROM 데이터를 어떻게 읽냐면 자기 혼자 루트를 갖는게 아니라 루트에서 어느 디렉토리에 연결해서 쓰게됨 그게 mnt 디렉토리이다.</description>
+    </item>
+    
     <item>
       <title>리눅스 쉘스크립트(변수, 값, 문자)</title>
       <link>http://sjh4773.github.io/post/linux1/</link>
