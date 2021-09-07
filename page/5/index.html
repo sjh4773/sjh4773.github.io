@@ -55,6 +55,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/matplotlib_study/" rel="bookmark">
+			matplotlib 그래프 그리기
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-07T21:03:56Z">2021-04-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		import matplotlib.pyplot as plt from matplotlib.ticker import (MultipleLocator, AutoMinorLocator, FuncFormatter) import seaborn as sns import numpy as np # 그냥 그림을 그릴 때 zorder의 값을 지정해주면 그 값이 레이어의 위치라고 보면 된다. # 가장 바깥 쪽에 그려지는 그림일수록 zorder의 값이 커야 한다. # zorder는 레이어의 위치 def plot_example(ax, zorder=0): ax.bar(tips_day[&#34;day&#34;], tips_day[&#34;tip&#34;], color=&#34;lightgray&#34;, zorder=zorder) ax.set_title(&#34;tip (mean)&#34;, fontsize=16, pad=12) # Values h_pad = 0.1 for i in range(4): fontweight = &#34;normal&#34; color = &#34;k&#34; if i == 3: fontweight = &#34;bold&#34; color = &#34;darkred&#34; ax.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/python-4/" rel="bookmark">
 			tuple과 list의 차이
 			</a>
@@ -221,24 +239,6 @@
 	<div class="content list__excerpt post__content clearfix">
 		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/machine-learning-2/" rel="bookmark">
-			이미지 경계선 검출
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-28T21:00:24Z">2021-03-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# image convolution # check out horizontal, vertical, tilting, laplacian import numpy as np import matplotlib.pyplot as plt %matplotlib inline from PIL import Image # 파이썬에서 이미지를 담당 def convolution(image,filter,s=1): #stride = 1 image = np.asarray(image) height = image.shape[0] width = image.shape[1] new_height = int((height - filter.shape[0])/s+1) new_width = int((width - filter.shape[1])/s+1) new_image = np.zeros((new_height,new_width)) c_h = 0 for h in range(new_height): c_w = 0 for w in range(new_width): new_image[h,w] = np.
-	</div>
 </article>
 </main>
 
@@ -262,11 +262,11 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 		</ul>
 	</div>
 </div>
@@ -313,6 +313,8 @@
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/">정보처리기사 실기 오답노트</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/">쿠버네티스</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
@@ -341,6 +343,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/" title="정보처리기사 실기 오답노트">정보처리기사 실기 오답노트</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/" title="쿠버네티스">쿠버네티스</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
 	</div>

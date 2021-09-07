@@ -6,7 +6,17 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Mon, 06 Sep 2021 18:48:12 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 14:04:03 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>쿠베플로우</title>
+      <link>http://sjh4773.github.io/post/kubeflow1/</link>
+      <pubDate>Tue, 07 Sep 2021 14:04:03 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/kubeflow1/</guid>
+      <description>쿠베플로우가 필요한 이유  Kubeflow Kubernetes 용 ML 툴킷이다 다음 다이어그램은 Kubernetes를 기반으로 ML 시스템의 구성 요소를 배열하기 위한 플랫폼으로서 Kubeflow를 보여준다.  쿠베플로우의 디자인과 핵심 컴포넌트 쿠베플로우는 다음 3가지 기능으로 정의할 수 있다.  조합가능성(Composability)  쿠베플로우의 핵심 구성 요소는 이미 머신러닝 실무자들에게 익숙한 데이터과학 도구를 사용한다. 이들은 기계 학습의 특정 단계를 용이하게 하기 위해 독립적으로 사용되거나 엔드 투 엔드 파이프라인을 형성하기 위해 함께 구성될 수 있다.
+이식성(Potability)  컨테이너 기반 설계를 갖추고 Kubernetes 및 클라우드 네이티브 아키텍쳐를 활용함으로써 Kubeflow는 특정 개발환경에 종속될 피요가 없다.</description>
+    </item>
+    
     <item>
       <title>linux 명령어 정리</title>
       <link>http://sjh4773.github.io/post/linux2/</link>

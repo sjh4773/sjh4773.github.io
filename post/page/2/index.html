@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/transfomer/" rel="bookmark">
+			Transfomer
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-03T00:09:24&#43;09:00">2021-06-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Transformer 트랜스포머는 기존 인코더 디코더를 발전시킨 딥러닝 모델 가장 큰 차이점은 rnn을 사용하지 않는다는 것 트랜스포머는 기존 rnn기반 인코더 디코더보다 학습이 빠르고 성능이 좋음 트랜스포머를 한단어로 표현하면 병렬화이다. 즉 일을 한번에 처리함 Rnn은 순차적으로 입력된 단어를 인코딩하는 반면 트랜스포머는 한번에 과정을 처리 전통적인 rnn기반 인코더 디코더일 경우 입력값을 순차적으로 계산한다. 인코더에서의 최종적인 상태값을 context vector이라고 하며 context vector를 이용하여 번역을 한다. 고정된 크기의 문맥 벡터를 사용하지 않고 대신 단어를 하나씩 번역할 때마다 동적으로 인코더 출력값에 어텐션 메커니즘을 사용하여 효율적으로 변환 이 모델을 고정된 문맥 벡터를 사용하지않고 인코더의 모든 상태를 활용한다는 특징 때문에 이전 인코더 디코더 모델보다 향상됨 어텐션 메커니즘은 기존 인코더 디코더의 성능을 상당히 강화시킴 그러나 여전히 rnn 셀을 순차적으로 계산하여 느리다는 단점이 있음 어텐션만으로도 입력 데이터에서 중요한 정보를 찾아내서 단어를 인코딩 할 수 있지 않을까란 가능성 제기 Rnn의 순차적인 계산은 트랜스포머에서 단순히 행렬곱으로 한번에 처리가 됨 트랜스포머는 한번에 연산으로 모든 중요 정보 정보는 각 단에 인코딩하게 됩니다 트랜스 포머 디코드의 연산 과정을 기존의 어탠션 기반 인코더 디코더와 사뭇 닮아 있음을 확인할 수 있다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/seq2seq/" rel="bookmark">
 			Seq2seq with attention
 			</a>
@@ -226,24 +244,6 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 	<div class="content list__excerpt post__content clearfix">
 		setwd(&#34;C:/ADP/data&#34;) fifa &lt;- read.csv(&#34;FIFA.csv&#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &lt;- as.character(fifa$Height) # &#34;&#39;&#34; 앞의 숫자는 피트이며, &#34;&#39;&#34; 뒤의 숫자는 인치를 의미함 # 따라서, &#34;&#39;&#34; 앞 숫자를 추출하여 30을 곱하고, &#34;&#39;&#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r-6/" rel="bookmark">
-			ADP 1회 모의고사 R 정형 데이터 마이닝 실습
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-24T21:04:04Z">2021-05-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		# R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&#34;C:/ADP/data&#34;) lot &lt;- read.csv(&#34;lotto.csv&#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&#34;reshape2&#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.
-	</div>
 </article>
 </main>
 
@@ -268,11 +268,11 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 		</ul>
 	</div>
 </div>
@@ -319,6 +319,8 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/">정보처리기사 실기 오답노트</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/">쿠버네티스</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
@@ -347,6 +349,7 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/" title="정보처리기사 실기 오답노트">정보처리기사 실기 오답노트</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/" title="쿠버네티스">쿠버네티스</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
 	</div>

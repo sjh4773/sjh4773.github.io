@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-6/" rel="bookmark">
+			ADP 1회 모의고사 R 정형 데이터 마이닝 실습
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-24T21:04:04Z">2021-05-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		# R 정형 데이터 마이닝 실습(사용 데이터 : lotto)  setwd(&#34;C:/ADP/data&#34;) lot &lt;- read.csv(&#34;lotto.csv&#34;) str(lot) sum(is.na(lot)) ## 트랜잭션 데이터로 변환 ## 데이터 형태 변환을 위한 패키치 설치 및 로드 install.packages(&#34;reshape2&#34;) library(reshape2) ### melt 함수를 이용하여 데이터 변환 lot_melt &lt;- melt(lot, id.vars=1) # melt 함수를 이용해 열에 있던 회차별 추첨번호 데이터를 행으로 이동 lot_melt2 &lt;- lot_melt[,-2] # 추첨순서를 의미하는 열(원데이터의 변수명)을 삭제한 후 lot_melt2 변수에 저장 str(lot_melt2) # 변환된 데이터의 형태 확인 ### 트랜잭션 데이터 생성을 위한 패키지 설치 및 로드 install.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/tableau1/" rel="bookmark">
 			태블로로 제작한 전국 광역시 미분양주택 현황
 			</a>
@@ -238,25 +256,6 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
  [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
 문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/kaggle/" rel="bookmark">
-			Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-20T23:46:52Z">2021-04-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/kaggle/" rel="category">kaggle</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부 Matplotlib : 차트의 기본 크기를 설정하려면?
-rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설정합니다. plt.rcParams와 mpl.rcParams 모두 동일한 결과를 도출하므로 편한 것을 사용하면 됩니다. 사용 가능한 rcParams 항목 : plt.rcParams 초기값으로 되돌리기 : mpl.rcParams.update(mpl.rcParamsDefault)  %matplotlib inline import matplotlib as mpl import matplotlib.pyplot as plt mpl.rcParams[&#34;figure.figsize&#34;] = (14,4) mpl.rcParams[&#39;lines.linewidth&#39;] = 2 mpl.rcParams[&#39;lines.color&#39;] = &#39;r&#39; mpl.rcParams[&#39;axes.grid&#39;] = True mpl.rcParams[&#39;figure.dpi&#39;] = 120 mpl.
-	</div>
 </article>
 </main>
 
@@ -281,11 +280,11 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws_lambda-2/">AWS Lambda로 게시판 서버 API 만들기</a></li>
 		</ul>
 	</div>
 </div>
@@ -332,6 +331,8 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/">정보처리기사 실기 오답노트</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/">쿠버네티스</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%83%9C%EB%B8%94%EB%A1%9C/">태블로</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/">통계 공부</a></li>
@@ -360,6 +361,7 @@ rcParams  Matplotlib에서 그리는 그래프,폰트 등의 기본 값을 설�
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC-%EC%8B%A4%EA%B8%B0-%EC%98%A4%EB%8B%B5%EB%85%B8%ED%8A%B8/" title="정보처리기사 실기 오답노트">정보처리기사 실기 오답노트</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/" title="쿠버네티스">쿠버네티스</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%83%9C%EB%B8%94%EB%A1%9C/" title="태블로">태블로</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" title="통계 공부">통계 공부</a>
 	</div>
