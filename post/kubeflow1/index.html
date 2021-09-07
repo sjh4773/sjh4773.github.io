@@ -87,8 +87,8 @@
 	</div>
 </div><div class="content post__content clearfix">
 			<h3 id="쿠베플로우가-필요한-이유">쿠베플로우가 필요한 이유</h3>
-<p><img src="/image/kube4.JPG" alt=""></p>
-<p><img src="/image/kube5.JPG" alt=""></p>
+<p><img src="/image/kube4.jpg" alt=""></p>
+<p><img src="/image/kube5.jpg" alt=""></p>
 <pre><code>        Kubeflow Kubernetes 용 ML 툴킷이다 다음 다이어그램은 Kubernetes를 기반으로 ML 시스템의
         구성 요소를 배열하기 위한 플랫폼으로서 Kubeflow를 보여준다.
 </code></pre>
@@ -97,21 +97,21 @@
 <ol>
 <li>조합가능성(Composability)</li>
 </ol>
-<p><img src="/image/kube1.JPG" alt=""></p>
+<p><img src="/image/kube1.jpg" alt=""></p>
 <p>쿠베플로우의 핵심 구성 요소는 이미 머신러닝 실무자들에게 익숙한 데이터과학 도구를 사용한다.
 이들은 기계 학습의 특정 단계를 용이하게 하기 위해 독립적으로 사용되거나 엔드 투 엔드
 파이프라인을 형성하기 위해 함께 구성될 수 있다.</p>
 <ol start="2">
 <li>이식성(Potability)</li>
 </ol>
-<p><img src="/image/kube2.JPG" alt=""></p>
+<p><img src="/image/kube2.jpg" alt=""></p>
 <p>컨테이너 기반 설계를 갖추고 Kubernetes 및 클라우드 네이티브 아키텍쳐를 활용함으로써
 Kubeflow는 특정 개발환경에 종속될 피요가 없다. 랩톱에서 실험 및 프로토타입 작업을 수행할 수 있으며,
 프로덕션 환경에 손쉽게 배포할 수 있다.</p>
 <ol start="3">
 <li>확장성(Scalabitility)</li>
 </ol>
-<p><img src="/image/kube3.JPG" alt=""></p>
+<p><img src="/image/kube3.jpg" alt=""></p>
 <p>Kubernetes를 사용하면 기본 컨테이너와 기계의 수와 크기를 변경하여 클러스터의 요구에 따라
 동적으로 확장할 수 있다.</p>
 <h3 id="쿠베플로우-기본-개념">쿠베플로우 기본 개념</h3>
@@ -135,26 +135,26 @@ Kubeflow는 특정 개발환경에 종속될 피요가 없다. 랩톱에서 실�
 </ul>
 </li>
 </ul>
-<p><img src="/image/kube7.JPG" alt=""></p>
+<p><img src="/image/kube7.jpg" alt=""></p>
 <pre><code>        my_python_func 함수에다가
         @kfp.dsl.python_component
         decorator를 적어주면 된다.
 </code></pre>
-<p><img src="/image/kube8.JPG" alt=""></p>
+<p><img src="/image/kube8.jpg" alt=""></p>
 <pre><code>        DSL decorator가 적힌 파이썬 함수를 도커 이미지로 패키징한다.
         그리고 이 도커 이미지를 활용하여 쿠베플로우 컴포넌트를 만들 수 있음.
 </code></pre>
-<p><img src="/image/kube9.JPG" alt=""></p>
+<p><img src="/image/kube9.jpg" alt=""></p>
 <pre><code>        마지막으로 @kfp.dsl.pipeline 데코레이터를 활용하여
         해당 쿠베플로우 컴포넌트를 파이프라인으로 패키징 할 수 있다.
 </code></pre>
-<p><img src="/image/kube10.JPG" alt=""></p>
+<p><img src="/image/kube10.jpg" alt=""></p>
 <pre><code>        파이프라인 구성을 완료하면 해당 파이프라인을 YAML 형태로 패키지할 수 있고,
         이를 &quot;파이프라인을 컴파일&quot;한다고 한다.
         그리고 이 YAML 파일을 쿠베플로우 대시보드에서 업로드하거나 kfctl 명령으로 업로드할 수 있다.
 </code></pre>
 <h3 id="용어-설명">용어 설명</h3>
-<p><img src="/image/kube6.JPG" alt=""></p>
+<p><img src="/image/kube6.jpg" alt=""></p>
 <ul>
 <li>Central dashboard
 <ul>
