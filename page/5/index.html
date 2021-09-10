@@ -55,6 +55,25 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/pandas_join_01/" rel="bookmark">
+			join 함수
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-11T21:52:29Z">2021-04-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/" rel="category">pandas 공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
+import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#39;:[&#39;IDEXX&#39;,&#39;Zoetis&#39;,&#39;Freshpet&#39;,&#39;Chewy&#39;,&#39;Trupanion&#39;,&#39;WOOF&#39;] } df1 = pd.DataFrame(d1) d2 = {&#39;Asset_Allocation&#39;:[2,3,6,8], &#39;Analyze&#39;:[&#39;Buy&#39;,&#39;Hold&#39;,&#39;Sell&#39;, &#39;None&#39;]} df2 = pd.DataFrame(d2) df1 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  df2 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  Inner 조인 수행. inner_join_result = pd.merge(df1, df2, on=&#39;Asset_Allocation&#39;, how=&#39;inner&#39;) inner_join_result .
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/matplotlib_study/" rel="bookmark">
 			matplotlib 그래프 그리기
 			</a>
@@ -221,24 +240,6 @@
  하나 이상의 독립변수들이 종속변수에 미치는 영향을 추정할 수 있는 통계 기법 변수들 사이의 인과관계를 밝히고 모형을 적합(Fit)하여 관심 있는 변수를 예측하거나 추론하기 위한 분석 방법이다. 독립 변수와 종속변수의 개수 및 특성에 따라 단순 회귀, 다중 회귀, 다항 회귀, 곡선 회귀, 로지스틱 회귀, 비선형 회귀로 분류  회귀분석의 요소 용어 정리 독립변수 (x) : 영향을 주는 변수. 설명변수, 예측변수라고 명명될 수 있음
 종속변수 (y) : 영향을 받는 변수.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/r-5/" rel="bookmark">
-			R shiny를 이용한 동적 시각화 연습
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-28T21:08:03Z">2021-03-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		library(shiny) #화면 로직 - 화면에 무엇을 보여주고 어떻게 배치 할 것인지? ui &lt;- fluidPage( sidebarLayout( #화면 좌측 패널 sidebarPanel( #콤보박스 2개 추가 selectInput(inputId=&#34;var_x&#34;, &#34;Select a Variables of X :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ), selectInput(inputId=&#34;var_y&#34;,&#34;Select a Variables of Y :&#34;, choices = c(&#34;year&#34;,&#34;lifeExp&#34;,&#34;pop&#34;,&#34;gdpPercap&#34;) ) ), #화면 우측 패널  mainPanel( #그래프 출력 항목 추가 plotOutput(outputId = &#34;scatterPlot&#34;) ) ) ) #서버 로직 - 화면에서 받은 입력으로 데이터를 어떻게 구성해서 반영할 것인가? server &lt;- function(input, output) { library(gapminder) #콤보박스의 입력값을 받아 gapminder의 산점도를 그려 결과를 지정한다.
-	</div>
 </article>
 </main>
 
@@ -262,11 +263,11 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 		</ul>
 	</div>
 </div>
@@ -284,6 +285,8 @@
 				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kafka/">kafka</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
 			<li class="widget__item">
@@ -329,6 +332,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="kafka">kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>

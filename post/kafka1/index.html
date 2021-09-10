@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Kafka 기본개념 및 생태계 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="Kafka 기본개념 및 생태계" />
+<meta property="og:description" content="Before Kafka  엔드투엔드(end-to-end) 연결 방식의 아키텍처 데이터 연동의 복잡성 증가(하드웨어, 운영체제, 장애 등) 각기 다른 데이터 파이프라인 연결 구조 확장에 엄청난 노력 필요  모든 시스템으로 데이터를 전송 실시간 처리도 가능한 것 데이터가 갑자기 많아지더라도 확장이 용이한 시스템이 필요함
+After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈머에게 허용 높은 처리량을 위한 메시지 최적화 스케일 아웃 가능 관련 생태계 제공  Kafka broker   실행된 카프카 애플리케이견 서버 중 1대" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/kafka1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-11T01:23:17&#43;09:00" />
+<meta property="article:modified_time" content="2021-09-11T01:23:17&#43;09:00" />
+
+
+		<meta itemprop="name" content="Kafka 기본개념 및 생태계">
+<meta itemprop="description" content="Before Kafka  엔드투엔드(end-to-end) 연결 방식의 아키텍처 데이터 연동의 복잡성 증가(하드웨어, 운영체제, 장애 등) 각기 다른 데이터 파이프라인 연결 구조 확장에 엄청난 노력 필요  모든 시스템으로 데이터를 전송 실시간 처리도 가능한 것 데이터가 갑자기 많아지더라도 확장이 용이한 시스템이 필요함
+After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈머에게 허용 높은 처리량을 위한 메시지 최적화 스케일 아웃 가능 관련 생태계 제공  Kafka broker   실행된 카프카 애플리케이견 서버 중 1대"><meta itemprop="datePublished" content="2021-09-11T01:23:17&#43;09:00" />
+<meta itemprop="dateModified" content="2021-09-11T01:23:17&#43;09:00" />
+<meta itemprop="wordCount" content="1074">
+<meta itemprop="keywords" content="kafka," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kafka 기본개념 및 생태계"/>
+<meta name="twitter:description" content="Before Kafka  엔드투엔드(end-to-end) 연결 방식의 아키텍처 데이터 연동의 복잡성 증가(하드웨어, 운영체제, 장애 등) 각기 다른 데이터 파이프라인 연결 구조 확장에 엄청난 노력 필요  모든 시스템으로 데이터를 전송 실시간 처리도 가능한 것 데이터가 갑자기 많아지더라도 확장이 용이한 시스템이 필요함
+After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈머에게 허용 높은 처리량을 위한 메시지 최적화 스케일 아웃 가능 관련 생태계 제공  Kafka broker   실행된 카프카 애플리케이견 서버 중 1대"/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Kafka 기본개념 및 생태계</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-09-11T01:23:17&#43;09:00">2021-09-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/kafka/" rel="category">kafka</a>
+	</span>
+</div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#before-kafka">Before Kafka</a></li>
+    <li><a href="#after-kafka">After Kafka</a></li>
+    <li><a href="#kafka-broker">Kafka broker</a></li>
+    <li><a href="#topic--partition">Topic &amp; Partition</a></li>
+    <li><a href="#kafka-log-and-segment">Kafka log and segment</a></li>
+    <li><a href="#파티션-3개인-토픽과-컨슈머-1대">파티션 3개인 토픽과 컨슈머 1대</a></li>
+    <li><a href="#파티션-3개인-토픽과-컨슈머-3대">파티션 3개인 토픽과 컨슈머 3대</a></li>
+    <li><a href="#파티션이-3개인-토픽과-컨슈머-4대">파티션이 3개인 토픽과 컨슈머 4대</a></li>
+    <li><a href="#커슈머-3대-중-1대-장애-발생">커슈머 3대 중 1대 장애 발생</a></li>
+    <li><a href="#2개-이상의-컨슈머-그룹">2개 이상의 컨슈머 그룹</a></li>
+    <li><a href="#애플리케이션-로그-적재용-컨슈머-그룹-2개">애플리케이션 로그 적재용 컨슈머 그룹 2개</a></li>
+    <li><a href="#컨슈머-그룹-장애에-격리되는-다른-컨슈머-그룹">컨슈머 그룹 장애에 격리되는 다른 컨슈머 그룹</a></li>
+    <li><a href="#broker-partition-replication">Broker partition replication</a></li>
+    <li><a href="#broker-partition-replication-1">Broker partition replication</a></li>
+    <li><a href="#broker-partition-replication-설정-in-kafka-topics">Broker partition replication 설정 in kafka-topics</a></li>
+    <li><a href="#리더-파티션-팔로워-파티션">리더 파티션, 팔로워 파티션</a></li>
+    <li><a href="#isr-리더와-팔로워의-싱크">ISR, 리더와 팔로워의 싱크</a></li>
+    <li><a href="#broker-partition-replication-2">Broker partition replication</a></li>
+    <li><a href="#kafka-rack-awareness">Kafka rack-awareness</a></li>
+    <li><a href="#왜-카프카-클러스터는-서버-장애에-대응한-로직이-많나요">왜 카프카 클러스터는 서버 장애에 대응한 로직이 많나요?</a></li>
+    <li><a href="#kafka의-핵심요소-중간정리">Kafka의 핵심요소 중간정리</a></li>
+    <li><a href="#kafka-client">Kafka Client</a></li>
+    <li><a href="#kafka-streams">Kafka Streams</a></li>
+    <li><a href="#kafka-connect">Kafka Connect</a></li>
+    <li><a href="#kafka-mirror-maker">Kafka Mirror maker</a></li>
+    <li><a href="#그-외-kafka-생태계를-지탱하는-application들">그 외 Kafka 생태계를 지탱하는 application들</a>
+      <ul>
+        <li><a href="#출처--skplanet-tacademy-httpswwwyoutubecomwatchvvjkzvoasvua">출처 : SKplanet Tacademy, <a href="https://www.youtube.com/watch?v=VJKZvOASvUA">https://www.youtube.com/watch?v=VJKZvOASvUA</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<h2 id="before-kafka">Before Kafka</h2>
+<p><img src="/image/kafka1.jpg" alt=""></p>
+<ul>
+<li>엔드투엔드(end-to-end) 연결 방식의 아키텍처</li>
+<li>데이터 연동의 복잡성 증가(하드웨어, 운영체제, 장애 등)</li>
+<li>각기 다른 데이터 파이프라인 연결 구조</li>
+<li>확장에 엄청난 노력 필요</li>
+</ul>
+<p>모든 시스템으로 데이터를 전송 실시간 처리도 가능한 것
+데이터가 갑자기 많아지더라도 확장이 용이한 시스템이 필요함</p>
+<h2 id="after-kafka">After Kafka</h2>
+<p><img src="/image/kafka2.jpg" alt=""></p>
+<ul>
+<li>프로듀서/컨슈머 분리</li>
+<li>메시지 데이터를 여러 컨슈머에게 허용</li>
+<li>높은 처리량을 위한 메시지 최적화</li>
+<li>스케일 아웃 가능</li>
+<li>관련 생태계 제공</li>
+</ul>
+<h2 id="kafka-broker">Kafka broker</h2>
+<p><img src="/image/kafka3.jpg" alt=""></p>
+<ul>
+<li>
+<p>실행된 카프카 애플리케이견 서버 중 1대</p>
+</li>
+<li>
+<p>3대 이상의 브로커로 클러스터 구성</p>
+</li>
+<li>
+<p>주키퍼와 연동</p>
+<ul>
+<li>주키퍼의 역할 : 메타데이터(브로커id, 컨트롤러id 등) 저장</li>
+</ul>
+</li>
+<li>
+<p>n개 브로커 중 1대는 컨트롤러(Controller)기능 수행</p>
+<ul>
+<li>
+<p>컨트롤러 : 각 브로커에게 담당파티션 할당 수행. 브로커 정상 동작 모니터링 관리. 누가 컨트롤러 인지는 주키퍼에 저장.</p>
+<pre><code>    new ProducerRecord&lt;String,String&gt;(&quot;topic&quot;,&quot;key&quot;,&quot;message&quot;);
+
+
+    ConsumerRecords&lt;String,String&gt; records = consumer.poll(1000);
+    for (ConsumerRecord&lt;String,String&gt; record : records) {
+    ...
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>객체를 프로듀서에서 컨슈머로 전달하기 위해 Kafka 내부에 byte 형태로 저장할 수 있도록
+직렬화/역직렬화하여 사용.</p>
+</li>
+<li>
+<p>기본 제공 직렬화 class : StringSerializer, ShortSerializer 등</p>
+</li>
+<li>
+<p>커스텀 직렬화 class를 통해 Custom Object 직렬화/역직렬화 가능</p>
+</li>
+</ul>
+<h2 id="topic--partition">Topic &amp; Partition</h2>
+<p><img src="/image/kafka4.jpg" alt=""></p>
+<ul>
+<li>메세지 분류 단위</li>
+<li>n개의 파티션 할당 가능</li>
+<li>각 파티션마다 고유한 오프셋(offset)을 가짐 old -&gt; new</li>
+<li>메시지 처리순서는 파티션 별로 유지 관리됨</li>
+</ul>
+<p><img src="/image/kafka5.jpg" alt=""></p>
+<ol>
+<li>프로듀서는 레코드를 생성하여 브로커로 전송</li>
+<li>전송된 레코드는 파티션에 신규 오프셋과 함께 기록됨</li>
+<li>컨슈머는 브로커로부터 레코드를 요청하여 가져감(polling)</li>
+</ol>
+<h2 id="kafka-log-and-segment">Kafka log and segment</h2>
+<ul>
+<li>실제로 메시지가 저장되는 파일시스템 단위</li>
+<li>메시지가 저장될때는 세그먼트 파일이 열려있음</li>
+<li>세그먼트는 시간 또는 크기 기주으로 닫힘</li>
+<li>세그먼트가 닫힌 이후 일정 시간(또는 용량)에 따라 삭제(delete) 또는 압축(compact)</li>
+</ul>
+<h2 id="파티션-3개인-토픽과-컨슈머-1대">파티션 3개인 토픽과 컨슈머 1대</h2>
+<p><img src="/image/kafka6.jpg" alt=""></p>
+<ul>
+<li>파티션이 3개인 토픽</li>
+<li>1개의 프로듀서가 토픽에 레코드를 보내는 중</li>
+<li>1개의 컨슈머가 3개의 partition으로부터 polling 중</li>
+</ul>
+<h2 id="파티션-3개인-토픽과-컨슈머-3대">파티션 3개인 토픽과 컨슈머 3대</h2>
+<p><img src="/image/kafka7.jpg" alt=""></p>
+<ul>
+<li>파티션이 3개인 토픽</li>
+<li>1개의 프로듀서가 토픽에 레코드를 보내는 중</li>
+<li>3개의 컨슈머로 이루어진 1개의 컨슈머 그룹이 토픽으로부터 polling 중</li>
+</ul>
+<p>컨슈머 한 대당 process하는 시간이 한정적이다. 컨슈머를 여러개를 해서 병렬처리 하도록 하면
+각 파티션의 데이터를 빠른 속도로 처리가능하다</p>
+<h2 id="파티션이-3개인-토픽과-컨슈머-4대">파티션이 3개인 토픽과 컨슈머 4대</h2>
+<ul>
+<li>가능한 경우 : 파티션 개수 &gt;= 컨슈머 개수</li>
+<li>불가능 : 파티션개수 &lt; 컨슈머 개수
+<ul>
+<li>남은 컨슈머는 파티션을 할당받지 못하고 대기 중</li>
+</ul>
+</li>
+</ul>
+<h2 id="커슈머-3대-중-1대-장애-발생">커슈머 3대 중 1대 장애 발생</h2>
+<p><img src="/image/kafka8.jpg" alt=""></p>
+<ul>
+<li>컨슈머 중 한개가 장애가 난 경우에 대한 대비 가능</li>
+<li>리밸런스 발생 : 파티션 컨슈머 할당 재조정</li>
+<li>나머지 컨슈머가 파티션으로부터 polling 수행</li>
+</ul>
+<h2 id="2개-이상의-컨슈머-그룹">2개 이상의 컨슈머 그룹</h2>
+<p><img src="/image/kafka9.jpg" alt=""></p>
+<ul>
+<li>목적에 따른 컨슈머 그룹을 분리할 수 있음</li>
+</ul>
+<p>장애에 대응하기 위해 재입수(또는 재처리) 목적으로
+임시 신규 컨슈머 그룹을 생성하여 사용하기도 함</p>
+<h2 id="애플리케이션-로그-적재용-컨슈머-그룹-2개">애플리케이션 로그 적재용 컨슈머 그룹 2개</h2>
+<p><img src="/image/kafka10.jpg" alt=""></p>
+<ul>
+<li>Application log 적재 상황 Example
+<ul>
+<li>엘라스틱서치 : 로그 실시간 확인용. 시간순 정렬</li>
+<li>하둡 : 대용량 데이터 적재. 이전 데이터 확인용</li>
+</ul>
+</li>
+</ul>
+<h2 id="컨슈머-그룹-장애에-격리되는-다른-컨슈머-그룹">컨슈머 그룹 장애에 격리되는 다른 컨슈머 그룹</h2>
+<p><img src="/image/kafka11.jpg" alt=""></p>
+<ul>
+<li>
+<p>컨슈머 그룹간 간섭(coupling) 줄임</p>
+</li>
+<li>
+<p>하둡에 이슈가 발생하여 컨슈머의 적재지연이 발생하더라도
+엘라스틱서치에 적재하는 컨슈머의 동작에는 이슈가 없음</p>
+</li>
+</ul>
+<h2 id="broker-partition-replication">Broker partition replication</h2>
+<p><img src="/image/kafka12.jpg" alt=""></p>
+<p>$ bin/kafka-topics.sh &ndash;bootstrap-server localhost:9092 &ndash;create &ndash;topic topic_name &ndash;partition 3 &lt;- 파티션 개수</p>
+<p>아래의 명령어는 카프카의 토픽을 생성하는 것이다. kafka-topics.sh 카프카 쉘 스크립트이다. 이것을 사용해서
+카프카의 토픽을 생성하거나 list를 보거나 수정할 수 있다.
+다음 옵션은 bootstrap-server인데 bootstrap.servers 설정은 클라이언트가 접근하는 토픽 파티션의 메타데이터를 요청하기 위한 설정입니다. 그렇기 때문에 브로커의 호스트/포트 정보의 리스트 형태의 값을 가집니다
+개별 브로커는 클러스터 전체 데이터를 가지고 있지 않습니다. 그렇기 때문에 클라이언트는 브로커와 연결하여 브로커 내부의 자원에 접근하기 위해, 클라이언트가 접근하고자 하는 자원의 위치를 알아야 함.
+클라이언트는 브로커 호스트 localhost:9092 부터 메타데이터를 요청</p>
+<h2 id="broker-partition-replication-1">Broker partition replication</h2>
+<p><img src="/image/kafka13.jpg" alt=""></p>
+<p>Broker #1이 복구되기 전까지 partition #1 사용 불가</p>
+<p>Question : Kafka broker 이슈에 대응하기 위해 사용할 수 있는 방법은?</p>
+<p>Answer : Partition을 다른 Broker에 복제하여 이슈에 대응한다.
+1번 Broker에 이슈가 생기면 다른 Broker에 복제된 데이터를 사용한다.</p>
+<h2 id="broker-partition-replication-설정-in-kafka-topics">Broker partition replication 설정 in kafka-topics</h2>
+<p><img src="/image/kafka14.jpg" alt=""></p>
+<pre><code>    $ bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic topic_name --partition 3 --replication-factor 3
+
+    고 가용성을 위한 파티션 복제 기능으로 데이터 유실 방지
+</code></pre>
+<h2 id="리더-파티션-팔로워-파티션">리더 파티션, 팔로워 파티션</h2>
+<p><img src="/image/kafka15.jpg" alt=""></p>
+<ul>
+<li>리더 파티션 : Kafka 클라이언트(Producer, Consumer)와 데이터를 주고 받는 역할</li>
+<li>팔로워 파티션 : 리더 파티션으로부터 레코드를 지속 복제(복제하는 시간이 걸림).
+리더 파티션의 동작이 불가능할 경우 나머지 팔로워 중 1개가 리더로 선출됨</li>
+</ul>
+<h2 id="isr-리더와-팔로워의-싱크">ISR, 리더와 팔로워의 싱크</h2>
+<p><img src="/image/kafka16.jpg" alt=""></p>
+<ul>
+<li>파티션 3개, 레플리케이션이 3개로 이루어진 토픽이 브로커에 할당된 모습</li>
+<li>특정 파티션의 리더, 팔로워가 레코드가 모두 복제되어 sync가 맞는 상태
+-&gt; ISR(In-Sync Replica)</li>
+<li>ISR이 아닌 상태에서 장애가 나면 -&gt; unclean.leader.election.enable</li>
+</ul>
+<h2 id="broker-partition-replication-2">Broker partition replication</h2>
+<p><img src="/image/kafka17.jpg" alt=""></p>
+<ul>
+<li>Broker #1 장애 발생 시
+<ul>
+<li>partition #1의 리더가 브로커 1 또는 2 중에 새로 할당</li>
+<li>Kafka 클라이언트는 새로운 파티션 리더와 연동</li>
+</ul>
+</li>
+</ul>
+<h2 id="kafka-rack-awareness">Kafka rack-awareness</h2>
+<p><img src="/image/kafka18.jpg" alt=""></p>
+<ul>
+<li>
+<p>1개의 Rack에 다수의 브로커를 몰아 넣는 것은 위험</p>
+</li>
+<li>
+<p>다수의 Rack에 분산하여 브로커 옵션(broker.rack) 설정 및 배치</p>
+<ul>
+<li>파티션 할당 및 레플리케이션 동작시 특정 브로커에 몰리는 현상 방지</li>
+</ul>
+</li>
+</ul>
+<h2 id="왜-카프카-클러스터는-서버-장애에-대응한-로직이-많나요">왜 카프카 클러스터는 서버 장애에 대응한 로직이 많나요?</h2>
+<ul>
+<li>
+<p>서비스 운영에 있어 장애 허용(Fault-tolerant)은 아주 중요</p>
+<ul>
+<li>서버의 중단(이슈발생, 재시작) 언제든 발생할 수 있음
+<ul>
+<li>Example) 30대 브로커로 이루어진 카프카 클러스터가 있을 때 1대의 서버가
+365일 중 1일 중단이 발생할 가능성이 있다고 가정하면 12.1일(약 2주)에 한번씩 브로커 이슈 발생!!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>일부 서버가 중단되더라도 데이터가 유시되면 안됨</p>
+<ul>
+<li>안정성이 보장되지 않으면 신뢰도가 하락(사용 중단)</li>
+</ul>
+</li>
+</ul>
+<h2 id="kafka의-핵심요소-중간정리">Kafka의 핵심요소 중간정리</h2>
+<ul>
+<li>Broker : 카프카 애플리케이션 서버 단위</li>
+<li>Topic : 데이터 분리 단위, 다수 파티션 보유</li>
+<li>Partition : 레코드를 담고 있음. 컨슈머 요청 시 레코드 전달</li>
+<li>Offset : 각 레코드당 파티션에 할당도니 고유 번호</li>
+<li>Consumer : 레코드를 polling 하는 애플리케이션
+<ul>
+<li>Consumer group : 다수 컨슈머 묶음</li>
+<li>Consumer offset : 특정 컨슈머가 가져간 레코드의 번호</li>
+</ul>
+</li>
+<li>Producer : 레코드를 브로커로 전송하는 애플리케이션</li>
+<li>Replication : 파티션 복제 기능
+<ul>
+<li>ISR : 리더 + 팔로워 파티션의 sync가 된 묶음</li>
+</ul>
+</li>
+<li>Rack-awareness : Server rack 이슈에 대응</li>
+</ul>
+<h2 id="kafka-client">Kafka Client</h2>
+<p><img src="/image/kafka19.jpg" alt=""></p>
+<ul>
+<li>Kafka와 데이터를 주고받기 위해 사용하는 Java Library</li>
+<li>Producer, Consumer, Admin, Stream 등 Kafka 관련 api 제공</li>
+<li>다양한 3rd party library 존재 : C/C++, Node.js, Pythom, .Net 등</li>
+<li>Kafka broker 버전과 client 버젼 하위호환 확인 필요</li>
+</ul>
+<h2 id="kafka-streams">Kafka Streams</h2>
+<p><img src="/image/kafka20.jpg" alt=""></p>
+<ul>
+<li>데이터를 변환(Transformation)하기 위한 목적으로 사용하는 API</li>
+<li>스트림 프로세싱을 지원하기 위한 다양한 기능을 제공
+<ul>
+<li>Stateful 또는 Stateless 와 같이 상태기반 스트림 처리 가능</li>
+<li>Stream api와 DSL(Domain Specific Language)를 동시 지원</li>
+<li>Exactly-once 처리, 고 가용성 특징</li>
+<li>Kafka security(acl, sasl 등) 완벽 지원</li>
+<li>스트림 처리를 위한 별도 클러스터(ex, yam 등) 불필요</li>
+</ul>
+</li>
+</ul>
+<h2 id="kafka-connect">Kafka Connect</h2>
+<p><img src="/image/kafka21.jpg" alt=""></p>
+<ul>
+<li>많은 경우 Kafka client로 Kafka로 데이터를 넣는 코드를 작성할때도 있지만,
+Kafka connect를 통해 data를 Import/Export 할 수 있음</li>
+<li>코드 없이 configuration으로 데이터를 이동시키는 것이 목적
+<ul>
+<li>Standalone mode, distribution mode 지원</li>
+<li>REST api interface를 통해 제어</li>
+<li>Stream 또는 Batch 형태로 데이터 전송 가능</li>
+<li>커스텀 connector을 통한 다양한 plugin 제공(File, S3, Hive, Mysql etc..)</li>
+</ul>
+</li>
+</ul>
+<h2 id="kafka-mirror-maker">Kafka Mirror maker</h2>
+<p><img src="/image/kafka22.jpg" alt=""></p>
+<ul>
+<li>특정 카프카 클러스터에서 다른 카프카 클러스터로 Topic 및 Record를 복제하는 Stanalone tool</li>
+<li>2019년 11월, 기존 MirrorMaker를 개선한 MirrorMaker2.0 release</li>
+<li>클러스터간 토픽에 대한 모든 것을 복제하는 것이 목적
+<ul>
+<li>신규 토픽, 파티션 감지기능 및 토픽 설정 자동 Sync 기능</li>
+<li>양방향 클러스터 토픽 복제</li>
+<li>미러링 모니터링을 위한 다양한 metric(latency, count 등) 제공</li>
+</ul>
+</li>
+</ul>
+<h2 id="그-외-kafka-생태계를-지탱하는-application들">그 외 Kafka 생태계를 지탱하는 application들</h2>
+<ul>
+<li>confluent/ksqlDB : sql 구문을 토한 stream data processing 지원</li>
+<li>confluent/Schema Registry : avro 기반의 스키마 저장소</li>
+<li>confluent/REST Proxy : REST api를 통한 consumer/producer</li>
+<li>linkedin/Kafka burrow : consumer lag 수집 및 분석</li>
+<li>yahoo/CMAK : 카프카 클러스터 매니저</li>
+<li>uber/uReplicator : 카프카 클러스터 간 토픽 복제(전달)</li>
+<li>Spark stream : 다양한 소스(카프카 포함)로 부터 실시간 데이터 처리</li>
+</ul>
+<h3 id="출처--skplanet-tacademy-httpswwwyoutubecomwatchvvjkzvoasvua">출처 : SKplanet Tacademy, <a href="https://www.youtube.com/watch?v=VJKZvOASvUA">https://www.youtube.com/watch?v=VJKZvOASvUA</a></h3>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/kafka/" rel="tag">kafka</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/kubeflow1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">쿠베플로우</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 JiHun.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

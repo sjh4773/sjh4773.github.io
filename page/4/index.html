@@ -55,6 +55,30 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/python-5/" rel="bookmark">
+			정규 표현식
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-22T22:36:12Z">2021-04-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		정규 표현식 문자 클래스   []
+[] 사이의 문자들과 매치 만약 정규 표현식이 [abc]라면 이 표현식의 의미는 문자열들 중에 a,b,c가 한 개라도 있으면 매치 된다는 것을 의미
+  [] 안의 두 문자 사이에 하이픈(-)을 사용할 시
+  두 문자 사이의 범위(From - To)를 의미
+  하이픈(-)을 사용한 문자 클래스의 사용 예
+ [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
+문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/kaggle/" rel="bookmark">
 			Tabular Playground Series - Apr 2021, Titanic 데이터셋 시각화 공부
 			</a>
@@ -227,25 +251,6 @@ pandas.factorize() and Series.factorize() Parameters: values : 1D sequence. sort
  선형, SVM, 확률, 트리 기반의 다양한 알고리즘 Boosting 계열 알고리즘의 강세 모델 혼합(Blending)m stacking    Hyper parameter 튜닝
  Feature engineering 된 데이터 세트로 최적화된 알고리즘 하이퍼 파라미터 튜닝    Feature Engineering의 주요 기법 [기본 Feature Engineering]   스케일링(Scaling)
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/pandas_join_01/" rel="bookmark">
-			join 함수
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-11T21:52:29Z">2021-04-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/pandas-%EA%B3%B5%EB%B6%80/" rel="category">pandas 공부</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		JOIN 함수 Key Value를 기준으로 데이터 프레임을 병합하는 함수
-import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#39;:[&#39;IDEXX&#39;,&#39;Zoetis&#39;,&#39;Freshpet&#39;,&#39;Chewy&#39;,&#39;Trupanion&#39;,&#39;WOOF&#39;] } df1 = pd.DataFrame(d1) d2 = {&#39;Asset_Allocation&#39;:[2,3,6,8], &#39;Analyze&#39;:[&#39;Buy&#39;,&#39;Hold&#39;,&#39;Sell&#39;, &#39;None&#39;]} df2 = pd.DataFrame(d2) df1 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  df2 .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  Inner 조인 수행. inner_join_result = pd.merge(df1, df2, on=&#39;Asset_Allocation&#39;, how=&#39;inner&#39;) inner_join_result .
-	</div>
 </article>
 </main>
 
@@ -269,11 +274,11 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 		</ul>
 	</div>
 </div>
@@ -291,6 +296,8 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kafka/">kafka</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
 			<li class="widget__item">
@@ -336,6 +343,7 @@ import pandas as pd d1 = {&#39;Asset_Allocation&#39;:[1,2,3,4,5,6], &#39;stock&#
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="kafka">kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>

@@ -56,6 +56,24 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-7/" rel="bookmark">
+			ADP 1회 모의고사 R 정형 데이터 마이닝 실습-2
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-25T00:00:39Z">2021-05-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/adp-%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC-r-%EC%8B%A4%EC%8A%B5/" rel="category">ADP 모의고사 R 실습</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		setwd(&#34;C:/ADP/data&#34;) fifa &lt;- read.csv(&#34;FIFA.csv&#34;) str(fifa) # na 값이 존재하는지 확인 sum(is.na(fifa)) # Height 변수의 피트, 인치 단위로 저장된 키 값을 cm 단위의 값으로 변환하기 # 원활한 연산을 위해 Height 변수를 문자형으로 변환 fifa$Height &lt;- as.character(fifa$Height) # &#34;&#39;&#34; 앞의 숫자는 피트이며, &#34;&#39;&#34; 뒤의 숫자는 인치를 의미함 # 따라서, &#34;&#39;&#34; 앞 숫자를 추출하여 30을 곱하고, &#34;&#39;&#34; 뒤 숫자를 추출하여 2.5를 곱한 뒤 # 숫자를 더하여 cm 단위 값으로 변환 # regexpr 함수는 text 내에서 패턴이 가장 먼저 나오는 위치 찾는 함수로 분석에 활용 as.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/r-6/" rel="bookmark">
 			ADP 1회 모의고사 R 정형 데이터 마이닝 실습
 			</a>
@@ -232,30 +250,6 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 		Basic Stacking Model - Diagram 기반 모델들이 예측한 값들을 Stacking 형태로 만들어서 메타 모델이 이를 학습하고 예측하는 모델
 교차 검증 세트 기반의 스태킹 교차 검증 세트 기반의 스태킹은 이에 대한 개선을 위해 개별 모델들이 각각 교차 검증으로 메타 모델을 위한 학습용 스태킹 데이터 생성과 예측을 위한 테스트용 스태킹 데이터를 생성한 뒤 이를 기반으로 메타 모델이 학습과 예측을 수행합니다. 이는 다음과 같이 2단계의 스텝으로 구분될 수 있습니다.    스텝 1 : 각 모델별로 원본 학습/테스트 데이터를 예측한 결과 값을 기반으로 메타 모델을 위한/학습용 테스트용 데이터를 생성합니다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/python-5/" rel="bookmark">
-			정규 표현식
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-22T22:36:12Z">2021-04-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python-%EA%B3%B5%EB%B6%80/" rel="category">Python 공부</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		정규 표현식 문자 클래스   []
-[] 사이의 문자들과 매치 만약 정규 표현식이 [abc]라면 이 표현식의 의미는 문자열들 중에 a,b,c가 한 개라도 있으면 매치 된다는 것을 의미
-  [] 안의 두 문자 사이에 하이픈(-)을 사용할 시
-  두 문자 사이의 범위(From - To)를 의미
-  하이픈(-)을 사용한 문자 클래스의 사용 예
- [a-zA-Z] : 알파벳 전부 [0-9] : 숫자      ^
-문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대(not)이라는 의미를 갖는다.
-	</div>
 </article>
 </main>
 
@@ -280,11 +274,11 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/aws1/">AWS RDS로 데이터베이스 구축 및 Heidi SQL를 이용해 AWS RDS 접속</a></li>
 		</ul>
 	</div>
 </div>
@@ -302,6 +296,8 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 				<a class="widget__link" href="/categories/deep_learning/">Deep_learning</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/feature-engineering/">Feature Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/kafka/">kafka</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/kaggle/">kaggle</a></li>
 			<li class="widget__item">
@@ -347,6 +343,7 @@ Blending 의 프로세스 1. Traning/Validation/Test set 을 나눈다. 2. Train
 		<a class="widget-taglist__link widget__link btn" href="/tags/cognitive-science/" title="Cognitive Science">Cognitive Science</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/deep_learning/" title="Deep_learning">Deep_learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/feature-engineering/" title="Feature Engineering">Feature Engineering</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="kafka">kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kaggle/" title="kaggle">kaggle</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine_learning/" title="machine_learning">machine_learning</a>
