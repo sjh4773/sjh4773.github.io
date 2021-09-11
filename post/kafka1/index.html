@@ -270,14 +270,13 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
     고 가용성을 위한 파티션 복제 기능으로 데이터 유실 방지
 </code></pre>
 <h2 id="리더-파티션-팔로워-파티션">리더 파티션, 팔로워 파티션</h2>
-<p><img src="/image/kafka15.jpg" alt=""></p>
 <ul>
 <li>리더 파티션 : Kafka 클라이언트(Producer, Consumer)와 데이터를 주고 받는 역할</li>
 <li>팔로워 파티션 : 리더 파티션으로부터 레코드를 지속 복제(복제하는 시간이 걸림).
 리더 파티션의 동작이 불가능할 경우 나머지 팔로워 중 1개가 리더로 선출됨</li>
 </ul>
 <h2 id="isr-리더와-팔로워의-싱크">ISR, 리더와 팔로워의 싱크</h2>
-<p><img src="/image/kafka16.jpg" alt=""></p>
+<p><img src="/image/kafka15.jpg" alt=""></p>
 <ul>
 <li>파티션 3개, 레플리케이션이 3개로 이루어진 토픽이 브로커에 할당된 모습</li>
 <li>특정 파티션의 리더, 팔로워가 레코드가 모두 복제되어 sync가 맞는 상태
@@ -285,7 +284,7 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
 <li>ISR이 아닌 상태에서 장애가 나면 -&gt; unclean.leader.election.enable</li>
 </ul>
 <h2 id="broker-partition-replication-2">Broker partition replication</h2>
-<p><img src="/image/kafka17.jpg" alt=""></p>
+<p><img src="/image/kafka16.jpg" alt=""></p>
 <ul>
 <li>Broker #1 장애 발생 시
 <ul>
@@ -295,7 +294,7 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
 </li>
 </ul>
 <h2 id="kafka-rack-awareness">Kafka rack-awareness</h2>
-<p><img src="/image/kafka18.jpg" alt=""></p>
+<p><img src="/image/kafka17.jpg" alt=""></p>
 <ul>
 <li>
 <p>1개의 Rack에 다수의 브로커를 몰아 넣는 것은 위험</p>
@@ -348,7 +347,7 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
 <li>Rack-awareness : Server rack 이슈에 대응</li>
 </ul>
 <h2 id="kafka-client">Kafka Client</h2>
-<p><img src="/image/kafka19.jpg" alt=""></p>
+<p><img src="/image/kafka18.jpg" alt=""></p>
 <ul>
 <li>Kafka와 데이터를 주고받기 위해 사용하는 Java Library</li>
 <li>Producer, Consumer, Admin, Stream 등 Kafka 관련 api 제공</li>
@@ -356,7 +355,7 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
 <li>Kafka broker 버전과 client 버젼 하위호환 확인 필요</li>
 </ul>
 <h2 id="kafka-streams">Kafka Streams</h2>
-<p><img src="/image/kafka20.jpg" alt=""></p>
+<p><img src="/image/kafka19.jpg" alt=""></p>
 <ul>
 <li>데이터를 변환(Transformation)하기 위한 목적으로 사용하는 API</li>
 <li>스트림 프로세싱을 지원하기 위한 다양한 기능을 제공
@@ -370,7 +369,7 @@ After Kafka  프로듀서/컨슈머 분리 메시지 데이터를 여러 컨슈�
 </li>
 </ul>
 <h2 id="kafka-connect">Kafka Connect</h2>
-<p><img src="/image/kafka21.jpg" alt=""></p>
+<p><img src="/image/kafka20.jpg" alt=""></p>
 <ul>
 <li>많은 경우 Kafka client로 Kafka로 데이터를 넣는 코드를 작성할때도 있지만,
 Kafka connect를 통해 data를 Import/Export 할 수 있음</li>
@@ -384,7 +383,7 @@ Kafka connect를 통해 data를 Import/Export 할 수 있음</li>
 </li>
 </ul>
 <h2 id="kafka-mirror-maker">Kafka Mirror maker</h2>
-<p><img src="/image/kafka22.jpg" alt=""></p>
+<p><img src="/image/kafka21.jpg" alt=""></p>
 <ul>
 <li>특정 카프카 클러스터에서 다른 카프카 클러스터로 Topic 및 Record를 복제하는 Stanalone tool</li>
 <li>2019년 11월, 기존 MirrorMaker를 개선한 MirrorMaker2.0 release</li>
