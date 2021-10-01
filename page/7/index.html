@@ -55,6 +55,24 @@
 	<article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/r-2/" rel="bookmark">
+			트위터 텍스트 마이닝
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-24T19:34:24Z">2021-03-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">r</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		library(KoNLP) library(dplyr) library(ggplot2) install.packages(&#34;stringr&#34;) library(stringr) # stringr 패키지는 문자열을 가능한 한 쉽게 처리하도록 설계 함수 # 세트를 제공합니다. useNIADic() twitter &lt;- read.csv(&#34;./Data/twitter.csv&#34;, header = T, stringsAsFactors = F, fileEncoding = &#34;UTF-8&#34;) glimpse(twitter) # 변수명 수정 twitter &lt;- rename(twitter, no = 번호, id = 계정이름, date = 작성일, tw = 내용) # 특수문자 제거 twitter$tw &lt;- str_replace_all(twitter$tw, &#34;\\W&#34;, &#34; &#34;) head(twitter$tw) # 단어 빈도표 만들기 # 트윗에서 명사추출 nouns &lt;- extractNoun(twitter$tw) # 추출한 명사 list를 문자열 벡터로 변환, 단어별 빈도표 생성 wordcount &lt;- table(unlist(nouns)) wordcount # 데이터 프레임으로 변환 df_word &lt;- as.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/quant-2/" rel="bookmark">
 			getSymbols() 함수를 이용한 API 다운로드
 			</a>
@@ -182,11 +200,11 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/stats1/">통계 기초</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/linux1/">리눅스 쉘스크립트(변수, 값, 문자)</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/ruby1/">CRUD 게시판 만들기</a></li>
 		</ul>
 	</div>
 </div>

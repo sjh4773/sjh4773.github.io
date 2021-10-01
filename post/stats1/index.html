@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>통계 기초 - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="통계 기초" />
+<meta property="og:description" content="유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.
+  통계적인 사고방식이란?
+ &ldquo;어떤 사건이 우연히 발생할 확률이 얼마일까?&rdquo; 라고 묻는 것    평균
+ 자료의 중심값으로서 자료의 특성을 대표하는 값    분산
+ 내가 가진 자료(데이터)가 평균값을 중심으로 퍼져있는 평균적인 거리    p-값이란?
+ p-value : probability value, 즉 p-값이란 확률값이다. p-값이 0.05보다 작다는 것은 어떤 사건이 우연히 발생할 확률이 5% 보다 작다는 의미가 된다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/stats1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-01T19:52:36&#43;09:00" />
+<meta property="article:modified_time" content="2021-10-01T19:52:36&#43;09:00" />
+
+
+		<meta itemprop="name" content="통계 기초">
+<meta itemprop="description" content="유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.
+  통계적인 사고방식이란?
+ &ldquo;어떤 사건이 우연히 발생할 확률이 얼마일까?&rdquo; 라고 묻는 것    평균
+ 자료의 중심값으로서 자료의 특성을 대표하는 값    분산
+ 내가 가진 자료(데이터)가 평균값을 중심으로 퍼져있는 평균적인 거리    p-값이란?
+ p-value : probability value, 즉 p-값이란 확률값이다. p-값이 0.05보다 작다는 것은 어떤 사건이 우연히 발생할 확률이 5% 보다 작다는 의미가 된다."><meta itemprop="datePublished" content="2021-10-01T19:52:36&#43;09:00" />
+<meta itemprop="dateModified" content="2021-10-01T19:52:36&#43;09:00" />
+<meta itemprop="wordCount" content="439">
+<meta itemprop="keywords" content="통계 공부," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="통계 기초"/>
+<meta name="twitter:description" content="유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.
+  통계적인 사고방식이란?
+ &ldquo;어떤 사건이 우연히 발생할 확률이 얼마일까?&rdquo; 라고 묻는 것    평균
+ 자료의 중심값으로서 자료의 특성을 대표하는 값    분산
+ 내가 가진 자료(데이터)가 평균값을 중심으로 퍼져있는 평균적인 거리    p-값이란?
+ p-value : probability value, 즉 p-값이란 확률값이다. p-값이 0.05보다 작다는 것은 어떤 사건이 우연히 발생할 확률이 5% 보다 작다는 의미가 된다."/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">통계 기초</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-10-01T19:52:36&#43;09:00">2021-10-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="category">통계 공부</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.</p>
+<ul>
+<li>
+<p>통계적인 사고방식이란?</p>
+<ul>
+<li>&ldquo;어떤 사건이 우연히 발생할 확률이 얼마일까?&rdquo; 라고 묻는 것</li>
+</ul>
+</li>
+<li>
+<p>평균</p>
+<ul>
+<li>자료의 중심값으로서 자료의 특성을 대표하는 값</li>
+</ul>
+</li>
+<li>
+<p>분산</p>
+<ul>
+<li>내가 가진 자료(데이터)가 평균값을 중심으로 퍼져있는 평균적인 거리</li>
+</ul>
+</li>
+<li>
+<p>p-값이란?</p>
+<ul>
+<li>p-value : probability value, 즉 p-값이란 확률값이다.</li>
+<li>p-값이 0.05보다 작다는 것은 어떤 사건이 우연히 발생할 확률이 5% 보다 작다는 의미가 된다.</li>
+<li>우연히 발생할 확률이 5%보다 작다는 것은 이 사건이 우연히 일어났을 가능성이 거의 없다고 보는 것이다.
+즉, 이 사건은 우연히 발생한 것이 아니라 분명히 뭔가 이유(인과관계)가 있다고 추정하는 것이다.</li>
+<li>p-값이 0.05보다 작다는 것은 어떤 사건이 우연히 발생할 가능성이 없다는 뜻이므로 뭔가 이유가 있다는 뜻이 되고
+이를 우리는 &ldquo;유의하다&rdquo;. 즉 뭔가 의미(이유)가 있다 (인과관계가 있다) 정도로 해석하는 것이다.</li>
+<li>만약 p-값이 0.05보다 크면, 이 사건은 우연히 발생한 것이다 라고 생각하고 이 사건에는 어떠한 의미
+즉, 인과관계가 없다고 판단하는 것이다.</li>
+<li>우리가 사용하는 p-값의 확률값은 1종오류의 수준을 5% 미만으로 제약한다는 의미로 사용되는 것이다.</li>
+<li>다르게 말하자면, 어떤 사건이 우연히 발생했음에도 우연히 발생하지 않았다고 결론 내릴 오류를 5%이내로 하겠다는 것이다.</li>
+</ul>
+</li>
+<li>
+<p>귀무가설, 대립가설</p>
+<ul>
+<li>&ldquo;어떤 사건이 우연히 일어날 확률&rdquo; 을 구할 때, p-값을 사용하는데, 만약 여기서 말하는 그 사건이 우연히 일어났다 라고
+가정하는 것이 귀무가설이고, 그 사건이 우연히 일어난 것이 아니고 뭔가 이유(인과관계)가 있다 라고 가정하는 것이 대립가설이다.</li>
+<li>즉, 귀무가설이 맞다면 그 사건은 우연히 일어난 것으로 추정하고, 대립가설이 맞다면
+우연히 일어난 것이 아닌 뭔가 이유(인과관계)가 있다고 추정하는 것이다.</li>
+</ul>
+</li>
+<li>
+<p>변수</p>
+<ul>
+<li>하나의 개념을 대표하는 상징으로서 그것의 특성이 갖는 값이나 강도 또는 크기의 차이를 나타낼 수 있는 것</li>
+</ul>
+</li>
+<li>
+<p>명목변수 / 척도</p>
+<ul>
+<li>각 범주(속성)간 순위가 없다.</li>
+<li>범주에 할당된 값은 범주 이름을 대신할 뿐 의미가 없다.</li>
+<li>예) 성별/인종/혈액형 등</li>
+</ul>
+</li>
+<li>
+<p>순위변수 / 척도</p>
+<ul>
+<li>각 범주(속성)간 순위가 있다.</li>
+<li>범주에 할당된 값은 범주의 이름뿐만 아니라 순위를 나타낸다.</li>
+<li>순위 사이에 등간선은 없다.</li>
+<li>예 ) 성적/학력/경제수준/리커르트 척도</li>
+</ul>
+</li>
+<li>
+<p>구간변수 / 척도</p>
+<ul>
+<li>측정된 범주 사이에 등간성이 있다.</li>
+<li>할당된 값은 임의 단위로서 비율이나 절대 &lsquo;0&rsquo;의 의미가 없다.</li>
+<li>따라서 덧셈은 가능하나 곱셈은 안된다.</li>
+<li>예 ) 온도</li>
+</ul>
+</li>
+<li>
+<p>비율변수 / 척도</p>
+<ul>
+<li>측정된 범주 사이에 등간성이 있다.</li>
+<li>할당된 값은 임의 단위로서 비율과 절대 &lsquo;0&rsquo;의 의미가 있다.</li>
+<li>덧셈과 곱셈 모두 가능하다.</li>
+<li>예) 키/몸무게/나이/시간</li>
+</ul>
+</li>
+<li>
+<p>상관관계</p>
+<ul>
+<li>한 변수와 다른 변수가 공변하는 함수관계</li>
+<li>상관관계를 나타내는 상관계수는 두가지를 의미한다
+<ul>
+<li>힘 &amp; 방향</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>상관계수</p>
+<ul>
+<li>상관계수는 -1부터 0을 거쳐 +1까지만 존재</li>
+<li>상관계수가 -1일 때, 완벽한 음의 상관관계</li>
+<li>상관계수가 0일 때, 아무런 관계도 없음</li>
+<li>상관계수가 +1일 때, 완벽한 양의 상관관계</li>
+</ul>
+</li>
+<li>
+<p>상관계수의 + / - 는 방향을 의미</p>
+</li>
+<li>
+<p>상관계수의 크기는 힘을 의미</p>
+<ul>
+<li>상관계수가 절대값 1에 가까울수록 힘이 세다</li>
+<li>힘이 세다는 것은 데이터들이 가깝게 모여 있다는 의미</li>
+<li>따라서 데이터들이 퍼져 있으면 상관계수가 0에 가까워 짐</li>
+</ul>
+</li>
+<li>
+<p>가장 중요한 것은 &ldquo;상관관계는 인과관계가 아니다&quot;라는 점</p>
+</li>
+<li>
+<p>인과관계</p>
+<ul>
+<li>원인과 결과의 관계를 가지는 변수의 관계성을 의미</li>
+<li>저녁을 먹었기 때문에 배부르다
+<ul>
+<li>저녁식사가 원인이고 배부른 것이 결과</li>
+</ul>
+</li>
+<li>수입이 있기 때문에 지출이 있다
+<ul>
+<li>수입이 원인이고 지출이 결과</li>
+</ul>
+</li>
+<li>고객은 만족하기 때문에 재방문하려고 한다
+<ul>
+<li>고객만족이 원인이고 재방문 의도가 결과</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="tag">통계 공부</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/kafka1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Kafka 기본개념 및 생태계</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 JiHun.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
