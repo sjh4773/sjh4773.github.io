@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>t-test - My New Hugo Site</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="t-test" />
+<meta property="og:description" content="t-test
+ 모집단의 표준편차가 알려지지 않았을 때, 정규분포의 모집단에서 모은 샘플(표본)의 평균값에 대해 가설검정 방법    t-test 목적
+ 목적 : 두개의 집단이 같은지 다른지 비교하기 위해 사용한다.    그런데, 여기서 &lsquo;집단&rsquo;이라는 표현이 다소 애매하다.
+  통계에서 일반적으로 집단이란 샘플(표본)을 이야기 한다
+  그러나 샘플(표본)만 존재하는 것은 아니다
+  모집단(영어로 population)이라는 것도 있다
+  모집단 중에 일부를 표본으로 뽑아서 연구하거나 조사한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sjh4773.github.io/post/stats2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-06T15:02:33&#43;09:00" />
+<meta property="article:modified_time" content="2021-10-06T15:02:33&#43;09:00" />
+
+
+		<meta itemprop="name" content="t-test">
+<meta itemprop="description" content="t-test
+ 모집단의 표준편차가 알려지지 않았을 때, 정규분포의 모집단에서 모은 샘플(표본)의 평균값에 대해 가설검정 방법    t-test 목적
+ 목적 : 두개의 집단이 같은지 다른지 비교하기 위해 사용한다.    그런데, 여기서 &lsquo;집단&rsquo;이라는 표현이 다소 애매하다.
+  통계에서 일반적으로 집단이란 샘플(표본)을 이야기 한다
+  그러나 샘플(표본)만 존재하는 것은 아니다
+  모집단(영어로 population)이라는 것도 있다
+  모집단 중에 일부를 표본으로 뽑아서 연구하거나 조사한다."><meta itemprop="datePublished" content="2021-10-06T15:02:33&#43;09:00" />
+<meta itemprop="dateModified" content="2021-10-06T15:02:33&#43;09:00" />
+<meta itemprop="wordCount" content="945">
+<meta itemprop="keywords" content="통계 공부," />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="t-test"/>
+<meta name="twitter:description" content="t-test
+ 모집단의 표준편차가 알려지지 않았을 때, 정규분포의 모집단에서 모은 샘플(표본)의 평균값에 대해 가설검정 방법    t-test 목적
+ 목적 : 두개의 집단이 같은지 다른지 비교하기 위해 사용한다.    그런데, 여기서 &lsquo;집단&rsquo;이라는 표현이 다소 애매하다.
+  통계에서 일반적으로 집단이란 샘플(표본)을 이야기 한다
+  그러나 샘플(표본)만 존재하는 것은 아니다
+  모집단(영어로 population)이라는 것도 있다
+  모집단 중에 일부를 표본으로 뽑아서 연구하거나 조사한다."/>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="My New Hugo Site" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">My New Hugo Site</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">t-test</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-10-06T15:02:33&#43;09:00">2021-10-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="category">통계 공부</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<ul>
+<li>
+<p>t-test</p>
+<ul>
+<li>모집단의 표준편차가 알려지지 않았을 때, 정규분포의 모집단에서 모은 샘플(표본)의 평균값에 대해 가설검정 방법</li>
+</ul>
+</li>
+<li>
+<p>t-test 목적</p>
+<ul>
+<li>목적 : 두개의 집단이 같은지 다른지 비교하기 위해 사용한다.</li>
+</ul>
+</li>
+<li>
+<p>그런데, 여기서 &lsquo;집단&rsquo;이라는 표현이 다소 애매하다.</p>
+</li>
+<li>
+<p>통계에서 일반적으로 집단이란 샘플(표본)을 이야기 한다</p>
+</li>
+<li>
+<p>그러나 샘플(표본)만 존재하는 것은 아니다</p>
+</li>
+<li>
+<p>모집단(영어로 population)이라는 것도 있다</p>
+</li>
+<li>
+<p>모집단 중에 일부를 표본으로 뽑아서 연구하거나 조사한다.</p>
+</li>
+<li>
+<p>그렇다면 어떻게 두 집단이 같은지 다른지 비교할까?</p>
+</li>
+<li>
+<p>정답은 두 집단의 평균값이 통계적으로 같은지 다른지를 확인한다.</p>
+</li>
+<li>
+<p>t-test 예</p>
+<ul>
+<li>어느 날 당신은 A대학 남학생들의 키가 B대학 남학생들보다는 크다는 생각이 들었다. 두 대학 남학생들의 키는 같을까? 다를까?</li>
+<li>A대학 남학생 평균키 = 178.5cm</li>
+<li>B대학 남학생 평균키 = 179.9cm</li>
+</ul>
+</li>
+<li>
+<p>t-test를 위한 통계적 질문</p>
+<ul>
+<li>A대학 남학생 평균키(178.5cm)와 B대학 남학생 평균키(179.9cm)가 우연히 같은 확률은 얼마나 될까?</li>
+<li>A대학과 B대학의 남학생 평균키 차이인 1.4cm가 우연히 발생했을 확률은 얼마나 될까?</li>
+<li>만약 1.4cm 차이가 우연히 발생했다면 두 대학의 남학생의 키는 같은 것이고 우연히 발생하지 않았다면 두 대학의 남학생의 키는 다른것이다.</li>
+<li>그렇다면 과연 1.4cm의 차이가 얼마나 커야 우연히 발생하지 않았다고 판단할 수 있을까?</li>
+<li>1.4cm의 차이는 과연 큰 것인가 작은 것인가?</li>
+<li>우리는 1.4cm가 얼마나 큰지 혹은 작은지 알 수 없습니다.</li>
+<li>우리는 이제 이 1.4cm가 얼마나 큰지 혹은 작은지 결정할 나름의 비교 대상이 필요하다.</li>
+<li>누구를 가지고 와서 비교해야 할까? -&gt; 표준편차(분산), 표준편차는 데이터에 큰 문제가 없는 한은 의미 없는 우연히 퍼져 있는 정도</li>
+<li>이 1.4cm의 차이도 결국 두 집단의 평균적인 거리이다.
+<ul>
+<li>왜나하면, 두집단의 수많은 데이터의 평균의 차이가 1.4cm라는 것은 두 집단의 수 많은 데이터들 사이의 평균적인 거리가 1.4cm라는 의미이기 때문이다.</li>
+</ul>
+</li>
+<li>그렇다면 비교해보자
+<ul>
+<li>두 집단 A와 B의 데이터 사이의 평균적인 거리는 1.4cm이다.</li>
+<li>두 집단 A와 B의 데이터들의 표준편차는 XXXcm 이다</li>
+</ul>
+</li>
+<li>따라서,
+<ul>
+<li>만약 이 1.4cm가 표준편차 XXXcm보다 현저히 작다면, 우리는 이 1.4cm의 차이에 큰 의미를 둘 수 없을 것이다.</li>
+<li>그러나 1.4cm가 표준편차 XXXcm보다 현저히 크다면, 우리는 이 1.4cm의 차이에 큰 의미를 둘 수 있을 것이다.</li>
+</ul>
+</li>
+<li>결론적으로,
+<ul>
+<li>두 집단의 평균값의 차이가 표준편차보다 현저히 작으면, 우리는 이 차이가 우연히 발생했다고 결론을 내릴 것이다.</li>
+<li>반대로, 두 집단의 평균값의 차이가 표준편차보다 현저히 크면, 우리는 이 차이가 우연히 발생하지 않았다고 결론을 내릴 것이다.</li>
+</ul>
+</li>
+<li>앞에서 통계학이란 분산(표준편차)의 마법이라고 했다.
+<ul>
+<li>결론적으로는 t-test는 평균값의 차이와 표준편차의 비율이 얼마나 큰지 혹은 작은지를 보고서 결정하는 통계적 과정이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>정규분포</p>
+<ul>
+<li>정규분포의 특징
+<ul>
+<li>종모양 (bell shape)</li>
+<li>정가운데 (평균)을 중심으로 좌우 대칭</li>
+<li>정규분포의 양 끝은 영원히 &ldquo;0&quot;에 닿지 않음</li>
+</ul>
+</li>
+<li>정규분포는 평균과 표준편차만으로 규정됨
+<ul>
+<li>평균과 표준편차가 다른 무한대 개의 서로 다른 정규분포가 존재</li>
+</ul>
+</li>
+<li>정규분포의 아래 면적은 확률을 의미 함
+<ul>
+<li>정규분포 곡선 아래의 모든 면적의 합은 &ldquo;1&rdquo;</li>
+<li>따라서 정규분포를 이용한 확률을 구하려면 적분을 해야 함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>표준정규분포</p>
+<ul>
+<li>표준정규분포
+<ul>
+<li>평균이 &ldquo;0&quot;이고, 표준편차가 &ldquo;1&quot;인 정규분포</li>
+</ul>
+</li>
+<li>왜?
+<ul>
+<li>무한대 가지의 정규분포 곡선을 적분하는 번거로움을 덜기 위해</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>표준정규분포의 사용예시</p>
+<ul>
+<li>표준정규분포 사용의 예
+<ul>
+<li>금년도 대학교 신입생 1000명을 대상으로 영어 실력고사를 시행</li>
+<li>영어점수의 분포가 정규분포에 근사</li>
+<li>평균점수는 82이고 표준 편차는 5</li>
+</ul>
+</li>
+<li>이때, 82점부터 90점까지의 점수를 받은 학생의 수는?
+<ul>
+<li>평균이 82이고 표준편차가 5인 정규분포 곡선에서 82점부터 90점까지의 면적을 적분을 적용해 구하면,</li>
+<li>이 면적이 곧 확률이므로 구한 확률 x 1000명을 적용하면 82점부터 90점까지의 점수를 받은 학생 수를 구할 수 있음</li>
+</ul>
+</li>
+<li>적분은 미친짓이므로, 우리가 가진 정규분포를 표준정규분포를 바꾸자</li>
+<li>어떻게???
+<ul>
+<li>z-score = ( 값 - 평균값 ) / 표준편차</li>
+<li>Z(82) = (82 - 82) / 5 = 0</li>
+<li>Z(90) = (90 - 82) / 5 = 1.6</li>
+</ul>
+</li>
+<li>그 다음엔 어떻게?
+<ul>
+<li>통계학자들이 사전에 &ldquo;표준정규분포표&quot;라는 확률표를 만들어 놓음
+<ul>
+<li>0.9452 - 0.5 = 0.4452</li>
+<li>0.4452 x 1000 = 445명</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>z-test</p>
+<ul>
+<li>이와 같이 z-score(z값)을 가지고 하는 테스트를 z-test라 한다.</li>
+<li>z-test는 z값과 표준정규분포표를 이용하여 할 수 있다.</li>
+<li>z-score(z값)으로 변환하는 것을 z-transformation이라고 하기도 하고 표준화(standardization)이라고 하기도 한다.
+<ul>
+<li>z-score = ( 값 - 평균값 ) / 표준편차</li>
+<li>1 표준편차당 관찰값(X)이 평균으로부터 얼마나 떨어져 있는지를 의미</li>
+<li>z값은 단위로부터 자유롭다 (dimensionless quantity)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>정규분포표는 그렇다 치고 어디에 써먹어야 할까?</p>
+<ul>
+<li>정규분포곡선의 아랫쪽 면적은 확률이다.</li>
+<li>이게 어디에 연결될까?</li>
+<li>첫 강의에서 이야기 했던 내용을 떠올려 보자</li>
+<li>어떤 사건이 우연히 발생할 확률이 얼마일까?</li>
+<li>여기서 말하는 확률이 바로 정규분포곡선 아랫쪽의 면적인 그 확률이다</li>
+</ul>
+</li>
+<li>
+<p>이것을 우리가 처음 하려고 했던 t-test의 질문을 떠올려 보면,</p>
+<ul>
+<li>A대학 남학생 평균키(178.5cm)와 B대학 남학생 평균키(179.9cm)가 우연히 같을 확률은 얼마나 될까?</li>
+<li>A대학과 B대학의 남학생 평균키 차이인 1.4cm가 우연히 발생했을 확률은 얼마나 될까?</li>
+<li>다만, t-test를 할 때는 정규분포를 쓰지 않고 다른 분포곡선을 사용한다.</li>
+</ul>
+</li>
+<li>
+<p>양측검정 vs 단측검정</p>
+<ul>
+<li>결론적으로 양측검정과 단측검정의 차이는 대립가설(Alternative Hypothesis)의 차이에서 발생
+<ul>
+<li>양측은 &ldquo;0&quot;보다 크거나 작은 두 가지를 모두 포함하므로 분포곡선의 양쪽 꼬리의 면적의 합이 5.0%에 들어갈 만큼 크거나 작아야 한다.</li>
+<li>단측은 &ldquo;0&quot;보다 크다(우측검정)와 &ldquo;0&quot;보다 작다(좌측검정)의 두 가지로 나누어볼 수 있고 어느 한쪽 꼬리의 면적이 5.0%에 들어갈 만큼 크거나 작아야 하낟.</li>
+<li>&ldquo;0&quot;을 기준으로 양측이든 단측이든 95% 안에 들어오면 두 평균값의 차이는 우연히 발생한 것이므로, 두 집단의 평균값은 통계적으로는 같은 것이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>t-값 (t-value)의 의미</p>
+<ul>
+<li>우리의 목적은 두 집단의 평균값이 같은지 다른지 알고 싶은 것이다.</li>
+<li>그래서 통계적 가설에 의거하여 두 집단의 평균값의 차이가 &ldquo;0&quot;과 같은 지 다른 지 궁금하다.</li>
+<li>위의 값에서 우리가 궁금해 하는 그 차이는 분자에 있다.</li>
+<li>여기에서 중요한 것이 통계적인 생각/질문/접근법이다</li>
+<li>도대체 저 값이 얼마나 커야 큰 것일까?</li>
+<li>비교 대상이 필요하겠죠?</li>
+<li>t-value = ( 평균값1 - 평균값2) / (표준편차 / sqrt(n) )</li>
+<li>우리는 두 평균값의 차이를 표준편차와 비교하는 것이다.</li>
+<li>왜?
+<ul>
+<li>표준편차란 우리의 데이터가 평균값을 기준으로 평균적으로 퍼진 정도이다.</li>
+<li>따라서 이 자체는 의미 없는 편차</li>
+<li>만약 두 집단의 평균값의 (편)차가 의미 없는 편차인 표준편차만도 못하다면 당연히, 이 차이는 우연히 발생했다고 보아야 할 것이다.</li>
+<li>그런데, 여기서 sqrt(n)의 역할은 무엇일까요?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>정리하자면</p>
+<ul>
+<li>두 집단의 평균값의 차이가 의미 없는 편차인 표준편차 만도 못하다면, 이 차이는 우연히 발생했다고 본다.</li>
+<li>표본의 크기 (n)이 커지면 커질수록 t-값은 커지고</li>
+<li>표본의 크기 (n)이 커지면 커질수록, t-분포는 표준 정규분포에 근사</li>
+<li>t-test에서 자유도(df)는 n-1로 계산되므로, 표본의 크기가 커지면 자유도가 커지고</li>
+<li>자유도가 커졌다는 의미는 우리가 t-분포에 묶여있다가 자유롭게 표준정규분포를 사용할 수 있음을 의미</li>
+</ul>
+</li>
+<li>
+<p>t-test 실전 예제</p>
+<ul>
+<li>결론적으로 양측검정을 전제했을 때,</li>
+<li>표준편차(s)가 7.05cm였고, 표본의 크기(n)가 101명이라면</li>
+<li>t-value = 1.996, df=100</li>
+<li>critical value(c.v.) = 1.984 이므로</li>
+<li>우리의 t-값이 c.v.보다 크므로 두 평균의 차이인 1.4cm가 우연히 발생했을 확률은 5%보다 작으므로, 이 차이는 통계적으로 유의하다.</li>
+<li>그러므로, 두 대학의 학생의 키는 통계적으로 유의하게 다르다
+<ul>
+<li>이 뜻은 두 대학 학생의 평균키 차이인 1.4cm가 우연히 발생했을 확률은 5%보다 작으며</li>
+<li>이는 우연히 발생했다고 보기 어려워 (현재로서는 정확한 이유는 모르겠으나) 두 대학의 학생의 키가 다른 원인이 있다고 볼 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="tag">통계 공부</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<div class="authorbox__header">
+		<span class="authorbox__name">About JiHun</span>
+	</div>
+	<div class="authorbox__description">
+		John Doe&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/stats1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">통계 기초</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 JiHun.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

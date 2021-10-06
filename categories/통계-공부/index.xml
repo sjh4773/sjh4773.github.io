@@ -6,7 +6,22 @@
     <description>Recent content in 통계 공부 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Fri, 01 Oct 2021 19:52:36 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Oct 2021 15:02:33 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>t-test</title>
+      <link>http://sjh4773.github.io/post/stats2/</link>
+      <pubDate>Wed, 06 Oct 2021 15:02:33 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/stats2/</guid>
+      <description>t-test
+ 모집단의 표준편차가 알려지지 않았을 때, 정규분포의 모집단에서 모은 샘플(표본)의 평균값에 대해 가설검정 방법    t-test 목적
+ 목적 : 두개의 집단이 같은지 다른지 비교하기 위해 사용한다.    그런데, 여기서 &amp;lsquo;집단&amp;rsquo;이라는 표현이 다소 애매하다.
+  통계에서 일반적으로 집단이란 샘플(표본)을 이야기 한다
+  그러나 샘플(표본)만 존재하는 것은 아니다
+  모집단(영어로 population)이라는 것도 있다
+  모집단 중에 일부를 표본으로 뽑아서 연구하거나 조사한다.</description>
+    </item>
+    
     <item>
       <title>통계 기초</title>
       <link>http://sjh4773.github.io/post/stats1/</link>
