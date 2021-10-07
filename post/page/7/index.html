@@ -56,6 +56,31 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/mnist/" rel="bookmark">
+			mnist 데이터
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-24T21:21:29Z">2021-03-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/machine_learning/" rel="category">machine_learning</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		MNIST 데이터란 인공지능이 이미지를 보고 이것이 어떤 이미지인가를 맞춰보게 하는 인공지능 훈련을 위한 Dataset
+MNIST 개요
+ 손글씨 데이터 손으로 작성된 0~9까지의 숫자 이미지 이미지 + 레이블 &ndash;&gt; 하나의 데이터셋  이미지 속성
+ 차원 (가로,세로,색조) &ndash;&gt; (28,28,1) 픽셀값: 0 ~ 255  레이블 정보
+ 단순 스칼라 (확률정보이용) -&gt; One-hot encoding  해결전략
+ 이미지, 레이블 전처리  원본이미지 &ndash;&gt; 전처리(flatten)
+레이블 &ldquo;3&rdquo; &ndash;&gt; &ldquo;[0,0,0,1,0,0,0,0,0,0]&rdquo; One-hot encoding
+이미지 전처리
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/machine-learning/" rel="bookmark">
 			회귀분석
 			</a>
@@ -220,11 +245,11 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/stats3/">One-way ANOVA</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats2/">t-test</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats1/">통계 기초</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 		</ul>
 	</div>
 </div>

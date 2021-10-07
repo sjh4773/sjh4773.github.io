@@ -56,6 +56,27 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/stats3/" rel="bookmark">
+			One-way ANOVA
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-10-07T15:11:16&#43;09:00">2021-10-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/" rel="category">통계 공부</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.
+  One-way ANOVA
+ 비교할 집단이 세 개 이상인 경우  t-test를 세 번하면 될 것 같았으나 할 수 없음  1종오류에 빠짐   따라서, 우리는 새로운 방법을 배워야 함   그 새로운 통계 방법이 바로 One-way ANOVA임  One-way는 독립변수가 하나라는 뜻 ANOVA는 Analysis of Variance의 약자 한국말로는 분산분석이라고 함      변수
+ 독립변수  독립인 변수 - 무엇으로부터 독립일까요?
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/stats2/" rel="bookmark">
 			t-test
 			</a>
@@ -235,26 +256,6 @@ echo ${hero} echo $age
 	<div class="content list__excerpt post__content clearfix">
 		API Gateway에서 Board-API로 들어가 /board에 GET,POST,PUT,DELETE 메서드를 추가하여 해당 Lambda 함수에 접근할 수 있도록 API개발해야한다. Lambda Proxy integration을 적용하고 Project-Board 함수가 실행될 수 있도록 Lambda 함수와 연결. 일반적으로 GET,POST,PUT,DELETE가 REST API에서 가장 많이 사용된다. 일반적으로 REST API를 따르는 API를 개발할때는 그냥 /board라고 한다음에 이 /board 리소스에 GET 방식으로 접근하게 되면 모든 게시글 정보를 다 화면에 출력하도록 만들고 일반적으로 특정한 게시글 하나에 대한 정보만 확인하고자 한다면 PASS parameter라는 것을 이용하는데 PASS parameter는 경로로 parameter 값을 보낸다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/aws_lambda-1/" rel="bookmark">
-			AWS Lambda와 MongoDB 연동
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-24T15:51:51&#43;09:00">2021-07-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		AWS Lambda와 MongoDB 연동  게시판 API를 구현해서 정상적으로 동작시키기 위해서 MongoDB와 AWS Lambda를 서로 연동해서 사용해야한다. 이를 위해서는 별도의 MongoDB가 사전에 구축이 되어있어야 한다.(Atlas MongoDB)  mongoDB Atlas에서 미리 만들어져있는 Clusters에서 connect 버튼을 누르면 나오는 화면에서
-Connet Your Application 누르면 우리의 mongoDB에 접속할 수 있는 URL 주소가 나온다.
- 이것을 copy 해서 AWS Lambda function에 환경 변수로서 설정해서 사용할 수 있다. 환경변수를 설정한 뒤 환경변수를 Lambda 함수 안에 불러와 사용할 수 있다.
-	</div>
 </article>
 </main>
 
@@ -278,11 +279,11 @@ Connet Your Application 누르면 우리의 mongoDB에 접속할 수 있는 URL 
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/stats3/">One-way ANOVA</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats2/">t-test</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats1/">통계 기초</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 		</ul>
 	</div>
 </div>

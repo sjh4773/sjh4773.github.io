@@ -6,7 +6,19 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Wed, 06 Oct 2021 15:02:33 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 15:11:16 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>One-way ANOVA</title>
+      <link>http://sjh4773.github.io/post/stats3/</link>
+      <pubDate>Thu, 07 Oct 2021 15:11:16 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/stats3/</guid>
+      <description>유튜브 Sapientia a Dei 채널에서 공부한 내용을 정리하였습니다.
+  One-way ANOVA
+ 비교할 집단이 세 개 이상인 경우  t-test를 세 번하면 될 것 같았으나 할 수 없음  1종오류에 빠짐   따라서, 우리는 새로운 방법을 배워야 함   그 새로운 통계 방법이 바로 One-way ANOVA임  One-way는 독립변수가 하나라는 뜻 ANOVA는 Analysis of Variance의 약자 한국말로는 분산분석이라고 함      변수
+ 독립변수  독립인 변수 - 무엇으로부터 독립일까요?</description>
+    </item>
+    
     <item>
       <title>t-test</title>
       <link>http://sjh4773.github.io/post/stats2/</link>

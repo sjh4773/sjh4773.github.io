@@ -56,6 +56,26 @@
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/aws_lambda-1/" rel="bookmark">
+			AWS Lambda와 MongoDB 연동
+			</a>
+		</h2>
+		<div class="list__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-24T15:51:51&#43;09:00">2021-07-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		AWS Lambda와 MongoDB 연동  게시판 API를 구현해서 정상적으로 동작시키기 위해서 MongoDB와 AWS Lambda를 서로 연동해서 사용해야한다. 이를 위해서는 별도의 MongoDB가 사전에 구축이 되어있어야 한다.(Atlas MongoDB)  mongoDB Atlas에서 미리 만들어져있는 Clusters에서 connect 버튼을 누르면 나오는 화면에서
+Connet Your Application 누르면 우리의 mongoDB에 접속할 수 있는 URL 주소가 나온다.
+ 이것을 copy 해서 AWS Lambda function에 환경 변수로서 설정해서 사용할 수 있다. 환경변수를 설정한 뒤 환경변수를 Lambda 함수 안에 불러와 사용할 수 있다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/certificate/" rel="bookmark">
 			Certificate
 			</a>
@@ -224,27 +244,6 @@ import torch import torch.nn as nn 입력의 크기와 은닉 상태의 크기�
 	<div class="content list__excerpt post__content clearfix">
 		정형 데이터 마이닝 - 타이타닉 library(dplyr) setwd(&#34;C:/ADP/data&#34;) # 데이터 불러오기 titanic &lt;- read.csv(&#34;titanic.csv&#34;) summary(titanic) # cabin, embarked의 &#34;&#34; -&gt; NA 바꾸기 # embarked # factor 형태로 변환 titanic$embarked &lt;- as.factor(titanic$embarked) levels(titanic$embarked) # [1] &#34;&#34; &#34;C&#34; &#34;Q&#34; &#34;S&#34; # &#34;&#34; -&gt; NA 변환 levels(titanic$embarked)[1] &lt;- NA table(titanic$embarked,useNA = &#34;always&#34;) # C Q S &lt;NA&gt;  # 270 123 914 2  # cabin titanic$cabin &lt;- ifelse(titanic$cabin==&#34;&#34;,NA,titanic$cabin) table(titanic$cabin,useNA = &#34;always&#34;) summary(titanic) # pclass survived name sex age  # Min.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/lstm/" rel="bookmark">
-			Lstm 이론
-			</a>
-		</h2>
-		<div class="list__meta meta"><div class="meta__item-author meta__item">
-	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">JiHun</span>
-</div>
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-28T18:14:17&#43;09:00">2021-05-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/deep_learning/" rel="category">Deep_learning</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		딥러닝은 학습하는데 있어서 주로 gradient descent를 사용하고 RNN 역시 gradient descent 사용
-gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값을 미분한 값, E2를 미분한 값, E3를 미분한 값과 같음
-여기서 E3를 미분한 값을 보면 backpropagation through time을 통해서 여러 개의 미분값을 곱하게 되는데
-짧은 시퀀스 같은 경우 큰 문제가 없음 하지만 긴 시퀀스 같은 경우 예를 들어 100개 이상의 단어가 있는 문장이 있으면 곱하기를 100회 수행하게 되는데 만약 미분 값이 1보다 작을 경우 새로운 weight value는 기존의 weight value와 거의 차이가 없다.
-	</div>
 </article>
 </main>
 
@@ -269,11 +268,11 @@ gradient desent 과정을 통해서 에러를 미분한 값은 E1의 에러값�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/stats3/">One-way ANOVA</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats2/">t-test</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/stats1/">통계 기초</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kafka1/">Kafka 기본개념 및 생태계</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/kubeflow1/">쿠베플로우</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/linux2/">linux 명령어 정리</a></li>
 		</ul>
 	</div>
 </div>
