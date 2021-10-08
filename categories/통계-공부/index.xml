@@ -6,7 +6,17 @@
     <description>Recent content in 통계 공부 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>kr-ko</language>
-    <lastBuildDate>Thu, 07 Oct 2021 15:11:16 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Oct 2021 19:06:37 +0900</lastBuildDate><atom:link href="http://sjh4773.github.io/categories/%ED%86%B5%EA%B3%84-%EA%B3%B5%EB%B6%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two-way ANOVA</title>
+      <link>http://sjh4773.github.io/post/stats4/</link>
+      <pubDate>Fri, 08 Oct 2021 19:06:37 +0900</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/stats4/</guid>
+      <description>Two-way ANOVA란?
+ 독립변수가 2개 + α 인 ANOVA  독립변수가 2개라는 것은 무슨 뜻일까?  앞의 예제를 생각해보면, Payment Method라는 첫번째 독립변수에 더하여 Contract라는 두번째 독립변수가 등장 즉, Payment Method의 네가지 그룹에 따라 종속 변수인 Total Charges가 변화할 것이라고 예측하고, 동시에, Contract의 세가지 그룹에 따라 종속변수인 Total Charges가 변화할 것이라고 예측하는 것임     여기서 독립변수는 Main effect(주효과)가 있다고 함 즉, Two-way ANOVA에서는 Main effect가 2개임 그렇다면 여기서 α는 무엇인가?</description>
+    </item>
+    
     <item>
       <title>One-way ANOVA</title>
       <link>http://sjh4773.github.io/post/stats3/</link>
