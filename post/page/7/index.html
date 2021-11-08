@@ -229,8 +229,8 @@ MNIST 개요
 </article><article class="list__item post">
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/post/blackfriday/" rel="bookmark">
-			정형 데이터마이닝 blackfriday
+			<a href="/post/vhdl1/" rel="bookmark">
+			verilog HDL
 			</a>
 		</h2>
 		<div class="list__meta meta"><div class="meta__item-author meta__item">
@@ -238,14 +238,21 @@ MNIST 개요
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		setwd(&#34;c:/ADP/data&#34;) BlackFriday &lt;- read.csv(&#34;BlackFriday.csv&#34;) str(BlackFriday) # &#39;data.frame&#39;:	537577 obs. of 12 variables: # $ User_ID : int 1000001 1000001 1000001 1000001 1000002 1000003 1000004 1000004 1000004 1000005 ... # $ Product_ID : chr &#34;P00069042&#34; &#34;P00248942&#34; &#34;P00087842&#34; &#34;P00085442&#34; ... # $ Gender : chr &#34;F&#34; &#34;F&#34; &#34;F&#34; &#34;F&#34; ... # $ Age : chr &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; &#34;0-17&#34; ... # $ Occupation : int 10 10 10 10 16 15 7 7 7 20 .
+		Inverter
+  assign 구문 사용
+ 대부분의 경우 assign을 사용 &ldquo;조건 ? 참일경우 : 거짓일경우&rdquo; 의 문장을 자주 사용    always 구문 사용 always @ (sensitivity_list) begin &hellip; end
+  always : 언제나, @ : (sensitivity_list) 신호가 변할 때
+  논리가 복잡한 경우에 사용
+  이 경우 if, else if, else 구문 또는 case 구문을 주로 사용
+  @(sensitivity_list) : 감지신호 목록
 	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/post/page/6/">«</a>
-	<span class="pagination__item pagination__item--current">7/7</span>
+	<span class="pagination__item pagination__item--current">7/8</span>
+	<a class="pagination__item pagination__item--next btn" href="/post/page/8/">»</a>
 </div>
 
 			</div>
@@ -343,6 +350,7 @@ MNIST 개요
 		<a class="widget-taglist__link widget__link btn" href="/tags/r/" title="r">r</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ruby-on-rails/" title="Ruby on Rails">Ruby on Rails</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%80%80%ED%8A%B8%ED%88%AC%EC%9E%90/" title="R을 이용한 퀀트투자">R을 이용한 퀀트투자</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/verilog_hdl/" title="verilog_HDL">verilog_HDL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC-%ED%95%84%EA%B8%B0%EA%B3%B5%EB%B6%80/" title="빅데이터 분석기사 필기공부">빅데이터 분석기사 필기공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0-%EA%B3%B5%EB%B6%80/" title="사이킷런 공부">사이킷런 공부</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC/" title="정보처리기사">정보처리기사</a>

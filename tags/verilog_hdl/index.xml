@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>verilog_HDL on My New Hugo Site</title>
+    <link>http://sjh4773.github.io/tags/verilog_hdl/</link>
+    <description>Recent content in verilog_HDL on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>kr-ko</language><atom:link href="http://sjh4773.github.io/tags/verilog_hdl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>verilog HDL</title>
+      <link>http://sjh4773.github.io/post/vhdl1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://sjh4773.github.io/post/vhdl1/</guid>
+      <description>Inverter
+  assign 구문 사용
+ 대부분의 경우 assign을 사용 &amp;ldquo;조건 ? 참일경우 : 거짓일경우&amp;rdquo; 의 문장을 자주 사용    always 구문 사용 always @ (sensitivity_list) begin &amp;hellip; end
+  always : 언제나, @ : (sensitivity_list) 신호가 변할 때
+  논리가 복잡한 경우에 사용
+  이 경우 if, else if, else 구문 또는 case 구문을 주로 사용
+  @(sensitivity_list) : 감지신호 목록</description>
+    </item>
+    
+  </channel>
+</rss>
